@@ -34,6 +34,14 @@ jobs:
       - name: Print Quarto tools
         run: quarto tools
 
+      # Publish on GitHub Pages
+      - name: Render and publish on GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # # Publish on Netlify (https://xcitecourse.org/ and
       # # x-cite-course.netlify.app).
       # - name: Render and Publish on netlify
