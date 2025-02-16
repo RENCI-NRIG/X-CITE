@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – X-CITE</title>
+<title>vcs – X-CITE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">X-CITE</span>
     </a>
   </div>
@@ -89,11 +89,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -107,34 +107,131 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link active" data-scroll-target="#version-control">Version control</a>
+  <ul class="collapse">
+  <li><a href="#what-is-it" id="toc-what-is-it" class="nav-link" data-scroll-target="#what-is-it">What is it?</a></li>
+  <li><a href="#why-do-we-need-it" id="toc-why-do-we-need-it" class="nav-link" data-scroll-target="#why-do-we-need-it">Why do we need it?</a></li>
+  <li><a href="#version-control-in-practice-git" id="toc-version-control-in-practice-git" class="nav-link" data-scroll-target="#version-control-in-practice-git">Version control in practice: Git</a></li>
+  <li><a href="#git-concepts" id="toc-git-concepts" class="nav-link" data-scroll-target="#git-concepts">Git concepts</a></li>
+  <li><a href="#getting-started-with-git" id="toc-getting-started-with-git" class="nav-link" data-scroll-target="#getting-started-with-git">Getting started with Git</a>
+  <ul class="collapse">
+  <li><a href="#generating-ssh-keys" id="toc-generating-ssh-keys" class="nav-link" data-scroll-target="#generating-ssh-keys">Generating ssh keys</a></li>
+  <li><a href="#initial-configuration" id="toc-initial-configuration" class="nav-link" data-scroll-target="#initial-configuration">Initial configuration</a></li>
+  </ul></li>
+  <li><a href="#git-subcommands" id="toc-git-subcommands" class="nav-link" data-scroll-target="#git-subcommands">Git subcommands</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a></li>
+  <li><a href="#alternatives-to-github" id="toc-alternatives-to-github" class="nav-link" data-scroll-target="#alternatives-to-github">Alternatives to GitHub</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="version-control" class="level1">
+<h1>Version control</h1>
+<section id="what-is-it" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-it">What is it?</h2>
+<p>Version control systems are software tools that are used to track changes to source code or other collections of files.</p>
+<p>Some well-known version control systems include: Git, Mercurial, Subversion, Darcs, Fossil, CVS, and several proprietary systems. Each of them vary in practical usage and in implementation details.</p>
+<p>Today Git is the most popular one, and seem to have “won”, so Git is what we will be discussing here.</p>
+</section>
+<section id="why-do-we-need-it" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-need-it">Why do we need it?</h2>
+<p>When you work on a project, you often will want to save the state of your code at various points, such that you can go back and forth between these various points. When you work on a project as part of a team, you will also want to know who wrote some part of the code, when, and why.</p>
+<p>Whether you work alone or in a team, using a version control system will help you achieve the above goals.</p>
+<p>In the absence of a version control system, you will often will end up with a chaotic mess which achieves the above goals in a poorer manner. You will likely resort to several almost-same-but-not-quite files variously named like so:</p>
+<ul>
+<li><code>notebook.ipynb</code></li>
+<li><code>notebook-2024-05-01.ipynb</code></li>
+<li><code>notebook-working.ipynb</code></li>
+<li><code>notebook-test.ipynb</code></li>
+</ul>
+<p>This scheme is basically a messy reinvention of a version control system. That might work in the simple cases, but it will soon break down as you do more work on your project.</p>
+<p>Instead, what you want to do is learn to use a version control system properly. You want to avoid the cognitive overload of dealing with messy schemes based on filenames.</p>
+</section>
+<section id="version-control-in-practice-git" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-in-practice-git">Version control in practice: Git</h2>
+<p>As stated above, Git is the most popular version control system in use today. Git is a command-line program that runs on all popular operating systems. If you use macOS or Linux, you probably have Git installed already.</p>
+<p>Here we assume that you are using the shell account that you have with CLASSE.</p>
+<pre class="console"><code>$ git --help</code></pre>
+</section>
+<section id="git-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="git-concepts">Git concepts</h2>
+<!-- TODO: elaborate -->
+<ul>
+<li>commits</li>
+<li>staging area</li>
+<li>remotes</li>
+<li>branches</li>
+</ul>
+</section>
+<section id="getting-started-with-git" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-with-git">Getting started with Git</h2>
+<!-- TODO: elaborate -->
+<section id="generating-ssh-keys" class="level3">
+<h3 class="anchored" data-anchor-id="generating-ssh-keys">Generating ssh keys</h3>
+<pre><code>$ ssh-keygen -t rsa -b 4096 -C "you@example.com"</code></pre>
+<!-- TODO: elaborate ssh public and private keys -->
+</section>
+<section id="initial-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="initial-configuration">Initial configuration</h3>
+<!-- TODO: elaborate -->
+<pre><code>$ git config --global user.name "Your Name"
+$ git config --global user.email "you@example.com</code></pre>
+</section>
+</section>
+<section id="git-subcommands" class="level2">
+<h2 class="anchored" data-anchor-id="git-subcommands">Git subcommands</h2>
+<!-- TODO: elaborate -->
+<pre><code>$ git init
+$ git add
+$ git commit
+$ git log
+$ git diff
+$ git merge
+$ git status
+$ git branch
+$ git clone
+$ git fetch
+$ git pull
+$ git push</code></pre>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">GitHub</h2>
+<p><a href="https://github.com/">GitHub.com</a> is what is known as a software “forge”: it is a Git hosting service that can host your source code, and provide additional services (such as bug tracking, code reviews, continuous integration, etc) that helps you collaborate with other people.</p>
+</section>
+<section id="alternatives-to-github" class="level2">
+<h2 class="anchored" data-anchor-id="alternatives-to-github">Alternatives to GitHub</h2>
+<p>While GitHub happens to be the most popular software forge, many others exist too:</p>
+<ul>
+<li><a href="https://gitlab.com">Gitlab.com</a></li>
+<li><a href="https://bitbucket.org/">BitBucket.com</a></li>
+<li><a href="https://codeberg.org/">Codeberg.org</a></li>
+</ul>
+<p>Some people prefer to self-host a forge, and some people prefer no forge at all. Since Git is a /distributed/ version control system, and you should be able to collaborate with no forge at all: you can share your changes as email attachments, if you want.</p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li><p>Create an account on GitHub.com, if you do not have an account there already.</p></li>
+<li><p>Create a new repository on GitHub.com. Push some code that you are working on to that repository. If your project is not under version control, you will want to do that now.</p></li>
+<li><p>Add some changes to the code. Commit the code. Push those commits also to the Git repository.</p></li>
+<li><p>Create a “tag” (based on today’s date, or a version number), and push the tag to your repository.</p></li>
+</ol>
 
 
-</header>
-
-
-<p>This website hosts material meant for CyberInfrastructure Training and Education for Synchrotron X-Ray Science (X-CITE) course.</p>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
