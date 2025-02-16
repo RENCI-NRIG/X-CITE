@@ -21,46 +21,46 @@ jobs:
     contents: write
     pages: write
 
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+  steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        # env:
-        #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # with:
-        #   tinytex: true
+    - name: Set up Quarto
+      uses: quarto-dev/quarto-actions/setup@v2
+      # env:
+      #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # with:
+      #   tinytex: true
 
-      - name: Print Quarto version
-        run: quarto --version
+    - name: Print Quarto version
+      run: quarto --version
 
-      - name: Print Quarto tools
-        run: quarto tools
+    - name: Print Quarto tools
+      run: quarto tools
 
-      # Publish on GitHub Pages
-      - name: Render and publish on GitHub Pages
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # Publish on GitHub Pages
+    - name: Render and publish on GitHub Pages
+      uses: quarto-dev/quarto-actions/publish@v2
+      with:
+        target: gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # # Publish on Netlify (x-cite-course.netlify.app).
-      # - name: Render and Publish on netlify
-      #   uses: quarto-dev/quarto-actions/publish@v2
-      #   with:
-      #     target: netlify
-      #     # NETLIFY_AUTH_TOKEN is a personal access token generated at
-      #     # https://app.netlify.com/user/applications, and it expires
-      #     # after an interval.
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    # # Publish on Netlify (x-cite-course.netlify.app).
+    # - name: Render and Publish on netlify
+    #   uses: quarto-dev/quarto-actions/publish@v2
+    #   with:
+    #     target: netlify
+    #     # NETLIFY_AUTH_TOKEN is a personal access token generated at
+    #     # https://app.netlify.com/user/applications, and it expires
+    #     # after an interval.
+    #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
-      # Publish on Quarto.pub (https://x-cite.quarto.pub/).
-      - name: Render and Publish on quarto.pub
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: quarto-pub
-          # QUARTO_PUB_AUTH_TOKEN is generated at
-          # https://quartopub.com/profile.
-          QUARTO_PUB_AUTH_TOKEN: ${{ secrets.QUARTO_PUB_AUTH_TOKEN }}
+    # Publish on Quarto.pub (https://x-cite.quarto.pub/).
+    - name: Render and Publish on quarto.pub
+      uses: quarto-dev/quarto-actions/publish@v2
+      with:
+        target: quarto-pub
+        # QUARTO_PUB_AUTH_TOKEN is generated at
+        # https://quartopub.com/profile.
+        QUARTO_PUB_AUTH_TOKEN: ${{ secrets.QUARTO_PUB_AUTH_TOKEN }}
