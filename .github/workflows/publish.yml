@@ -42,8 +42,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # # Publish on Netlify (https://xcitecourse.org/ and
-      # # x-cite-course.netlify.app).
+      # # Publish on Netlify (x-cite-course.netlify.app).
       # - name: Render and Publish on netlify
       #   uses: quarto-dev/quarto-actions/publish@v2
       #   with:
