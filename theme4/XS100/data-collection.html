@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>X-CITE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="X-CITE">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">X-CITE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-collection-preparing-input-parameters-spec-and-cli" id="toc-data-collection-preparing-input-parameters-spec-and-cli" class="nav-link active" data-scroll-target="#data-collection-preparing-input-parameters-spec-and-cli">Data Collection, Preparing Input Parameters, SPEC and CLI</a></li>
+  <li><a href="#cyberinfrastructure-for-data-collection" id="toc-cyberinfrastructure-for-data-collection" class="nav-link" data-scroll-target="#cyberinfrastructure-for-data-collection">Cyberinfrastructure for Data Collection</a>
+  <ul class="collapse">
+  <li><a href="#chess-experimental-stations" id="toc-chess-experimental-stations" class="nav-link" data-scroll-target="#chess-experimental-stations">CHESS Experimental Stations</a></li>
+  <li><a href="#anatomy-of-an-experiment" id="toc-anatomy-of-an-experiment" class="nav-link" data-scroll-target="#anatomy-of-an-experiment">Anatomy of an experiment</a></li>
+  <li><a href="#beamtime-notes-and-experimental-logbook" id="toc-beamtime-notes-and-experimental-logbook" class="nav-link" data-scroll-target="#beamtime-notes-and-experimental-logbook">Beamtime Notes and Experimental Logbook:</a></li>
+  <li><a href="#station-computer-beamline-control-central" id="toc-station-computer-beamline-control-central" class="nav-link" data-scroll-target="#station-computer-beamline-control-central">Station Computer : Beamline Control Central</a></li>
+  <li><a href="#controls-software" id="toc-controls-software" class="nav-link" data-scroll-target="#controls-software">Controls Software</a></li>
+  <li><a href="#networks-and-filesystems" id="toc-networks-and-filesystems" class="nav-link" data-scroll-target="#networks-and-filesystems">Networks and Filesystems</a>
+  <ul class="collapse">
+  <li><a href="#protected-data-intellectual-property-ip-and-export-control" id="toc-protected-data-intellectual-property-ip-and-export-control" class="nav-link" data-scroll-target="#protected-data-intellectual-property-ip-and-export-control">Protected Data: Intellectual Property (IP) and Export Control</a></li>
+  </ul></li>
+  <li><a href="#data-handling-and-analysis" id="toc-data-handling-and-analysis" class="nav-link" data-scroll-target="#data-handling-and-analysis">Data Handling and Analysis</a>
+  <ul class="collapse">
+  <li><a href="#bring-your-own-device-byod" id="toc-bring-your-own-device-byod" class="nav-link" data-scroll-target="#bring-your-own-device-byod">Bring Your Own Device (BYOD)</a></li>
+  <li><a href="#metadata-handling" id="toc-metadata-handling" class="nav-link" data-scroll-target="#metadata-handling">MetaData Handling</a></li>
+  <li><a href="#on-the-fly-data-processing-visualization" id="toc-on-the-fly-data-processing-visualization" class="nav-link" data-scroll-target="#on-the-fly-data-processing-visualization">On-the-fly Data Processing &amp; Visualization</a></li>
+  <li><a href="#data-reduction-and-analysis" id="toc-data-reduction-and-analysis" class="nav-link" data-scroll-target="#data-reduction-and-analysis">Data Reduction and Analysis</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme4/XS100/data-collection.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="data-collection-preparing-input-parameters-spec-and-cli" class="level1">
+<h1>Data Collection, Preparing Input Parameters, SPEC and CLI</h1>
+</section>
+<section id="cyberinfrastructure-for-data-collection" class="level1">
+<h1>Cyberinfrastructure for Data Collection</h1>
+<section id="chess-experimental-stations" class="level2">
+<h2 class="anchored" data-anchor-id="chess-experimental-stations">CHESS Experimental Stations</h2>
+<p>Data collection at all the CHESS experimental stations is supported by a complex controls, software, hardware, and cyberinfrastructure ecosystem. Having a basic understanding of this system and some relevant computing and software literacy will help prepare you for your beamtime. Historically, we have performed these trainings on the day of arrival, but preparation ahead of the beamtime will allow you to be more engaged with decisions on <em>your experiment</em> and focus on producing the highest quality experiment with your allocated beamtime.</p>
+<p>The Cornell High Energy Synchrotron Source (CHESS) is currently home to 7 experimental stations spanning 3 sub-facilities. The diverse science, techniques, and missions of each beamline program leads to heterogeneous landscape of data collection experiences and computing literacy needed for each user. This training will cover the commonalities of CHESS data collection and resources to leverage, as well as where to expect to expect differences across beamlines and what questions to ask.</p>
+</section>
+<section id="anatomy-of-an-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="anatomy-of-an-experiment">Anatomy of an experiment</h2>
+<p><img src="./xs100-figures/ExperimentTimeline.png" alt="exptimeline" width="700"></p>
+<p>Most experiments start well in advance of the awarded beamtime - and so does the computing and cyber-infrastructure needs.</p>
+<p>While CHESS provides state-of-the-art hardware, software, computing resources and trainings, <strong>users are responsible for the integrity of their experiment</strong> through thoughtful planning, experimental execution, and <strong>data handling and analysis</strong>. This includes maintaining best practices in experimental logs, metadata tracking, and recording of researcher decisions. Due to the nature of synchrotron experiments, the data integrity and intepretabilty - even within one research group - will be dependent on the practices adpoted by the research group.</p>
+</section>
+<section id="beamtime-notes-and-experimental-logbook" class="level2">
+<h2 class="anchored" data-anchor-id="beamtime-notes-and-experimental-logbook">Beamtime Notes and Experimental Logbook:</h2>
+<p>It is always the responsibility of the experimenter to take <strong>detailed</strong> beamtime notes and a log of the data. Although work is ongoing to integrate metadata and capture requisite information in the data itself, automate workflows, visualizations, etc., it is imperative that experimenter notes are taken and ideally a copy is kept with the data on the CHESS system.</p>
+<p><strong>Joint Experimenter Notes</strong></p>
+<p>Often you will have a team of researchers taking data together - it is typically best practice to keep a <em>collaborative</em> log. In addition to your team - you should share these notes with your beamline scientist - they can often provide useful details you may miss if they observe some important or irregular behavior about the instrument itself that may or may not be obvious from the metadata streams.</p>
+<p>Remember - your beamline scientist is not responsible for memorizing the history of your data collected. They see so many experiments, if you ask 2 years later if they rememeber what <em>you</em> did - good luck.</p>
+<p>For recording notes during the beamtime, we recommend using plain text or Markdown language (formatted text file) because it is easy to read in many systems, rather than a Microsoft Word Document which has a proprietary format. Images can be rendered in markdown formats.</p>
+<p><strong>Co-Locate Your Beamtime Notes with Data</strong></p>
+<p>Save your beamtime notes or a copy of your beamtime notes or (link to your google doc / equivalent) on the CHESS filesystem with your data (your beamline scientist will tell you where the best place is).</p>
+<p><strong>Leverage MetaData Services</strong></p>
+<p>Whenever possible, we encourage users to leverage the metadata services, beamline-specific software strategies (e.g.&nbsp;adding metadata to image frame headers), piping unique signals through software or hardware signals - saving these metadata <em>with</em> the data at the time of data collection. For unique aspects of your experiment, it is important to identify useful metadata to have associated with the x-ray data <em>ahead</em> of the beamtime. If signals are required to be monitored, this may need to be arranged for two weeks in advanced (see Bring Your Own Device (<a href="#bring-your-own-device-byod">BYOD</a>).</p>
+<p><strong>Commenting Software</strong></p>
+<p>Comment any code produced at the beamtime. <em>If this code was used to make decisions about the experiment, it should be saved and referred to in your experimental log.</em></p>
+</section>
+<section id="station-computer-beamline-control-central" class="level2">
+<h2 class="anchored" data-anchor-id="station-computer-beamline-control-central">Station Computer : Beamline Control Central</h2>
+<p>Every experimental station has a <strong>station computer</strong> that acts as controls central. The <strong>station computer</strong> typically runs a number of processes and is responsible for orchestrating data collection, motor motions, synchronized triggers, metadata logging, and more.</p>
+<p><img src="./xs100-figures/xcite-overview-computer.png" alt="stationcomputer" width="500"></p>
+<p><strong>Station Computer</strong> ground rules:</p>
+<ul>
+<li><p>Most users directly interact with the station computer. Users associated with the beamtime will have permission to log directly into the station computer remotely through No Machine (LINK to CLASSE). Your beamline scientist will be training you in how to run <em>your</em> experiment - pay close attention and take ownership of your role during your beamtime. Your beamline scientist may only be training your group at a specific time(s) during the beamtime - make sure all users can be present during this training and/or take notes and be prepared to train your fellow users on the basic operations. When in doubt, always communicate with your staff scientist. Some processes staff scientists will insist that the user be trained by the scientist and not a fellow user.</p></li>
+<li><p>The station computer is running <em>many</em> processes that enable your experiment to run. You will be asked to interact with specific processes during your beamtime. It is imperative you ONLY interact with the processes that your beamline scientist has given you permission to run. Some UI’s and data reduction processes will be running on other computers through terminals on the station computer - accidentally running these processes on the station computer itself may disrupt data collection, overwhelm the station computer, or even cause it to freeze or shut down.</p></li>
+<li><p>The station computer has many special permissions, for instance it is able to <em>write</em> to the the CHESS DAQ (<strong>raw</strong> directory). When saving files such as beamtime notes, it is important to save these in the directories prescribed by your beamline scientist. (link to later section on CHESS file system and directories)</p></li>
+</ul>
+<p><img src="./xs100-figures/AnnotatedStationComputer.png" alt="annotatedstationcomputer" width="700"></p>
+<p>This is an example of a station computer screen shot with many processes. There are 4 desktops on the station computer, each with windows spanning 4 screens. This image is of the first desktop and shows a main controls terminal (SPEC), controls screens (MEDM screens), a data reduction GUI (HEXRD). There will typically be even more processes running than this.</p>
+<p>Every beamline will have a unique version of this computer - some techniques even may be executed exclusively through a GUI.</p>
+<p>###1 Controls Hardware, Software, and Signal Monitoring</p>
+<p>This section will discuss the hardware connections, motor configurations, and overall connectivity of signals being tracked in the beamline.</p>
+<p><img src="./xs100-figures/xcite-overview-controls.png" alt="controls" width="500"></p>
+</section>
+<section id="controls-software" class="level2">
+<h2 class="anchored" data-anchor-id="controls-software">Controls Software</h2>
+<p>There are many controls languages and strategies across the lab. The two most common cases are <strong>SPEC</strong> and <strong>EPICS</strong> which will briefly be introduced here. Python-based controls are also very common.</p>
+<p><strong>SPEC</strong></p>
+<p>SPEC is a language, loosely based on C, used for instrument control and data acquisition at many synchrotrons.</p>
+<p>When using spec, you will interact with a SPEC terminal and run a combination of “standard” SPEC commands and/or a series of compiled programs for your technique</p>
+<p>Importantly, only ever use SPEC or edit Macros with the explicit permission of your staff scientist. This may vary from beamline to beamline SPEC commands continued.</p>
+<p>Below is a video of a SPEC command window with built-in and custom macros.</p>
+<video width="700" controls="">
+<source src="./xs100-figures/XCITE_SPEC.mp4" type="video/mp4">
+</video>
+<p><strong>EPICS</strong></p>
+<p>EPICS is a set of software tools and applications which provide a software infrastructure for use in building distributed control systems to operate devices</p>
+<p>Many of the devices at CHESS leverage EPICS drivers for operation EPICS PVs (process variables) are commonly used for signal monitoring and metadata/data logging.</p>
+<p>Many important metadata signals can also be tracked using “EPICS PVs.” While many of these PVs (process variables) are used throughout data collection, they can also be an important part of data monitoring. Your beamline scientist may have you observe the monitoring page depending on your experiments sensitivity to certain signals to monitor specific station signals (link to signals.chess.cornell.edu).</p>
+<p>An Epics MEDM (Motif Editor and Display Manager) Screen for a Detector is shown in the annotated station view.</p>
+<p><strong>PYMCA</strong></p>
+<p>A common GUI used at the beamline is the PyMCA GUI. In addition to it’s original use for XRF, this GUI can be used to load in spec.log data and plot the counters at your beamline.</p>
+<p><strong>Python, MATLAB, etc.</strong></p>
+<p>You may have specific other software: Python scripts (link to python tutorial), other UI’s for instrumentation, that you should receive training from your beamline scientist. See Python module if that is important.</p>
+</section>
+<section id="networks-and-filesystems" class="level2">
+<h2 class="anchored" data-anchor-id="networks-and-filesystems">Networks and Filesystems</h2>
+<p><img src="./xs100-figures/chessNetworks.png" alt="network" width="700"></p>
+<p>During data collection, raw data is written directly to the <strong>CHESS-DAQ</strong> filesystems. The CHESS-DAQ consists of approximately 2 petabytes of dedicated online storage arrays connected to the CHESS experimental stations through a high-speed 10Gb data collection network.</p>
+<p>To protect the communication signals between the station computer, experimental station equipment, and other local systems, each experimental station has an isolated network with direct connections.</p>
+<p>Detectors often have direct fiber optic / high speed data lines to inline computing resources and/or the CHESS-DAQ.</p>
+<p><img src="./xs100-figures/CHESSFileSystem.png" alt="filesystem" width="700"></p>
+<p>The CHESS filesystem has different locations for storing raw data, reduced data, etc. These different locations have different backup schedules and total storage amounts. Typically best practice is as follows: 1. Raw Data that cannot be reproduced is located in RAW/DAQ 2. Reduced Data that <em>can</em> be reproduced from Raw Data/Other Protected Data is in REDUCED DATA 3. Metadata that is small and not reproducible should be saved in METADATA (backed up nightly) 4. Data that is being produced and does not need to be backed up and could be processed again should be done in SCRATCH. This is a good location for testing code before performing Data Reduction. 5. For Data NOT associated with a particular beamtime, USER is an appropriate place for these projects.</p>
+<section id="protected-data-intellectual-property-ip-and-export-control" class="level3">
+<h3 class="anchored" data-anchor-id="protected-data-intellectual-property-ip-and-export-control">Protected Data: Intellectual Property (IP) and Export Control</h3>
+<p>Some data needs to be protected, e.g.&nbsp;data covered under Intellectual Property or Export Control agreements</p>
+<p>All such data must be declared and all agreements signed before ANY data is on CHESS/Cornell computing systems (including preparatory material that falls under IP or Export Control categories).</p>
+<p>Data Collection, Storage, and Analysis can be customized to comply with data agreements, including: - Modifying isolated networks - Mounting encrypted drives - Configuring encrypted computers - Modifying permissions on filesystem locations - Securing the experimental station with an entry password - Disconnecting streaming video to the experimental station</p>
+</section>
+</section>
+<section id="data-handling-and-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-handling-and-analysis">Data Handling and Analysis</h2>
+<p><img src="./xs100-figures/xcite-overview-expstation.png" alt="expstation" width="500"></p>
+<p>If you wish to move any data from the CHESS filesystem to another location, the preferred way of doing so is through Globus. Please see here (https://wiki.classe.cornell.edu/Computing/GlobusDataTransfer) for directions on ways to transfer data from the CHESS filesystem.</p>
+<p>Your beamline may be producing very large quantities of data. Due to it’s size, you may not be able to take your data home or transfer it home via globus. your data in raw may only stay in hot storage for a short amount of time (6 months). Your experimental station will have best practices for how to compress or reduce this data so that it is small enough to take home or live in a different part of our filesystem.</p>
+<p><img src="./xs100-figures/HotWarmColdStorage.png" alt="hotcoldstorage" width="400"></p>
+<p>The data is still saved, but to transfer or perform analysis on the files you will need to arrange to have it rolled back into “hot storage” - AKA take out an IT ticket: https://wiki.classe.cornell.edu/Computing/ServiceRequestTips</p>
+<p><img src="./xs100-figures/xcite-overview-datastorage.png" alt="datastorage" width="500"></p>
+<section id="bring-your-own-device-byod" class="level3">
+<h3 class="anchored" data-anchor-id="bring-your-own-device-byod">Bring Your Own Device (BYOD)</h3>
+<p>Users may need to bring their own devices to be beamline - either physically in the lab or remotely connected to the CHESS networks</p>
+<p>Examples include: - Controls computer for equipment they have integrated for an experiment - Analysis computer for on-the-fly analysis</p>
+<p>All devices must be approved at least two weeks in advance. It may not be possible to consider integration on a shorter time period.</p>
+<p>Because the CHESS-DAQ filesystems are a critical resource for data collection, <em>write access</em> is only granted to registered devices on the CHESS-DAQ network. If you wish to bring your own device to write data to the CHESS-DAQ, please discuss your needs with your staff scientist at least one month before your beamtime. Before your device can be registered on the CHESS-DAQ, it must undergo a cybersecurity evaluation by CLASSE-IT.</p>
+<p><em>Read access</em> to the CHESS-DAQ filesystem may be obtained by registering your device for the LNS Protected network using <a href="https://wiki.classe.cornell.edu/Computing/LaptopRegistration">this request form</a>.</p>
+</section>
+<section id="metadata-handling" class="level3">
+<h3 class="anchored" data-anchor-id="metadata-handling">MetaData Handling</h3>
+<p>Ideally, all the data necessary to <strong>fully reproduce your results</strong> are recorded and disseminated in a manner that others can interpret after your experiment. Ideally the provenance remains unbroken from experiment planning.</p>
+<p>Metadata and parallel data streams are generated at every stage of your experiment. CHESS is continuing to develop and implement services to help with this creation. From programs like Galaxy, to our Metadata service -</p>
+<p>The <strong>metadata service</strong> (https://wiki.classe.cornell.edu/bin/viewauth/CHESS/Private/CHESSMetadataService) provides tools to record and automatically ingest machine-readable metadata in a systematic way. It includes variables that historically were not recorded via a second data stream (e.g.&nbsp;the material processing parameters).</p>
+<p><img src="./xs100-figures/MetadataService.png" width="700"></p>
+</section>
+<section id="on-the-fly-data-processing-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="on-the-fly-data-processing-visualization">On-the-fly Data Processing &amp; Visualization</h3>
+<p>Need to be looking at your data as it is coming off for data fidelity. At some beamlines, you will need to interact manually with a GUI to render your images and make sure the data quality is what you are expecting. At some beamlines, the new NSDF (National Data Science Fabric) Dashboard has been deployed for some datatypes which allows interactive visualization of data as it is coming off the beamline. An example can be found here: https://services.nationalsciencedatafabric.org/chess/.</p>
+<p>Many beamlines have an initial “data reduction” procedure that reduces the size of the data through compression or on-the-fly analysis to have smaller file sizes that are more manageable to analyze at your home institution.</p>
+<p>Some of these processes are software procedures performed on the data after it is written to the raw directory, while other beamlines utilize inline data processing/compression prior to writing their files to the raw directory. Overtime we will build out station specific training on these, for now it is the responsibility of the user to work with their beamline scientist and read any requisite materials they provide.</p>
+</section>
+<section id="data-reduction-and-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="data-reduction-and-analysis">Data Reduction and Analysis</h3>
+<p><img src="./xs100-figures/xcite-overview-computefarm.png" alt="computefarm" width="500"></p>
+<p><strong>Compute Farm</strong></p>
+<p>The CLASSE Compute Farm is a central resource consisting of approximately 60 enterprise-class Linux nodes (with around 400 cores), with a front-end queueing system (Son of Grid Engine, or SGE) that distributes jobs across the Compute Farm nodes. SGE supports interactive, batch, parallel, and GPU jobs, and it ensures equitable access to the Compute Farm for all users.</p>
+<p>Data on the CHESS-DAQ filesystems can be directly accessed using the Compute Farm, and instructions for job submission are <a href="https://wiki.classe.cornell.edu/Computing/ComputeFarmIntro">available here</a>.</p>
+<p><strong>CHESS Analysis Pipeline (CHAP)</strong></p>
+<p>The CHESS Analysis Pipeline (CHAP) is an object-oriented framework for organizing data analysis code into reusable modules. The most basic pipeline consists of the following modules: - Reader: takes an input file or data source and converts it into a standard data structure - Processor: takes a data structure from a Reader, executes a data processing algorithm, and writes an output data structure - Writer: takes a data structure from a Processor and converts it to a specific file format</p>
+<p><img src="./xs100-figures/xcite-chap-1.png" alt="network" width="500"></p>
+<p>An example of a concrete CHAP implementation is shown below. Here, the Processor accepts inputs from multiple Readers that provide both raw data and metadata.</p>
+<p><img src="./xs100-figures/xcite-chap-2.png" alt="network" width="500"></p>
+<p>CHAP pipelines can be executed from a Linux command line or from the Galaxy science gateway. A third method called CHAPBook is currently under development, which presents a notebook-like coding interface for non-expert users.</p>
+<p><strong>Technique/Beamline Specific Software</strong></p>
+<p>CHESS has many common X-ray software packages available on the system. Speak with your beamline scientist for the preferred software package for your experiment.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+<p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
+<p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme4/XS100/data-collection.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

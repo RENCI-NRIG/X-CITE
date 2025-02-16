@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-05-08">
+
+<title>X-CITE - Linux, Command Line, and Scripting</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="X-CITE - Linux, Command Line, and Scripting">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">X-CITE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#linux" id="toc-linux" class="nav-link active" data-scroll-target="#linux">Linux</a></li>
+  <li><a href="#the-command-line" id="toc-the-command-line" class="nav-link" data-scroll-target="#the-command-line">The command line</a></li>
+  <li><a href="#the-shell" id="toc-the-shell" class="nav-link" data-scroll-target="#the-shell">The shell</a>
+  <ul class="collapse">
+  <li><a href="#using-the-shell-prompt" id="toc-using-the-shell-prompt" class="nav-link" data-scroll-target="#using-the-shell-prompt">Using the shell prompt</a></li>
+  </ul></li>
+  <li><a href="#finding-help" id="toc-finding-help" class="nav-link" data-scroll-target="#finding-help">Finding help</a></li>
+  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables">Environment variables</a>
+  <ul class="collapse">
+  <li><a href="#how-does-bash-set-up-the-environment" id="toc-how-does-bash-set-up-the-environment" class="nav-link" data-scroll-target="#how-does-bash-set-up-the-environment">How does bash set up the environment?</a></li>
+  <li><a href="#changing-environment-variables" id="toc-changing-environment-variables" class="nav-link" data-scroll-target="#changing-environment-variables">Changing environment variables</a></li>
+  </ul></li>
+  <li><a href="#directory-navigation" id="toc-directory-navigation" class="nav-link" data-scroll-target="#directory-navigation">Directory navigation</a>
+  <ul class="collapse">
+  <li><a href="#absolute-and-relative-paths" id="toc-absolute-and-relative-paths" class="nav-link" data-scroll-target="#absolute-and-relative-paths">Absolute and relative paths</a></li>
+  <li><a href="#wildcards" id="toc-wildcards" class="nav-link" data-scroll-target="#wildcards">Wildcards</a></li>
+  <li><a href="#the-current-working-directory" id="toc-the-current-working-directory" class="nav-link" data-scroll-target="#the-current-working-directory">The current working directory</a>
+  <ul class="collapse">
+  <li><a href="#symbolic-links" id="toc-symbolic-links" class="nav-link" data-scroll-target="#symbolic-links">Symbolic links</a></li>
+  </ul></li>
+  <li><a href="#users-and-groups" id="toc-users-and-groups" class="nav-link" data-scroll-target="#users-and-groups">Users and groups</a></li>
+  <li><a href="#permissions-and-ownership" id="toc-permissions-and-ownership" class="nav-link" data-scroll-target="#permissions-and-ownership">Permissions and ownership</a>
+  <ul class="collapse">
+  <li><a href="#changing-permissions-with-chmod" id="toc-changing-permissions-with-chmod" class="nav-link" data-scroll-target="#changing-permissions-with-chmod">Changing permissions with <code>chmod</code></a></li>
+  </ul></li>
+  <li><a href="#noteworthy-facts-about-file-names" id="toc-noteworthy-facts-about-file-names" class="nav-link" data-scroll-target="#noteworthy-facts-about-file-names">Noteworthy facts about file names</a></li>
+  </ul></li>
+  <li><a href="#standard-input-output-and-error" id="toc-standard-input-output-and-error" class="nav-link" data-scroll-target="#standard-input-output-and-error">Standard input, output, and error</a>
+  <ul class="collapse">
+  <li><a href="#io-redirection" id="toc-io-redirection" class="nav-link" data-scroll-target="#io-redirection">I/O redirection</a></li>
+  <li><a href="#pipes" id="toc-pipes" class="nav-link" data-scroll-target="#pipes">Pipes</a></li>
+  </ul></li>
+  <li><a href="#controlling-processes" id="toc-controlling-processes" class="nav-link" data-scroll-target="#controlling-processes">Controlling processes</a>
+  <ul class="collapse">
+  <li><a href="#listing-processes" id="toc-listing-processes" class="nav-link" data-scroll-target="#listing-processes">Listing processes</a></li>
+  <li><a href="#background-and-foreground-processes" id="toc-background-and-foreground-processes" class="nav-link" data-scroll-target="#background-and-foreground-processes">Background and foreground processes</a></li>
+  <li><a href="#terminating-processes" id="toc-terminating-processes" class="nav-link" data-scroll-target="#terminating-processes">Terminating processes</a></li>
+  <li><a href="#signals" id="toc-signals" class="nav-link" data-scroll-target="#signals">Signals</a></li>
+  </ul></li>
+  <li><a href="#a-list-of-hopefully-useful-commands" id="toc-a-list-of-hopefully-useful-commands" class="nav-link" data-scroll-target="#a-list-of-hopefully-useful-commands">A list of (hopefully) useful commands</a></li>
+  <li><a href="#text-editors" id="toc-text-editors" class="nav-link" data-scroll-target="#text-editors">Text Editors</a></li>
+  <li><a href="#writing-shell-scripts" id="toc-writing-shell-scripts" class="nav-link" data-scroll-target="#writing-shell-scripts">Writing shell scripts</a></li>
+  <li><a href="#nifty-terminal-multiplexers" id="toc-nifty-terminal-multiplexers" class="nav-link" data-scroll-target="#nifty-terminal-multiplexers">Nifty: terminal multiplexers</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme2/SF100/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Linux, Command Line, and Scripting</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 8, 2024</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">February 15, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The following notes assume that you are all set up to use your accounts on the CLASSE Linux systems.</p>
+<ul>
+<li>You know how to use <code>ssh</code> to access <code>lnx201.classe.cornell.edu</code> (just <code>lnx201</code> henceforth); or</li>
+<li>You know how to launch a terminal from <a href="https://jupyter01.classe.cornell.edu/">CLASSE JupyterLab instance</a>; or</li>
+<li>You know how to use <a href="https://wiki.classe.cornell.edu/Computing/NoMachine">NoMachine</a> to access <code>lnx201</code>.</li>
+</ul>
+<p>Depending on your level of familiarity with the system, you might know enough commands to find your way around. Since it probably is not a good idea to make such assumptions right off the bat, let us see what you might need to know to in order to become a proficient user of the systems.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Slides accompanying these notes are available in <a href="slides.html">HTML</a> format.</p>
+</div>
+</div>
+<section id="linux" class="level2">
+<h2 class="anchored" data-anchor-id="linux">Linux</h2>
+<p>Linux is a free and open source operating system known for stability, security, and versatility. Linux runs on a variety of machines from small embedded systems to powerful servers. A great deal of software runs on Linux.</p>
+<p>You probably know all this already, so let us skip ahead.</p>
+</section>
+<section id="the-command-line" class="level2">
+<h2 class="anchored" data-anchor-id="the-command-line">The command line</h2>
+<p>To perform certain kinds of tasks, using the command line is often quicker and more efficient. You can “chain” or compose separate programs together, each of them specializing in doing different things. You can save longer tasks in the form of scripts for later use, and share them with your colleagues.</p>
+<p>Here’s a quick example. You will find documentation for the software installed on <code>lnx201</code> in the directory <code>/usr/share/doc</code>. Many of those are named <code>README</code>, or <code>README.md</code>, or <code>README.rst</code>, or <code>readme.txt</code>, or some such variation. How many such files are there in <code>/usr/share/doc</code>?</p>
+<p>We can find that out by using <a href="https://www.man7.org/linux/man-pages/man1/find.1.html">find</a> (a program for searching for files under a directory tree) and <a href="https://man7.org/linux/man-pages/man1/wc.1.html">wc</a> (a word count program):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ find /usr/share/doc/ <span class="at">-iname</span> <span class="st">"readme*"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1589</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Many of the files in <code>/usr/share/doc</code> mention the word “license” or “LICENSE” or some variation thereof. How many such lines are there? In order to find that out, we can use <a href="https://www.man7.org/linux/man-pages/man1/grep.1.html">grep</a> (a program that matches patterns), and <code>wc</code> together:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ grep <span class="at">-ir</span> license /usr/share/doc/ <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">84089</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Learning to use the command line well will leave more power on your hands.</p>
+</section>
+<section id="the-shell" class="level1">
+<h1>The shell</h1>
+<p>A shell is an interactive program that accepts commands and passes those commands to the operating systems to execute.</p>
+<p>In the shell, you type a command, hit enter, and the command gets executed. Shell is the program that is responsible for accepting your commands, executing them, and printing the results on a console.</p>
+<p>Nearly all Linux distributions ship a shell named <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">bash</a>. In the <code>lnx201</code> environment that you access, <code>bash</code> is the default shell. You will be staring at a bash prompt when you ssh to <code>lnx201</code>.</p>
+<p>The screenshots below shows a how this works in practice.</p>
+<p>Using a terminal program, I’m using <code>ssh</code> command to access <code>lnx201</code>, and then I’m running some commands on <code>lnx201</code>.</p>
+<p><img src="./lnx201.png" class="img-fluid"></p>
+<p>Or you can use CLASSE’s <a href="https://jupyter01.classe.cornell.edu/">JupyerLab</a>, and then can launch a terminal (from File &gt; New &gt; Terminal from the menu, or the “Terminal” icon on the launcher):</p>
+<p><img src="./jupyter01.png" class="img-fluid"></p>
+<p>Or you might be accessing CLASSE <a href="https://wiki.classe.cornell.edu/Computing/NoMachine">NoMachine</a>, either with a client or with a web browser. You can launch a terminal from the desktop menu:</p>
+<p><img src="./nomachine.png" class="img-fluid"></p>
+<p>Although <code>bash</code> is the most popular shell, many other shells exist too: <code>csh</code>, <code>ksh</code>, <code>dash</code>, <code>zsh</code>, and so on. But let us not get distracted and just commit to <code>bash</code> for now.</p>
+<section id="using-the-shell-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-shell-prompt">Using the shell prompt</h2>
+<p>The <code>[ssasidharan@lnx201 ~]$</code> thing with a blinking cursor at the end is called a <em>shell prompt</em>. You type commands at the shell prompt, hit enter, and then something happens in response to that.</p>
+<p>The examples in these notes are <em>my</em> shell prompt: it contains my username on <code>lnx201</code>, followed by <code>@</code> character, followed by the name of the computer (or “hostname”), followed by the current directory. Your prompt will be different, because it will contain your username.</p>
+<p>After entering the first few characters of a command, you can use the <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key for auto-completing commands.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ ssh<span class="op">&lt;</span>tab<span class="op">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span>          ssh-agent    sshd         sshfs        ssh-keyscan  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span>      ssh-copy-id  sshd-keygen  ssh-keygen   sshpass   </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ condor_<span class="op">&lt;</span>tab<span class="op">&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Display</span> all 119 possibilities<span class="pp">?</span> <span class="er">(</span><span class="ex">y</span> or n<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bash offers some helpful methods for editing and navigating the history of commands you have previously executed.</p>
+<ul>
+<li>You can use up/down arrow keys to navigate history.</li>
+<li><code>history</code> command will print a list of recently used commands.</li>
+<li>You can use <kbd aria-hidden="true">Ctrl-R</kbd><span class="visually-hidden">Ctrl-R</span> to search command history.</li>
+<li><kbd aria-hidden="true">Ctrl-A</kbd><span class="visually-hidden">Ctrl-A</span> will make the cursor to the beginning of the line.</li>
+<li><kbd aria-hidden="true">Ctrl-E</kbd><span class="visually-hidden">Ctrl-E</span> will go to the end of the line.</li>
+<li><kbd aria-hidden="true">Ctrl-K</kbd><span class="visually-hidden">Ctrl-K</span> will “kill” (cut) text from current position to end of line to a buffer called the “kill-ring”.</li>
+<li><kbd aria-hidden="true">Ctrl-Y</kbd><span class="visually-hidden">Ctrl-Y</span> will “yank” (paste) most recently killed text from the kill ring to current cursor position.</li>
+<li><kbd aria-hidden="true">Alt-Y</kbd><span class="visually-hidden">Alt-Y</span> will cycle through the kill-ring.</li>
+</ul>
+<p>To exit the shell, you can use <code>exit</code> command or <kbd aria-hidden="true">Ctrl-D</kbd><span class="visually-hidden">Ctrl-D</span>.</p>
+<p>If you are using ssh to connect to <code>lnx201</code>, exiting the shell will end your ssh session. If you had opened a terminal window, exiting the shell will close the window.</p>
+</section>
+</section>
+<section id="finding-help" class="level1">
+<h1>Finding help</h1>
+<p>On the topics covered here in these notes, there is a wealth of information out there: in the form of books, articles, videos, courses, and so on.</p>
+<p>You can also find some built-in documentation in the system itself.</p>
+<p>Often you can find help for the programs that you run by passing <code>--help</code> argument to them. For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ whoami <span class="at">--help</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span> whoami <span class="pp">[</span><span class="ss">OPTION</span><span class="pp">]</span>...</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Print</span> the user name associated with the current effective user ID.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Same</span> as id <span class="at">-un.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--help</span>     display this help and exit</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--version</span>  output version information and exit</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">GNU</span> coreutils online help: <span class="op">&lt;</span>http://www.gnu.org/software/coreutils/<span class="op">&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">For</span> complete documentation, run: info coreutils <span class="st">'whoami invocation'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As the above text suggests, another way to find manuals is by running the command <code>info</code>. Below is the result of running <code>info coreutils 'whoami invocation'</code> as the above example suggests:</p>
+<p><img src="info.png" class="img-fluid"></p>
+<p>The <code>info</code> program runs a text-based documentation browser. You can move the cursor using tab or arrow keys, and use enter key to follow the links. A lot of the essential software on Linux, including <code>bash</code>, is made by <a href="http://gnu.org/">GNU project</a>, and info is their choice of documenting software.</p>
+<p>A lot of the other software has Unix roots, and their documentation tend to be in the form of <code>man</code> (short for “manual”) pages. You can run <code>man &lt;program-name&gt;</code> to read those. Running <code>man ssh</code> will display <code>ssh</code> program’s <code>man</code> page.</p>
+<p>Man pages are divided into several sections: try running <code>man man</code> to find out what they are.</p>
+<p>You can run <code>man -k &lt;pattern&gt;</code> or <code>apropos &lt;pattern&gt;</code> to search man pages, and it will print a list of manual pages that contains the matching pattern.</p>
+<p>Yet another place to look for documentation is the folder <code>/usr/share/doc</code>, where some additional documentation for software packages installed in the system are available.</p>
+</section>
+<section id="environment-variables" class="level1">
+<h1>Environment variables</h1>
+<p>During a session, the shell maintains some information in what is known as <em>environment variables</em>. They are key-value pairs: programs can look up values by keys, and use that information.</p>
+<p>To list the environment variables present in your session, use <code>printenv</code> command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ printenv</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">HOSTNAME</span><span class="op">=</span>lnx201.classe.cornell.edu</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">TERM</span><span class="op">=</span>xterm-256color</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">SHELL</span><span class="op">=</span>/bin/bash</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">HISTSIZE</span><span class="op">=</span>1000</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="va">SSH_CLIENT</span><span class="op">=</span>152.54.3.220 <span class="ex">50338</span> 22</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="va">SSH_TTY</span><span class="op">=</span>/dev/pts/6</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="va">USER</span><span class="op">=</span>ssasidharan</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="va">MAIL</span><span class="op">=</span>/var/spool/mail/ssasidharan</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span>/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/ssasidharan/bin</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="va">PWD</span><span class="op">=</span>/home/ssasidharan</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="va">LANG</span><span class="op">=</span>en_US.UTF-8</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="va">HOME</span><span class="op">=</span>/home/ssasidharan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This omits some lines for the sake of brevity, but you get the idea.</p>
+<p>Some of these environment variables are worth knowing:</p>
+<ul>
+<li><code>USER</code> is your username on <code>lnx201</code>.</li>
+<li><code>HOME</code> is your “home” directory on <code>lnx201</code>. This is where you keep your files and folders.</li>
+<li><code>SHELL</code> is the shell you use currently.</li>
+<li><code>PATH</code> is a list of directory names, separated by <code>:</code> (colon) character. When you enter a command on the shell prompt, the shell will search directories in <code>PATH</code> to locate the program that it needs to run.</li>
+</ul>
+<p>To print an individual environment variable, use <a href="https://www.man7.org/linux/man-pages/man1/echo.1.html">echo</a> command:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ echo <span class="va">$PATH</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/ssasidharan/bin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>$</code> prefix tells <code>echo</code> that <code>PATH</code> is an environment variable. Without the <code>$</code> prefix, <code>echo PATH</code> will simply print the string <code>PATH</code>.</p>
+<section id="how-does-bash-set-up-the-environment" class="level2">
+<h2 class="anchored" data-anchor-id="how-does-bash-set-up-the-environment">How does bash set up the environment?</h2>
+<p>There are two kinds of shell sessions: login and non-login. login session starts when you enter a username and password, such as when using <code>ssh</code>. A non-login session starts when you open a terminal window from a desktop.</p>
+<p>Depending on how the session was started, a few shell scripts are read and executed when starting a shell.</p>
+<p>For login shells these will be:</p>
+<ul>
+<li><code>/etc/profile</code> is a global script that applies to all users.<br>
+</li>
+<li><code>~/.bash_profile</code> is a script in your home directory, and it is applied when you start a shell.</li>
+<li>If <code>~/.bash_profile</code> was not found, bash will attempt to read <code>~/.bash_login</code> and <code>~/.profile</code> in order.</li>
+</ul>
+<p>For non-login shells:</p>
+<ul>
+<li><code>/etc/bashrc</code> is the script that applies to everyone.</li>
+<li><code>~/.bashrc</code> is the script that applies to you.</li>
+</ul>
+<p>Non-login shells also inherit the environment from their parent process, which is usually a login shell.</p>
+<p>Systems vary on how they are set up. You should look around <code>lnx201</code> to find out how this is done there. These files are some examples of shell scripts, which is a topic we’ll visit later in these notes.</p>
+</section>
+<section id="changing-environment-variables" class="level2">
+<h2 class="anchored" data-anchor-id="changing-environment-variables">Changing environment variables</h2>
+<p>You can also use <code>export</code> command to overwrite existing environment variables, or add new ones. For example:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ export HISTSIZE=2000</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ echo <span class="va">$HISTSIZE</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that this change in <code>HISTSIZE</code> applies only to the current shell. It will be forgotten when you exit the shell.</p>
+<p>In order to make the change permanent, you will need to add the line <code>export HISTSIZE=2000</code> to your <code>~/.bash_profile</code> file.</p>
+</section>
+</section>
+<section id="directory-navigation" class="level1">
+<h1>Directory navigation</h1>
+<p>Linux organizes directories and files in a <em>hierarchical directory structure</em>, meaning, they are organized in a tree-like pattern.</p>
+<p>The first, or top-level directory of this tree is a special directory, called the “root directory”, or <code>/</code>. All other directories are under the root directory. You can list things under <code>/</code> with the command <code>ls /</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[sasidharan@lnx201</span> ~]$ ls /</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bin</span>   cdat  cvmfs  etc   lib    media  mnt  nfs   opt   root  sbin  sys  usr</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">boot</span>  cifs  dev    home  lib64  misc   net  null  proc  run   srv   tmp  var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is useful to know about some of these directories:</p>
+<ul>
+<li><code>/home</code> is where user home directories are.</li>
+<li><code>/root</code> is the home directory for <code>root</code> user, aka superuser.</li>
+<li><code>/bin</code> is for programs that are available to everyone.</li>
+<li><code>/sbin</code> is for programs available to the <code>root</code> user.</li>
+<li><code>/lib</code> and <code>/lib64</code> are for libraries.</li>
+<li><code>/etc</code> is for configuration files.</li>
+<li><code>/tmp</code> is for temporary files.</li>
+<li><code>/proc</code> provides an interface with processes.</li>
+<li><code>/usr</code> has been, historically, for “Unix System Resources”, and contains several sub-directories:
+<ul>
+<li><code>/usr/bin</code> and <code>/usr/sbin</code> are for programs.</li>
+<li><code>/usr/lib</code> is for libraries, typically used by programs in <code>/usr/bin</code> and <code>/usr/sbin</code>.</li>
+<li><code>/usr/include</code> is for C and C++ header files.</li>
+<li><code>/usr/share</code> contains data files used by programs, including documentation in <code>/usr/share/doc</code>.</li>
+<li>Some Python programs are globally installed, and the Python library packages they use are in <code>/usr/lib/python{version}</code>.</li>
+<li><code>/usr/local</code> is for programs that are “locally” installed by a system administrator. (Meaning, it is for software that wasn’t packaged by the operating system vendor.)</li>
+</ul></li>
+</ul>
+<section id="absolute-and-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="absolute-and-relative-paths">Absolute and relative paths</h2>
+<p>Paths can be specified in two ways: absolute or relative. An absolute pathname begins with the root directory, <code>/</code>, and contains every directory name, branch by branch.</p>
+<p>Absolute path to the <code>Desktop</code> directory in my home directory on <code>lnx201</code> is <code>/home/ssasidharan/Desktop/</code>.</p>
+<p>In comparison, a relative pathname starts from the working directory. When I’m in my home directory, I can simply use the relative pathname, <code>Desktop</code>.</p>
+<p>Every directory contains two special directory names, <code>.</code> and <code>..</code>, in which <code>.</code> refers to the current directory, and <code>..</code> refers to the parent directory of the current directory.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/ssasidharan</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cd .</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/ssasidharan</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cd ..</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> home]$ pwd</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">/home</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> home]$ cd ..</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ pwd</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="wildcards" class="level2">
+<h2 class="anchored" data-anchor-id="wildcards">Wildcards</h2>
+<p>The shell gives special treatment to some characters, known as <em>wildcards</em>. Using wildcard characters, we can quickly specify groups of files.</p>
+<p>The wildcard character <code>*</code> stands for any set of characters. For example, you can list the names of all programs in <code>/usr/bin</code> that start with <code>ab</code> with <code>ls /usr/bin/ab*</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/ab<span class="pp">*</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/ab</span>  /usr/bin/abs2rel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The wildcard character <code>?</code> stands for any single character. So if you want to list the filenames in <code>/usr/bin</code> that starts with any character, followed by <code>abc</code>, followed by any characters:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/<span class="pp">?</span>abc<span class="pp">*</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/kabc2mutt</span>  /usr/bin/kabcclient</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- - use `*` carefully with `rm` -->
+</section>
+<section id="the-current-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="the-current-working-directory">The current working directory</h2>
+<p>At any time in the shell, we are “inside” a single directory, known as the current working directory. When you list files with <code>ls</code>, a list of files and directories of the current working directory will be printed on the output.</p>
+<p>When you log in to <code>lnx201</code>, initially you will be in a directory named <code>/home/${USER}</code>, where <code>${USER}</code> is your username on <code>lnx201</code>. This is what is known as your /home directory/. When you log in first, your home directory will be your current working directory.</p>
+<p>To find where you are, use the command <code>pwd</code>.</p>
+<p>The below commands are useful:</p>
+<ul>
+<li><code>mkdir test</code> will create a directory named <code>test</code></li>
+<li><code>cd test</code> will change the working directory to <code>test</code>.</li>
+<li><code>ls</code> will list files and directories in the current working directory.</li>
+<li><code>rm</code> will remove a file.</li>
+<li><code>rm &lt;name of directory&gt;</code> will <em>not</em> remove a directory; you have to remove it <em>recursively</em>, like so: <code>rm -r &lt;name of directory&gt;</code>.</li>
+</ul>
+<p><code>cd -</code> is useful: it will switch you to the directory that you were previously in:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ cd /usr/</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> usr]$ pwd</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> usr]$ cd share/</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> share]$ pwd</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/share</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> share]$ cd <span class="at">-</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> usr]$ pwd</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Running <code>cd ~</code> (or simply <code>cd</code>) will drop you back in your home directory:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cd /usr/share/doc/</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> doc]$ pwd</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/share/doc</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> doc]$ cd ~</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/ssasidharan</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It is worth noting that the shell will substitute <code>~</code> for your home directory.</p>
+<p><code>.</code> and <code>..</code> are special directory names: <code>.</code> means the current directory, and <code>..</code> means its parent directory, or the directory above it in the directory hierarchy.</p>
+<p><code>touch</code> command is used to change file timestamps. You can also use <code>touch</code> to create an empty file, like so: <code>touch test.txt</code>.</p>
+<section id="symbolic-links" class="level3">
+<h3 class="anchored" data-anchor-id="symbolic-links">Symbolic links</h3>
+<p>On my home directory on <code>lnx201</code>, when I do an <code>ls -l</code> (which is for <code>ls</code> with long file listing format), I would see something like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">lrwxrwxrwx</span>  1 ssasidharan chess   31 Mar 26 15:21 Downloads <span class="at">-</span><span class="op">&gt;</span> /cdat/tem/ssasidharan/Downloads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The first letter of the listing is <code>l</code> and the entry kind of suggests that my <code>Downloads</code> directory is a reference to another directory, <code>/cdat/tem/ssasidharan/Downloads</code>. The <code>Downloads</code> directory in my home directory is what is called a symbolic link, which also known as a soft link or “symlink”.</p>
+<p>With symbolic links, we can have shortcuts to other files or directories.</p>
+<!-- ### Creating empty files -->
+<!-- touch -->
+</section>
+</section>
+<section id="users-and-groups" class="level2">
+<h2 class="anchored" data-anchor-id="users-and-groups">Users and groups</h2>
+<p>Linux is a multi-user operating system. Since many people can be using the system, there needs to be mechanisms in place to ensure separation between them, while ensuring that they can access shared resources when necessary.</p>
+<p>The basic mechanism is the concept of users and groups.</p>
+<p>The root user is a special user that has all the permissions. They can change most things about the system. The root user can change system configuration, add and remove users and groups, etc.</p>
+<p>Most of the time, we do not need neither the power nor the responsibilities of the root user. So we have a non-root, <em>regular</em> user account in <code>lnx201</code>.</p>
+<p>Your account also belongs to certain <em>groups</em>. Groups are the way to grant permission to a group of accounts. You can find the groups you belong to using <code>groups</code> command:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ groups</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">chess</span> classeuser</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Users and groups have distinct numerical identifiers too. You can find them with <code>id</code> command:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ id</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="va">uid</span><span class="op">=</span>63499<span class="kw">(</span><span class="ex">ssasidharan</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span><span class="ex">,750</span><span class="er">(</span><span class="ex">classeuser</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you run <code>ls -l</code> (<code>-l</code> is for long listing format) command to list files and folders in your home directory, the result will be something like this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess   28 Mar 28 09:36 bin</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess   30 Mar 26 15:22 Desktop</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Documents</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="ex">lrwxrwxrwx</span> 1 ssasidharan chess   31 Mar 26 15:21 Downloads <span class="at">-</span><span class="op">&gt;</span> /cdat/tem/ssasidharan/Downloads</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 3254 Mar  7 15:55 helloworld.ipynb</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Music</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Pictures</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Public</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Templates</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let us see what the above columns means:</p>
+<ul>
+<li>The first column lists permissions on the file/folder. (We will see what this means in the next section.)</li>
+<li>The second column shows number of links to it.</li>
+<li>The third one shows the user who owns it.</li>
+<li>The fourth one shows the group that owns the file.</li>
+<li>The fifth one is the size of the file in bytes. Note that directories are a little special here – what you see here is not the total size of all the files and folders under the directory, but the space the directory itself uses on disk.</li>
+<li>The next column (the whole <code>Mar 26 15:21</code> segment) shows a timestamp when the file/folder was last modified.</li>
+<li>Finally, the name of the file/folder. Note that <code>Downloads -&gt;   /cdat/tem/ssasidharan/Downloads</code> is a bit special: it means that <code>Downloads</code> folder is in fact a link to <code>/cdat/tem/ssasidharan/Downloads</code>.</li>
+</ul>
+</section>
+<section id="permissions-and-ownership" class="level2">
+<h2 class="anchored" data-anchor-id="permissions-and-ownership">Permissions and ownership</h2>
+<p>Let us see what a string like <code>drwxr-xr-x</code> from the above example means. This string, sometimes called “permission bits” or “file mode bits”, is ten characters long. Each of the characters are shorthand signifying something.</p>
+<ul>
+<li>The first <code>d</code> stands for <code>directory</code>. (For files, this will be a <code>-</code>.)</li>
+<li>The next three <code>rwx</code> are for user’s permissions.</li>
+<li>The next three <code>r-x</code> are for group permissions.</li>
+<li>The final three <code>r-x</code> are for permissions for the rest of the users.</li>
+</ul>
+<p>Now, what do those <code>r</code> and <code>w</code> and <code>x</code> mean?</p>
+<ul>
+<li><code>r</code> means permission to <strong>r</strong>ead.</li>
+<li><code>w</code> means permission to <strong>w</strong>rite.</li>
+<li><code>x</code> means permission to e<strong>x</strong>ecute, in the case of files. In the case of directories, <code>x</code> means that you can <code>cd</code> into them.</li>
+</ul>
+<section id="changing-permissions-with-chmod" class="level3">
+<h3 class="anchored" data-anchor-id="changing-permissions-with-chmod">Changing permissions with <code>chmod</code></h3>
+<p>You can use <code>chmod</code> command to change permissions. If you create a shell script named <code>test.sh</code>, for example, it won’t be executable by default. You will have to change the file mode bits using <code>chmod</code>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./test.sh</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-bash:</span> ./test.sh: Permission denied</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x test.sh</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can remove the <code>x</code> bit like so:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod <span class="at">-x</span> test.sh</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also grant permission to just the <strong>o</strong>wner, or <strong>g</strong>roup, or others:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod u+x test.sh</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod g+x test.sh</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod o+x test.sh</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also combine <code>u</code>, <code>g</code>, <code>o</code> bits and <code>r</code>, <code>w</code>, <code>x</code> bits with <code>+</code> or <code>-</code>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod ugo-r test.sh</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--wx--x--x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I just made the file unreadable by everyone, even me!</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat test.sh</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">cat:</span> test.sh: Permission denied</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Of course you can restore the permission with <code>chmod ugo+r test.sh</code></p>
+<p>Note that when invoking <code>chmod</code>, <code>a</code> (or <strong>a</strong>ll) is equivalent of <code>ugo</code> (user + group + others). You can also omit <code>a</code> or <code>ugo</code> if you want everyone to have the same permissions. So the below all are equivalent:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod ugo+r test.sh</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod a+r test.sh</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +r test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(If you want to change owner or group of a file/folder, you can do that with <code>chown</code> and <code>chgrp</code>. This probably is not immediately useful; it is enough to know that these commands exist.)</p>
+</section>
+</section>
+<section id="noteworthy-facts-about-file-names" class="level2">
+<h2 class="anchored" data-anchor-id="noteworthy-facts-about-file-names">Noteworthy facts about file names</h2>
+<ul>
+<li><p>File/folder names that begin with a <code>.</code> (period character) are “hidden”: meaning that they will not be listed in the output of <code>ls</code> command by default. You can list them with <code>ls -a</code>. They are also called <em>dotfiles</em>.</p>
+<p>Configuration files for the programs you use (such as <code>.bashrc</code> for bash configuration) are often saved in hidden files. This way they usually stay out of your way without creating a clutter.</p></li>
+<li><p>File/folder names and commands are case sensitive in Linux. Thus <code>Notes.txt</code> and <code>notes.txt</code> and <code>NOTES.TXT</code> are all distinct files.</p></li>
+<li><p>As a matter of convenience, it is better to avoid spaces and special characters in file/folder names, as it will make tasks a little more difficult. If you need to represent spaces between words, you can replace spaces with <code>_</code> (the underscore character).</p></li>
+</ul>
+</section>
+</section>
+<section id="standard-input-output-and-error" class="level1">
+<h1>Standard input, output, and error</h1>
+<p>Nearly all programs produce output of some kind, and quite often they also accept input.</p>
+<p>Following the Unix tradition of “everything is a file”, programs send their output to special files called <em>standard output</em> or <em>standard error</em>, and they read input from <em>standard input</em>. They are also known as <code>stdout</code>, <code>stderr</code>, and <code>stdin</code>, respectively.</p>
+<section id="io-redirection" class="level2">
+<h2 class="anchored" data-anchor-id="io-redirection">I/O redirection</h2>
+<p>I/O redirection lets us to change where standard output gets printed. To redirect standard output, we use the <code>&gt;</code> operator.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As a result of redirection, a new file named <code>ls-output.txt</code> will be created. You can view its contents using <code>cat</code> command.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> ls-output.txt</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 807 Apr  1 17:32 ls-output.txt</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat ls-output.txt</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess   28 Mar 28 09:36 bin</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess   30 Mar 26 15:22 Desktop</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Documents</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="ex">lrwxrwxrwx</span> 1 ssasidharan chess   31 Mar 26 15:21 Downloads <span class="at">-</span><span class="op">&gt;</span> /cdat/tem/ssasidharan/Downloads</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 3254 Mar  7 15:55 helloworld.ipynb</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess    0 Apr  1 17:32 ls-output.txt</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Music</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Pictures</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Public</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Templates</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess    0 Mar 28 13:39 test.sh</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that if there already was a file named <code>ls-output.txt</code>, the redirection above would have overwritten its contents. You want to be careful about this.</p>
+<p>What if you want to discard <code>stdout</code> completely? You can redirect it to the special file <code>/dev/null</code>:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> /dev/null</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to append <code>stdout</code> to a file instead of overwriting it, you can use <code>&gt;&gt;</code> operator:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>&lt;</code> operator is a sort of inverse of the <code>&gt;</code> operator:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ echo <span class="st">"Shall I compare thee to a summer’s day?"</span> <span class="op">&gt;</span> sonnet18.txt</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat sonnet18.txt</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat <span class="op">&lt;</span> sonnet18.txt</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- (TODO: explain the above: `echo` and the different usage of `cat`.) -->
+</section>
+<section id="pipes" class="level2">
+<h2 class="anchored" data-anchor-id="pipes">Pipes</h2>
+<p>Programs can write to standard output. Programs can also read from standard input. This means we can “chain” them together, such that one programs standard output is “piped” into another program’s standard input.</p>
+<p>The operator to do this is <code>|</code> (vertical bar), also known as a pipe, and it is used in this manner: <code>command1 | command2</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> /bin/ <span class="kw">|</span> <span class="fu">less</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The output of <code>ls -l /bin</code> is fairly large, so we pipe it into <code>less</code>, which allows you to scroll the output backward and forward, using <em>up</em> and <em>down</em> keyboard keys.</p>
+<p>You can form longer pipes like this:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /bin /usr/bin /sbin /usr/sbin <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">4289</span>    4288   46820</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>sort</code> will sort lines of text files.</li>
+<li><code>uniq</code> is used to filter adjacent matching lines the output of <code>sort</code>.</li>
+<li><code>wc</code> is a <strong>w</strong>ord <strong>c</strong>ount program. It counts lines, words, and bytes present in its input.</li>
+</ul>
+</section>
+</section>
+<section id="controlling-processes" class="level1">
+<h1>Controlling processes</h1>
+<p>When you run a command, it results in what is called a <em>process</em>. Processes are running instances of programs which use CPU, memory, and possibly other resources.</p>
+<section id="listing-processes" class="level2">
+<h2 class="anchored" data-anchor-id="listing-processes">Listing processes</h2>
+<p>You can list running processes using <code>ps</code> command:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">694411</span> pts/81   00:00:00 ps</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ex">3479688</span> pts/81   00:00:00 bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>By default, <code>ps</code> prints processes of the current user and terminal in four columns:</p>
+<ul>
+<li><code>PID</code> is process id.</li>
+<li><code>TTY</code> is the terminal associated with the process.</li>
+<li><code>TIME</code> is the elapsed CPU time for the process.</li>
+<li><code>CMD</code> is the command that created the process.</li>
+</ul>
+<p>Usually there are many more processes running in the system, and sometimes they were started by other users. You can list them, with more detail, by passing some options to <code>ps</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps <span class="at">-ef</span> <span class="kw">|</span> <span class="fu">head</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">UID</span>          PID    PPID  C STIME TTY          TIME CMD</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           1       0  0 Jan10 <span class="pp">?</span>        03:14:05 /usr/lib/systemd/systemd <span class="at">--switched-root</span> <span class="at">--system</span> <span class="at">--deserialize</span> 22</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           2       0  0 Jan10 <span class="pp">?</span>        00:01:12 <span class="pp">[</span><span class="ss">kthreadd</span><span class="pp">]</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           6       2  0 Jan10 <span class="pp">?</span>        00:12:16 <span class="pp">[</span><span class="ss">ksoftirqd/0</span><span class="pp">]</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           7       2  0 Jan10 <span class="pp">?</span>        00:01:10 <span class="pp">[</span><span class="ss">migration/0</span><span class="pp">]</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           8       2  0 Jan10 <span class="pp">?</span>        00:00:00 <span class="pp">[</span><span class="ss">rcu_bh</span><span class="pp">]</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           9       2  0 Jan10 <span class="pp">?</span>        11:14:26 <span class="pp">[</span><span class="ss">rcu_sched</span><span class="pp">]</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          10       2  0 Jan10 <span class="pp">?</span>        00:00:00 <span class="pp">[</span><span class="ss">lru</span><span class="pp">-</span><span class="ss">add</span><span class="pp">-</span><span class="ss">drain</span><span class="pp">]</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          11       2  0 Jan10 <span class="pp">?</span>        00:05:22 <span class="pp">[</span><span class="ss">watchdog/0</span><span class="pp">]</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          12       2  0 Jan10 <span class="pp">?</span>        00:00:24 <span class="pp">[</span><span class="ss">watchdog/1</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run <code>man ps</code> for details.</p>
+<p>Programs like <code>top</code> and <code>htop</code> will list processes in friendlier, fancier format.</p>
+</section>
+<section id="background-and-foreground-processes" class="level2">
+<h2 class="anchored" data-anchor-id="background-and-foreground-processes">Background and foreground processes</h2>
+<p>By default, commands run in the <em>foreground</em>: they do their thing, use the terminal (to read input, print output), and finally exit. You need to wait for a foreground process to end before you start the next one, or use another terminal.</p>
+<p>When have a long-running process, you have the option of sending it to the <em>background</em>, using the <code>&amp;</code> operator:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span> 949751</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use <kbd aria-hidden="true">Ctrl-Z</kbd><span class="visually-hidden">Ctrl-Z</span> to stop a foreground process and send it to the background:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">^Z</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]+</span>  Stopped                 sleep 100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can list background processes using <code>jobs</code> command:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ jobs</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]-</span>  Running                 sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Stopped                 sleep 100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can bring a background process to foreground using <code>fg</code> command, and you can terminate it using <kbd aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ fg 2</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 100</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="ex">^C</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use <code>bg</code> command to resume a stopped background process:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span> 1746205</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="ex">^Z</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Stopped                 sleep 100</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ jobs</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]-</span>  Running                 sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Stopped                 sleep 100</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ bg %2</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span> sleep 100 <span class="kw">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="terminating-processes" class="level2">
+<h2 class="anchored" data-anchor-id="terminating-processes">Terminating processes</h2>
+<p>Sometimes you might want to terminate a program, perhaps because it is using too much CPU or memory. You can find out the offending program’s ID using <code>ps</code> or <code>top</code> or <code>htop</code>, and then you can use <code>kill</code> command to end the process.</p>
+<p>By default, <code>kill</code> sends a signal called <code>SIGTERM</code> (more on signals later). If <code>SIGTERM</code> is unable to terminate the process (such as when the program is ignoring <code>SIGTERM</code>), you can try <code>SIGKILL</code>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">796679</span> pts/116  00:00:00 bash</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="ex">1185454</span> pts/116  00:00:00 ps</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1748299</span> pts/116  00:00:00 sleep</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ kill 1748299</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">796679</span> pts/116  00:00:00 bash</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="ex">1203470</span> pts/116  00:00:00 ps</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="ex">1748299</span> pts/116  00:00:00 sleep</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ kill <span class="at">-SIGKILL</span> 1748299</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Killed                  sleep 100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can use <code>killall</code> command to kill processes by name:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ killall sleep</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span><span class="er">(</span><span class="ex">1469283</span><span class="kw">)</span><span class="bu">:</span> Operation not permitted</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span><span class="er">(</span><span class="ex">1509215</span><span class="kw">)</span><span class="bu">:</span> Operation not permitted</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sleep:</span> no process found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the above example, you are not running a <code>sleep</code> process, but some other users are, and you are not allowed to terminate them.</p>
+</section>
+<section id="signals" class="level2">
+<h2 class="anchored" data-anchor-id="signals">Signals</h2>
+<p>As mentioned above, <code>kill</code> command sends <em>signals</em> to running processes, and we’ve already seen <code>SIGTERM</code> and <code>SIGKILL</code>. Signals are a process control mechanism. They are used to stop, resume, or terminate processes, and more.</p>
+<p>When we use <kbd aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span> or <kbd aria-hidden="true">Ctrl-Z</kbd><span class="visually-hidden">Ctrl-Z</span>, we are sending signals to process – <code>SIGINT</code> (or “keyboard interrupt”) and <code>SIGTSTP</code> (or “terminal stop”), respectively.</p>
+<p>Signals have numbers: <code>SIGKILL</code> is 9, so you can use <code>kill -9 &lt;pid&gt;</code> instead of <code>kill -SIGKILL &lt;pid&gt;</code>. You can also omit the <code>SIG</code> prefix, and use <code>kill -KILL &lt;pid&gt;</code>.</p>
+<p>Here are some common signals:</p>
+<!-- TODO: edit below; copy-pasted from `man 7 signal` -->
+<pre><code>       Signal     Value     Action   Comment
+       ──────────────────────────────────────────────────────────────────────
+       SIGHUP        1       Term    Hangup detected on controlling terminal
+                                     or death of controlling process
+       SIGINT        2       Term    Interrupt from keyboard
+       SIGQUIT       3       Core    Quit from keyboard
+       SIGILL        4       Core    Illegal Instruction
+       SIGABRT       6       Core    Abort signal from abort(3)
+       SIGFPE        8       Core    Floating point exception
+       SIGKILL       9       Term    Kill signal
+       SIGSEGV      11       Core    Invalid memory reference
+       SIGPIPE      13       Term    Broken pipe: write to pipe with no
+                                     readers
+       SIGALRM      14       Term    Timer signal from alarm(2)
+       SIGTERM      15       Term    Termination signal</code></pre>
+<p>Run the command <code>man 7 signal</code> to read <code>signal</code> command’s manual page.</p>
+</section>
+</section>
+<section id="a-list-of-hopefully-useful-commands" class="level1 page-columns page-full">
+<h1>A list of (hopefully) useful commands</h1>
+<!-- [![](cheat-sheet.png){height=600}](cheat-sheet.pdf) -->
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">A printable PDF <a href="cheat-sheet.pdf">cheat sheet</a> of useful commands also is available.</span></div></div>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>echo</code></td>
+<td>display a line of text</td>
+</tr>
+<tr class="even">
+<td><code>cat</code></td>
+<td>concatenate files and print on the standard output</td>
+</tr>
+<tr class="odd">
+<td><code>head</code></td>
+<td>output the first part of files</td>
+</tr>
+<tr class="even">
+<td><code>tail</code></td>
+<td>output the last part of files</td>
+</tr>
+<tr class="odd">
+<td><code>more</code></td>
+<td>a “pager”, for printing text one screen at a time</td>
+</tr>
+<tr class="even">
+<td><code>less</code></td>
+<td>a pager similar to <code>more</code>, but nicer</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ls</code></td>
+<td>list directory contents</td>
+</tr>
+<tr class="odd">
+<td><code>mkdir</code></td>
+<td>make directories</td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>change the shell working directory</td>
+</tr>
+<tr class="odd">
+<td><code>cp</code></td>
+<td>copy files and directories</td>
+</tr>
+<tr class="even">
+<td><code>rm</code></td>
+<td>remove files or directories</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>grep</code></td>
+<td>print lines that match patterns</td>
+</tr>
+<tr class="odd">
+<td><code>sed</code></td>
+<td>stream editor for filtering and transforming text</td>
+</tr>
+<tr class="even">
+<td><code>awk</code></td>
+<td>pattern scanning and processing language</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sleep</code></td>
+<td>delay for a specified amount of time</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>tree</code></td>
+<td>list contents of directories in a tree-like format</td>
+</tr>
+<tr class="odd">
+<td><code>find</code></td>
+<td>search for files in a directory hierarchy</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>du</code></td>
+<td>estimate file space usage</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>gzip</code>/<code>gunzip</code></td>
+<td>compress or expand files</td>
+</tr>
+<tr class="even">
+<td><code>tar</code></td>
+<td>an archiving utility</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ps</code></td>
+<td>report currently running processes</td>
+</tr>
+<tr class="odd">
+<td><code>top</code></td>
+<td>display processes</td>
+</tr>
+<tr class="even">
+<td><code>htop</code></td>
+<td>a nicer alternative to <code>top</code></td>
+</tr>
+<tr class="odd">
+<td><code>kill</code></td>
+<td>send a signal to a process</td>
+</tr>
+<tr class="even">
+<td><code>killall</code></td>
+<td>kill processes by name</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ping</code></td>
+<td>send echo requests to remote hosts</td>
+</tr>
+<tr class="odd">
+<td><code>hostname</code></td>
+<td>show the system’s host name</td>
+</tr>
+<tr class="even">
+<td><code>uname</code></td>
+<td>print system information</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>date</code></td>
+<td>print the system date and time</td>
+</tr>
+<tr class="odd">
+<td><code>cal</code></td>
+<td>display a calendar</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>clear</code></td>
+<td>clear the terminal screen</td>
+</tr>
+<tr class="even">
+<td><code>history</code></td>
+<td>display the command history list</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ssh</code></td>
+<td>remote login program</td>
+</tr>
+<tr class="odd">
+<td><code>scp</code></td>
+<td>remote file copy program</td>
+</tr>
+<tr class="even">
+<td><code>sftp</code></td>
+<td>secure file transfer program</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>wget</code></td>
+<td>a tool to download of files from the Web</td>
+</tr>
+<tr class="odd">
+<td><code>curl</code></td>
+<td>another tool to download files from the Web</td>
+</tr>
+</tbody>
+</table>
+<!-- ## Shell builtins -->
+<!-- - `type` -->
+<!-- - `which` -->
+<!-- ## Aliases -->
+<!-- # Regular expressions -->
+<!-- - grep -->
+<!-- - awk -->
+<!-- - sed -->
+</section>
+<section id="text-editors" class="level1">
+<h1>Text Editors</h1>
+<p>Several terminal-based full-screen text editors are available on <code>lnx201</code>, and they vary in power and ease of use. Try these ones and pick one that works for you.</p>
+<ul>
+<li><a href="https://www.nano-editor.org/"><code>nano</code></a></li>
+<li><a href="https://www.vim.org/"><code>vim</code></a></li>
+<li><a href="https://www.gnu.org/software/emacs/"><code>emacs</code></a></li>
+</ul>
+<p>If you use <a href="https://jupyter01.classe.cornell.edu/">JupyerLab</a>, use the editor there. If you use <a href="https://wiki.classe.cornell.edu/Computing/NoMachine">NoMachine</a>, use the menu system to find an editor that works for you.</p>
+</section>
+<section id="writing-shell-scripts" class="level1">
+<h1>Writing shell scripts</h1>
+<p>The shell also provides a little programming language. You can write commands in a file called a <em>shell script</em>, and make it executable. Shell scripts usually have a <code>.sh</code> filename extension.</p>
+<p>Shell scripts are useful when you need to run some complex sequence of commands often.</p>
+<p>Here is a simple shell script:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>hello.sh</strong></pre>
+</div>
+<div class="sourceCode" id="cb41" data-filename="hello.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">#! /bin/bash</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a></span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="co"># A simple script.</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a></span>
+<span id="cb41-5"><a href="#cb41-5"></a><span class="bu">echo</span> <span class="st">"Hello world!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Line number 1 contains a <a href="https://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>: it tells the shell to how to run the script, or which program should interpret the script. Scripts could be written in other languages and interpreted by programs associated with those languages (such as <code>/bin/python</code>, <code>/bin/perl</code>, or <code>/bin/ruby</code>.), so the shell has to know what to do here.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The line <code>#! /bin/bash</code> could as well be <code>#! /usr/bin/env bash</code>, since it is not a good idea to assume that bash will be always in <code>/bin/</code>.</p></li>
+<li><p>To make scripts more portable across various kinds of systems, <code>#! /bin/sh</code> shebang also is often used. On Linux, <code>/bin/sh</code> is often a symbolic link to <code>/bin/bash</code>.</p></li>
+</ul>
+</div>
+</div>
+<p>Line 2 contains a comment. When shell encounters a <code>#</code> character, everything following it on that line is ignored.</p>
+<p>Line 5 contains the command to be executed.</p>
+<!-- TODO: describe shebang, comments, commands -->
+<p>Assuming we’ve named the script <code>hello.sh</code>, we should make it executable with <code>chmod</code>, and run <code>hello.sh</code>:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x hello.sh</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./hello.sh</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember that <code>$PATH</code> environment variable contains a list of directory names separated by <code>:</code> character, and when you run a program, the shell looks in these directories to find the program.</p>
+<p>Your current directory (represented by <code>.</code>) is not in <code>$PATH</code>, and it is for a good reason: you do not want to accidentally run any undesirable programs. That why you run the script with <code>./hello.sh</code>: it tells shell to find the script in the current directory. If you try to run <code>hello.sh</code> without the <code>./</code> prefix, <code>bash</code> will complain:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ hello.sh</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bash:</span> hello.sh: command not found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Since the <code>bin/</code> directory in your home directory is in your <code>$PATH</code>, if you place your scripts there, <code>bash</code> will be able to find them.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ mv hello.sh bin/</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ hello.sh </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When writing shell-scripts, you are not restricted to straight-line flow. You can write more elaborate scripts using constructs such as variables, control flow (with <code>if</code> and <code>case</code> expressions), loops (with <code>while</code> and <code>until</code> and <code>for</code> expressions), and functions. You can read input with <code>read</code>, pass parameters to scripts, evaluate arithmetic expressions, use arrays and array operations; and so on. This is a longer discussion.</p>
+<p>You can find more information in <code>info bash</code> and the references listed at the end.</p>
+</section>
+<section id="nifty-terminal-multiplexers" class="level1">
+<h1>Nifty: terminal multiplexers</h1>
+<p>Terminal multiplexers are programs that allow you to run multiple shell sessions in a single window. <a href="https://www.gnu.org/software/screen/">GNU screen</a> and <a href="https://github.com/tmux/tmux/wiki">tmux</a> are two popular options, with the latter being a little newer and perhaps friendlier at first.</p>
+<p>The screenshot below shows <code>tmux</code> in action. I have split a <code>tmux</code> window vertically into two panes using <kbd aria-hidden="true">Ctrl-b-%</kbd><span class="visually-hidden">Ctrl-b-%</span> key, and run <code>emacs</code> text editor in one. I can use <kbd aria-hidden="true">Ctrl-b-o</kbd><span class="visually-hidden">Ctrl-b-o</span> to switch between the two panes.</p>
+<p><img src="tmux.png" class="img-fluid"></p>
+<p>You manage <code>tmux</code> windows with <kbd aria-hidden="true">Ctrl-b</kbd><span class="visually-hidden">Ctrl-b</span> followed by another key. Here are some often-used <code>tmux</code> command keys:</p>
+<ul>
+<li><kbd aria-hidden="true">Ctrl-b-?</kbd><span class="visually-hidden">Ctrl-b-?</span> - list keyboard shortcuts (<kbd aria-hidden="true">Esc</kbd><span class="visually-hidden">Esc</span> to close the list.)</li>
+<li><kbd aria-hidden="true">Ctrl-b-%</kbd><span class="visually-hidden">Ctrl-b-%</span> - split window vertically into two panes</li>
+<li><kbd aria-hidden="true">Ctrl-b-"</kbd><span class="visually-hidden">Ctrl-b-"</span> - split window horizontally into two panes</li>
+<li><kbd aria-hidden="true">Ctrl-b-o</kbd><span class="visually-hidden">Ctrl-b-o</span> - next pane</li>
+<li><kbd aria-hidden="true">Ctrl-b-c</kbd><span class="visually-hidden">Ctrl-b-c</span> - create a new window</li>
+<li><kbd aria-hidden="true">Ctrl-b-n</kbd><span class="visually-hidden">Ctrl-b-n</span> - switch to next window</li>
+<li><kbd aria-hidden="true">Ctrl-b-p</kbd><span class="visually-hidden">Ctrl-b-p</span> - switch to previous window</li>
+<li><kbd aria-hidden="true">Ctrl-b-1</kbd><span class="visually-hidden">Ctrl-b-1</span> - switch to window numbered 1</li>
+<li><kbd aria-hidden="true">Ctrl-b-2</kbd><span class="visually-hidden">Ctrl-b-2</span> - switch to window numbered 2</li>
+<li><kbd aria-hidden="true">Ctrl-b-d</kbd><span class="visually-hidden">Ctrl-b-d</span> - detach tmux session</li>
+</ul>
+<p>When you’re ready to leave, you can “detach” <code>tmux</code> from your current session with <kbd aria-hidden="true">Ctrl-b</kbd><span class="visually-hidden">Ctrl-b</span>, and reattach to it in a different session with <code>tmux attach</code> command. Programs that you launched in <code>tmux</code> continue running in between. This is nifty!</p>
+</section>
+<section id="further-reading" class="level1">
+<h1>Further reading</h1>
+<ul>
+<li><a href="https://missing.csail.mit.edu/2020/shell-tools/">Shell Tools and Scripting</a> module of MIT “The Missing Semester of Your CS Education” class.</li>
+<li><a href="http://linuxcommand.org/tlcl.php">The Linux Command Line, A Complete Introduction</a> by William E. Shotts, Jr.&nbsp;The book is freely available under a Creative Commons license, and contains a good discussion about shell scripting.</li>
+<li><a href="https://archive.org/details/UNIXProgrammingEnvironment">The Unix Programming Environment</a> by Brian W. Kernighan and Rob Pike. This book is an old classic, and still useful. Since Linux is considered a descendant of Unix, this book will help place things in a historical context.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+<p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
+<p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme2/SF100/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

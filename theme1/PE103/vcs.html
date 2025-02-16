@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>X-CITE - Version Control</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="X-CITE - Version Control">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">X-CITE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-do-we-need-version-control" id="toc-why-do-we-need-version-control" class="nav-link active" data-scroll-target="#why-do-we-need-version-control">Why do we need version control?</a></li>
+  <li><a href="#version-control-in-practice-git" id="toc-version-control-in-practice-git" class="nav-link" data-scroll-target="#version-control-in-practice-git">Version control in practice: Git</a>
+  <ul class="collapse">
+  <li><a href="#first-steps-with-git" id="toc-first-steps-with-git" class="nav-link" data-scroll-target="#first-steps-with-git">First steps with Git</a></li>
+  </ul></li>
+  <li><a href="#getting-started-with-git" id="toc-getting-started-with-git" class="nav-link" data-scroll-target="#getting-started-with-git">Getting started with Git</a>
+  <ul class="collapse">
+  <li><a href="#initial-configuration" id="toc-initial-configuration" class="nav-link" data-scroll-target="#initial-configuration">Initial configuration</a></li>
+  <li><a href="#starting-a-new-repository" id="toc-starting-a-new-repository" class="nav-link" data-scroll-target="#starting-a-new-repository">Starting a new repository</a></li>
+  <li><a href="#adding-changes" id="toc-adding-changes" class="nav-link" data-scroll-target="#adding-changes">Adding changes</a></li>
+  <li><a href="#committing-changes" id="toc-committing-changes" class="nav-link" data-scroll-target="#committing-changes">Committing changes</a></li>
+  <li><a href="#some-more-terminology" id="toc-some-more-terminology" class="nav-link" data-scroll-target="#some-more-terminology">Some more terminology</a></li>
+  <li><a href="#reviewing-changes" id="toc-reviewing-changes" class="nav-link" data-scroll-target="#reviewing-changes">Reviewing changes</a></li>
+  <li><a href="#removing-files" id="toc-removing-files" class="nav-link" data-scroll-target="#removing-files">Removing files</a></li>
+  </ul></li>
+  <li><a href="#undoing-changes" id="toc-undoing-changes" class="nav-link" data-scroll-target="#undoing-changes">Undoing changes</a>
+  <ul class="collapse">
+  <li><a href="#ignoring-some-files" id="toc-ignoring-some-files" class="nav-link" data-scroll-target="#ignoring-some-files">Ignoring (some) files</a></li>
+  </ul></li>
+  <li><a href="#working-with-branches" id="toc-working-with-branches" class="nav-link" data-scroll-target="#working-with-branches">Working with branches</a>
+  <ul class="collapse">
+  <li><a href="#merging-branches" id="toc-merging-branches" class="nav-link" data-scroll-target="#merging-branches">Merging branches</a></li>
+  </ul></li>
+  <li><a href="#working-with-tags" id="toc-working-with-tags" class="nav-link" data-scroll-target="#working-with-tags">Working with tags</a></li>
+  <li><a href="#working-with-remote-repositories" id="toc-working-with-remote-repositories" class="nav-link" data-scroll-target="#working-with-remote-repositories">Working with remote repositories</a>
+  <ul class="collapse">
+  <li><a href="#getting-updates-from-a-remote-repository" id="toc-getting-updates-from-a-remote-repository" class="nav-link" data-scroll-target="#getting-updates-from-a-remote-repository">Getting updates from a remote repository</a></li>
+  <li><a href="#getting-updates-to-a-remote-repository" id="toc-getting-updates-to-a-remote-repository" class="nav-link" data-scroll-target="#getting-updates-to-a-remote-repository">Getting updates to a remote repository</a></li>
+  </ul></li>
+  <li><a href="#software-forges" id="toc-software-forges" class="nav-link" data-scroll-target="#software-forges">Software forges</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme1/PE103/vcs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Version Control</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Version control systems (or VCS) are software tools that are used to track changes to source code or other collections of files.</p>
+<p>Wikipedia has a <a href="https://en.wikipedia.org/wiki/List_of_version-control_software">fairly long list</a> of version control systems, each of them varying in practical usage and in implementation details. These days <a href="https://git-scm.com/">Git</a> is the most popular version control system in use. Git appears to have “won”, and so Git is what we will be discussing here.</p>
+<section id="why-do-we-need-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-need-version-control">Why do we need version control?</h2>
+<p>When you work on a project, you often will want to save the state of your code at various points, such that you can go back and forth between these various points. When you work on a project as part of a team, you will also want to know who wrote some part of the code, when, and why.</p>
+<p>Whether you work alone or in a team, using a version control system will help you achieve the above goals. Sometimes your team member is the past you (who should help you), or the future you (whom you should help).</p>
+<p>In the absence of a version control system, you will often will end up with a chaotic mess which achieves the above goals in a poorer manner. You will likely resort to several almost-same-but-not-quite files variously named like so:</p>
+<ul>
+<li><code>notebook.ipynb</code></li>
+<li><code>notebook-2024-05-01.ipynb</code></li>
+<li><code>notebook-2024-05-01-final.ipynb</code></li>
+<li><code>notebook-working.ipynb</code></li>
+<li><code>notebook-test.ipynb</code></li>
+<li><code>notebook-final.ipynb</code></li>
+</ul>
+<p>(Or think of the situation depicted by <a href="https://phdcomics.com/comics/archive.php?comicid=1531">this PHD Comics strip</a>.)</p>
+<!-- The comic has an "all rights reserved" notice; not using it. -->
+<!--
+[![](http://www.phdcomics.com/comics/archive/phd101212s.gif)][notfinal]
+-->
+<p>This scheme is basically a messy reinvention of a version control system. That might work in the simple cases, but it will soon break down as you do more work on your project.</p>
+<p>You want to avoid the cognitive overload of dealing with messy schemes based on file names. You want to use a version control system properly.</p>
+<p>Conceptually, you can think of the evolution of versions over time as a directed graph:</p>
+<p><a href="versions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="versions.png" class="img-fluid"></a></p>
+<p>Sometimes you branch out, say, when exploring a new direction:</p>
+<p><a href="versions-branch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="versions-branch.png" class="img-fluid"></a></p>
+<p>And you might eventually want to merge the branch to the “main” body of your graph:</p>
+<p><a href="versions-branch-merge.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="versions-branch-merge.png" class="img-fluid"></a></p>
+<p>With a version control system, you can to do these things in a less ad-hoc manner.</p>
+</section>
+<section id="version-control-in-practice-git" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-in-practice-git">Version control in practice: Git</h2>
+<p>Git is a command-line program that runs on all popular operating systems. If you use macOS or Linux, you probably have Git installed already. Here we assume that you are using the account that you have with CLASSE.</p>
+<p>Let us prime ourselves for Git with an XKCD strip:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="git.png" class="img-fluid figure-img"></p>
+<figcaption>© Randall Munroe, Creative Commons Attibution-NonCommercial license</figcaption>
+</figure>
+</div>
+<p>As the cartoon suggests, Git has a (perhaps well-deserved) reputation for being rather unfriendly or inscrutable. With some familiarity and practice, it can be tamed.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Depending on your background, you might find that learning Git by first understanding the data model more helpful. <a href="https://missing.csail.mit.edu/2020/version-control/">Version control module</a> of the MIT course “The Missing Semester of Your CS Education” and <a href="https://jwiegley.github.io/git-from-the-bottom-up/">Git from the Bottom Up</a> by John Wiegley take this route. These notes that you are currently reading, however, take the more traditional path of introducing you to the more frequently used Git commands.</p>
+</div>
+</div>
+<section id="first-steps-with-git" class="level3">
+<h3 class="anchored" data-anchor-id="first-steps-with-git">First steps with Git</h3>
+<p>You can start trying out <code>git</code> by running the below in a terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git help</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This should print some common Git commands used in various situations.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The specific output from <code>git help</code> might vary depending on the version of Git that you are using. You can find the version of Git that you’re using by running <code>git version</code>.</p>
+</div>
+</div>
+<!-- If you are new to version control in general and Git in particular, -->
+<!-- you will need to understand some concepts (such as _repositories_, -->
+<!-- _cloning a repository_, _commits_, _log messages_, _branches_) in -->
+<!-- order to understand what just happened above. Let us unpack stuff. -->
+<!-- ## Git concepts -->
+<!-- <\!-- TODO: elaborate -\-> -->
+<!-- - commits -->
+<!-- - staging area -->
+<!-- - remotes -->
+<!-- - branches -->
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You might find <code>git help -g</code> (or <code>git help --guides</code>) useful:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git help <span class="at">-g</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">The</span> common Git guides are:</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">attributes</span>   Defining attributes per path</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>   <span class="ex">glossary</span>     A Git glossary</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ignore</span>       Specifies intentionally untracked files to ignore</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>   <span class="ex">modules</span>      Defining submodule properties</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>   <span class="ex">revisions</span>    Specifying revisions and ranges for Git</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">tutorial</span>     A tutorial introduction to Git <span class="er">(</span><span class="cf">for</span> version <span class="ex">1.5.1</span> or newer<span class="kw">)</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>   <span class="ex">workflows</span>    An overview of recommended workflows with Git</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">'git help -a'</span> and <span class="st">'git help -g'</span> lists available subcommands and some</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">concept</span> guides. See <span class="st">'git help &lt;command&gt;'</span> or <span class="st">'git help &lt;concept&gt;'</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">to</span> read about a specific subcommand or concept.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="getting-started-with-git" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-with-git">Getting started with Git</h2>
+<p>Git commands are generally of the form <code>git &lt;subcommand&gt;</code>, where <code>&lt;subcommand&gt;</code> is for the specific operation you want to do. We will discuss them in the following sections.</p>
+<p>There is also a little bit of configuration that you should do, before you are able to <code>git add</code> and <code>git commit</code> your changes. Let us start with this configuration.</p>
+<section id="initial-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="initial-configuration">Initial configuration</h3>
+<p>Git keeps track of who makes changes. For this to work, you’ll need to configure Git using <code>git config</code> subcommand:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git config <span class="at">--global</span> user.email <span class="st">"you@example.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will write configuration to a file named <code>.gitconfig</code> in your home directory.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat ~/.gitconfig</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[user]</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">name</span> = Your Name</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">email</span> = you@example.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Of course, you should use “real” values instead of <code>Your Name</code> and <code>you@example.com</code>.</p>
+</section>
+<section id="starting-a-new-repository" class="level3">
+<h3 class="anchored" data-anchor-id="starting-a-new-repository">Starting a new repository</h3>
+<p>Let us start with a very simple example, just for practice. We will create a brand new Git repository, and commit some changes to it.</p>
+<p>Now, what is a repository, and what are commits?</p>
+<ul>
+<li><p>A Git <strong>repository</strong> is essentially a directory where Git tracks your files and manages changes to them. It is a database that stores your project’s history. This history includes every version of every file in your project, and who made those changes, and when, among other things.</p></li>
+<li><p>A Git <strong>commit</strong> is a snapshot of your project at some point in time. You can think of them as versions.</p></li>
+</ul>
+<p>On <code>lnx201</code>, let us create a new directory (with <code>mkdir hello-world</code>), change to that directory (with <code>cd hello-world</code>), create a file in that repository, and initialize a git repository there (with <code>git init</code>):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mkdir hello-world</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd hello-world/</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"hello </span><span class="va">$USER</span><span class="st">"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">hello</span> ssasidharan</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"hello </span><span class="va">$USER</span><span class="st">"</span> <span class="op">&gt;</span> hello.txt</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cat hello.txt</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">hello</span> ssasidharan</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git init</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Initialized</span> empty Git repository in /home/ssasidharan/hello-world/.git/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That created an empty repository, meaning, nothing has been added to it. As you can see, <code>git init</code> created a directory named <code>.git/</code> inside <code>hello-world/</code>. This <code>.git</code> directory is the repository’s “database” – this is where Git stores information about your project, including version history, configuration settings, and references to commits, and more.</p>
+<p>The <code>"."</code> prefix in <code>.git/</code> means that it is a “hidden” directory. It won’t appear in the output of commands such as <code>ls</code>. You will need to use <code>ls --all</code> or <code>ls -a</code>.</p>
+<p>Running <code>git status</code> will show an “untracked file”:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial commit</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Untracked files:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   (use "git add &lt;file&gt;..." to include in what will be committed)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   hello.txt</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> added to commit but untracked files present <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> to track<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What does <code>On branch master</code> mean?</p>
+<p>Think of a branch as a line of development. Your work almost always happen on a branch. When you start a project, Git uses a default branch called a <code>master</code>. With newer versions of Git (since , the default branch is called <code>main</code>.</p>
+<!-- If you want to use `main` as the default branch, do: -->
+<!-- ```{.bash} -->
+<!-- $ git config --global init.defaultBranch main -->
+<!-- ``` -->
+</div>
+</div>
+<p>An “untracked file” means Git do not know about the file. We will need to add that file to Git.</p>
+</section>
+<section id="adding-changes" class="level3">
+<h3 class="anchored" data-anchor-id="adding-changes">Adding changes</h3>
+<p>Let us add <code>hello.txt</code> to the repository, and check the status again:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add hello.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial commit</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Changes to be committed:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   (use "git rm --cached &lt;file&gt;..." to unstage)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   new file:   hello.txt</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The command <code>git add hello.txt</code> adds the file <code>hello.txt</code> to the repository. You could also have done a <code>git add .</code> to add all files in the directory to the repository.</p>
+<p>Note that <code>git add hello.txt</code> does not <em>commit</em> <code>hello.txt</code> to the repository; it just tells Git to pay attention to the file. With <code>git status</code>, we can see that Git is aware of the fact that there are some changes to be committed in the repository.</p>
+</section>
+<section id="committing-changes" class="level3">
+<h3 class="anchored" data-anchor-id="committing-changes">Committing changes</h3>
+<p>Use <code>git commit</code> to actually commit the tracked file to the repository:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add hello.txt"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[master</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">708bfca]</span> Add hello.txt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 hello.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The string following <code>-m</code> option (<code>-m</code> is short for <code>--message</code>) is a <em>commit message</em>. You use commit messages to describe the change in a single short line.</p>
+<p>Note that commit messages are not required to be single lines. On <code>lnx201</code>, if you run <code>git commit</code> without <code>-m &lt;message&gt;</code>, an editor will be launched where you can write a more detailed commit message. You can configure a different editor for writing commit messages, if you want to do so. As a general rule, your commit message should start with a short description of the commit in a single line, followed by a blank line, followed by a more detailed description of the commit.</p>
+<p>Over time, your commit messages will tell the story about how your project evolved. More details in commit messages would be quite useful when you or someone else revisit the change at some point in the future.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="git_commit.png" class="img-fluid figure-img"></p>
+<figcaption>© Randall Munroe, Creative Commons Attibution-NonCommercial license</figcaption>
+</figure>
+</div>
+<p>Now we can use <code>git status</code> to re-check status of the repository:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> to commit, working directory clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We can use <code>git log</code> to view the commit history:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> 708bfcafe32528e90e1d52fd6b94f0c44476518a</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Sajith Sasidharan <span class="op">&lt;</span>ssasidharan@lnx201.classe.cornell.edu<span class="op">&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Tue Apr 23 19:10:02 2024 <span class="at">-0400</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Add</span> hello.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>commit 708bfcafe32528e90e1d52fd6b94f0c44476518a</code> part is what is known as a “commmit hash” or a “commit ID”. It is a 40-character hexadecimal string generated using a cryptographic hashing algorithm. Each commits get a unique commit hash, and represents the state of the repository at a given point of time.</p>
+<p>Let us add some more changes, and commit them:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"hello from </span><span class="va">$HOSTNAME</span><span class="st">"</span> <span class="op">&gt;&gt;</span> hello.txt</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Changes not staged for commit:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   (use "git add &lt;file&gt;..." to update what will be committed)</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   modified:   hello.txt</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span><span class="kw">)</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git add hello.txt</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Update hello.txt"</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[master</span> 233c748] Update hello.txt</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">1</span> file changed, 1 insertion<span class="er">(</span><span class="ex">+</span><span class="kw">)</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> to commit, working directory clean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Try <code>git log</code> to show commit history again:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> 233c748ad3dd31c11a3bc12d0cf106d7fe888fc3</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Sajith Sasidharan <span class="op">&lt;</span>ssasidharan@lnx201.classe.cornell.edu<span class="op">&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Tue Apr 23 19:22:29 2024 <span class="at">-0400</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Update</span> hello.txt</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> 708bfcafe32528e90e1d52fd6b94f0c44476518a</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Sajith Sasidharan <span class="op">&lt;</span>ssasidharan@lnx201.classe.cornell.edu<span class="op">&gt;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Tue Apr 23 19:10:02 2024 <span class="at">-0400</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Add</span> hello.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="some-more-terminology" class="level3">
+<h3 class="anchored" data-anchor-id="some-more-terminology">Some more terminology</h3>
+<p>Files that are tracked by Git can be in one of these stages:</p>
+<ul>
+<li><strong>Modified</strong>: you have changed the file, but has not added or committed it.</li>
+<li><strong>Staged</strong>: you have done a <code>git add</code> on the file, thus moving into the “staging area” of the repository.</li>
+<li><strong>Committed</strong>: you have done a <code>git commit</code>, thus storing the file in your local Git database.</li>
+</ul>
+<p>Let us see what this means with a diagram:</p>
+<p><a href="staging.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="staging.png" class="img-fluid"></a></p>
+<p>The <strong>working tree</strong> is what you get when you initialize repository (with <code>git init</code>) or check out a repository (with <code>git clone</code>). The files you work with are here. When you modify a file, you will need to move it to the <strong>staging area</strong> before committing it.</p>
+<p>The <strong>staging area</strong> stores information about what will go into your next commit. In Git terminology, staging area is also called the <strong>index</strong>.</p>
+<p>When you do <code>git commit</code>, your staged changes will be committed to the database in <code>.git</code> directory. With these two-step actions, you get more control over what set of changes you get to commit to the project.</p>
+<p>With <code>git commit -a</code> (or <code>git commit --all</code>), you can stage the changes and commit them at once:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> echo <span class="st">"third line"</span> <span class="op">&gt;&gt;</span> hello.txt</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-am</span> <span class="st">"Add a third line"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that <code>git commit -am "Add a third line"</code> is the same as <code>git commit --all --message "Add a third line"</code>.</p>
+</section>
+<section id="reviewing-changes" class="level3">
+<h3 class="anchored" data-anchor-id="reviewing-changes">Reviewing changes</h3>
+<p>We have <code>git status</code> and <code>git log</code> in action already. Another command is <code>git diff</code>, which is used to find the difference between two commits:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff 708bfcafe32528e90e1d52fd6b94f0c44476518a 233c748ad3dd31c11a3bc12d0cf106d7fe888fc3</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">--git</span> a/hello.txt b/hello.txt</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">index</span> c5d1025..3f4c47c 100644</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span> a/hello.txt</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ex">+++</span> b/hello.txt</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ex">@@</span> <span class="at">-1</span> +1,2 @@</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">hello</span> ssasidharan</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ex">+hello</span> from lnx201.classe.cornell.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A useful shortcut is <code>git diff HEAD~</code>:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff HEAD~</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">--git</span> a/hello.txt b/hello.txt</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">index</span> c5d1025..3f4c47c 100644</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span> a/hello.txt</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">+++</span> b/hello.txt</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ex">@@</span> <span class="at">-1</span> +1,2 @@</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">hello</span> ssasidharan</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ex">+hello</span> from lnx201.classe.cornell.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In Git parlance, <code>HEAD</code> implies the last commit on the current branch, and <code>HEAD~</code> is the commit before that, and <code>git diff HEAD~</code> would print the difference between the latest commit and the one before that.</p>
+<p>Eventually, once there are more commits in the repository, you can view the difference with an arbitrary number of commits in history with <code>git diff HEAD~~~</code> (or, more conveniently: <code>git diff HEAD~3</code>), and so on. You get the idea.</p>
+<p>Another shortcut for those really long commit hashes is using a smaller prefix of them. You can find these “short hashes” with <code>git log --abbrev-commit</code> or <code>git log --oneline</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log <span class="at">--oneline</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">233c748</span> Update hello.txt</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">708bfca</span> Add hello.txt</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git diff 708bfca 233c748</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> <span class="at">--git</span> a/hello.txt b/hello.txt</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ex">index</span> c5d1025..3f4c47c 100644</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span> a/hello.txt</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ex">+++</span> b/hello.txt</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ex">@@</span> <span class="at">-1</span> +1,2 @@</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a> <span class="ex">hello</span> ssasidharan</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">+hello</span> from lnx201.classe.cornell.edu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="removing-files" class="level3">
+<h3 class="anchored" data-anchor-id="removing-files">Removing files</h3>
+<p>To remove files from your project, use <code>git rm &lt;path&gt;</code> followed by <code>git commit</code>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm hello.txt</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Remove hello.txt"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="undoing-changes" class="level2">
+<h2 class="anchored" data-anchor-id="undoing-changes">Undoing changes</h2>
+<p>You have made some changes, but you don’t actually want to keep those changes. You do not want to add them or commit them. To discard all such changes in your working directory, use <code>git reset</code>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset <span class="at">--hard</span> HEAD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you want to keep the changes but continue working on them without committing yet, you probably want to do:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git reset <span class="at">--soft</span> HEAD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Often you can do a <code>git reset &lt;commit&gt;</code> to restore the state of your working tree to what is reflected by <code>&lt;commit&gt;</code>.</p>
+<p>At any point, you can use <code>git reflog</code> (or “reference log”) to find where you were previously:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span>  git reflog </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ddec657</span> HEAD@{0}: commit: Remove hello.txt</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ex">d73c5c8</span> HEAD@{1}: commit: Add a third line</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">233c748</span> HEAD@{2}: commit: Update hello.txt</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ex">708bfca</span> HEAD@{3}: commit <span class="er">(</span><span class="ex">initial</span><span class="kw">)</span><span class="bu">:</span> Add hello.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This output is useful when you want to set the state of your working tree using <code>git reset</code> or <code>git checkout</code>.</p>
+<p>Once you have made a commit, you can undo that with <code>git revert</code>, which will create a new commit which will revert undesired changes:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git revert <span class="op">&lt;</span>commit<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="ignoring-some-files" class="level3">
+<h3 class="anchored" data-anchor-id="ignoring-some-files">Ignoring (some) files</h3>
+<p>Some files just should not be under version control. Examples would be:</p>
+<ul>
+<li>Anything generated by a build process, or a compiler, or a test suite, or some such. You do not want to commit the byte-compiled <code>.pyc</code> files, for example.</li>
+<li>Secrets, or files containing secrets (such as passwords, or tokens).</li>
+<li>Editor configuration files.</li>
+</ul>
+<p>You should tell Git to ignore these files by adding their names to a <code>.gitignore</code> file, with one name on a line, so that <code>git status</code> will ignore them. You can use wildcard patterns such as <code>*.pyc</code>.</p>
+<p>On <code>lnx201</code>, you probably should ignore the <code>.directoryhash</code> files automatically created by the file system; when you use macOS, you want to ignore <code>.DS_Store</code> files. So your <code>.gitignore</code> should have:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode conf code-with-copy"><code class="sourceCode toml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">.directoryhash</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="dt">.DS_Store</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Take a look at X-CITE course’s <a href="https://github.com/RENCI-NRIG/X-CITE/blob/main/.gitignore">.gitignore</a> for another example.</p>
+</section>
+</section>
+<section id="working-with-branches" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-branches">Working with branches</h2>
+<p>A branch is a line of development. The default branch for Git is <code>master</code> (or <code>main</code>, for newer versions of Git). If you are working on a small project by yourself, you probably can commit your changes on the default branch.</p>
+<p>However, when working on bigger projects or working with others, you will want to use branches. This will ensure that there is less “churn” in the default branch, and keep things manageable.</p>
+<p>You will create a branch when you implement a feature, for example, and when you are done implementing the feature, you will merge that branch to the default branch.</p>
+<p><a href="branching.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="branching.png" class="img-fluid"></a></p>
+<p>Nothing stops you from branching off from your non-<code>main</code> branches and merging back to the branch either. Branching and merging are (usually!) quick and easy with Git. (Well, except when there are merge conflicts. This happens when the changes on your branches diverge from the changes on the branch that you are trying to merge to.)</p>
+<!-- The particular branching strategy will likely depend on the project. -->
+<!-- Some projects may choose to have a fast moving `develop` branch, and a -->
+<!-- slow moving `main` branch. -->
+<p>To find the branch on which you currently are, use:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To create a new branch named <code>feature-branch</code>, use:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git branch feature-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To switch to the newly created <code>feature-branch</code>, do:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout feature-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also create a branch and check it out in a single command:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="at">-b</span> feature-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="merging-branches" class="level3">
+<h3 class="anchored" data-anchor-id="merging-branches">Merging branches</h3>
+<p>When you are ready to merge <code>feature-branch</code> to <code>main</code> branch, you will do:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git checkout main </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git merge feature-branch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the merge is not successful, you will encounter an error message:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git merge feature-branch </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Auto-merging</span> test.txt</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">CONFLICT</span> <span class="er">(</span><span class="ex">content</span><span class="kw">)</span><span class="bu">:</span> Merge conflict in test.txt</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Automatic</span> merge failed<span class="kw">;</span> <span class="ex">fix</span> conflicts and then commit the result.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now <code>git status</code> would indicate that you have a situation:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># You have unmerged paths.</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   (fix conflicts and run "git commit")</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Unmerged paths:</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   (use "git add &lt;file&gt;..." to mark resolution)</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   both modified:      test.txt</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> changes added to commit <span class="er">(</span><span class="ex">use</span> <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Git would have added some conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) to indicate the places where it had trouble merging.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>test.txt</strong></pre>
+</div>
+<div class="sourceCode" id="cb30" data-filename="test.txt"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>line 1</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>line 2</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">=======</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>line 3</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is when you open a text editor, find the conflicts, and <em>resolve</em> them manually. It is up to you to accept what you want and reject what you do not. You should do that, and remove the conflict markers. You will probably end up with:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>test.txt</strong></pre>
+</div>
+<div class="sourceCode" id="cb31" data-filename="test.txt"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>line 1</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>line 2</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>line 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now you can commit this with:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-am</span> <span class="st">"Resolve conflict"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In more complicated situations, you will probably have to use a merge tool. See <a href="https://git-scm.com/docs/git-mergetool">git-mergetool</a> for details.</p>
+</section>
+</section>
+<section id="working-with-tags" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-tags">Working with tags</h2>
+<p>Tags are used to mark certain points in a repository’s history as important in some manner. In the case of a release, you will want to tag the commit associated with the release with <code>v1.0.0</code> or <code>v1.0.1</code>, for example.</p>
+<p>You can list the tags present in your repository with:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git tag</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can create a tag with:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git tag 1.0.0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can have a tag point at a specific commit:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git tag 1.0.1 3de49cc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To delete a tag:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git tag <span class="at">-d</span> 1.0.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="working-with-remote-repositories" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-remote-repositories">Working with remote repositories</h2>
+<p>This far, we’ve talked about how you work in a local repository.</p>
+<p>You will want to be able to share your work with others, and be able to check out the projects others have created. This is typically done with hosting your repository somewhere in a server. These are called remote repositories.</p>
+<p><a href="remote-repository.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="remote-repository.png" class="img-fluid"></a></p>
+<p>You will <code>git clone</code> remote repositories, and you will <code>git fetch</code> or <code>git pull</code> updates them from, and you will <code>git push</code> your changes to them. In practice, you will very likely use an account on a code hosting site such as GitHub, and push your code to a repository there.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While working with a central remote repository is the most usual Git workflow, it is worth noting that Git enables other kinds of workflows also. See the chapter <a href="https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows">Distributed Git - Distributed Workflows</a> from Pro Git for some examples.</p>
+</div>
+</div>
+<p>These very notes that you are currently reading are version controlled using Git, and they are hosted at the GitHub repository at <a href="https://github.com/RENCI-NRIG/X-CITE/" class="uri">https://github.com/RENCI-NRIG/X-CITE/</a>. You can get a local copy of that repository using <code>git clone</code> command:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone https://github.com/RENCI-NRIG/X-CITE.git</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Cloning</span> into <span class="st">'X-CITE'</span>...</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Enumerating objects: 948, done.</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Counting objects: 100% <span class="er">(</span><span class="ex">485/485</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Compressing objects: 100% <span class="er">(</span><span class="ex">266/266</span><span class="kw">)</span><span class="ex">,</span> done.</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="ex">remote:</span> Total 948 <span class="er">(</span><span class="ex">delta</span> 228<span class="kw">)</span><span class="ex">,</span> reused 421 <span class="er">(</span><span class="ex">delta</span> 172<span class="kw">)</span><span class="ex">,</span> pack-reused 463</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Receiving</span> objects: 100% <span class="er">(</span><span class="ex">948/948</span><span class="kw">)</span><span class="ex">,</span> 4.52 MiB <span class="kw">|</span> <span class="ex">0</span> bytes/s, done.</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Resolving</span> deltas: 100% <span class="er">(</span><span class="ex">446/446</span><span class="kw">)</span><span class="ex">,</span> done.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can <code>cd</code> into that directory now with <code>cd X-CITE</code>, and then run some <code>git</code> commands such as <code>git status</code> and <code>git log</code> there:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd X-CITE/</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git status</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch main</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="ex">nothing</span> to commit, working directory clean</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git log</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> fd95497e30827d52dd99855a0e1be99b3db4282e</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Sajith Sasidharan <span class="op">&lt;</span>sajith@hcoop.net<span class="op">&gt;</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Mon Apr 22 09:27:27 2024 <span class="at">-0500</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Mention</span> the trace module</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="ex">commit</span> 7d55b104b50f8b1f5b8201765ceac8541f9543df</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Author:</span> Sajith Sasidharan <span class="op">&lt;</span>sajith@hcoop.net<span class="op">&gt;</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="ex">Date:</span>   Mon Apr 22 09:16:44 2024 <span class="at">-0500</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Add</span> a line</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="ex">[...</span> more output, elided for brevity ...]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="getting-updates-from-a-remote-repository" class="level3">
+<h3 class="anchored" data-anchor-id="getting-updates-from-a-remote-repository">Getting updates from a remote repository</h3>
+<p>After you originally cloned a remote repository, other people might have pushed new commits or branches or tags there. Using <code>git fetch</code> command will retrieve those updates, but without committing them to your local repository.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git fetch origin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here <code>origin</code> refers to the remote repository. You can list remote repository with <code>git remote</code>, and <code>git remote -v</code> will print some more details about them.</p>
+<p>You can then do <code>git diff origin/main</code> to view the changes, and do <code>git merge origin/main</code> (or <code>git rebase origin/main</code>) to get those changes in your local copy.</p>
+<p>When you want to fetch updates from the remote repository and automatically merge them into your current branch in one step, you will do a <code>git pull</code>:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git pull</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here you are fetching and merging changes from the <code>main</code> branch in the remote repository to your current local branch.</p>
+</section>
+<section id="getting-updates-to-a-remote-repository" class="level3">
+<h3 class="anchored" data-anchor-id="getting-updates-to-a-remote-repository">Getting updates to a remote repository</h3>
+<p>The inverse of a <code>git pull</code> is <code>git push</code>. You use a <code>git push</code> to get your changes to a remote repository:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you are trying to push to X-CITE repository, this will ask for your username and password, and even if they are correct, <code>git push</code> will most likely fail, because you do not have the necessary permissions to write to the remote repository.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to add your changes to X-CITE repository on GitHub, you will want to fork the repository, make your changes in your fork of the repository, and send a pull request to X-CITE repository. This is a somewhat separate discussion. Start with GitHub’s <a href="https://docs.github.com/en/get-started/start-your-journey">documentation</a> to learn more.</p>
+</div>
+</div>
+<!-- ### Generating ssh keys -->
+<!-- ```{.bash} -->
+<!-- $ ssh-keygen -t rsa -b 4096 -C "you@example.com" -->
+<!-- ``` -->
+<!-- <\!-- TODO: elaborate ssh public and private keys -\-> -->
+</section>
+</section>
+<section id="software-forges" class="level2">
+<h2 class="anchored" data-anchor-id="software-forges">Software forges</h2>
+<p>A software “forge” is a hosting service that can host your Git repositories, and provide many additional services (such as bug tracking, code reviews, continuous integration, etc) that helps you collaborate with other people.</p>
+<ul>
+<li><a href="https://github.com/">GitHub.com</a> happens to be the most popular one.</li>
+<li><a href="https://gitlab.com">Gitlab.com</a>
+<ul>
+<li>Many organizations and projects choose to self-host a version of GitLab. See <a href="https://gitlab01.classe.cornell.edu/explore">CLASSE GitLab</a>, for example.</li>
+</ul></li>
+<li><a href="https://codeberg.org/">Codeberg.org</a>, which runs <a href="https://en.wikipedia.org/wiki/Forgejo">Forgejo</a> software.</li>
+<li><a href="https://sourcehut.org/">SourceHut.org</a></li>
+<li><a href="https://bitbucket.org/">BitBucket.com</a></li>
+</ul>
+<p>Some organizations and people prefer to self-host a forge, and some people prefer no forge at all. Since Git is a <em>distributed</em> version control system, you should be able to collaborate with no forge at all: you can share your changes as email attachments, if you want. Git was originally developed for Linux kernel development, which uses no forge at all.</p>
+<!-- TODO: explain SSH URLs -->
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<ol type="1">
+<li><p>Create an account on GitHub.com (or another forge of your choice), if you do not have an account there already. Create a new repository on the forge of your choice. Push some code that you are working on to that repository.</p></li>
+<li><p>Make some more changes to your project, and commit them. Push those commits also to the Git repository.</p></li>
+<li><p>Create a Git tag (based on today’s date, or a version number), and push the tag to your repository.</p></li>
+<li><p>If you want to add a new feature to your project, create a branch, and make your changes on the branch. When you are done, merge the feature branch to your <code>main</code> or <code>master</code> branch.</p></li>
+<li><p>If you find errors in these notes, or want to suggest improvements, report them by creating an issue on <a href="https://github.com/RENCI-NRIG/X-CITE/" class="uri">https://github.com/RENCI-NRIG/X-CITE/</a>.</p></li>
+<li><p>If you want to propose some changes to these notes (such a fixing a mistake or improving these notes), create a pull request against <a href="https://github.com/RENCI-NRIG/X-CITE/" class="uri">https://github.com/RENCI-NRIG/X-CITE/</a>.</p></li>
+</ol>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://git-scm.com/book/en/v2">Pro Git</a></li>
+<li><a href="https://education.github.com/git-cheat-sheet-education.pdf">Git cheat sheet</a></li>
+<li><a href="https://missing.csail.mit.edu/2020/version-control/">Version Control</a> module of The Missing Semester of Your CS Education.</li>
+<li><a href="https://docs.github.com/en/get-started/using-git/about-git">About Git</a> section of GitHub documentation.</li>
+</ul>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-4">© Randall Munroe, Creative Commons Attibution-NonCommercial license</span>
+<span class="glightbox-desc lightbox-desc-5">© Randall Munroe, Creative Commons Attibution-NonCommercial license</span>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+<p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
+<p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme1/PE103/vcs.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

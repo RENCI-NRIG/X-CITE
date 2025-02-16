@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.552">
+
+  <meta name="author" content="Anirban Mandal, Erik Scott, Sajith Sasidharan (RENCI, UNC Chapel Hill)">
+  <meta name="author" content="Ewa Deelman, Karan Vahi, Mats Rynge (ISI, USC)">
+  <meta name="author" content="Matthew Miller, Werner Sun, Peter Ko, Kelly Nygren, Keara Soloway, Rolf Verberg (CHESS, Cornell)">
+  <meta name="author" content="Brandon Sorge (IUPUI)">
+  <title>X-CITE - Systems Fundamentals</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="slides.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta name="twitter:title" content="X-CITE - Systems Fundamentals">
+<meta name="twitter:description" content="Linux, command line, scripting">
+<meta name="twitter:card" content="summary">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">Systems Fundamentals</h1>
+  <p class="subtitle">Linux, command line, scripting</p>
+  <p class="author">Anirban Mandal, Erik Scott, Sajith Sasidharan (RENCI, UNC Chapel Hill)</p>
+  <p class="author">Ewa Deelman, Karan Vahi, Mats Rynge (ISI, USC)</p>
+  <p class="author">Matthew Miller, Werner Sun, Peter Ko, Kelly Nygren, Keara Soloway, Rolf Verberg (CHESS, Cornell)</p>
+  <p class="author">Brandon Sorge (IUPUI)</p>
+
+  <div id="org-logos">
+    <img src="../../images/renci-logo.svg">
+    <img src="../../images/isi-logo.png">
+    <img src="../../images/chess-logo.svg">
+  </div>
+  
+</section>
+<section>
+<section id="preliminaries" class="title-slide slide level1 center">
+<h1>Preliminaries</h1>
+<ul>
+<li>Who are you people?</li>
+<li><a href="https://xcitecourse.org/theme2/sf100/" class="uri">https://xcitecourse.org/theme2/sf100/</a></li>
+<li>Getting into CLASSE Linux systems</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>I do not have a good idea about the audience of this workshop. What is your background?</li>
+<li>Do you know how to launch a terminal?</li>
+<li>Do you know use ssh?</li>
+<li>Do you use JupyterLab?</li>
+<li>Do you use command line?<br>
+</li>
+<li>Do you use Windows, macOS, or Linux?</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="assumptions" class="slide level2">
+<h2>Assumptions</h2>
+<ul>
+<li><p>You have your CLASSE accounts set up.</p>
+<ul>
+<li>Talk to CLASSE staff otherwise!</li>
+</ul></li>
+<li><p>Options:</p>
+<ul>
+<li>Use <code>ssh</code></li>
+<li>Use NoMachine</li>
+<li>Use JupyterLab</li>
+</ul></li>
+</ul>
+</section>
+<section id="use-ssh" class="slide level2">
+<h2>Use SSH</h2>
+
+<img data-src="lnx201.png" class="r-stretch"><p><code>ssh ${username}@lnx201.classe.cornell.edu</code></p>
+<ul>
+<li>Use terminal or iTerm on macOS.</li>
+<li>Use whichever terminal you want on Linux.</li>
+<li>Use PuTTY (<a href="https://putty.org/" class="uri">https://putty.org/</a>) on Windows.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Use terminal or iTerm on macOS. There are other choices too, but these seem popular.</li>
+<li>Use whatever terminal you want on Linux. You know what you are doing, and you know how to figure out stuff.</li>
+<li>Use PuTTY on Windows. I am not up to speed on Windows.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="use-nomachine" class="slide level2">
+<h2>Use NoMachine</h2>
+
+<img data-src="nomachine.png" class="r-stretch"><p><a href="https://wiki.classe.cornell.edu/Computing/NoMachine" class="uri">https://wiki.classe.cornell.edu/Computing/NoMachine</a></p>
+<aside class="notes">
+<ul>
+<li>There is a client that you can install.</li>
+<li>There is also web access, which I have used a few times. Seemed shaky.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="use-jupyterlab" class="slide level2">
+<h2>Use JupyterLab</h2>
+
+<img data-src="jupyter01.png" class="r-stretch"><p><a href="https://jupyter01.classe.cornell.edu/" class="uri">https://jupyter01.classe.cornell.edu/</a></p>
+<aside class="notes">
+<ul>
+<li>Use the terminal icon on the launcher.</li>
+<li>Or use File -&gt; New -&gt; Terminal</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="linux-command-line-etc." class="title-slide slide level1 center">
+<h1>Linux, command line, etc.</h1>
+
+</section>
+<section id="linux" class="slide level2">
+<h2>Linux</h2>
+<ul>
+<li>A popular operating system.
+<ul>
+<li>(Actually an OS kernel, plus userland from various other projects. But those are details…)</li>
+</ul></li>
+<li>Unix-like, which traces back to 1969, therefore has accumulated quirks.
+<ul>
+<li>Expect “hysterical raisins”.</li>
+</ul></li>
+</ul>
+</section>
+<section id="lnx201" class="slide level2">
+<h2><code>lnx201</code></h2>
+<ul>
+<li>The Linux host we’ll be using is <code>lnx201.classe.cornell.edu</code>.</li>
+<li>Runs a <strong>distribution</strong> called Scientific Linux.</li>
+<li>Good enough for general use.</li>
+<li>Do not run anything resource heavy on <code>lnx201</code>.
+<ul>
+<li>“Heavy” in terms CPU, memory, network usage etc.</li>
+<li><code>lnx201</code> is a shared resource.</li>
+</ul></li>
+<li>There is a <a href="https://wiki.classe.cornell.edu/Computing/ComputeFarmIntro">Compute Farm</a> to run heavy things.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>I am not the expert on lnx201 or compute farm. I just happen to present today!</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-command-line" class="slide level2">
+<h2>The command line</h2>
+
+<img data-src="lnx201.png" class="r-stretch"><ul>
+<li>You will type <strong>commands</strong> in a <strong>shell</strong>, at the <strong>shell prompt</strong>, hit <kbd aria-hidden="true">enter</kbd><span class="visually-hidden">enter</span> key, and then things happen.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li><p>All of this is a text user interface.</p></li>
+<li><p>As opposed to clicking on GUI widgets.</p></li>
+<li><p>The prompt is that piece of text that begins with <code>[</code> and ends with <code>] $</code>. They can look different too.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="commands" class="slide level2">
+<h2>Commands</h2>
+<ul>
+<li><p>Commands are either <strong>programs</strong> or <strong>shell builtins</strong>.</p></li>
+<li><p>Use one of these commands to read documentation:</p>
+<ul>
+<li><code>man ${command}</code></li>
+<li><code>info ${command}</code></li>
+<li>or <code>${command} --help</code> (sometimes!)</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Programs can be compiled or scripts.</li>
+<li>They live somewhere in your <code>$PATH</code>.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-shell" class="slide level2">
+<h2>The shell</h2>
+<ul>
+<li>A program that accepts commands, and passes those commands to the OS to execute.</li>
+<li>A popular shell is <code>bash</code>, which is the default on <code>lnx201</code>.</li>
+</ul>
+<aside class="notes">
+<p>Of course there are other shells too: zsh (default on newer versions of macOS, fish, ksh, etc.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bash" class="slide level2">
+<h2>Bash</h2>
+<ul>
+<li>“Bourne-again shell”
+<ul>
+<li>Based on an earlier Bourne shell, thus the “again”.</li>
+<li>Developed by the <a href="http://gnu.org/">GNU project</a>.</li>
+<li>On <code>lnx201</code>, <code>/bin/bash</code> is the program.</li>
+</ul></li>
+<li>For documentation: <code>info bash</code> or <code>man bash</code>.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>GNU people made a lot of the software early on.<br>
+</li>
+<li>Also Unix people, BSD people, X11 people, and a whole bunch of other people.</li>
+<li>Then the Linux kernel came along, became successful, and people started to call the whole combination of all these things “Linux”.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bash-niceties-history-and-completion" class="slide level2">
+<h2>Bash niceties: history and completion</h2>
+<ul>
+<li>You do not have to re-type commands that you have used in the past!
+<ul>
+<li>Use <kbd aria-hidden="true">up</kbd><span class="visually-hidden">up</span> and <kbd aria-hidden="true">down</kbd><span class="visually-hidden">down</span> arrow keys to go back and forth in your command history.</li>
+<li>Use <kbd aria-hidden="true">Ctrl-R</kbd><span class="visually-hidden">Ctrl-R</span> (Control+R) to “search” command history.</li>
+<li>Use <code>history</code> command to list your shell history.</li>
+</ul></li>
+<li>Use <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key for command completion, after typing a few characters.</li>
+</ul>
+</section></section>
+<section>
+<section id="files-and-directories" class="title-slide slide level1 center">
+<h1>Files and directories</h1>
+<p>Unix slogan: Everything is a file!</p>
+</section>
+<section id="some-helpful-commands" class="slide level2 smaller scrollable">
+<h2>Some helpful commands</h2>
+<table>
+<colgroup>
+<col style="width: 7%">
+<col style="width: 64%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Task</th>
+<th>Example Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ls</code></td>
+<td>list the files in a directory</td>
+<td><code>ls [/tmp]</code></td>
+</tr>
+<tr class="even">
+<td><code>cd</code></td>
+<td>move into a directory</td>
+<td><code>cd [/tmp]</code></td>
+</tr>
+<tr class="odd">
+<td><code>pwd</code></td>
+<td>show curent working directory</td>
+<td><code>pwd</code></td>
+</tr>
+<tr class="even">
+<td><code>cp</code></td>
+<td>copy a file to into another directory, or make a copy with a different name</td>
+<td><code>cp [file.txt] [/tmp/file.txt]</code></td>
+</tr>
+<tr class="odd">
+<td><code>cp -r</code></td>
+<td>copy a folder to into another directory</td>
+<td><code>cp [file.txt] [/tmp/file.txt]</code></td>
+</tr>
+<tr class="even">
+<td><code>mv</code></td>
+<td>rename or move a file into another directory</td>
+<td><code>mv [file.txt] [file1.txt]</code></td>
+</tr>
+<tr class="odd">
+<td><code>rm</code></td>
+<td>delete a file</td>
+<td><code>rm [file.txt]</code></td>
+</tr>
+<tr class="even">
+<td><code>rm -r</code></td>
+<td>remove a directory, recursively</td>
+<td><code>rm -r [dir]</code></td>
+</tr>
+<tr class="odd">
+<td><code>mkdir</code></td>
+<td>create a directory</td>
+<td><code>mkdir [dir]</code></td>
+</tr>
+<tr class="even">
+<td><code>find</code></td>
+<td>find a file</td>
+<td><code>find [/tmp] -name [file]</code></td>
+</tr>
+<tr class="odd">
+<td><code>grep</code></td>
+<td>search for a text pattern inside a file</td>
+<td><code>grep [text] [/tmp/file.txt]</code></td>
+</tr>
+<tr class="even">
+<td><code>less</code></td>
+<td>to view the text of a text file, one screen at a time</td>
+<td><code>less [/tmp/file.txt]</code></td>
+</tr>
+<tr class="odd">
+<td><code>exit</code></td>
+<td>exit and logout of a Terminal (Terminal-xfce4) session</td>
+<td><code>exit</code></td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://wiki.classe.cornell.edu/Computing/SummerStudentOrientation#Linux_Command_Line_40ls_44_cd_44_mv_44_find_44_grep_etc_41" class="uri">https://wiki.classe.cornell.edu/Computing/SummerStudentOrientation#Linux_Command_Line_40ls_44_cd_44_mv_44_find_44_grep_etc_41</a></p>
+</section>
+<section id="directory-navigation" class="slide level2">
+<h2>Directory navigation</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ tree <span class="at">-d</span> <span class="at">-L</span> 1 /</span>
+<span id="cb1-2"><a></a><span class="ex">/</span></span>
+<span id="cb1-3"><a></a><span class="ex">├──</span> bin <span class="at">-</span><span class="op">&gt;</span> usr/bin</span>
+<span id="cb1-4"><a></a><span class="ex">├──</span> boot</span>
+<span id="cb1-5"><a></a><span class="ex">├──</span> cdat</span>
+<span id="cb1-6"><a></a><span class="ex">├──</span> cifs</span>
+<span id="cb1-7"><a></a><span class="ex">├──</span> cvmfs</span>
+<span id="cb1-8"><a></a><span class="ex">├──</span> dev</span>
+<span id="cb1-9"><a></a><span class="ex">├──</span> etc</span>
+<span id="cb1-10"><a></a><span class="ex">├──</span> home</span>
+<span id="cb1-11"><a></a><span class="ex">├──</span> lib <span class="at">-</span><span class="op">&gt;</span> usr/lib</span>
+<span id="cb1-12"><a></a><span class="ex">├──</span> lib64 <span class="at">-</span><span class="op">&gt;</span> usr/lib64</span>
+<span id="cb1-13"><a></a><span class="ex">├──</span> media</span>
+<span id="cb1-14"><a></a><span class="ex">├──</span> misc</span>
+<span id="cb1-15"><a></a><span class="ex">├──</span> mnt</span>
+<span id="cb1-16"><a></a><span class="ex">├──</span> net</span>
+<span id="cb1-17"><a></a><span class="ex">├──</span> nfs</span>
+<span id="cb1-18"><a></a><span class="ex">├──</span> opt</span>
+<span id="cb1-19"><a></a><span class="ex">├──</span> proc</span>
+<span id="cb1-20"><a></a><span class="ex">├──</span> root</span>
+<span id="cb1-21"><a></a><span class="ex">├──</span> run</span>
+<span id="cb1-22"><a></a><span class="ex">├──</span> sbin <span class="at">-</span><span class="op">&gt;</span> usr/sbin</span>
+<span id="cb1-23"><a></a><span class="ex">├──</span> srv</span>
+<span id="cb1-24"><a></a><span class="ex">├──</span> sys</span>
+<span id="cb1-25"><a></a><span class="ex">├──</span> tmp</span>
+<span id="cb1-26"><a></a><span class="ex">├──</span> usr</span>
+<span id="cb1-27"><a></a><span class="ex">└──</span> var</span>
+<span id="cb1-28"><a></a></span>
+<span id="cb1-29"><a></a><span class="ex">25</span> directories</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<aside class="notes">
+<ul>
+<li>Directories and files are organized in a tree like structure.</li>
+<li>Well, an inverted tree, maybe.</li>
+<li>At the bottom (or top?), you have the “/” directory.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="your-home-directory" class="slide level2">
+<h2>Your home directory</h2>
+<ul>
+<li>You have a “home” directory.
+<ul>
+<li>You can write your files and create directories here.</li>
+</ul></li>
+<li>Usually, and on <code>lnx201</code>, this will be <code>/home/$USER</code>
+<ul>
+<li>Also known as <code>$HOME</code></li>
+</ul></li>
+</ul>
+<aside class="notes">
+<ul>
+<li><p>The stuff that follows <code>$</code> are environment variables aka env vars. They are sort of key-value pairs managed by the shell.</p></li>
+<li><p>There are a set of standard env vars such as <code>$USER</code>, <code>$HOME</code>, <code>$SHELL</code> etc.</p></li>
+<li><p>Don’t write too much on your home directory.</p></li>
+<li><p>There are better places top store large amounts of data.</p></li>
+<li><p>I am not the expert here. Ask around, or wait for the next presenter.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="those-whatever-things" class="slide level2">
+<h2>Those <code>$WHATEVER</code> things</h2>
+<ul>
+<li>What are <code>$HOME</code>, <code>$USER</code>, <code>$PATH</code>, <code>$SHELL</code>, etc.?</li>
+<li>They are called <strong>environment variables</strong>, or <strong>env vars</strong>.</li>
+<li>Env vars are pieces of information maintained by the shell.</li>
+<li>Programs can use them during execution.</li>
+<li>Use <code>printenv</code> or <code>env</code> command to list them.</li>
+</ul>
+</section>
+<section id="the-current-working-directory" class="slide level2">
+<h2>The current working directory</h2>
+<!-- "Wherever you go, there you are" -->
+<ul>
+<li>At any time in the shell, you are “inside” a single directory, called the <strong>current working directory</strong>.
+<ul>
+<li>When you do <code>ls</code>, files in current working directory will be listed, etc.</li>
+</ul></li>
+<li>When you log in, your current working directory will be your home directory: <code>/home/$USER</code> aka <code>$HOME</code>.</li>
+<li>You will use <code>cd</code> (change directory) to move around.</li>
+<li>Use the command <code>pwd</code> to find where you are.
+<ul>
+<li>Or <code>echo $PWD</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="absolute-and-relative-paths" class="slide level2">
+<h2>Absolute and relative paths</h2>
+<p>File/folder names are also referred to as <strong>paths</strong>.</p>
+<ul>
+<li><strong>Absolute path names</strong> begin with the root directory, <code>/</code>.
+<ul>
+<li>Example: <code>/home/ssasidharan/Documents/hello.txt</code></li>
+</ul></li>
+<li><strong>Relative paths</strong> start with the working directory.
+<ul>
+<li>Example: <code>./Documents/hello.txt</code> (or just <code>Documents/hello.txt</code>) when I’m in my home directory.</li>
+</ul></li>
+</ul>
+</section>
+<section id="some-fun-facts-about-file-names" class="slide level2">
+<h2>Some fun facts about file names</h2>
+<ul>
+<li>Names that begin with “.” are “hidden”.
+<ul>
+<li>They are omitted from directory listing when you do <code>ls</code>.</li>
+<li>Do <code>ls -a</code> (or <code>ls --all</code>) to list them.</li>
+</ul></li>
+<li><code>.</code> and <code>..</code> are special directory names.
+<ul>
+<li><code>.</code> stands for the current directory.</li>
+<li><code>..</code> stands for the directory above the current directory.</li>
+</ul></li>
+</ul>
+</section>
+<section id="some-more-fun-facts-about-file-names" class="slide level2">
+<h2>Some more fun facts about file names</h2>
+<ul>
+<li>File and directory names are case sensitive.
+<ul>
+<li>Depends on filesystem, but that is a detail.</li>
+</ul></li>
+<li>It is better to avoid spaces in file names, because they are a hassle.
+<ul>
+<li>Use <code>_</code> (underscore character) instead (example: <code>file_name</code>), or CamelCase (example: <code>FileName</code>).</li>
+<li>Quote paths within <code>"</code> and <code>"</code> if they happen to have spaces, or “escape” each space with <code>\</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="wildcards" class="slide level2">
+<h2>Wildcards</h2>
+<p>Some characters are given special treatment:</p>
+<ul>
+<li><code>*</code> matches any set of characters.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/ab<span class="pp">*</span></span>
+<span id="cb2-2"><a></a><span class="ex">/usr/bin/ab</span>  /usr/bin/abs2rel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>?</code> matches any one character.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/<span class="pp">?</span>abc<span class="pp">*</span></span>
+<span id="cb3-2"><a></a><span class="ex">/usr/bin/kabc2mutt</span>  /usr/bin/kabcclient</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="standard-input-output-and-error" class="slide level2">
+<h2>Standard input, output, and error</h2>
+<ul>
+<li>Input is read from <strong>standard input</strong> (or <code>stdin</code>).</li>
+<li>Output is written to <strong>standard output</strong> (or <code>stdout</code>).</li>
+<li>Error messages are written to <strong>standard error</strong> (or <code>stderr</code>).</li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>They are files too: <code>/dev/stdin</code>, <code>/dev/stdout</code>, and <code>/dev/stderr</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="io-redirection" class="slide level2">
+<h2>I/O redirection</h2>
+<p>You can redirect <code>stdout</code> to a file with <code>&gt;</code> operator:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or append with <code>&gt;&gt;</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To direct a file to a programs input, use <code>&lt;</code> operator:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat <span class="op">&lt;</span> sonnet18.txt</span>
+<span id="cb6-2"><a></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pipes" class="slide level2">
+<h2>Pipes</h2>
+<ul>
+<li>Using the <code>|</code> (“pipe”) operator, you can “chain” programs such that one programs output is another programs input:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> /bin/ <span class="kw">|</span> <span class="fu">less</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>You can create longer pipes:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /bin /sbin <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span></span>
+<span id="cb8-2"><a></a>   <span class="ex">4289</span>    4288   46820</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+
+## Symbolic links
+
+- Special files that point to other files/folders.
+  - Kind of like shortcuts
+
+-->
+</section></section>
+<section>
+<section id="users-and-groups" class="title-slide slide level1 center">
+<h1>Users and Groups</h1>
+
+</section>
+<section id="you-belong-to-groups" class="slide level2">
+<h2>You belong (to groups)</h2>
+<p>Your account belongs to several groups:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ id</span>
+<span id="cb9-2"><a></a><span class="va">uid</span><span class="op">=</span>63499<span class="kw">(</span><span class="ex">ssasidharan</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span><span class="ex">,750</span><span class="er">(</span><span class="ex">classeuser</span><span class="kw">)</span></span>
+<span id="cb9-3"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ groups</span>
+<span id="cb9-4"><a></a><span class="ex">chess</span> classeuser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="permissions-and-ownership" class="slide level2">
+<h2>Permissions and ownership</h2>
+<p>Do a “long” file listing (with <code>ls -l</code>) and behold:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">$</span> ls <span class="at">-l</span></span>
+<span id="cb10-2"><a></a><span class="ex">total</span> 8</span>
+<span id="cb10-3"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   44 May  8 10:42 bin</span>
+<span id="cb10-4"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts</span>
+<span id="cb10-5"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   52 Apr  2 00:27 Desktop</span>
+<span id="cb10-6"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Documents</span>
+<span id="cb10-7"><a></a><span class="ex">lrwxrwxrwx</span>  1 ssasidharan chess   31 Mar 26 15:21 Downloads <span class="at">-</span><span class="op">&gt;</span> /cdat/tem/ssasidharan/Downloads</span>
+<span id="cb10-8"><a></a><span class="ex">-rw-r--r--</span>  1 ssasidharan chess   54 Jun  2 12:38 hello.sh</span>
+<span id="cb10-9"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Music</span>
+<span id="cb10-10"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Pictures</span>
+<span id="cb10-11"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Public</span>
+<span id="cb10-12"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Templates</span>
+<span id="cb10-13"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What do those characters mean?</p>
+</section>
+<section id="changing-permissions" class="slide level2">
+<h2>Changing permissions</h2>
+<ul>
+<li>Use <code>chmod</code> command to change file mode bits (the first column in the previous listing).</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x test.sh</span>
+<span id="cb11-2"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb11-3"><a></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
+<span id="cb11-4"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod <span class="at">-x</span> test.sh</span>
+<span id="cb11-5"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<span id="cb11-6"><a></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Use <code>chown</code> and <code>chgrp</code> commands to change owner and group (the third and fourth columns in the previous listing).
+<ul>
+<li>Probably not immediately useful; just know that they exist.</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="processes" class="title-slide slide level1 center">
+<h1>Processes</h1>
+
+</section>
+<section id="listing-processes" class="slide level2">
+<h2>Listing processes</h2>
+<ul>
+<li>List running processes using <code>ps</code> command:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<span id="cb12-2"><a></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
+<span id="cb12-3"><a></a> <span class="ex">694411</span> pts/81   00:00:00 ps</span>
+<span id="cb12-4"><a></a><span class="ex">3479688</span> pts/81   00:00:00 bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The four columns:</p>
+<ul>
+<li><code>PID</code> is process id.</li>
+<li><code>TTY</code> is the terminal associated with the process.</li>
+<li><code>TIME</code> is the elapsed CPU time for the process.</li>
+<li><code>CMD</code> is the command that created the process.</li>
+</ul>
+<aside class="notes">
+<p>(Also see: <code>top</code> and <code>htop</code>.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="background-and-foreground-processes" class="slide level2 smaller">
+<h2>Background and foreground processes</h2>
+<ul>
+<li>Some processes run in the foreground:
+<ul>
+<li>They read input, write output, etc.</li>
+<li>They are “attached” to a terminal.</li>
+</ul></li>
+<li>Background processes, well, run in the background. Send things to the background with <code>&amp;</code>:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb13-2"><a></a><span class="ex">[1]</span> 949751</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Bring a background process to foreground using <code>fg</code> command, and terminate it using <kbd aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span>:</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ fg 2</span>
+<span id="cb14-2"><a></a><span class="fu">sleep</span> 100</span>
+<span id="cb14-3"><a></a><span class="ex">^C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="terminating-processes" class="slide level2">
+<h2>Terminating processes</h2>
+<ul>
+<li><code>kill PID</code> command to end one process.</li>
+<li><code>killall</code> command to end many processes.
+<ul>
+<li>You can’t <code>kill</code> other user’s processes.</li>
+</ul></li>
+</ul>
+<!--
+
+## Signals
+
+-->
+</section></section>
+<section>
+<section id="other-tools-of-the-trade" class="title-slide slide level1 center">
+<h1>Other tools of the trade</h1>
+
+</section>
+<section id="text-editors" class="slide level2">
+<h2>Text editors</h2>
+<p>Many choices! Use:</p>
+<ul>
+<li>Emacs</li>
+<li>Vim</li>
+<li>Nano</li>
+<li>JupyterLab</li>
+</ul>
+</section>
+<section id="terminal-multiplexers" class="slide level2">
+<h2>Terminal multiplexers</h2>
+<p><code>screen</code> and <code>tmux</code> are two options. Here’s <code>tmux</code>.</p>
+
+<img data-src="tmux.png" class="r-stretch"><aside class="notes">
+<ul>
+<li>You can “multiplex” your terminal.</li>
+<li>Different shells in different “windows”.</li>
+<li>You can split panes vertically or horizontally.</li>
+<li>You can detach and re-attach, and resume your work.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="shell-scripts" class="title-slide slide level1 center">
+<h1>Shell scripts</h1>
+
+</section>
+<section id="hello-world" class="slide level2">
+<h2>Hello world!</h2>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>hello.sh</strong></pre>
+</div>
+<div class="sourceCode" id="annotated-cell-15" data-filename="hello.sh"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1">1</button><span id="annotated-cell-15-1" class="code-annotation-target"><a href="#annotated-cell-15-1"></a><span class="co">#! /bin/bash</span></span>
+<span id="annotated-cell-15-2"><a href="#annotated-cell-15-2"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="2">2</button><span id="annotated-cell-15-3" class="code-annotation-target"><a href="#annotated-cell-15-3"></a><span class="co"># A simple script.</span></span>
+<span id="annotated-cell-15-4"><a href="#annotated-cell-15-4"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="3">3</button><span id="annotated-cell-15-5" class="code-annotation-target"><a href="#annotated-cell-15-5"></a><span class="bu">echo</span> <span class="st">"Hello </span><span class="va">$USER</span><span class="st">!"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-15" data-code-lines="1" data-code-annotation="1">The “shebang”</span>
+</dd>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-15" data-code-lines="3" data-code-annotation="2">A comment.</span>
+</dd>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-15" data-code-lines="5" data-code-annotation="3">An actual line of code.</span>
+</dd>
+</dl>
+<ul>
+<li>Make the thing executable with <code>chmod +x hello.sh</code></li>
+<li>Run the thing with <code>./hello.sh</code></li>
+</ul>
+</section>
+<section id="other-things" class="slide level2">
+<h2>Other things</h2>
+<p>Bash supports a programming language with:</p>
+<ul>
+<li><code>if</code> statements</li>
+<li><code>for</code>, <code>while</code>, <code>until</code> statements</li>
+<li>functions</li>
+<li>et cetera.</li>
+<li>Take a peek at <code>/etc/bashrc</code> and <code>$HOME/.bashrc</code> for a taste</li>
+</ul>
+<p>BUT</p>
+<ul>
+<li>This is not really in scope of this presentation.</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="some-resources" class="title-slide slide level1 center">
+<h1>Some resources</h1>
+
+</section>
+<section id="a-cheat-sheet" class="slide level2">
+<h2>A cheat sheet</h2>
+<p><a href="cheat-sheet.pdf"><img data-src="cheat-sheet.png" height="600"></a></p>
+<p>(Via <a href="https://gettinggeneticsdone.blogspot.com/2009/03/linux-command-line-cheat-sheet.html">Stephen Turner</a>.)</p>
+</section>
+<section id="resources-elsewhere" class="slide level2">
+<h2>Resources elsewhere</h2>
+<ul>
+<li><a href="http://linuxcommand.org/tlcl.php">The Linux Command Line, A Complete Introduction</a> by William E. Shotts, Jr.&nbsp;The book is freely available under a Creative Commons license, and contains a good discussion about shell scripting.</li>
+<li><a href="https://archive.org/details/UNIXProgrammingEnvironment">The Unix Programming Environment</a> by Brian W. Kernighan and Rob Pike. Old classic, still useful. Places things in a historical context.</li>
+<li><a href="https://missing.csail.mit.edu/2020/shell-tools/">Shell Tools and Scripting</a> module of MIT “The Missing Semester of Your CS Education” class.</li>
+</ul>
+</section>
+<section id="other-resources" class="slide level2">
+<h2>Other resources</h2>
+<ul>
+<li>The Internet is pretty great. Use it.</li>
+<li>However: DO NOT trust everything you read on the Internet.
+<ul>
+<li>Do not copy and paste commands from the Internet indiscriminately.</li>
+<li>Understand how things work, and then use it.</li>
+</ul></li>
+</ul>
+</section></section>
+<section id="fin" class="title-slide slide level1 center">
+<h1>Fin!</h1>
+<p><a href="https://xcitecourse.org/theme2/sf100/" class="uri">https://xcitecourse.org/theme2/sf100/</a></p>
+<p>Contributions are welcome!</p>
+<aside class="notes">
+<ul>
+<li>Report issues!</li>
+<li>Send your pull requests!</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+<div class="quarto-auto-generated-content">
+<p><img src="../../images/x-cite-logo-2.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://xcitecourse.org/" class="uri">https://xcitecourse.org/</a></p>
+<p>Supported by the NSF awards <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+          let selectedAnnoteEl;
+          const selectorForAnnotation = ( cell, annotation) => {
+            let cellAttr = 'data-code-cell="' + cell + '"';
+            let lineAttr = 'data-code-annotation="' +  annotation + '"';
+            const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+            return selector;
+          }
+          const selectCodeLines = (annoteEl) => {
+            const doc = window.document;
+            const targetCell = annoteEl.getAttribute("data-target-cell");
+            const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+            const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+            const lineIds = lines.map((line) => {
+              return targetCell + "-" + line;
+            })
+            let top = null;
+            let height = null;
+            let parent = null;
+            if (lineIds.length > 0) {
+                //compute the position of the single el (top and bottom and make a div)
+                const el = window.document.getElementById(lineIds[0]);
+                top = el.offsetTop;
+                height = el.offsetHeight;
+                parent = el.parentElement.parentElement;
+              if (lineIds.length > 1) {
+                const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+                const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+                height = bottom - top;
+              }
+              if (top !== null && height !== null && parent !== null) {
+                // cook up a div (if necessary) and position it 
+                let div = window.document.getElementById("code-annotation-line-highlight");
+                if (div === null) {
+                  div = window.document.createElement("div");
+                  div.setAttribute("id", "code-annotation-line-highlight");
+                  div.style.position = 'absolute';
+                  parent.appendChild(div);
+                }
+                div.style.top = top - 2 + "px";
+                div.style.height = height + 4 + "px";
+                div.style.left = 0;
+                let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+                if (gutterDiv === null) {
+                  gutterDiv = window.document.createElement("div");
+                  gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                  gutterDiv.style.position = 'absolute';
+                  const codeCell = window.document.getElementById(targetCell);
+                  const gutter = codeCell.querySelector('.code-annotation-gutter');
+                  gutter.appendChild(gutterDiv);
+                }
+                gutterDiv.style.top = top - 2 + "px";
+                gutterDiv.style.height = height + 4 + "px";
+              }
+              selectedAnnoteEl = annoteEl;
+            }
+          };
+          const unselectCodeLines = () => {
+            const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+            elementsIds.forEach((elId) => {
+              const div = window.document.getElementById(elId);
+              if (div) {
+                div.remove();
+              }
+            });
+            selectedAnnoteEl = undefined;
+          };
+            // Handle positioning of the toggle
+        window.addEventListener(
+          "resize",
+          throttle(() => {
+            elRect = undefined;
+            if (selectedAnnoteEl) {
+              selectCodeLines(selectedAnnoteEl);
+            }
+          }, 10)
+        );
+        function throttle(fn, ms) {
+        let throttle = false;
+        let timer;
+          return (...args) => {
+            if(!throttle) { // first call gets through
+                fn.apply(this, args);
+                throttle = true;
+            } else { // all the others get throttled
+                if(timer) clearTimeout(timer); // cancel #2
+                timer = setTimeout(() => {
+                  fn.apply(this, args);
+                  timer = throttle = false;
+                }, ms);
+            }
+          };
+        }
+          const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+          for (let i=0; i<annoteTargets.length; i++) {
+            const annoteTarget = annoteTargets[i];
+            const targetCell = annoteTarget.getAttribute("data-target-cell");
+            const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+            const contentFn = () => {
+              const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+              if (content) {
+                const tipContent = content.cloneNode(true);
+                tipContent.classList.add("code-annotation-tip-content");
+                return tipContent.outerHTML;
+              }
+            }
+            const config = {
+              allowHTML: true,
+              content: contentFn,
+              onShow: (instance) => {
+                selectCodeLines(instance.reference);
+                instance.reference.classList.add('code-annotation-active');
+                window.tippy.hideAll();
+              },
+              onHide: (instance) => {
+                unselectCodeLines();
+                instance.reference.classList.remove('code-annotation-active');
+              },
+              maxWidth: 300,
+              delay: [50, 0],
+              duration: [200, 0],
+              offset: [5, 10],
+              arrow: true,
+              appendTo: function(el) {
+                return el.parentElement.parentElement.parentElement;
+              },
+              interactive: true,
+              interactiveBorder: 10,
+              theme: 'light-border',
+              placement: 'right',
+              popperOptions: {
+                modifiers: [
+                {
+                  name: 'flip',
+                  options: {
+                    flipVariations: false, // true by default
+                    allowedAutoPlacements: ['right'],
+                    fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                  },
+                },
+                {
+                  name: 'preventOverflow',
+                  options: {
+                    mainAxis: false,
+                    altAxis: false
+                  }
+                }
+                ]        
+              }      
+            };
+            window.tippy(annoteTarget, config); 
+          }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
