@@ -1,1 +1,1 @@
-Sitemap: https://RENCI-NRIG.github.io/X-CITE/sitemap.xml
+Sitemap: https://xcitecourse.org/sitemap.xml
