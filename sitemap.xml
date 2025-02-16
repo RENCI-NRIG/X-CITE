@@ -1,159 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xcitecourse.org/theme5/CF102/metadata-annotation-and-doi.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme5/CF200/curating-data.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme3/DC100/distributed-computing.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme3/DC101/scientific-workflow-management.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme4/XS102/large-scale-data-analysis.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme4/XS200/metadata.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/index.html</loc>
-    <lastmod>2025-02-16T01:26:04.002Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE101/PE101-02CondaRepos.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
     <loc>https://xcitecourse.org/theme1/PE103/debugging.html</loc>
-    <lastmod>2025-02-16T01:26:04.014Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE103/vcs-testing-debugging.html</loc>
-    <lastmod>2025-02-16T01:26:04.066Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/index.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-09Strings.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-08Lists.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-04Repetition.html</loc>
-    <lastmod>2025-02-16T01:26:04.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-01Introduction.html</loc>
-    <lastmod>2025-02-16T01:26:04.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-10Dictionaries.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE102/PE102-02NumPy.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme2/SF101/containers-and-virtualization.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme2/SF100/slides.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme2/SF100/index.html</loc>
-    <lastmod>2025-02-16T01:26:04.102Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme2/SF200/parallel-computing.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme2/SF201/batch-systems-and-compute-farms.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE102/index.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-06Files.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-03DecisionStructures.html</loc>
-    <lastmod>2025-02-16T01:26:04.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-02TypesVarsAndOperators.html</loc>
-    <lastmod>2025-02-16T01:26:04.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-05Functions.html</loc>
-    <lastmod>2025-02-16T01:26:04.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://xcitecourse.org/theme1/PE100/PE100-07Exceptions.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.100Z</lastmod>
   </url>
   <url>
     <loc>https://xcitecourse.org/theme1/PE103/testing.html</loc>
-    <lastmod>2025-02-16T01:26:04.066Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.116Z</lastmod>
   </url>
   <url>
-    <loc>https://xcitecourse.org/theme1/PE103/vcs.html</loc>
-    <lastmod>2025-02-16T01:26:04.066Z</lastmod>
+    <loc>https://xcitecourse.org/theme1/PE102/PE102-02NumPy.html</loc>
+    <lastmod>2025-02-16T01:37:23.098Z</lastmod>
   </url>
   <url>
-    <loc>https://xcitecourse.org/theme1/PE101/PE101-01Packages.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-10Dictionaries.html</loc>
+    <lastmod>2025-02-16T01:37:23.096Z</lastmod>
   </url>
   <url>
-    <loc>https://xcitecourse.org/theme1/PE101/index.html</loc>
-    <lastmod>2025-02-16T01:26:04.010Z</lastmod>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-06Files.html</loc>
+    <lastmod>2025-02-16T01:37:23.094Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-08Lists.html</loc>
+    <lastmod>2025-02-16T01:37:23.095Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-07Exceptions.html</loc>
+    <lastmod>2025-02-16T01:37:23.095Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-04Repetition.html</loc>
+    <lastmod>2025-02-16T01:37:23.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-09Strings.html</loc>
+    <lastmod>2025-02-16T01:37:23.096Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE101/PE101-02CondaRepos.html</loc>
+    <lastmod>2025-02-16T01:37:23.097Z</lastmod>
   </url>
   <url>
     <loc>https://xcitecourse.org/about.html</loc>
-    <lastmod>2025-02-16T01:26:03.982Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.082Z</lastmod>
   </url>
   <url>
-    <loc>https://xcitecourse.org/theme4/XS101/data-analysis.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
+    <loc>https://xcitecourse.org/theme4/XS200/metadata.html</loc>
+    <lastmod>2025-02-16T01:37:23.292Z</lastmod>
   </url>
   <url>
     <loc>https://xcitecourse.org/theme4/XS100/data-collection.html</loc>
-    <lastmod>2025-02-16T01:26:04.150Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.141Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme3/DC101/scientific-workflow-management.html</loc>
+    <lastmod>2025-02-16T01:37:23.140Z</lastmod>
   </url>
   <url>
     <loc>https://xcitecourse.org/theme3/DC200/computing-with-ci-ecosystem.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.140Z</lastmod>
   </url>
   <url>
-    <loc>https://xcitecourse.org/theme3/DC102/using-science-gateways.html</loc>
-    <lastmod>2025-02-16T01:26:04.146Z</lastmod>
+    <loc>https://xcitecourse.org/theme2/SF101/containers-and-virtualization.html</loc>
+    <lastmod>2025-02-16T01:37:23.139Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme2/SF100/slides.html</loc>
+    <lastmod>2025-02-16T01:37:23.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme2/SF200/parallel-computing.html</loc>
+    <lastmod>2025-02-16T01:37:23.140Z</lastmod>
   </url>
   <url>
     <loc>https://xcitecourse.org/theme5/CF100/domain-metadata-standards.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme5/CF102/metadata-annotation-and-doi.html</loc>
+    <lastmod>2025-02-16T01:37:23.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme5/CF200/curating-data.html</loc>
+    <lastmod>2025-02-16T01:37:23.293Z</lastmod>
   </url>
   <url>
     <loc>https://xcitecourse.org/theme5/CF101/dmp-best-practices.html</loc>
-    <lastmod>2025-02-16T01:26:04.310Z</lastmod>
+    <lastmod>2025-02-16T01:37:23.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme2/SF201/batch-systems-and-compute-farms.html</loc>
+    <lastmod>2025-02-16T01:37:23.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme2/SF100/index.html</loc>
+    <lastmod>2025-02-16T01:37:23.123Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme3/DC102/using-science-gateways.html</loc>
+    <lastmod>2025-02-16T01:37:23.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme3/DC100/distributed-computing.html</loc>
+    <lastmod>2025-02-16T01:37:23.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme4/XS102/large-scale-data-analysis.html</loc>
+    <lastmod>2025-02-16T01:37:23.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme4/XS101/data-analysis.html</loc>
+    <lastmod>2025-02-16T01:37:23.292Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/index.html</loc>
+    <lastmod>2025-02-16T01:37:23.091Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE101/index.html</loc>
+    <lastmod>2025-02-16T01:37:23.097Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE101/PE101-01Packages.html</loc>
+    <lastmod>2025-02-16T01:37:23.097Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-02TypesVarsAndOperators.html</loc>
+    <lastmod>2025-02-16T01:37:23.092Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/index.html</loc>
+    <lastmod>2025-02-16T01:37:23.096Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-03DecisionStructures.html</loc>
+    <lastmod>2025-02-16T01:37:23.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-01Introduction.html</loc>
+    <lastmod>2025-02-16T01:37:23.092Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE100/PE100-05Functions.html</loc>
+    <lastmod>2025-02-16T01:37:23.094Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE102/index.html</loc>
+    <lastmod>2025-02-16T01:37:23.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE103/vcs-testing-debugging.html</loc>
+    <lastmod>2025-02-16T01:37:23.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://xcitecourse.org/theme1/PE103/vcs.html</loc>
+    <lastmod>2025-02-16T01:37:23.117Z</lastmod>
   </url>
 </urlset>
