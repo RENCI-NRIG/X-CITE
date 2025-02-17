@@ -26,6 +26,8 @@ To add/update content, do this:
 - Clone/fork this repository.
 - Create a branch to work on, with `git checkout -b <branch-name>`.
 - Add/edit content in the form of `.md`, `.qmd`, or `.ipynb` files.
+  If you need tutorials or reference material about authoring, [Quarto
+  Guide][quarto-guide] is very helpful.
 - Run `quarto preview` in a terminal, which will start a local web
   server with a live preview that opens in your web browser.
 - Once you are satisfied with your changes, commit them, push the
@@ -54,6 +56,7 @@ Copyrights for logos are owned by the respective organizations.
 [publish]: .github/workflows/publish.yml
 
 [Quarto]: https://quarto.org/
+[quarto-guide]: https://quarto.org/docs/guide/
 [x-cite]: https://xcitecourse.org/
 
 [cc-by-sa]: https://creativecommons.org/licenses/by-sa/4.0/
