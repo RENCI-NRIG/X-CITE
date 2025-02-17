@@ -17,6 +17,9 @@ The content in this repository is written in the form of markdown
 files or Jupyter notebooks, and processed using [Quarto] in order to
 generate the website seen at https://xcitecourse.org/.
 
+(There is a backup site at https://x-cite.quarto.pub/, in case
+https://xcitecourse.org/ becomes unavailable for some reason.)
+
 To add/update content, do this:
 
 - Download and install Quarto from [quarto.org][Quarto].
