@@ -29,8 +29,8 @@ To add/update content, do this:
 - Run `quarto preview` in a terminal, which will start a local web
   server with a live preview that opens in your web browser.
 - Once you are satisfied with your changes, commit them, push the
-  branch to GitHub, and submit a pull request.  The PR will be
-  eventually be reviewed and merged.
+  branch to GitHub, and submit a pull request.  A project member will
+  eventually review and merge the PR.
 
 Once content is in the `main` branch of this GitHub repository, the
 [publish] workflow should take care of the building and publishing the
