@@ -46,16 +46,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # # Publish on Netlify (x-cite-course.netlify.app).
-      # - name: Render and Publish on netlify
-      #   uses: quarto-dev/quarto-actions/publish@v2
-      #   with:
-      #     target: netlify
-      #     # NETLIFY_AUTH_TOKEN is a personal access token generated at
-      #     # https://app.netlify.com/user/applications, and it expires
-      #     # after an interval.
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
       # Publish on Quarto.pub (https://x-cite.quarto.pub/).
       - name: Render and Publish on quarto.pub
         uses: quarto-dev/quarto-actions/publish@v2
