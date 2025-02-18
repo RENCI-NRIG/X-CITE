@@ -609,6 +609,34 @@
     "text": "Note\n\n\n\nThis page is work in progress."
   },
   {
+    "objectID": "theme5/CF102/metadata-annotation-and-doi.html#what-is-metadata",
+    "href": "theme5/CF102/metadata-annotation-and-doi.html#what-is-metadata",
+    "title": "Metadata annotation and DOI",
+    "section": "What is metadata?",
+    "text": "What is metadata?\n\nMirriam-Webster dictionary defines data as: “factual information (such as measurements or statistics) used as a basis for reasoning, discussion, or calculation”, or: “information in digital form that can be transmitted or processed.”\nFor our purposes, let us use the latter definition: data is information in digital form that can be stored, transmitted, or processed. Our experiments may consume data, produce data, transmit data between instruments and computers, and we might want to analyze data to make sense of it. We store data somewhere, for eventual use and/or sharing.\n\nWhat is metadata then?\nMetadata is data that describes data, and what that description says depends on context.\nFor example, EXIF (which is an abbreviation of “Exchangeable image file format”) is a form of image metadata. When you take a picture with cellphone, you get an image file. In addition to “pure” compressed on uncompressed image data, this image file also contains some extra data describes the image: details about the camera, lens, aperture, shutter speed, date and time at the time when the picture was taken, location if available, such things.\nIn addition to EXIF, there is the metadata that the operating system itself maintains about an image file: its ownership, date and time when the file was created and modified (as far as the operating system is concerned), and so on.\nSo when we talk about metadata, it is important to be clear about the context in which we talk about metadata.\nFor CHESS experimenters, metadata would be information about observational or experimental data that provides a “fuller picture” about the observation or experiment."
+  },
+  {
+    "objectID": "theme5/CF102/metadata-annotation-and-doi.html#what-is-annotation",
+    "href": "theme5/CF102/metadata-annotation-and-doi.html#what-is-annotation",
+    "title": "Metadata annotation and DOI",
+    "section": "What is annotation?",
+    "text": "What is annotation?"
+  },
+  {
+    "objectID": "theme5/CF102/metadata-annotation-and-doi.html#what-is-doi",
+    "href": "theme5/CF102/metadata-annotation-and-doi.html#what-is-doi",
+    "title": "Metadata annotation and DOI",
+    "section": "What is DOI?",
+    "text": "What is DOI?\nA DOI (Digital Object Identifier) is a unique and stable string assigned articles, books, and other works. DOIs make it easier to find and retrieve works. DOIs are designed to be used by humans as well as machines. DOIs are commonly used to identify publications and data sets.\nA DOI is meant to help us to resolve its target. The location of an online document or data set may change over time, because domain names and links change. However, since a DOI remains stable over time, with a DOI people should be able to find the current location of the target. The publisher of the document or data set is responsible for keeping the record up-to-date.\nA DOI takes the form of a character string divided into two parts, a prefix and a suffix, separated by a slash, in prefix/suffix form.\nHere is an example of a DOI: 10.1177/0306312719863494. Here the prefix 10.1177 identifies the registrant of the DOI, and the suffix 0306312719863494 identifies the article.\n\n\nHow can I resolve a DOI?\nTo resolve the article referred by 10.1177/0306312719863494, you would use a resolver. The search box at doi.org is an interface to such a resolver.\nA DOI is also resolvable as a URL using a proxy server. You could prefix the DOI with https://doi.org/ to get the URL https://doi.org/10.1177/0306312719863494, which will redirect you to the actual article, currently available at https://journals.sagepub.com/doi/10.1177/0306312719863494:\nThe https://doi.org resolver is operated by the DOI Foundation, a non-profit that governs the DOI system. The DOI system is standardized by International Organization for Standardization (ISO).\n\n\nHow do I use DOI in citations?\nHere’s how you would cite the above-mentioned article:\n\nMayernik, M. S. (2019). Metadata accounts: Achieving data and evidence in scientific research. Social Studies of Science, 49(5), 732-757. https://doi.org/10.1177/0306312719863494\n\n\n\n\nHow do I get myself a DOI?\n\n\nIn order to get a DOI for your paper or data set, you will need to work with a registration agency, such as crossref or datacite."
+  },
+  {
+    "objectID": "theme5/CF102/metadata-annotation-and-doi.html#references",
+    "href": "theme5/CF102/metadata-annotation-and-doi.html#references",
+    "title": "Metadata annotation and DOI",
+    "section": "references",
+    "text": "references\n\nCarpentries Incubator: Data and Metadata\n\nCarpentries Incubator Training Course Material: Fundamentals of Scientific Metadata\n\nMetadata accounts: Achieving data and evidence in scientific research. Matthew S Mayernik, National Center for Atmospheric Research.\nObservational Health Data Sciences and Informatics forums: How do we define “Metadata” and “Annotation?”\nWikipedia page on Digital object identifier\nDOI Foundation: What is a DOI?\nScribbr: What is a DOI? Finding and Using Digital Object Identifiers\nLong Term Ecological Research Network: Enriching Ecological Data Using Annotated Metadata\nCool DOIs"
+  },
+  {
     "objectID": "theme3/DC102/using-science-gateways.html",
     "href": "theme3/DC102/using-science-gateways.html",
     "title": "Using Science Gateways",
