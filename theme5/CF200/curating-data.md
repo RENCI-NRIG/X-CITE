@@ -8,6 +8,16 @@ date: ""
 This page is work in progress.
 :::
 
+You have run your experiments, collected data, wrote code to analyze
+the data, and documented your work.  One next possible step that you
+should take is sharing the fruits of your labor with the world.
+
+However, you can't simply keep your results just about anywhere,
+promise to make them available on demand, and declare victory.  There
+are some principles and processes to follow.
+
+One such set of principles is FAIR data principles.
+
 # FAIR Data
 
 FAIR stands for Findability, Accessibility, Interoperability, and
