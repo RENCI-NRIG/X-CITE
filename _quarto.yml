@@ -7,6 +7,8 @@ website:
   site-url: https://xcitecourse.org
   twitter-card: true
 
+  google-analytics: G-LSVR8LKB1J
+
   navbar:
     left:
       - href: index.md
