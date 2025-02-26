@@ -114,6 +114,11 @@ principles are practiced.
   guidelines.  Document data quality assessment methods and results.
 
 
+# FOXDEN: FAIR at CHESS
+
+<!-- TODO: expand this -->
+
+
 # References
 
 - [The FAIR Guiding Principles for scientific data management and
