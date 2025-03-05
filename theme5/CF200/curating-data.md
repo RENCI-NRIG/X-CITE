@@ -70,7 +70,10 @@ implementation, some common practices have been evolving.
 
 - Data should be described with rich metadata.  Document your data
   comprehensively with standardized metadata schemas relevant to your
-  field (e.g., DataCite, Dublin Core).
+  field (e.g., [DataCite], [Dublin Core]).
+  
+[DataCite]: https://datacite.org/
+[Dublin Core]: https://www.dublincore.org/
   
 - Metadata should clearly include the identifier of the data it
   describes.
