@@ -8,6 +8,14 @@ date: ""
 This page is work in progress.
 :::
 
+[![XKCD 1805: Unpublished Discoveries, © Randall Munroe, Creative
+Commons Attibution-NonCommercial
+license](unpublished_discoveries.png)][xkcd-discoveries]
+
+[xkcd-discoveries]: https://xkcd.com/1805/
+[by-nc]: https://creativecommons.org/licenses/by-nc/2.5/
+
+
 You have run your experiments, collected data, wrote code to analyze
 the data, and documented your work.  One next possible step that you
 should take is sharing the fruits of your labor with the world.
