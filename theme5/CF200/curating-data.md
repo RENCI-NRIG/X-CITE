@@ -51,15 +51,18 @@ FAIR is still evolving, and there is no one canonical implementation
 of FAIR.  Organizations implement their individual approaches to FAIR
 principles based on their needs and constraints.
 
-Although FAIR principles themselves do not make concrete suggestions
-about implementation details, there are some patterns in how the
-principles are practiced.
+Although FAIR itself does not make concrete recommendations about
+implementation, some common practices have been evolving.
 
 ### Making data findable
 
 - Data should have globally unique and persistent identifiers.  You
-  will need to use DOIs (Digital Object Identifiers), ARKs, or other
-  permanent identifier systems for your datasets.
+  will need to use [DOI]s (Digital Object Identifiers), [ARK]s
+  (Archival Resource Keys), or other permanent identifier systems for
+  your datasets.
+
+[DOI]: https://en.wikipedia.org/wiki/Digital_object_identifier
+[ARK]: https://en.wikipedia.org/wiki/Archival_Resource_Key
 
 - Data should be described with rich metadata.  Document your data
   comprehensively with standardized metadata schemas relevant to your
