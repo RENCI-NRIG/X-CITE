@@ -61,10 +61,12 @@ implementation, some common practices have been evolving.
 - Data should have globally unique and persistent identifiers.  You
   will need to use [DOI]s (Digital Object Identifiers), [ARK]s
   (Archival Resource Keys), or other permanent identifier systems for
-  your datasets.
+  your datasets.  People also get stable identifiers -- [ORCID] is one
+  such system.
 
 [DOI]: https://en.wikipedia.org/wiki/Digital_object_identifier
 [ARK]: https://en.wikipedia.org/wiki/Archival_Resource_Key
+[ORCID]:https://orcid.org/
 
 - Data should be described with rich metadata.  Document your data
   comprehensively with standardized metadata schemas relevant to your
