@@ -83,7 +83,10 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta name="twitter:title" content="Curating Data, Code, Workflows, and Publishing – X-CITE">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://xcitecourse.org/theme5/CF200/unpublished_discoveries.png">
+<meta name="twitter:image:alt" content="XKCD 1805: Unpublished Discoveries, © Randall Munroe, Creative Commons Attibution-NonCommercial license">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -128,8 +131,25 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fair-data" id="toc-fair-data" class="nav-link active" data-scroll-target="#fair-data">FAIR Data</a>
+  <ul class="collapse">
+  <li><a href="#fair-principles-and-practices" id="toc-fair-principles-and-practices" class="nav-link" data-scroll-target="#fair-principles-and-practices">FAIR principles and practices</a>
+  <ul class="collapse">
+  <li><a href="#making-data-findable" id="toc-making-data-findable" class="nav-link" data-scroll-target="#making-data-findable">Making data findable</a></li>
+  <li><a href="#making-data-accessible" id="toc-making-data-accessible" class="nav-link" data-scroll-target="#making-data-accessible">Making data accessible</a></li>
+  <li><a href="#making-data-interoperable" id="toc-making-data-interoperable" class="nav-link" data-scroll-target="#making-data-interoperable">Making data interoperable</a></li>
+  <li><a href="#making-data-reusable" id="toc-making-data-reusable" class="nav-link" data-scroll-target="#making-data-reusable">Making data reusable</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#foxden-fair-at-chess" id="toc-foxden-fair-at-chess" class="nav-link" data-scroll-target="#foxden-fair-at-chess">FOXDEN: FAIR at CHESS</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF200/curating-data.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -166,8 +186,82 @@ Note
 <p>This page is work in progress.</p>
 </div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://xkcd.com/1805/"><img src="unpublished_discoveries.png" class="img-fluid figure-img" alt="XKCD 1805: Unpublished Discoveries, © Randall Munroe, Creative Commons Attibution-NonCommercial license"></a></p>
+<figcaption>XKCD 1805: Unpublished Discoveries, © Randall Munroe, Creative Commons Attibution-NonCommercial license</figcaption>
+</figure>
+</div>
+<p>You have run your experiments, collected data, wrote code to analyze the data, and documented your work. One next possible step that you should take is sharing the fruits of your labor with the world. The fruits of your labor includes, among other things, the data you have collected.</p>
+<p>However, you can’t simply file your results away just about anywhere, promise to make them available on demand, and declare victory. There are some principles and processes to follow.</p>
+<p>One such set of principles is FAIR data principles.</p>
+<section id="fair-data" class="level1">
+<h1>FAIR Data</h1>
+<p>FAIR stands for Findability, Accessibility, Interoperability, and Reusability.</p>
+<p>FAIR is a set of guiding principles designed to make data more findable, accessible, interoperable, and reusable. Officially introduced in the article titled <em><a href="https://www.nature.com/articles/sdata201618">The FAIR Guiding Principles for scientific data management and stewardship</a></em> in 2016, these principles have become a fundamental framework for scientific data management and stewardship.</p>
+<p>FAIR data principles are increasingly being adopted by research institutions, funding agencies, and publishers to enhance the value and impact of scientific data. FAIR is particularly important in the context of open science initiatives and research data management.</p>
+<section id="fair-principles-and-practices" class="level2">
+<h2 class="anchored" data-anchor-id="fair-principles-and-practices">FAIR principles and practices</h2>
+<p>FAIR is still evolving, and there is no one canonical implementation of FAIR. Organizations implement their individual approaches to FAIR principles based on their needs and constraints.</p>
+<p>Although FAIR itself does not make concrete recommendations about implementation, some common practices have been evolving.</p>
+<section id="making-data-findable" class="level3">
+<h3 class="anchored" data-anchor-id="making-data-findable">Making data findable</h3>
+<ul>
+<li>Data should have globally unique and persistent identifiers. You will need to use <a href="https://en.wikipedia.org/wiki/Digital_object_identifier">DOI</a>s (Digital Object Identifiers), <a href="https://en.wikipedia.org/wiki/Archival_Resource_Key">ARK</a>s (Archival Resource Keys), or other permanent identifier systems for your datasets. People also get stable identifiers – <a href="https://orcid.org/">ORCID</a> is one such system.</li>
+</ul>
+<ul>
+<li>Data should be described with rich metadata. Document your data comprehensively with standardized metadata schemas relevant to your field (e.g., <a href="https://datacite.org/">DataCite</a>, <a href="https://www.dublincore.org/">Dublin Core</a>).</li>
+</ul>
+<ul>
+<li><p>Metadata should clearly include the identifier of the data it describes.</p></li>
+<li><p>Data should be registered or indexed in a searchable resource. You will need to deposit data in appropriate domain or institutional repositories that are indexed by search engines.</p></li>
+</ul>
+</section>
+<section id="making-data-accessible" class="level3">
+<h3 class="anchored" data-anchor-id="making-data-accessible">Making data accessible</h3>
+<ul>
+<li><p>Data should be retrievable by their identifier using a standardized protocol. Select repositories that provide web access protocols (HTTP/HTTPS) and web APIs (REST). The protocol should be open, free, and universally implementable.</p></li>
+<li><p>The protocol should allow for authentication and authorization where necessary. When needed, use standard authentication protocols rather than proprietary solutions.</p></li>
+<li><p>Even if data has restrictions, ensure the conditions for access are clearly specified.</p></li>
+<li><p>Metadata should remain accessible even when the data is no longer available.</p></li>
+</ul>
+</section>
+<section id="making-data-interoperable" class="level3">
+<h3 class="anchored" data-anchor-id="making-data-interoperable">Making data interoperable</h3>
+<ul>
+<li><p>Data should use formal, accessible, shared, and broadly applicable language for knowledge representation. Use standard formats: store data in non-proprietary, widely-used formats. For example: for structured data, you should use CSV, JSON or XML, rather than Excel sheets.</p></li>
+<li><p>Data should use vocabularies that follow FAIR principles. Use established ontologies and terminologies from your field.</p></li>
+<li><p>Data should include qualified references to other data. When referencing other datasets, use their persistent identifiers.</p></li>
+<li><p>Follow semantic web standards. Consider RDF data models and linked data approaches for complex datasets.</p></li>
+</ul>
+</section>
+<section id="making-data-reusable" class="level3">
+<h3 class="anchored" data-anchor-id="making-data-reusable">Making data reusable</h3>
+<ul>
+<li><p>Data should have accurate and relevant attributes.</p></li>
+<li><p>Data should be released with a clear and accessible license. Apply explicit, machine-readable licenses such as Creative Commons or Open Data Commons.</p></li>
+<li><p>Data should include detailed information about data origin, collection methods, and processing steps.</p></li>
+<li><p>Data should adhere to domain-specific data standards and reporting guidelines. Document data quality assessment methods and results.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="foxden-fair-at-chess" class="level1">
+<h1>FOXDEN: FAIR at CHESS</h1>
+<!-- TODO: expand this -->
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><p><a href="https://www.nature.com/articles/sdata201618">The FAIR Guiding Principles for scientific data management and stewardship</a></p></li>
+<li><p><a href="https://librarycarpentry.org/lc-fair-research/aio/index.html">Library Carpentry: FAIR Data and Software</a></p></li>
+<li><p><a href="https://fairisland.org/toolkit/">FAIR (&amp; Fair) Toolkit</a></p></li>
+<li><p><a href="https://www.go-fair.org/fair-principles/">FAIR Principles</a></p></li>
+<li><p><a href="https://cyverse-foundational-open-science-skills-2020.readthedocs-hosted.com/en/master/Data_management/FAIR.html">FAIR Data in Cyverse</a></p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -741,7 +835,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF200/curating-data.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF200/curating-data.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
