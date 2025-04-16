@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
 
-<title>Computing with CI Ecosystem – X-CITE</title>
+<title>exercises – X-CITE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +81,8 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta name="twitter:title" content="Computing with CI Ecosystem – X-CITE">
+<meta name="twitter:title" content="X-CITE">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -128,46 +128,71 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#linux-exercises-for-chess-users" id="toc-linux-exercises-for-chess-users" class="nav-link active" data-scroll-target="#linux-exercises-for-chess-users">Linux exercises for CHESS users</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-logging-in" id="toc-exercise-1-logging-in" class="nav-link" data-scroll-target="#exercise-1-logging-in">Exercise 1: Logging in</a></li>
+  <li><a href="#exercise-2-basic-commands" id="toc-exercise-2-basic-commands" class="nav-link" data-scroll-target="#exercise-2-basic-commands">Exercise 2: Basic commands</a></li>
+  <li><a href="#exercise-3-chess-user-directory" id="toc-exercise-3-chess-user-directory" class="nav-link" data-scroll-target="#exercise-3-chess-user-directory">Exercise 3: CHESS user directory</a></li>
+  <li><a href="#exercise-4-tab-completion" id="toc-exercise-4-tab-completion" class="nav-link" data-scroll-target="#exercise-4-tab-completion">Exercise 4: Tab completion</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme2/SF100/exercises.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Computing with CI Ecosystem</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="linux-exercises-for-chess-users" class="level1">
+<h1>Linux exercises for CHESS users</h1>
+<p>Wherever you see <code>&lt;your CLASSE username&gt;</code> below, substitute your own CLASSE username.</p>
+<section id="exercise-1-logging-in" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-logging-in">Exercise 1: Logging in</h2>
+<p>Open a terminal on <code>lnx201</code> using one of the following options: 1. <code>ssh</code> from your computer’s terminal (for Mac and Linux users) - Type <code>ssh &lt;your CLASSE username&gt;@lnx201.classe.cornell.edu</code> 3. PuTTY (for Windows users) - See https://wiki.classe.cornell.edu/Computing/WinTunnelVncSSH 5. Use CLASSE’s NoMachine service - Browse to https://nomachine.classe.cornell.edu 1. Use CLASSE’s JupyterHub service - Browse to https://jupyterhub.classe.cornell.edu</p>
+</section>
+<section id="exercise-2-basic-commands" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-basic-commands">Exercise 2: Basic commands</h2>
+<p>After logging in, you will be in your home directory. Start navigating in the same terminal window as before. Run the following commands: 1. <code>pwd</code> - pwd = print working directory. This commend tells you what the current working directory is 2. <code>ls</code> - This command lists the contents of your current working directory 3. <code>ls -la</code> - This command lists the contents of the current working directory with the additional options - <code>-l</code> tells <code>ls</code> to show details about each file’s type, permissions, size, etc. (lowercase “l” = “long”) - <code>-a</code> tells <code>ls</code> to list hidden files, too (“a” = “all”) - Individual options to ls like <code>-l</code> and <code>-a</code> can be shortened to <code>-la</code> - How to read the output of <code>ls -l</code>: https://docs.nersc.gov/filesystems/unix-file-permissions/</p>
+</section>
+<section id="exercise-3-chess-user-directory" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-chess-user-directory">Exercise 3: CHESS user directory</h2>
+<p>Do not make a habit of working in your home directory <code>/home/&lt;your CLASSE username&gt;</code>!</p>
+<p>Instead, use your CHESS user directory: <code>/nfs/chess/user/&lt;your CLASSE username&gt;</code>.</p>
+<ol type="1">
+<li>Type <code>cd /nfs/chess/user/&lt;your CLASSE username&gt;</code>
+<ul>
+<li>cd = change directory</li>
+<li>If your CHESS user directory does not exist, first type <code>mkdir /nfs/chess/user/&lt;your CLASSE username&gt;</code></li>
+</ul></li>
+<li>OR, use the premade symbolic link in your home directory:
+<ul>
+<li>Type <code>cd /home/&lt;your CLASSE username&gt;/CLASSE_shortcuts/chess_&lt;your CLASSE username&gt;</code></li>
+</ul></li>
+<li>Repeat Exercise 2 and observe how your CHESS user directory differs from your home directory</li>
+<li>Return to your home directory
+<ul>
+<li>Type <code>cd /home/&lt;your CLASSE username&gt;</code></li>
+<li>OR type <code>cd ~</code>
+<ul>
+<li>The tilde symbol <code>~</code> is shorthand for your home directory</li>
+</ul></li>
+</ul></li>
+</ol>
+</section>
+<section id="exercise-4-tab-completion" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-tab-completion">Exercise 4: Tab completion</h2>
+<p>Tab completion is an extremely useful feature of the Linux command line that helps you type commands much faster. It works with commands and file paths. Simply start typing one or two characters of a command or file path, then hit the <code>tab</code> key. The command line will automatically fill in additional characters if it can. If it cannot fill in your command or file path all the way, hit the <code>tab</code> key twice to see the available options. (Unfortunately tab completion is not available in the JupyterHub terminal.)</p>
+<p>For example: 1. Type <code>cd ~/CL</code>, then hit the <code>tab</code> key - The command line should automatically complete what you typed to <code>cd ~/CLASSE_shortcuts/</code> (unless you have another file or directory that begins with “CL”) - Hit <code>return</code>. Now you are in the CLASSE_shortcuts directory within your home directory - Type <code>ls</code> to see the directory contents 2. Type <code>cd ch</code>, then hit the <code>tab</code> key - This time, the command line can only partially complete what you’ve typed. Hit the <code>tab</code> key <strong>twice</strong> to show the available options, one of which should be <code>chess_&lt;your CLASSE username&gt;</code>. - Now, type the first letter or two of your CLASSE username and hit <code>tab</code> again. - If the command line was able to complete your username, then hit <code>return</code> to go to your CHESS user directory - If not, keep typing letters followed by <code>tab</code> until your username is complete, then hit <code>return</code></p>
 
 
-</header>
-
-
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is work in progress.</p>
-</div>
-</div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -741,7 +766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC200/computing-with-ci-ecosystem.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme2/SF100/exercises.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

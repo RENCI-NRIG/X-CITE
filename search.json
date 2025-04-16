@@ -651,6 +651,62 @@
     "text": "Theme 5: Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories 🚧\nCF 101: Best practices for developing DMP 🚧\nCF 102: Metadata annotation and DOI 🚧\nCF 200: Curating data, code, workflows, and publishing 🚧"
   },
   {
+    "objectID": "theme2/SF100/exercises.html",
+    "href": "theme2/SF100/exercises.html",
+    "title": "Linux exercises for CHESS users",
+    "section": "",
+    "text": "Wherever you see &lt;your CLASSE username&gt; below, substitute your own CLASSE username.\n\n\nOpen a terminal on lnx201 using one of the following options: 1. ssh from your computer’s terminal (for Mac and Linux users) - Type ssh &lt;your CLASSE username&gt;@lnx201.classe.cornell.edu 3. PuTTY (for Windows users) - See https://wiki.classe.cornell.edu/Computing/WinTunnelVncSSH 5. Use CLASSE’s NoMachine service - Browse to https://nomachine.classe.cornell.edu 1. Use CLASSE’s JupyterHub service - Browse to https://jupyterhub.classe.cornell.edu\n\n\n\nAfter logging in, you will be in your home directory. Start navigating in the same terminal window as before. Run the following commands: 1. pwd - pwd = print working directory. This commend tells you what the current working directory is 2. ls - This command lists the contents of your current working directory 3. ls -la - This command lists the contents of the current working directory with the additional options - -l tells ls to show details about each file’s type, permissions, size, etc. (lowercase “l” = “long”) - -a tells ls to list hidden files, too (“a” = “all”) - Individual options to ls like -l and -a can be shortened to -la - How to read the output of ls -l: https://docs.nersc.gov/filesystems/unix-file-permissions/\n\n\n\nDo not make a habit of working in your home directory /home/&lt;your CLASSE username&gt;!\nInstead, use your CHESS user directory: /nfs/chess/user/&lt;your CLASSE username&gt;.\n\nType cd /nfs/chess/user/&lt;your CLASSE username&gt;\n\ncd = change directory\nIf your CHESS user directory does not exist, first type mkdir /nfs/chess/user/&lt;your CLASSE username&gt;\n\nOR, use the premade symbolic link in your home directory:\n\nType cd /home/&lt;your CLASSE username&gt;/CLASSE_shortcuts/chess_&lt;your CLASSE username&gt;\n\nRepeat Exercise 2 and observe how your CHESS user directory differs from your home directory\nReturn to your home directory\n\nType cd /home/&lt;your CLASSE username&gt;\nOR type cd ~\n\nThe tilde symbol ~ is shorthand for your home directory\n\n\n\n\n\n\nTab completion is an extremely useful feature of the Linux command line that helps you type commands much faster. It works with commands and file paths. Simply start typing one or two characters of a command or file path, then hit the tab key. The command line will automatically fill in additional characters if it can. If it cannot fill in your command or file path all the way, hit the tab key twice to see the available options. (Unfortunately tab completion is not available in the JupyterHub terminal.)\nFor example: 1. Type cd ~/CL, then hit the tab key - The command line should automatically complete what you typed to cd ~/CLASSE_shortcuts/ (unless you have another file or directory that begins with “CL”) - Hit return. Now you are in the CLASSE_shortcuts directory within your home directory - Type ls to see the directory contents 2. Type cd ch, then hit the tab key - This time, the command line can only partially complete what you’ve typed. Hit the tab key twice to show the available options, one of which should be chess_&lt;your CLASSE username&gt;. - Now, type the first letter or two of your CLASSE username and hit tab again. - If the command line was able to complete your username, then hit return to go to your CHESS user directory - If not, keep typing letters followed by tab until your username is complete, then hit return"
+  },
+  {
+    "objectID": "theme2/SF100/exercises.html#exercise-1-logging-in",
+    "href": "theme2/SF100/exercises.html#exercise-1-logging-in",
+    "title": "Linux exercises for CHESS users",
+    "section": "",
+    "text": "Open a terminal on lnx201 using one of the following options: 1. ssh from your computer’s terminal (for Mac and Linux users) - Type ssh &lt;your CLASSE username&gt;@lnx201.classe.cornell.edu 3. PuTTY (for Windows users) - See https://wiki.classe.cornell.edu/Computing/WinTunnelVncSSH 5. Use CLASSE’s NoMachine service - Browse to https://nomachine.classe.cornell.edu 1. Use CLASSE’s JupyterHub service - Browse to https://jupyterhub.classe.cornell.edu"
+  },
+  {
+    "objectID": "theme2/SF100/exercises.html#exercise-2-basic-commands",
+    "href": "theme2/SF100/exercises.html#exercise-2-basic-commands",
+    "title": "Linux exercises for CHESS users",
+    "section": "",
+    "text": "After logging in, you will be in your home directory. Start navigating in the same terminal window as before. Run the following commands: 1. pwd - pwd = print working directory. This commend tells you what the current working directory is 2. ls - This command lists the contents of your current working directory 3. ls -la - This command lists the contents of the current working directory with the additional options - -l tells ls to show details about each file’s type, permissions, size, etc. (lowercase “l” = “long”) - -a tells ls to list hidden files, too (“a” = “all”) - Individual options to ls like -l and -a can be shortened to -la - How to read the output of ls -l: https://docs.nersc.gov/filesystems/unix-file-permissions/"
+  },
+  {
+    "objectID": "theme2/SF100/exercises.html#exercise-3-chess-user-directory",
+    "href": "theme2/SF100/exercises.html#exercise-3-chess-user-directory",
+    "title": "Linux exercises for CHESS users",
+    "section": "",
+    "text": "Do not make a habit of working in your home directory /home/&lt;your CLASSE username&gt;!\nInstead, use your CHESS user directory: /nfs/chess/user/&lt;your CLASSE username&gt;.\n\nType cd /nfs/chess/user/&lt;your CLASSE username&gt;\n\ncd = change directory\nIf your CHESS user directory does not exist, first type mkdir /nfs/chess/user/&lt;your CLASSE username&gt;\n\nOR, use the premade symbolic link in your home directory:\n\nType cd /home/&lt;your CLASSE username&gt;/CLASSE_shortcuts/chess_&lt;your CLASSE username&gt;\n\nRepeat Exercise 2 and observe how your CHESS user directory differs from your home directory\nReturn to your home directory\n\nType cd /home/&lt;your CLASSE username&gt;\nOR type cd ~\n\nThe tilde symbol ~ is shorthand for your home directory"
+  },
+  {
+    "objectID": "theme2/SF100/exercises.html#exercise-4-tab-completion",
+    "href": "theme2/SF100/exercises.html#exercise-4-tab-completion",
+    "title": "Linux exercises for CHESS users",
+    "section": "",
+    "text": "Tab completion is an extremely useful feature of the Linux command line that helps you type commands much faster. It works with commands and file paths. Simply start typing one or two characters of a command or file path, then hit the tab key. The command line will automatically fill in additional characters if it can. If it cannot fill in your command or file path all the way, hit the tab key twice to see the available options. (Unfortunately tab completion is not available in the JupyterHub terminal.)\nFor example: 1. Type cd ~/CL, then hit the tab key - The command line should automatically complete what you typed to cd ~/CLASSE_shortcuts/ (unless you have another file or directory that begins with “CL”) - Hit return. Now you are in the CLASSE_shortcuts directory within your home directory - Type ls to see the directory contents 2. Type cd ch, then hit the tab key - This time, the command line can only partially complete what you’ve typed. Hit the tab key twice to show the available options, one of which should be chess_&lt;your CLASSE username&gt;. - Now, type the first letter or two of your CLASSE username and hit tab again. - If the command line was able to complete your username, then hit return to go to your CHESS user directory - If not, keep typing letters followed by tab until your username is complete, then hit return"
+  },
+  {
+    "objectID": "theme2/SF200/parallel-computing.html",
+    "href": "theme2/SF200/parallel-computing.html",
+    "title": "Parallel Computing Concepts",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "theme2/SF101/containers-and-virtualization.html",
+    "href": "theme2/SF101/containers-and-virtualization.html",
+    "title": "Containers and Virtualization",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "theme2/SF201/batch-systems-and-compute-farms.html",
+    "href": "theme2/SF201/batch-systems-and-compute-farms.html",
+    "title": "Batch Systems and Compute Farms",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
+  },
+  {
     "objectID": "theme2/SF100/index.html",
     "href": "theme2/SF100/index.html",
     "title": "Linux, Command Line, and Scripting",
@@ -775,27 +831,6 @@
     "title": "Linux, Command Line, and Scripting",
     "section": "Signals",
     "text": "Signals\nAs mentioned above, kill command sends signals to running processes, and we’ve already seen SIGTERM and SIGKILL. Signals are a process control mechanism. They are used to stop, resume, or terminate processes, and more.\nWhen we use Ctrl-CCtrl-C or Ctrl-ZCtrl-Z, we are sending signals to process – SIGINT (or “keyboard interrupt”) and SIGTSTP (or “terminal stop”), respectively.\nSignals have numbers: SIGKILL is 9, so you can use kill -9 &lt;pid&gt; instead of kill -SIGKILL &lt;pid&gt;. You can also omit the SIG prefix, and use kill -KILL &lt;pid&gt;.\nHere are some common signals:\n\n       Signal     Value     Action   Comment\n       ──────────────────────────────────────────────────────────────────────\n       SIGHUP        1       Term    Hangup detected on controlling terminal\n                                     or death of controlling process\n       SIGINT        2       Term    Interrupt from keyboard\n       SIGQUIT       3       Core    Quit from keyboard\n       SIGILL        4       Core    Illegal Instruction\n       SIGABRT       6       Core    Abort signal from abort(3)\n       SIGFPE        8       Core    Floating point exception\n       SIGKILL       9       Term    Kill signal\n       SIGSEGV      11       Core    Invalid memory reference\n       SIGPIPE      13       Term    Broken pipe: write to pipe with no\n                                     readers\n       SIGALRM      14       Term    Timer signal from alarm(2)\n       SIGTERM      15       Term    Termination signal\nRun the command man 7 signal to read signal command’s manual page."
-  },
-  {
-    "objectID": "theme2/SF201/batch-systems-and-compute-farms.html",
-    "href": "theme2/SF201/batch-systems-and-compute-farms.html",
-    "title": "Batch Systems and Compute Farms",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is work in progress."
-  },
-  {
-    "objectID": "theme2/SF101/containers-and-virtualization.html",
-    "href": "theme2/SF101/containers-and-virtualization.html",
-    "title": "Containers and Virtualization",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is work in progress."
-  },
-  {
-    "objectID": "theme2/SF200/parallel-computing.html",
-    "href": "theme2/SF200/parallel-computing.html",
-    "title": "Parallel Computing Concepts",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is work in progress."
   },
   {
     "objectID": "theme2/SF100/slides.html#assumptions",
