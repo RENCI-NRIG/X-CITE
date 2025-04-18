@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -137,6 +171,8 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
   <li><a href="#step-1-logging-in" id="toc-step-1-logging-in" class="nav-link" data-scroll-target="#step-1-logging-in">Step 1: Logging in</a></li>
   <li><a href="#step-2-create-input-files" id="toc-step-2-create-input-files" class="nav-link" data-scroll-target="#step-2-create-input-files">Step 2: Create input files</a></li>
   <li><a href="#step-3-interact-with-files" id="toc-step-3-interact-with-files" class="nav-link" data-scroll-target="#step-3-interact-with-files">Step 3: Interact with files</a></li>
+  <li><a href="#setting-up-python-virtual-environment" id="toc-setting-up-python-virtual-environment" class="nav-link" data-scroll-target="#setting-up-python-virtual-environment">Setting up python virtual environment</a></li>
+  <li><a href="#how-to-deactivate-the-virtual-environment" id="toc-how-to-deactivate-the-virtual-environment" class="nav-link" data-scroll-target="#how-to-deactivate-the-virtual-environment">How to Deactivate the Virtual Environment</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme1/PE100/exercises.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -207,8 +243,84 @@ with open('analysis.json', 'w') as ostream:
 <ol start="3" type="1">
 <li>Type <code>Ctrl-D</code> to exit the interactive python session</li>
 </ol>
+</section>
+<section id="setting-up-python-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-python-virtual-environment">Setting up python virtual environment</h2>
+<p>A <strong>virtual environment</strong> is a self-contained directory that contains a Python installation for a particular project, along with all its packages. It isolates project dependencies, ensuring that different projects don’t interfere with each other’s libraries and versions.</p>
+<p><strong>Why use it?</strong> - Avoid dependency conflicts between projects. - Safely test upgrades without affecting system Python. - Clean, reproducible development environments.</p>
+<hr>
+<section id="how-to-set-up-and-activate-a-virtual-environment" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-set-up-and-activate-a-virtual-environment">How to Set Up and Activate a Virtual Environment</h4>
+<ol type="1">
+<li><strong>Install <code>virtualenv</code> (optional)</strong> Python 3.x comes with <code>venv</code> built-in command which we can use to create and setup virtual environment</li>
+</ol>
+<pre><code>python3 -m venv myenv</code></pre>
+<ul>
+<li><code>myenv</code> is the name of the folder where the environment will be created.</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Activate the Virtual Environment</strong></li>
+</ol>
+<ul>
+<li><p><strong>On Linux/macOS</strong>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> myenv/bin/activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>On Windows (cmd.exe)</strong>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cmd code-with-copy"><code class="sourceCode dosbat"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>myenv\Scripts\activate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>On Windows (PowerShell)</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\myenv\Scripts\Activate<span class="op">.</span><span class="fu">ps1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>Once activated, your shell prompt will change to show the environment name, e.g., <code>(myenv)</code>.</p>
+<hr>
+</section>
+<section id="how-to-install-a-package-inside-the-virtual-environment" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-install-a-package-inside-the-virtual-environment">How to Install a Package Inside the Virtual Environment</h4>
+<p>While the virtual environment is <strong>activated</strong>, you can install packages normally using <code>pip</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p>Example: Installing a specific version:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install requests==2.28.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<p>All installed packages will now live inside the <code>myenv</code> directory.</p>
+<hr>
+</section>
+</section>
+<section id="how-to-deactivate-the-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-deactivate-the-virtual-environment">How to Deactivate the Virtual Environment</h2>
+<p>When you’re done working inside the virtual environment, simply run:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will return you to the original system Python environment.</p>
+<hr>
+<section id="quick-summary" class="level4">
+<h4 class="anchored" data-anchor-id="quick-summary">Quick Summary</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Create venv</td>
+<td><code>python3 -m venv myenv</code></td>
+</tr>
+<tr class="even">
+<td>Activate venv</td>
+<td><code>source myenv/bin/activate</code> (Linux/macOS)</td>
+</tr>
+<tr class="odd">
+<td>Install pkg</td>
+<td><code>pip install &lt;package&gt;</code></td>
+</tr>
+<tr class="even">
+<td>Deactivate</td>
+<td><code>deactivate</code></td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 </section>
 
