@@ -63,3 +63,83 @@ with open('analysis.json', 'w') as ostream:
     ostream.write(json.dumps(data))
 ```
 3. Type `Ctrl-D` to exit the interactive python session
+
+## Setting up python virtual environment
+A **virtual environment** is a self-contained directory that contains a Python installation
+for a particular project, along with all its packages. It isolates project dependencies,
+ensuring that different projects don't interfere with each other's libraries and versions.
+
+**Why use it?**
+- Avoid dependency conflicts between projects.
+- Safely test upgrades without affecting system Python.
+- Clean, reproducible development environments.
+
+---
+
+#### How to Set Up and Activate a Virtual Environment
+
+1. **Install `virtualenv` (optional)**
+Python 3.x comes with `venv` built-in command which we can use to create and setup virtual environment
+```
+python3 -m venv myenv
+```
+- `myenv` is the name of the folder where the environment will be created.
+
+2. **Activate the Virtual Environment**
+
+- **On Linux/macOS**:
+  ```bash
+  source myenv/bin/activate
+  ```
+
+- **On Windows (cmd.exe)**:
+  ```cmd
+  myenv\Scripts\activate
+  ```
+
+- **On Windows (PowerShell)**:
+  ```powershell
+  .\myenv\Scripts\Activate.ps1
+  ```
+
+Once activated, your shell prompt will change to show the environment name, e.g., `(myenv)`.
+
+---
+
+#### How to Install a Package Inside the Virtual Environment
+
+While the virtual environment is **activated**, you can install packages normally using `pip`:
+
+```bash
+pip install requests
+```
+
+- Example: Installing a specific version:
+  ```bash
+  pip install requests==2.28.1
+  ```
+
+All installed packages will now live inside the `myenv` directory.
+
+---
+
+## How to Deactivate the Virtual Environment
+
+When you're done working inside the virtual environment, simply run:
+
+```bash
+deactivate
+```
+
+This will return you to the original system Python environment.
+
+---
+
+#### Quick Summary
+| Action        | Command                                  |
+|---------------|------------------------------------------|
+| Create venv   | `python3 -m venv myenv`                  |
+| Activate venv | `source myenv/bin/activate` (Linux/macOS)|
+| Install pkg   | `pip install <package>`                 |
+| Deactivate    | `deactivate`                             |
+
