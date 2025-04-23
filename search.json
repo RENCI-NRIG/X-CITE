@@ -1,318 +1,269 @@
 [
   {
-    "objectID": "theme2/SF100/exercises.html",
-    "href": "theme2/SF100/exercises.html",
+    "objectID": "theme2/SF100/index.html",
+    "href": "theme2/SF100/index.html",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "",
+    "text": "The following notes assume that you are all set up to use your accounts on the CLASSE Linux systems.\nDepending on your level of familiarity with the system, you might know enough commands to find your way around. Since it probably is not a good idea to make such assumptions right off the bat, let us see what you might need to know to in order to become a proficient user of the systems."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#linux",
+    "href": "theme2/SF100/index.html#linux",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Linux",
+    "text": "Linux\nLinux is a free and open source operating system known for stability, security, and versatility. Linux runs on a variety of machines from small embedded systems to powerful servers. A great deal of software runs on Linux.\nYou probably know all this already, so let us skip ahead."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#the-command-line",
+    "href": "theme2/SF100/index.html#the-command-line",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "The command line",
+    "text": "The command line\nTo perform certain kinds of tasks, using the command line is often quicker and more efficient. You can “chain” or compose separate programs together, each of them specializing in doing different things. You can save longer tasks in the form of scripts for later use, and share them with your colleagues.\nHere’s a quick example. You will find documentation for the software installed on lnx201 in the directory /usr/share/doc. Many of those are named README, or README.md, or README.rst, or readme.txt, or some such variation. How many such files are there in /usr/share/doc?\nWe can find that out by using find (a program for searching for files under a directory tree) and wc (a word count program):\n[ssasidharan@lnx201 ~]$ find /usr/share/doc/ -iname \"readme*\" | wc -l\n1589\nMany of the files in /usr/share/doc mention the word “license” or “LICENSE” or some variation thereof. How many such lines are there? In order to find that out, we can use grep (a program that matches patterns), and wc together:\n[ssasidharan@lnx201 ~]$ grep -ir license /usr/share/doc/ | wc -l\n84089\nLearning to use the command line well will leave more power on your hands."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#using-the-shell-prompt",
+    "href": "theme2/SF100/index.html#using-the-shell-prompt",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Using the shell prompt",
+    "text": "Using the shell prompt\nThe [ssasidharan@lnx201 ~]$ thing with a blinking cursor at the end is called a shell prompt. You type commands at the shell prompt, hit enter, and then something happens in response to that.\nThe examples in these notes are my shell prompt: it contains my username on lnx201, followed by @ character, followed by the name of the computer (or “hostname”), followed by the current directory. Your prompt will be different, because it will contain your username.\nAfter entering the first few characters of a command, you can use the tabtab key for auto-completing commands.\n[ssasidharan@lnx201 /]$ ssh&lt;tab&gt;\nssh          ssh-agent    sshd         sshfs        ssh-keyscan  \nssh-add      ssh-copy-id  sshd-keygen  ssh-keygen   sshpass   \n[ssasidharan@lnx201 /]$ condor_&lt;tab&gt;\nDisplay all 119 possibilities? (y or n)\nBash offers some helpful methods for editing and navigating the history of commands you have previously executed.\n\nYou can use up/down arrow keys to navigate history.\nhistory command will print a list of recently used commands.\nYou can use Ctrl-RCtrl-R to search command history.\nCtrl-ACtrl-A will make the cursor to the beginning of the line.\nCtrl-ECtrl-E will go to the end of the line.\nCtrl-KCtrl-K will “kill” (cut) text from current position to end of line to a buffer called the “kill-ring”.\nCtrl-YCtrl-Y will “yank” (paste) most recently killed text from the kill ring to current cursor position.\nAlt-YAlt-Y will cycle through the kill-ring.\n\nTo exit the shell, you can use exit command or Ctrl-DCtrl-D.\nIf you are using ssh to connect to lnx201, exiting the shell will end your ssh session. If you had opened a terminal window, exiting the shell will close the window."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#how-does-bash-set-up-the-environment",
+    "href": "theme2/SF100/index.html#how-does-bash-set-up-the-environment",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "How does bash set up the environment?",
+    "text": "How does bash set up the environment?\nThere are two kinds of shell sessions: login and non-login. login session starts when you enter a username and password, such as when using ssh. A non-login session starts when you open a terminal window from a desktop.\nDepending on how the session was started, a few shell scripts are read and executed when starting a shell.\nFor login shells these will be:\n\n/etc/profile is a global script that applies to all users.\n\n~/.bash_profile is a script in your home directory, and it is applied when you start a shell.\nIf ~/.bash_profile was not found, bash will attempt to read ~/.bash_login and ~/.profile in order.\n\nFor non-login shells:\n\n/etc/bashrc is the script that applies to everyone.\n~/.bashrc is the script that applies to you.\n\nNon-login shells also inherit the environment from their parent process, which is usually a login shell.\nSystems vary on how they are set up. You should look around lnx201 to find out how this is done there. These files are some examples of shell scripts, which is a topic we’ll visit later in these notes."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#changing-environment-variables",
+    "href": "theme2/SF100/index.html#changing-environment-variables",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Changing environment variables",
+    "text": "Changing environment variables\nYou can also use export command to overwrite existing environment variables, or add new ones. For example:\n[ssasidharan@lnx201 /]$ export HISTSIZE=2000\n[ssasidharan@lnx201 /]$ echo $HISTSIZE\n2000\nNote that this change in HISTSIZE applies only to the current shell. It will be forgotten when you exit the shell.\nIn order to make the change permanent, you will need to add the line export HISTSIZE=2000 to your ~/.bash_profile file."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#absolute-and-relative-paths",
+    "href": "theme2/SF100/index.html#absolute-and-relative-paths",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Absolute and relative paths",
+    "text": "Absolute and relative paths\nPaths can be specified in two ways: absolute or relative. An absolute pathname begins with the root directory, /, and contains every directory name, branch by branch.\nAbsolute path to the Desktop directory in my home directory on lnx201 is /home/ssasidharan/Desktop/.\nIn comparison, a relative pathname starts from the working directory. When I’m in my home directory, I can simply use the relative pathname, Desktop.\nEvery directory contains two special directory names, . and .., in which . refers to the current directory, and .. refers to the parent directory of the current directory.\n[ssasidharan@lnx201 ~]$ pwd\n/home/ssasidharan\n[ssasidharan@lnx201 ~]$ cd .\n[ssasidharan@lnx201 ~]$ pwd\n/home/ssasidharan\n[ssasidharan@lnx201 ~]$ cd ..\n[ssasidharan@lnx201 home]$ pwd\n/home\n[ssasidharan@lnx201 home]$ cd ..\n[ssasidharan@lnx201 /]$ pwd\n/"
+  },
+  {
+    "objectID": "theme2/SF100/index.html#wildcards",
+    "href": "theme2/SF100/index.html#wildcards",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Wildcards",
+    "text": "Wildcards\nThe shell gives special treatment to some characters, known as wildcards. Using wildcard characters, we can quickly specify groups of files.\nThe wildcard character * stands for any set of characters. For example, you can list the names of all programs in /usr/bin that start with ab with ls /usr/bin/ab*:\n[ssasidharan@lnx201 ~]$ ls /usr/bin/ab*\n/usr/bin/ab  /usr/bin/abs2rel\nThe wildcard character ? stands for any single character. So if you want to list the filenames in /usr/bin that starts with any character, followed by abc, followed by any characters:\n[ssasidharan@lnx201 ~]$ ls /usr/bin/?abc*\n/usr/bin/kabc2mutt  /usr/bin/kabcclient"
+  },
+  {
+    "objectID": "theme2/SF100/index.html#the-current-working-directory",
+    "href": "theme2/SF100/index.html#the-current-working-directory",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "The current working directory",
+    "text": "The current working directory\nAt any time in the shell, we are “inside” a single directory, known as the current working directory. When you list files with ls, a list of files and directories of the current working directory will be printed on the output.\nWhen you log in to lnx201, initially you will be in a directory named /home/${USER}, where ${USER} is your username on lnx201. This is what is known as your /home directory/. When you log in first, your home directory will be your current working directory.\nTo find where you are, use the command pwd.\nThe below commands are useful:\n\nmkdir test will create a directory named test\ncd test will change the working directory to test.\nls will list files and directories in the current working directory.\nrm will remove a file.\nrm &lt;name of directory&gt; will not remove a directory; you have to remove it recursively, like so: rm -r &lt;name of directory&gt;.\n\ncd - is useful: it will switch you to the directory that you were previously in:\n[ssasidharan@lnx201 /]$ cd /usr/\n[ssasidharan@lnx201 usr]$ pwd\n/usr\n[ssasidharan@lnx201 usr]$ cd share/\n[ssasidharan@lnx201 share]$ pwd\n/usr/share\n[ssasidharan@lnx201 share]$ cd -\n/usr\n[ssasidharan@lnx201 usr]$ pwd\n/usr\nRunning cd ~ (or simply cd) will drop you back in your home directory:\n[ssasidharan@lnx201 ~]$ cd /usr/share/doc/\n[ssasidharan@lnx201 doc]$ pwd\n/usr/share/doc\n[ssasidharan@lnx201 doc]$ cd ~\n[ssasidharan@lnx201 ~]$ pwd\n/home/ssasidharan\nIt is worth noting that the shell will substitute ~ for your home directory.\n. and .. are special directory names: . means the current directory, and .. means its parent directory, or the directory above it in the directory hierarchy.\ntouch command is used to change file timestamps. You can also use touch to create an empty file, like so: touch test.txt.\n\nSymbolic links\nOn my home directory on lnx201, when I do an ls -l (which is for ls with long file listing format), I would see something like this:\nlrwxrwxrwx  1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\nThe first letter of the listing is l and the entry kind of suggests that my Downloads directory is a reference to another directory, /cdat/tem/ssasidharan/Downloads. The Downloads directory in my home directory is what is called a symbolic link, which also known as a soft link or “symlink”.\nWith symbolic links, we can have shortcuts to other files or directories."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#users-and-groups",
+    "href": "theme2/SF100/index.html#users-and-groups",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Users and groups",
+    "text": "Users and groups\nLinux is a multi-user operating system. Since many people can be using the system, there needs to be mechanisms in place to ensure separation between them, while ensuring that they can access shared resources when necessary.\nThe basic mechanism is the concept of users and groups.\nThe root user is a special user that has all the permissions. They can change most things about the system. The root user can change system configuration, add and remove users and groups, etc.\nMost of the time, we do not need neither the power nor the responsibilities of the root user. So we have a non-root, regular user account in lnx201.\nYour account also belongs to certain groups. Groups are the way to grant permission to a group of accounts. You can find the groups you belong to using groups command:\n[ssasidharan@lnx201 ~]$ groups\nchess classeuser\n[ssasidharan@lnx201 ~]$\nUsers and groups have distinct numerical identifiers too. You can find them with id command:\n[ssasidharan@lnx201 ~]$ id\nuid=63499(ssasidharan) gid=262(chess) groups=262(chess),750(classeuser)\nIf you run ls -l (-l is for long listing format) command to list files and folders in your home directory, the result will be something like this:\n[ssasidharan@lnx201 ~]$ ls -l\ntotal 4\ndrwxr-xr-x 2 ssasidharan chess   28 Mar 28 09:36 bin\ndrwxr-xr-x 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts\ndrwxr-xr-x 2 ssasidharan chess   30 Mar 26 15:22 Desktop\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Documents\nlrwxrwxrwx 1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\n-rw-r--r-- 1 ssasidharan chess 3254 Mar  7 15:55 helloworld.ipynb\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Music\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Pictures\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Public\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Templates\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Videos\nLet us see what the above columns means:\n\nThe first column lists permissions on the file/folder. (We will see what this means in the next section.)\nThe second column shows number of links to it.\nThe third one shows the user who owns it.\nThe fourth one shows the group that owns the file.\nThe fifth one is the size of the file in bytes. Note that directories are a little special here – what you see here is not the total size of all the files and folders under the directory, but the space the directory itself uses on disk.\nThe next column (the whole Mar 26 15:21 segment) shows a timestamp when the file/folder was last modified.\nFinally, the name of the file/folder. Note that Downloads -&gt;   /cdat/tem/ssasidharan/Downloads is a bit special: it means that Downloads folder is in fact a link to /cdat/tem/ssasidharan/Downloads."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#permissions-and-ownership",
+    "href": "theme2/SF100/index.html#permissions-and-ownership",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Permissions and ownership",
+    "text": "Permissions and ownership\nLet us see what a string like drwxr-xr-x from the above example means. This string, sometimes called “permission bits” or “file mode bits”, is ten characters long. Each of the characters are shorthand signifying something.\n\nThe first d stands for directory. (For files, this will be a -.)\nThe next three rwx are for user’s permissions.\nThe next three r-x are for group permissions.\nThe final three r-x are for permissions for the rest of the users.\n\nNow, what do those r and w and x mean?\n\nr means permission to read.\nw means permission to write.\nx means permission to execute, in the case of files. In the case of directories, x means that you can cd into them.\n\n\nChanging permissions with chmod\nYou can use chmod command to change permissions. If you create a shell script named test.sh, for example, it won’t be executable by default. You will have to change the file mode bits using chmod:\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ ./test.sh\n-bash: ./test.sh: Permission denied\n[ssasidharan@lnx201 ~]$ chmod +x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ ./test.sh\nYou can remove the x bit like so:\n[ssasidharan@lnx201 ~]$ chmod -x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\nYou can also grant permission to just the owner, or group, or others:\n[ssasidharan@lnx201 ~]$ chmod u+x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ chmod g+x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ chmod o+x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\nYou can also combine u, g, o bits and r, w, x bits with + or -:\n[ssasidharan@lnx201 ~]$ chmod ugo-r test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n--wx--x--x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\nI just made the file unreadable by everyone, even me!\n[ssasidharan@lnx201 ~]$ cat test.sh\ncat: test.sh: Permission denied\nOf course you can restore the permission with chmod ugo+r test.sh\nNote that when invoking chmod, a (or all) is equivalent of ugo (user + group + others). You can also omit a or ugo if you want everyone to have the same permissions. So the below all are equivalent:\n[ssasidharan@lnx201 ~]$ chmod ugo+r test.sh\n[ssasidharan@lnx201 ~]$ chmod a+r test.sh\n[ssasidharan@lnx201 ~]$ chmod +r test.sh\n(If you want to change owner or group of a file/folder, you can do that with chown and chgrp. This probably is not immediately useful; it is enough to know that these commands exist.)"
+  },
+  {
+    "objectID": "theme2/SF100/index.html#noteworthy-facts-about-file-names",
+    "href": "theme2/SF100/index.html#noteworthy-facts-about-file-names",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Noteworthy facts about file names",
+    "text": "Noteworthy facts about file names\n\nFile/folder names that begin with a . (period character) are “hidden”: meaning that they will not be listed in the output of ls command by default. You can list them with ls -a. They are also called dotfiles.\nConfiguration files for the programs you use (such as .bashrc for bash configuration) are often saved in hidden files. This way they usually stay out of your way without creating a clutter.\nFile/folder names and commands are case sensitive in Linux. Thus Notes.txt and notes.txt and NOTES.TXT are all distinct files.\nAs a matter of convenience, it is better to avoid spaces and special characters in file/folder names, as it will make tasks a little more difficult. If you need to represent spaces between words, you can replace spaces with _ (the underscore character)."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#io-redirection",
+    "href": "theme2/SF100/index.html#io-redirection",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "I/O redirection",
+    "text": "I/O redirection\nI/O redirection lets us to change where standard output gets printed. To redirect standard output, we use the &gt; operator.\n[ssasidharan@lnx201 ~]$ ls -l &gt; ls-output.txt\nAs a result of redirection, a new file named ls-output.txt will be created. You can view its contents using cat command.\n[ssasidharan@lnx201 ~]$ ls -l ls-output.txt\n-rw-r--r-- 1 ssasidharan chess 807 Apr  1 17:32 ls-output.txt\n[ssasidharan@lnx201 ~]$ cat ls-output.txt\ntotal 4\ndrwxr-xr-x 2 ssasidharan chess   28 Mar 28 09:36 bin\ndrwxr-xr-x 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts\ndrwxr-xr-x 2 ssasidharan chess   30 Mar 26 15:22 Desktop\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Documents\nlrwxrwxrwx 1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\n-rw-r--r-- 1 ssasidharan chess 3254 Mar  7 15:55 helloworld.ipynb\n-rw-r--r-- 1 ssasidharan chess    0 Apr  1 17:32 ls-output.txt\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Music\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Pictures\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Public\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Templates\n-rwxr-xr-x 1 ssasidharan chess    0 Mar 28 13:39 test.sh\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Videos\nNote that if there already was a file named ls-output.txt, the redirection above would have overwritten its contents. You want to be careful about this.\nWhat if you want to discard stdout completely? You can redirect it to the special file /dev/null:\n[ssasidharan@lnx201 ~]$ ls -l &gt; /dev/null\nIf you want to append stdout to a file instead of overwriting it, you can use &gt;&gt; operator:\n[ssasidharan@lnx201 ~]$ ls -l &gt;&gt; ls-output.txt\nThe &lt; operator is a sort of inverse of the &gt; operator:\n[ssasidharan@lnx201 ~]$ echo \"Shall I compare thee to a summer’s day?\" &gt; sonnet18.txt\n[ssasidharan@lnx201 ~]$ cat sonnet18.txt\nShall I compare thee to a summer’s day?\n[ssasidharan@lnx201 ~]$ cat &lt; sonnet18.txt\nShall I compare thee to a summer’s day?"
+  },
+  {
+    "objectID": "theme2/SF100/index.html#pipes",
+    "href": "theme2/SF100/index.html#pipes",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Pipes",
+    "text": "Pipes\nPrograms can write to standard output. Programs can also read from standard input. This means we can “chain” them together, such that one programs standard output is “piped” into another program’s standard input.\nThe operator to do this is | (vertical bar), also known as a pipe, and it is used in this manner: command1 | command2.\n[ssasidharan@lnx201 ~]$ ls -l /bin/ | less\nThe output of ls -l /bin is fairly large, so we pipe it into less, which allows you to scroll the output backward and forward, using up and down keyboard keys.\nYou can form longer pipes like this:\n[ssasidharan@lnx201 ~]$ ls /bin /usr/bin /sbin /usr/sbin | sort | uniq | wc\n   4289    4288   46820\n\nsort will sort lines of text files.\nuniq is used to filter adjacent matching lines the output of sort.\nwc is a word count program. It counts lines, words, and bytes present in its input."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#listing-processes",
+    "href": "theme2/SF100/index.html#listing-processes",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Listing processes",
+    "text": "Listing processes\nYou can list running processes using ps command:\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 694411 pts/81   00:00:00 ps\n3479688 pts/81   00:00:00 bash\nBy default, ps prints processes of the current user and terminal in four columns:\n\nPID is process id.\nTTY is the terminal associated with the process.\nTIME is the elapsed CPU time for the process.\nCMD is the command that created the process.\n\nUsually there are many more processes running in the system, and sometimes they were started by other users. You can list them, with more detail, by passing some options to ps:\n[ssasidharan@lnx201 ~]$ ps -ef | head\nUID          PID    PPID  C STIME TTY          TIME CMD\nroot           1       0  0 Jan10 ?        03:14:05 /usr/lib/systemd/systemd --switched-root --system --deserialize 22\nroot           2       0  0 Jan10 ?        00:01:12 [kthreadd]\nroot           6       2  0 Jan10 ?        00:12:16 [ksoftirqd/0]\nroot           7       2  0 Jan10 ?        00:01:10 [migration/0]\nroot           8       2  0 Jan10 ?        00:00:00 [rcu_bh]\nroot           9       2  0 Jan10 ?        11:14:26 [rcu_sched]\nroot          10       2  0 Jan10 ?        00:00:00 [lru-add-drain]\nroot          11       2  0 Jan10 ?        00:05:22 [watchdog/0]\nroot          12       2  0 Jan10 ?        00:00:24 [watchdog/1]\nRun man ps for details.\nPrograms like top and htop will list processes in friendlier, fancier format."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#background-and-foreground-processes",
+    "href": "theme2/SF100/index.html#background-and-foreground-processes",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Background and foreground processes",
+    "text": "Background and foreground processes\nBy default, commands run in the foreground: they do their thing, use the terminal (to read input, print output), and finally exit. You need to wait for a foreground process to end before you start the next one, or use another terminal.\nWhen have a long-running process, you have the option of sending it to the background, using the & operator:\n[ssasidharan@lnx201 ~]$ sleep 100 &\n[1] 949751\nYou can use Ctrl-ZCtrl-Z to stop a foreground process and send it to the background:\n[ssasidharan@lnx201 ~]$ sleep 100\n^Z\n[1]+  Stopped                 sleep 100\nYou can list background processes using jobs command:\n[ssasidharan@lnx201 ~]$ jobs\n[1]-  Running                 sleep 100 &\n[2]+  Stopped                 sleep 100\nYou can bring a background process to foreground using fg command, and you can terminate it using Ctrl-CCtrl-C:\n[ssasidharan@lnx201 ~]$ fg 2\nsleep 100\n^C\n[ssasidharan@lnx201 ~]$\nYou can use bg command to resume a stopped background process:\n[ssasidharan@lnx201 ~]$ sleep 100 &\n[1] 1746205\n[ssasidharan@lnx201 ~]$ sleep 100\n^Z\n[2]+  Stopped                 sleep 100\n[ssasidharan@lnx201 ~]$ jobs\n[1]-  Running                 sleep 100 &\n[2]+  Stopped                 sleep 100\n[ssasidharan@lnx201 ~]$ bg %2\n[2]+ sleep 100 &"
+  },
+  {
+    "objectID": "theme2/SF100/index.html#terminating-processes",
+    "href": "theme2/SF100/index.html#terminating-processes",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Terminating processes",
+    "text": "Terminating processes\nSometimes you might want to terminate a program, perhaps because it is using too much CPU or memory. You can find out the offending program’s ID using ps or top or htop, and then you can use kill command to end the process.\nBy default, kill sends a signal called SIGTERM (more on signals later). If SIGTERM is unable to terminate the process (such as when the program is ignoring SIGTERM), you can try SIGKILL:\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 796679 pts/116  00:00:00 bash\n1185454 pts/116  00:00:00 ps\n1748299 pts/116  00:00:00 sleep\n[ssasidharan@lnx201 ~]$ kill 1748299\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 796679 pts/116  00:00:00 bash\n1203470 pts/116  00:00:00 ps\n1748299 pts/116  00:00:00 sleep\n[ssasidharan@lnx201 ~]$ kill -SIGKILL 1748299\n[2]+  Killed                  sleep 100\nYou can use killall command to kill processes by name:\n[ssasidharan@lnx201 ~]$ killall sleep\nsleep(1469283): Operation not permitted\nsleep(1509215): Operation not permitted\nsleep: no process found\nIn the above example, you are not running a sleep process, but some other users are, and you are not allowed to terminate them."
+  },
+  {
+    "objectID": "theme2/SF100/index.html#signals",
+    "href": "theme2/SF100/index.html#signals",
+    "title": "Linux, Command Line, and Scripting",
+    "section": "Signals",
+    "text": "Signals\nAs mentioned above, kill command sends signals to running processes, and we’ve already seen SIGTERM and SIGKILL. Signals are a process control mechanism. They are used to stop, resume, or terminate processes, and more.\nWhen we use Ctrl-CCtrl-C or Ctrl-ZCtrl-Z, we are sending signals to process – SIGINT (or “keyboard interrupt”) and SIGTSTP (or “terminal stop”), respectively.\nSignals have numbers: SIGKILL is 9, so you can use kill -9 &lt;pid&gt; instead of kill -SIGKILL &lt;pid&gt;. You can also omit the SIG prefix, and use kill -KILL &lt;pid&gt;.\nHere are some common signals:\n\n       Signal     Value     Action   Comment\n       ──────────────────────────────────────────────────────────────────────\n       SIGHUP        1       Term    Hangup detected on controlling terminal\n                                     or death of controlling process\n       SIGINT        2       Term    Interrupt from keyboard\n       SIGQUIT       3       Core    Quit from keyboard\n       SIGILL        4       Core    Illegal Instruction\n       SIGABRT       6       Core    Abort signal from abort(3)\n       SIGFPE        8       Core    Floating point exception\n       SIGKILL       9       Term    Kill signal\n       SIGSEGV      11       Core    Invalid memory reference\n       SIGPIPE      13       Term    Broken pipe: write to pipe with no\n                                     readers\n       SIGALRM      14       Term    Timer signal from alarm(2)\n       SIGTERM      15       Term    Termination signal\nRun the command man 7 signal to read signal command’s manual page."
+  },
+  {
+    "objectID": "theme2/SF101/containers-and-virtualization.html",
+    "href": "theme2/SF101/containers-and-virtualization.html",
+    "title": "Containers and Virtualization",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "theme2/SF201/batch-systems-and-compute-farms.html",
+    "href": "theme2/SF201/batch-systems-and-compute-farms.html",
+    "title": "Batch Systems and Compute Farms",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#chess-experimental-stations",
+    "href": "theme4/XS100/data-collection.html#chess-experimental-stations",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "CHESS Experimental Stations",
+    "text": "CHESS Experimental Stations\nData collection at all the CHESS experimental stations is supported by a complex controls, software, hardware, and cyberinfrastructure ecosystem. Having a basic understanding of this system and some relevant computing and software literacy will help prepare you for your beamtime. Historically, we have performed these trainings on the day of arrival, but preparation ahead of the beamtime will allow you to be more engaged with decisions on your experiment and focus on producing the highest quality experiment with your allocated beamtime.\nThe Cornell High Energy Synchrotron Source (CHESS) is currently home to 7 experimental stations spanning 3 sub-facilities. The diverse science, techniques, and missions of each beamline program leads to heterogeneous landscape of data collection experiences and computing literacy needed for each user. This training will cover the commonalities of CHESS data collection and resources to leverage, as well as where to expect to expect differences across beamlines and what questions to ask."
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#anatomy-of-an-experiment",
+    "href": "theme4/XS100/data-collection.html#anatomy-of-an-experiment",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "Anatomy of an experiment",
+    "text": "Anatomy of an experiment\n\nMost experiments start well in advance of the awarded beamtime - and so does the computing and cyber-infrastructure needs.\nWhile CHESS provides state-of-the-art hardware, software, computing resources and trainings, users are responsible for the integrity of their experiment through thoughtful planning, experimental execution, and data handling and analysis. This includes maintaining best practices in experimental logs, metadata tracking, and recording of researcher decisions. Due to the nature of synchrotron experiments, the data integrity and intepretabilty - even within one research group - will be dependent on the practices adpoted by the research group."
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#beamtime-notes-and-experimental-logbook",
+    "href": "theme4/XS100/data-collection.html#beamtime-notes-and-experimental-logbook",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "Beamtime Notes and Experimental Logbook:",
+    "text": "Beamtime Notes and Experimental Logbook:\nIt is always the responsibility of the experimenter to take detailed beamtime notes and a log of the data. Although work is ongoing to integrate metadata and capture requisite information in the data itself, automate workflows, visualizations, etc., it is imperative that experimenter notes are taken and ideally a copy is kept with the data on the CHESS system.\nJoint Experimenter Notes\nOften you will have a team of researchers taking data together - it is typically best practice to keep a collaborative log. In addition to your team - you should share these notes with your beamline scientist - they can often provide useful details you may miss if they observe some important or irregular behavior about the instrument itself that may or may not be obvious from the metadata streams.\nRemember - your beamline scientist is not responsible for memorizing the history of your data collected. They see so many experiments, if you ask 2 years later if they rememeber what you did - good luck.\nFor recording notes during the beamtime, we recommend using plain text or Markdown language (formatted text file) because it is easy to read in many systems, rather than a Microsoft Word Document which has a proprietary format. Images can be rendered in markdown formats.\nCo-Locate Your Beamtime Notes with Data\nSave your beamtime notes or a copy of your beamtime notes or (link to your google doc / equivalent) on the CHESS filesystem with your data (your beamline scientist will tell you where the best place is).\nLeverage MetaData Services\nWhenever possible, we encourage users to leverage the metadata services, beamline-specific software strategies (e.g. adding metadata to image frame headers), piping unique signals through software or hardware signals - saving these metadata with the data at the time of data collection. For unique aspects of your experiment, it is important to identify useful metadata to have associated with the x-ray data ahead of the beamtime. If signals are required to be monitored, this may need to be arranged for two weeks in advanced (see Bring Your Own Device (BYOD).\nCommenting Software\nComment any code produced at the beamtime. If this code was used to make decisions about the experiment, it should be saved and referred to in your experimental log."
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#station-computer-beamline-control-central",
+    "href": "theme4/XS100/data-collection.html#station-computer-beamline-control-central",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "Station Computer : Beamline Control Central",
+    "text": "Station Computer : Beamline Control Central\nEvery experimental station has a station computer that acts as controls central. The station computer typically runs a number of processes and is responsible for orchestrating data collection, motor motions, synchronized triggers, metadata logging, and more.\n\nStation Computer ground rules:\n\nMost users directly interact with the station computer. Users associated with the beamtime will have permission to log directly into the station computer remotely through No Machine (LINK to CLASSE). Your beamline scientist will be training you in how to run your experiment - pay close attention and take ownership of your role during your beamtime. Your beamline scientist may only be training your group at a specific time(s) during the beamtime - make sure all users can be present during this training and/or take notes and be prepared to train your fellow users on the basic operations. When in doubt, always communicate with your staff scientist. Some processes staff scientists will insist that the user be trained by the scientist and not a fellow user.\nThe station computer is running many processes that enable your experiment to run. You will be asked to interact with specific processes during your beamtime. It is imperative you ONLY interact with the processes that your beamline scientist has given you permission to run. Some UI’s and data reduction processes will be running on other computers through terminals on the station computer - accidentally running these processes on the station computer itself may disrupt data collection, overwhelm the station computer, or even cause it to freeze or shut down.\nThe station computer has many special permissions, for instance it is able to write to the the CHESS DAQ (raw directory). When saving files such as beamtime notes, it is important to save these in the directories prescribed by your beamline scientist. (link to later section on CHESS file system and directories)\n\n\nThis is an example of a station computer screen shot with many processes. There are 4 desktops on the station computer, each with windows spanning 4 screens. This image is of the first desktop and shows a main controls terminal (SPEC), controls screens (MEDM screens), a data reduction GUI (HEXRD). There will typically be even more processes running than this.\nEvery beamline will have a unique version of this computer - some techniques even may be executed exclusively through a GUI.\n###1 Controls Hardware, Software, and Signal Monitoring\nThis section will discuss the hardware connections, motor configurations, and overall connectivity of signals being tracked in the beamline."
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#controls-software",
+    "href": "theme4/XS100/data-collection.html#controls-software",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "Controls Software",
+    "text": "Controls Software\nThere are many controls languages and strategies across the lab. The two most common cases are SPEC and EPICS which will briefly be introduced here. Python-based controls are also very common.\nSPEC\nSPEC is a language, loosely based on C, used for instrument control and data acquisition at many synchrotrons.\nWhen using spec, you will interact with a SPEC terminal and run a combination of “standard” SPEC commands and/or a series of compiled programs for your technique\nImportantly, only ever use SPEC or edit Macros with the explicit permission of your staff scientist. This may vary from beamline to beamline SPEC commands continued.\nBelow is a video of a SPEC command window with built-in and custom macros.\n\n\n\nEPICS\nEPICS is a set of software tools and applications which provide a software infrastructure for use in building distributed control systems to operate devices\nMany of the devices at CHESS leverage EPICS drivers for operation EPICS PVs (process variables) are commonly used for signal monitoring and metadata/data logging.\nMany important metadata signals can also be tracked using “EPICS PVs.” While many of these PVs (process variables) are used throughout data collection, they can also be an important part of data monitoring. Your beamline scientist may have you observe the monitoring page depending on your experiments sensitivity to certain signals to monitor specific station signals (link to signals.chess.cornell.edu).\nAn Epics MEDM (Motif Editor and Display Manager) Screen for a Detector is shown in the annotated station view.\nPYMCA\nA common GUI used at the beamline is the PyMCA GUI. In addition to it’s original use for XRF, this GUI can be used to load in spec.log data and plot the counters at your beamline.\nPython, MATLAB, etc.\nYou may have specific other software: Python scripts (link to python tutorial), other UI’s for instrumentation, that you should receive training from your beamline scientist. See Python module if that is important."
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#networks-and-filesystems",
+    "href": "theme4/XS100/data-collection.html#networks-and-filesystems",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "Networks and Filesystems",
+    "text": "Networks and Filesystems\n\nDuring data collection, raw data is written directly to the CHESS-DAQ filesystems. The CHESS-DAQ consists of approximately 2 petabytes of dedicated online storage arrays connected to the CHESS experimental stations through a high-speed 10Gb data collection network.\nTo protect the communication signals between the station computer, experimental station equipment, and other local systems, each experimental station has an isolated network with direct connections.\nDetectors often have direct fiber optic / high speed data lines to inline computing resources and/or the CHESS-DAQ.\n\nThe CHESS filesystem has different locations for storing raw data, reduced data, etc. These different locations have different backup schedules and total storage amounts. Typically best practice is as follows: 1. Raw Data that cannot be reproduced is located in RAW/DAQ 2. Reduced Data that can be reproduced from Raw Data/Other Protected Data is in REDUCED DATA 3. Metadata that is small and not reproducible should be saved in METADATA (backed up nightly) 4. Data that is being produced and does not need to be backed up and could be processed again should be done in SCRATCH. This is a good location for testing code before performing Data Reduction. 5. For Data NOT associated with a particular beamtime, USER is an appropriate place for these projects.\n\nProtected Data: Intellectual Property (IP) and Export Control\nSome data needs to be protected, e.g. data covered under Intellectual Property or Export Control agreements\nAll such data must be declared and all agreements signed before ANY data is on CHESS/Cornell computing systems (including preparatory material that falls under IP or Export Control categories).\nData Collection, Storage, and Analysis can be customized to comply with data agreements, including: - Modifying isolated networks - Mounting encrypted drives - Configuring encrypted computers - Modifying permissions on filesystem locations - Securing the experimental station with an entry password - Disconnecting streaming video to the experimental station"
+  },
+  {
+    "objectID": "theme4/XS100/data-collection.html#data-handling-and-analysis",
+    "href": "theme4/XS100/data-collection.html#data-handling-and-analysis",
+    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
+    "section": "Data Handling and Analysis",
+    "text": "Data Handling and Analysis\n\nIf you wish to move any data from the CHESS filesystem to another location, the preferred way of doing so is through Globus. Please see here (https://wiki.classe.cornell.edu/Computing/GlobusDataTransfer) for directions on ways to transfer data from the CHESS filesystem.\nYour beamline may be producing very large quantities of data. Due to it’s size, you may not be able to take your data home or transfer it home via globus. your data in raw may only stay in hot storage for a short amount of time (6 months). Your experimental station will have best practices for how to compress or reduce this data so that it is small enough to take home or live in a different part of our filesystem.\n\nThe data is still saved, but to transfer or perform analysis on the files you will need to arrange to have it rolled back into “hot storage” - AKA take out an IT ticket: https://wiki.classe.cornell.edu/Computing/ServiceRequestTips\n\n\nBring Your Own Device (BYOD)\nUsers may need to bring their own devices to be beamline - either physically in the lab or remotely connected to the CHESS networks\nExamples include: - Controls computer for equipment they have integrated for an experiment - Analysis computer for on-the-fly analysis\nAll devices must be approved at least two weeks in advance. It may not be possible to consider integration on a shorter time period.\nBecause the CHESS-DAQ filesystems are a critical resource for data collection, write access is only granted to registered devices on the CHESS-DAQ network. If you wish to bring your own device to write data to the CHESS-DAQ, please discuss your needs with your staff scientist at least one month before your beamtime. Before your device can be registered on the CHESS-DAQ, it must undergo a cybersecurity evaluation by CLASSE-IT.\nRead access to the CHESS-DAQ filesystem may be obtained by registering your device for the LNS Protected network using this request form.\n\n\nMetaData Handling\nIdeally, all the data necessary to fully reproduce your results are recorded and disseminated in a manner that others can interpret after your experiment. Ideally the provenance remains unbroken from experiment planning.\nMetadata and parallel data streams are generated at every stage of your experiment. CHESS is continuing to develop and implement services to help with this creation. From programs like Galaxy, to our Metadata service -\nThe metadata service (https://wiki.classe.cornell.edu/bin/viewauth/CHESS/Private/CHESSMetadataService) provides tools to record and automatically ingest machine-readable metadata in a systematic way. It includes variables that historically were not recorded via a second data stream (e.g. the material processing parameters).\n\n\n\nOn-the-fly Data Processing & Visualization\nNeed to be looking at your data as it is coming off for data fidelity. At some beamlines, you will need to interact manually with a GUI to render your images and make sure the data quality is what you are expecting. At some beamlines, the new NSDF (National Data Science Fabric) Dashboard has been deployed for some datatypes which allows interactive visualization of data as it is coming off the beamline. An example can be found here: https://services.nationalsciencedatafabric.org/chess/.\nMany beamlines have an initial “data reduction” procedure that reduces the size of the data through compression or on-the-fly analysis to have smaller file sizes that are more manageable to analyze at your home institution.\nSome of these processes are software procedures performed on the data after it is written to the raw directory, while other beamlines utilize inline data processing/compression prior to writing their files to the raw directory. Overtime we will build out station specific training on these, for now it is the responsibility of the user to work with their beamline scientist and read any requisite materials they provide.\n\n\nData Reduction and Analysis\n\nCompute Farm\nThe CLASSE Compute Farm is a central resource consisting of approximately 60 enterprise-class Linux nodes (with around 400 cores), with a front-end queueing system (Son of Grid Engine, or SGE) that distributes jobs across the Compute Farm nodes. SGE supports interactive, batch, parallel, and GPU jobs, and it ensures equitable access to the Compute Farm for all users.\nData on the CHESS-DAQ filesystems can be directly accessed using the Compute Farm, and instructions for job submission are available here.\nCHESS Analysis Pipeline (CHAP)\nThe CHESS Analysis Pipeline (CHAP) is an object-oriented framework for organizing data analysis code into reusable modules. The most basic pipeline consists of the following modules: - Reader: takes an input file or data source and converts it into a standard data structure - Processor: takes a data structure from a Reader, executes a data processing algorithm, and writes an output data structure - Writer: takes a data structure from a Processor and converts it to a specific file format\n\nAn example of a concrete CHAP implementation is shown below. Here, the Processor accepts inputs from multiple Readers that provide both raw data and metadata.\n\nCHAP pipelines can be executed from a Linux command line or from the Galaxy science gateway. A third method called CHAPBook is currently under development, which presents a notebook-like coding interface for non-expert users.\nTechnique/Beamline Specific Software\nCHESS has many common X-ray software packages available on the system. Speak with your beamline scientist for the preferred software package for your experiment."
+  },
+  {
+    "objectID": "theme4/XS101/python-exercises.html",
+    "href": "theme4/XS101/python-exercises.html",
+    "title": "Python exercise for CHESS users",
+    "section": "",
+    "text": "Following the Linux exercises for CHESS users: 1. Open a terminal on lnx201 1. Change directory to your CHESS user directory\n\n\n\nOpen a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:\n# file.txt (file with a text)\nHello world!!!\n\n# file.data (file with numeric array)\n[1,2,3,4,5]\n\n# file.json (file with json data)\n{\"int\": 1, \"array\": [1,2,3], \"dictionary\": {\"key\":\"value\"}}\n\n\n\nThe following code will walk you through the following steps: - how to open a file in python - how to read data from a file - become familiar with different data structures: string, array, dictionary, etc. - how to manipulate the data (e.g. perform some analysis) - how to mix different data structures together - how to write data to a file\n\nType python (in the same directory where the files you created above are located). This will open an interactive python session.\nType the commands below and observe the output:\n\n# open file\nopen('file.txt')\n\n# open file and assign it to a file descriptor\nfds = open('file.txt')\n\n# read data from our file descriptor\ndata = fds.read()\nprint(\"text data:\", data)\n\n# close the file descriptor\nfds.close()\n\n# load data from a data file\ndata = open('file.data', 'r').read()\nprint(\"structural data:\", data)\n\n# load json data from a json data file\nimport json\ndata = json.load(open('file.json', 'r'))\nprint(\"json data:\", data)\n\n# let's perform data analysis on our data and enhance it further\nif 'array' in data:\n    arr = data['array']\n    for item in arr:\n        print(\"array item\", item)\n    data['sum'] = sum(arr)\n\n# let's create our own data and write it back to new file\nwith open('analysis.json', 'w') as ostream:\n    ostream.write(json.dumps(data))\n\nType Ctrl-D to exit the interactive python session\n\n\n\n\nA virtual environment is a self-contained directory that contains a Python installation for a particular project, along with all its packages. It isolates project dependencies, ensuring that different projects don’t interfere with each other’s libraries and versions.\nWhy use it? - Avoid dependency conflicts between projects. - Safely test upgrades without affecting system Python. - Clean, reproducible development environments.\n\n\n\n\nInstall virtualenv (optional) Python 3.x comes with venv built-in command which we can use to create and setup virtual environment\n\npython3 -m venv myenv\n\nmyenv is the name of the folder where the environment will be created.\n\n\nActivate the Virtual Environment\n\n\nOn Linux/macOS:\nsource myenv/bin/activate\nOn Windows (cmd.exe):\nmyenv\\Scripts\\activate\nOn Windows (PowerShell):\n.\\myenv\\Scripts\\Activate.ps1\n\nOnce activated, your shell prompt will change to show the environment name, e.g., (myenv).\n\n\n\n\nWhile the virtual environment is activated, you can install packages normally using pip:\npip install requests\n\nExample: Installing a specific version:\npip install requests==2.28.1\n\nAll installed packages will now live inside the myenv directory.\n\n\n\n\n\nWhen you’re done working inside the virtual environment, simply run:\ndeactivate\nThis will return you to the original system Python environment.\n\n\n\n\n\n\nAction\nCommand\n\n\n\n\nCreate venv\npython3 -m venv myenv\n\n\nActivate venv\nsource myenv/bin/activate (Linux/macOS)\n\n\nInstall pkg\npip install &lt;package&gt;\n\n\nDeactivate\ndeactivate"
+  },
+  {
+    "objectID": "theme4/XS101/python-exercises.html#step-1-logging-in",
+    "href": "theme4/XS101/python-exercises.html#step-1-logging-in",
+    "title": "Python exercise for CHESS users",
+    "section": "",
+    "text": "Following the Linux exercises for CHESS users: 1. Open a terminal on lnx201 1. Change directory to your CHESS user directory"
+  },
+  {
+    "objectID": "theme4/XS101/python-exercises.html#step-2-create-input-files",
+    "href": "theme4/XS101/python-exercises.html#step-2-create-input-files",
+    "title": "Python exercise for CHESS users",
+    "section": "",
+    "text": "Open a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:\n# file.txt (file with a text)\nHello world!!!\n\n# file.data (file with numeric array)\n[1,2,3,4,5]\n\n# file.json (file with json data)\n{\"int\": 1, \"array\": [1,2,3], \"dictionary\": {\"key\":\"value\"}}"
+  },
+  {
+    "objectID": "theme4/XS101/python-exercises.html#step-3-interact-with-files",
+    "href": "theme4/XS101/python-exercises.html#step-3-interact-with-files",
+    "title": "Python exercise for CHESS users",
+    "section": "",
+    "text": "The following code will walk you through the following steps: - how to open a file in python - how to read data from a file - become familiar with different data structures: string, array, dictionary, etc. - how to manipulate the data (e.g. perform some analysis) - how to mix different data structures together - how to write data to a file\n\nType python (in the same directory where the files you created above are located). This will open an interactive python session.\nType the commands below and observe the output:\n\n# open file\nopen('file.txt')\n\n# open file and assign it to a file descriptor\nfds = open('file.txt')\n\n# read data from our file descriptor\ndata = fds.read()\nprint(\"text data:\", data)\n\n# close the file descriptor\nfds.close()\n\n# load data from a data file\ndata = open('file.data', 'r').read()\nprint(\"structural data:\", data)\n\n# load json data from a json data file\nimport json\ndata = json.load(open('file.json', 'r'))\nprint(\"json data:\", data)\n\n# let's perform data analysis on our data and enhance it further\nif 'array' in data:\n    arr = data['array']\n    for item in arr:\n        print(\"array item\", item)\n    data['sum'] = sum(arr)\n\n# let's create our own data and write it back to new file\nwith open('analysis.json', 'w') as ostream:\n    ostream.write(json.dumps(data))\n\nType Ctrl-D to exit the interactive python session"
+  },
+  {
+    "objectID": "theme4/XS101/python-exercises.html#setting-up-python-virtual-environment",
+    "href": "theme4/XS101/python-exercises.html#setting-up-python-virtual-environment",
+    "title": "Python exercise for CHESS users",
+    "section": "",
+    "text": "A virtual environment is a self-contained directory that contains a Python installation for a particular project, along with all its packages. It isolates project dependencies, ensuring that different projects don’t interfere with each other’s libraries and versions.\nWhy use it? - Avoid dependency conflicts between projects. - Safely test upgrades without affecting system Python. - Clean, reproducible development environments.\n\n\n\n\nInstall virtualenv (optional) Python 3.x comes with venv built-in command which we can use to create and setup virtual environment\n\npython3 -m venv myenv\n\nmyenv is the name of the folder where the environment will be created.\n\n\nActivate the Virtual Environment\n\n\nOn Linux/macOS:\nsource myenv/bin/activate\nOn Windows (cmd.exe):\nmyenv\\Scripts\\activate\nOn Windows (PowerShell):\n.\\myenv\\Scripts\\Activate.ps1\n\nOnce activated, your shell prompt will change to show the environment name, e.g., (myenv).\n\n\n\n\nWhile the virtual environment is activated, you can install packages normally using pip:\npip install requests\n\nExample: Installing a specific version:\npip install requests==2.28.1\n\nAll installed packages will now live inside the myenv directory."
+  },
+  {
+    "objectID": "theme4/XS101/python-exercises.html#how-to-deactivate-the-virtual-environment",
+    "href": "theme4/XS101/python-exercises.html#how-to-deactivate-the-virtual-environment",
+    "title": "Python exercise for CHESS users",
+    "section": "",
+    "text": "When you’re done working inside the virtual environment, simply run:\ndeactivate\nThis will return you to the original system Python environment.\n\n\n\n\n\n\nAction\nCommand\n\n\n\n\nCreate venv\npython3 -m venv myenv\n\n\nActivate venv\nsource myenv/bin/activate (Linux/macOS)\n\n\nInstall pkg\npip install &lt;package&gt;\n\n\nDeactivate\ndeactivate"
+  },
+  {
+    "objectID": "theme4/XS101/linux-exercises.html",
+    "href": "theme4/XS101/linux-exercises.html",
     "title": "Linux exercises for CHESS users",
     "section": "",
     "text": "Wherever you see &lt;your CLASSE username&gt; below, substitute your own CLASSE username.\n\n\nOpen a terminal on lnx201 using one of the following options: 1. ssh from your computer’s terminal (for Mac and Linux users) - Type ssh &lt;your CLASSE username&gt;@lnx201.classe.cornell.edu 3. PuTTY (for Windows users) - See https://wiki.classe.cornell.edu/Computing/WinTunnelVncSSH 5. Use CLASSE’s NoMachine service - Browse to https://nomachine.classe.cornell.edu 1. Use CLASSE’s JupyterHub service - Browse to https://jupyterhub.classe.cornell.edu\n\n\n\nAfter logging in, you will be in your home directory. Start navigating in the same terminal window as before. Run the following commands: 1. pwd - pwd = print working directory. This commend tells you what the current working directory is 2. ls - This command lists the contents of your current working directory 3. ls -la - This command lists the contents of the current working directory with the additional options - -l tells ls to show details about each file’s type, permissions, size, etc. (lowercase “l” = “long”) - -a tells ls to list hidden files, too (“a” = “all”) - Individual options to ls like -l and -a can be shortened to -la - How to read the output of ls -l: https://docs.nersc.gov/filesystems/unix-file-permissions/\n\n\n\nDo not make a habit of working in your home directory /home/&lt;your CLASSE username&gt;!\nInstead, use your CHESS user directory: /nfs/chess/user/&lt;your CLASSE username&gt;.\n\nType cd /nfs/chess/user/&lt;your CLASSE username&gt;\n\ncd = change directory\nIf your CHESS user directory does not exist, first type mkdir /nfs/chess/user/&lt;your CLASSE username&gt;\n\nOR, use the premade symbolic link in your home directory:\n\nType cd /home/&lt;your CLASSE username&gt;/CLASSE_shortcuts/chess_&lt;your CLASSE username&gt;\n\nRepeat Exercise 2 and observe how your CHESS user directory differs from your home directory\nReturn to your home directory\n\nType cd /home/&lt;your CLASSE username&gt;\nOR type cd ~\n\nThe tilde symbol ~ is shorthand for your home directory\n\n\n\n\n\n\nTab completion is an extremely useful feature of the Linux command line that helps you type commands much faster. It works with commands and file paths. Simply start typing one or two characters of a command or file path, then hit the tab key. The command line will automatically fill in additional characters if it can. If it cannot fill in your command or file path all the way, hit the tab key twice to see the available options. (Unfortunately tab completion is not available in the JupyterHub terminal.)\nFor example: 1. Type cd ~/CL, then hit the tab key - The command line should automatically complete what you typed to cd ~/CLASSE_shortcuts/ (unless you have another file or directory that begins with “CL”) - Hit return. Now you are in the CLASSE_shortcuts directory within your home directory - Type ls to see the directory contents 2. Type cd ch, then hit the tab key - This time, the command line can only partially complete what you’ve typed. Hit the tab key twice to show the available options, one of which should be chess_&lt;your CLASSE username&gt;. - Now, type the first letter or two of your CLASSE username and hit tab again. - If the command line was able to complete your username, then hit return to go to your CHESS user directory - If not, keep typing letters followed by tab until your username is complete, then hit return"
   },
   {
-    "objectID": "theme2/SF100/exercises.html#exercise-1-logging-in",
-    "href": "theme2/SF100/exercises.html#exercise-1-logging-in",
+    "objectID": "theme4/XS101/linux-exercises.html#exercise-1-logging-in",
+    "href": "theme4/XS101/linux-exercises.html#exercise-1-logging-in",
     "title": "Linux exercises for CHESS users",
     "section": "",
     "text": "Open a terminal on lnx201 using one of the following options: 1. ssh from your computer’s terminal (for Mac and Linux users) - Type ssh &lt;your CLASSE username&gt;@lnx201.classe.cornell.edu 3. PuTTY (for Windows users) - See https://wiki.classe.cornell.edu/Computing/WinTunnelVncSSH 5. Use CLASSE’s NoMachine service - Browse to https://nomachine.classe.cornell.edu 1. Use CLASSE’s JupyterHub service - Browse to https://jupyterhub.classe.cornell.edu"
   },
   {
-    "objectID": "theme2/SF100/exercises.html#exercise-2-basic-commands",
-    "href": "theme2/SF100/exercises.html#exercise-2-basic-commands",
+    "objectID": "theme4/XS101/linux-exercises.html#exercise-2-basic-commands",
+    "href": "theme4/XS101/linux-exercises.html#exercise-2-basic-commands",
     "title": "Linux exercises for CHESS users",
     "section": "",
     "text": "After logging in, you will be in your home directory. Start navigating in the same terminal window as before. Run the following commands: 1. pwd - pwd = print working directory. This commend tells you what the current working directory is 2. ls - This command lists the contents of your current working directory 3. ls -la - This command lists the contents of the current working directory with the additional options - -l tells ls to show details about each file’s type, permissions, size, etc. (lowercase “l” = “long”) - -a tells ls to list hidden files, too (“a” = “all”) - Individual options to ls like -l and -a can be shortened to -la - How to read the output of ls -l: https://docs.nersc.gov/filesystems/unix-file-permissions/"
   },
   {
-    "objectID": "theme2/SF100/exercises.html#exercise-3-chess-user-directory",
-    "href": "theme2/SF100/exercises.html#exercise-3-chess-user-directory",
+    "objectID": "theme4/XS101/linux-exercises.html#exercise-3-chess-user-directory",
+    "href": "theme4/XS101/linux-exercises.html#exercise-3-chess-user-directory",
     "title": "Linux exercises for CHESS users",
     "section": "",
     "text": "Do not make a habit of working in your home directory /home/&lt;your CLASSE username&gt;!\nInstead, use your CHESS user directory: /nfs/chess/user/&lt;your CLASSE username&gt;.\n\nType cd /nfs/chess/user/&lt;your CLASSE username&gt;\n\ncd = change directory\nIf your CHESS user directory does not exist, first type mkdir /nfs/chess/user/&lt;your CLASSE username&gt;\n\nOR, use the premade symbolic link in your home directory:\n\nType cd /home/&lt;your CLASSE username&gt;/CLASSE_shortcuts/chess_&lt;your CLASSE username&gt;\n\nRepeat Exercise 2 and observe how your CHESS user directory differs from your home directory\nReturn to your home directory\n\nType cd /home/&lt;your CLASSE username&gt;\nOR type cd ~\n\nThe tilde symbol ~ is shorthand for your home directory"
   },
   {
-    "objectID": "theme2/SF100/exercises.html#exercise-4-tab-completion",
-    "href": "theme2/SF100/exercises.html#exercise-4-tab-completion",
+    "objectID": "theme4/XS101/linux-exercises.html#exercise-4-tab-completion",
+    "href": "theme4/XS101/linux-exercises.html#exercise-4-tab-completion",
     "title": "Linux exercises for CHESS users",
     "section": "",
     "text": "Tab completion is an extremely useful feature of the Linux command line that helps you type commands much faster. It works with commands and file paths. Simply start typing one or two characters of a command or file path, then hit the tab key. The command line will automatically fill in additional characters if it can. If it cannot fill in your command or file path all the way, hit the tab key twice to see the available options. (Unfortunately tab completion is not available in the JupyterHub terminal.)\nFor example: 1. Type cd ~/CL, then hit the tab key - The command line should automatically complete what you typed to cd ~/CLASSE_shortcuts/ (unless you have another file or directory that begins with “CL”) - Hit return. Now you are in the CLASSE_shortcuts directory within your home directory - Type ls to see the directory contents 2. Type cd ch, then hit the tab key - This time, the command line can only partially complete what you’ve typed. Hit the tab key twice to show the available options, one of which should be chess_&lt;your CLASSE username&gt;. - Now, type the first letter or two of your CLASSE username and hit tab again. - If the command line was able to complete your username, then hit return to go to your CHESS user directory - If not, keep typing letters followed by tab until your username is complete, then hit return"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#assumptions",
-    "href": "theme2/SF100/slides.html#assumptions",
-    "title": "Systems Fundamentals",
-    "section": "Assumptions",
-    "text": "Assumptions\n\nYou have your CLASSE accounts set up.\n\nTalk to CLASSE staff otherwise!\n\nOptions:\n\nUse ssh\nUse NoMachine\nUse JupyterLab"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#use-ssh",
-    "href": "theme2/SF100/slides.html#use-ssh",
-    "title": "Systems Fundamentals",
-    "section": "Use SSH",
-    "text": "Use SSH\n\nssh ${username}@lnx201.classe.cornell.edu\n\nUse terminal or iTerm on macOS.\nUse whichever terminal you want on Linux.\nUse PuTTY (https://putty.org/) on Windows.\n\n\n\nUse terminal or iTerm on macOS. There are other choices too, but these seem popular.\nUse whatever terminal you want on Linux. You know what you are doing, and you know how to figure out stuff.\nUse PuTTY on Windows. I am not up to speed on Windows."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#use-nomachine",
-    "href": "theme2/SF100/slides.html#use-nomachine",
-    "title": "Systems Fundamentals",
-    "section": "Use NoMachine",
-    "text": "Use NoMachine\n\nhttps://wiki.classe.cornell.edu/Computing/NoMachine\n\n\nThere is a client that you can install.\nThere is also web access, which I have used a few times. Seemed shaky."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#use-jupyterlab",
-    "href": "theme2/SF100/slides.html#use-jupyterlab",
-    "title": "Systems Fundamentals",
-    "section": "Use JupyterLab",
-    "text": "Use JupyterLab\n\nhttps://jupyter01.classe.cornell.edu/\n\n\nUse the terminal icon on the launcher.\nOr use File -&gt; New -&gt; Terminal"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#linux",
-    "href": "theme2/SF100/slides.html#linux",
-    "title": "Systems Fundamentals",
-    "section": "Linux",
-    "text": "Linux\n\nA popular operating system.\n\n(Actually an OS kernel, plus userland from various other projects. But those are details…)\n\nUnix-like, which traces back to 1969, therefore has accumulated quirks.\n\nExpect “hysterical raisins”."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#lnx201",
-    "href": "theme2/SF100/slides.html#lnx201",
-    "title": "Systems Fundamentals",
-    "section": "lnx201",
-    "text": "lnx201\n\nThe Linux host we’ll be using is lnx201.classe.cornell.edu.\nRuns a distribution called Scientific Linux.\nGood enough for general use.\nDo not run anything resource heavy on lnx201.\n\n“Heavy” in terms CPU, memory, network usage etc.\nlnx201 is a shared resource.\n\nThere is a Compute Farm to run heavy things.\n\n\n\nI am not the expert on lnx201 or compute farm. I just happen to present today!"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#the-command-line",
-    "href": "theme2/SF100/slides.html#the-command-line",
-    "title": "Systems Fundamentals",
-    "section": "The command line",
-    "text": "The command line\n\n\nYou will type commands in a shell, at the shell prompt, hit enterenter key, and then things happen.\n\n\n\nAll of this is a text user interface.\nAs opposed to clicking on GUI widgets.\nThe prompt is that piece of text that begins with [ and ends with ] $. They can look different too."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#commands",
-    "href": "theme2/SF100/slides.html#commands",
-    "title": "Systems Fundamentals",
-    "section": "Commands",
-    "text": "Commands\n\nCommands are either programs or shell builtins.\nUse one of these commands to read documentation:\n\nman ${command}\ninfo ${command}\nor ${command} --help (sometimes!)\n\n\n\n\nPrograms can be compiled or scripts.\nThey live somewhere in your $PATH."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#the-shell",
-    "href": "theme2/SF100/slides.html#the-shell",
-    "title": "Systems Fundamentals",
-    "section": "The shell",
-    "text": "The shell\n\nA program that accepts commands, and passes those commands to the OS to execute.\nA popular shell is bash, which is the default on lnx201.\n\n\nOf course there are other shells too: zsh (default on newer versions of macOS, fish, ksh, etc."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#bash",
-    "href": "theme2/SF100/slides.html#bash",
-    "title": "Systems Fundamentals",
-    "section": "Bash",
-    "text": "Bash\n\n“Bourne-again shell”\n\nBased on an earlier Bourne shell, thus the “again”.\nDeveloped by the GNU project.\nOn lnx201, /bin/bash is the program.\n\nFor documentation: info bash or man bash.\n\n\n\nGNU people made a lot of the software early on.\n\nAlso Unix people, BSD people, X11 people, and a whole bunch of other people.\nThen the Linux kernel came along, became successful, and people started to call the whole combination of all these things “Linux”."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#bash-niceties-history-and-completion",
-    "href": "theme2/SF100/slides.html#bash-niceties-history-and-completion",
-    "title": "Systems Fundamentals",
-    "section": "Bash niceties: history and completion",
-    "text": "Bash niceties: history and completion\n\nYou do not have to re-type commands that you have used in the past!\n\nUse upup and downdown arrow keys to go back and forth in your command history.\nUse Ctrl-RCtrl-R (Control+R) to “search” command history.\nUse history command to list your shell history.\n\nUse tabtab key for command completion, after typing a few characters."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#some-helpful-commands",
-    "href": "theme2/SF100/slides.html#some-helpful-commands",
-    "title": "Systems Fundamentals",
-    "section": "Some helpful commands",
-    "text": "Some helpful commands\n\n\n\n\n\n\n\n\nCommand\nTask\nExample Syntax\n\n\n\n\nls\nlist the files in a directory\nls [/tmp]\n\n\ncd\nmove into a directory\ncd [/tmp]\n\n\npwd\nshow curent working directory\npwd\n\n\ncp\ncopy a file to into another directory, or make a copy with a different name\ncp [file.txt] [/tmp/file.txt]\n\n\ncp -r\ncopy a folder to into another directory\ncp [file.txt] [/tmp/file.txt]\n\n\nmv\nrename or move a file into another directory\nmv [file.txt] [file1.txt]\n\n\nrm\ndelete a file\nrm [file.txt]\n\n\nrm -r\nremove a directory, recursively\nrm -r [dir]\n\n\nmkdir\ncreate a directory\nmkdir [dir]\n\n\nfind\nfind a file\nfind [/tmp] -name [file]\n\n\ngrep\nsearch for a text pattern inside a file\ngrep [text] [/tmp/file.txt]\n\n\nless\nto view the text of a text file, one screen at a time\nless [/tmp/file.txt]\n\n\nexit\nexit and logout of a Terminal (Terminal-xfce4) session\nexit\n\n\n\nSource: https://wiki.classe.cornell.edu/Computing/SummerStudentOrientation#Linux_Command_Line_40ls_44_cd_44_mv_44_find_44_grep_etc_41"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#directory-navigation",
-    "href": "theme2/SF100/slides.html#directory-navigation",
-    "title": "Systems Fundamentals",
-    "section": "Directory navigation",
-    "text": "Directory navigation\n[ssasidharan@lnx201 ~]$ tree -d -L 1 /\n/\n├── bin -&gt; usr/bin\n├── boot\n├── cdat\n├── cifs\n├── cvmfs\n├── dev\n├── etc\n├── home\n├── lib -&gt; usr/lib\n├── lib64 -&gt; usr/lib64\n├── media\n├── misc\n├── mnt\n├── net\n├── nfs\n├── opt\n├── proc\n├── root\n├── run\n├── sbin -&gt; usr/sbin\n├── srv\n├── sys\n├── tmp\n├── usr\n└── var\n\n25 directories\n\n\nDirectories and files are organized in a tree like structure.\nWell, an inverted tree, maybe.\nAt the bottom (or top?), you have the “/” directory."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#your-home-directory",
-    "href": "theme2/SF100/slides.html#your-home-directory",
-    "title": "Systems Fundamentals",
-    "section": "Your home directory",
-    "text": "Your home directory\n\nYou have a “home” directory.\n\nYou can write your files and create directories here.\n\nUsually, and on lnx201, this will be /home/$USER\n\nAlso known as $HOME\n\n\n\n\nThe stuff that follows $ are environment variables aka env vars. They are sort of key-value pairs managed by the shell.\nThere are a set of standard env vars such as $USER, $HOME, $SHELL etc.\nDon’t write too much on your home directory.\nThere are better places top store large amounts of data.\nI am not the expert here. Ask around, or wait for the next presenter."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#those-whatever-things",
-    "href": "theme2/SF100/slides.html#those-whatever-things",
-    "title": "Systems Fundamentals",
-    "section": "Those $WHATEVER things",
-    "text": "Those $WHATEVER things\n\nWhat are $HOME, $USER, $PATH, $SHELL, etc.?\nThey are called environment variables, or env vars.\nEnv vars are pieces of information maintained by the shell.\nPrograms can use them during execution.\nUse printenv or env command to list them."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#the-current-working-directory",
-    "href": "theme2/SF100/slides.html#the-current-working-directory",
-    "title": "Systems Fundamentals",
-    "section": "The current working directory",
-    "text": "The current working directory\n\n\nAt any time in the shell, you are “inside” a single directory, called the current working directory.\n\nWhen you do ls, files in current working directory will be listed, etc.\n\nWhen you log in, your current working directory will be your home directory: /home/$USER aka $HOME.\nYou will use cd (change directory) to move around.\nUse the command pwd to find where you are.\n\nOr echo $PWD."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#absolute-and-relative-paths",
-    "href": "theme2/SF100/slides.html#absolute-and-relative-paths",
-    "title": "Systems Fundamentals",
-    "section": "Absolute and relative paths",
-    "text": "Absolute and relative paths\nFile/folder names are also referred to as paths.\n\nAbsolute path names begin with the root directory, /.\n\nExample: /home/ssasidharan/Documents/hello.txt\n\nRelative paths start with the working directory.\n\nExample: ./Documents/hello.txt (or just Documents/hello.txt) when I’m in my home directory."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#some-fun-facts-about-file-names",
-    "href": "theme2/SF100/slides.html#some-fun-facts-about-file-names",
-    "title": "Systems Fundamentals",
-    "section": "Some fun facts about file names",
-    "text": "Some fun facts about file names\n\nNames that begin with “.” are “hidden”.\n\nThey are omitted from directory listing when you do ls.\nDo ls -a (or ls --all) to list them.\n\n. and .. are special directory names.\n\n. stands for the current directory.\n.. stands for the directory above the current directory."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#some-more-fun-facts-about-file-names",
-    "href": "theme2/SF100/slides.html#some-more-fun-facts-about-file-names",
-    "title": "Systems Fundamentals",
-    "section": "Some more fun facts about file names",
-    "text": "Some more fun facts about file names\n\nFile and directory names are case sensitive.\n\nDepends on filesystem, but that is a detail.\n\nIt is better to avoid spaces in file names, because they are a hassle.\n\nUse _ (underscore character) instead (example: file_name), or CamelCase (example: FileName).\nQuote paths within \" and \" if they happen to have spaces, or “escape” each space with \\."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#wildcards",
-    "href": "theme2/SF100/slides.html#wildcards",
-    "title": "Systems Fundamentals",
-    "section": "Wildcards",
-    "text": "Wildcards\nSome characters are given special treatment:\n\n* matches any set of characters.\n\n[ssasidharan@lnx201 ~]$ ls /usr/bin/ab*\n/usr/bin/ab  /usr/bin/abs2rel\n\n? matches any one character.\n\n[ssasidharan@lnx201 ~]$ ls /usr/bin/?abc*\n/usr/bin/kabc2mutt  /usr/bin/kabcclient"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#standard-input-output-and-error",
-    "href": "theme2/SF100/slides.html#standard-input-output-and-error",
-    "title": "Systems Fundamentals",
-    "section": "Standard input, output, and error",
-    "text": "Standard input, output, and error\n\nInput is read from standard input (or stdin).\nOutput is written to standard output (or stdout).\nError messages are written to standard error (or stderr).\n\n\n\n\n\n\n\nNote\n\n\nThey are files too: /dev/stdin, /dev/stdout, and /dev/stderr."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#io-redirection",
-    "href": "theme2/SF100/slides.html#io-redirection",
-    "title": "Systems Fundamentals",
-    "section": "I/O redirection",
-    "text": "I/O redirection\nYou can redirect stdout to a file with &gt; operator:\n[ssasidharan@lnx201 ~]$ ls -l &gt; ls-output.txt\nOr append with &gt;&gt;:\n[ssasidharan@lnx201 ~]$ ls -l &gt;&gt; ls-output.txt\nTo direct a file to a programs input, use &lt; operator:\n[ssasidharan@lnx201 ~]$ cat &lt; sonnet18.txt\nShall I compare thee to a summer’s day?"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#pipes",
-    "href": "theme2/SF100/slides.html#pipes",
-    "title": "Systems Fundamentals",
-    "section": "Pipes",
-    "text": "Pipes\n\nUsing the | (“pipe”) operator, you can “chain” programs such that one programs output is another programs input:\n\n[ssasidharan@lnx201 ~]$ ls -l /bin/ | less\n\nYou can create longer pipes:\n\n[ssasidharan@lnx201 ~]$ ls /bin /sbin | sort | uniq | wc\n   4289    4288   46820"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#you-belong-to-groups",
-    "href": "theme2/SF100/slides.html#you-belong-to-groups",
-    "title": "Systems Fundamentals",
-    "section": "You belong (to groups)",
-    "text": "You belong (to groups)\nYour account belongs to several groups:\n[ssasidharan@lnx201 ~]$ id\nuid=63499(ssasidharan) gid=262(chess) groups=262(chess),750(classeuser)\n[ssasidharan@lnx201 ~]$ groups\nchess classeuser"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#permissions-and-ownership",
-    "href": "theme2/SF100/slides.html#permissions-and-ownership",
-    "title": "Systems Fundamentals",
-    "section": "Permissions and ownership",
-    "text": "Permissions and ownership\nDo a “long” file listing (with ls -l) and behold:\n$ ls -l\ntotal 8\ndrwxr-xr-x  2 ssasidharan chess   44 May  8 10:42 bin\ndrwxr-xr-x  2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts\ndrwxr-xr-x  2 ssasidharan chess   52 Apr  2 00:27 Desktop\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Documents\nlrwxrwxrwx  1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\n-rw-r--r--  1 ssasidharan chess   54 Jun  2 12:38 hello.sh\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Music\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Pictures\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Public\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Templates\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Videos\nWhat do those characters mean?"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#changing-permissions",
-    "href": "theme2/SF100/slides.html#changing-permissions",
-    "title": "Systems Fundamentals",
-    "section": "Changing permissions",
-    "text": "Changing permissions\n\nUse chmod command to change file mode bits (the first column in the previous listing).\n\n[ssasidharan@lnx201 ~]$ chmod +x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ chmod -x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n\nUse chown and chgrp commands to change owner and group (the third and fourth columns in the previous listing).\n\nProbably not immediately useful; just know that they exist."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#listing-processes",
-    "href": "theme2/SF100/slides.html#listing-processes",
-    "title": "Systems Fundamentals",
-    "section": "Listing processes",
-    "text": "Listing processes\n\nList running processes using ps command:\n\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 694411 pts/81   00:00:00 ps\n3479688 pts/81   00:00:00 bash\nThe four columns:\n\nPID is process id.\nTTY is the terminal associated with the process.\nTIME is the elapsed CPU time for the process.\nCMD is the command that created the process.\n\n\n(Also see: top and htop.)"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#background-and-foreground-processes",
-    "href": "theme2/SF100/slides.html#background-and-foreground-processes",
-    "title": "Systems Fundamentals",
-    "section": "Background and foreground processes",
-    "text": "Background and foreground processes\n\nSome processes run in the foreground:\n\nThey read input, write output, etc.\nThey are “attached” to a terminal.\n\nBackground processes, well, run in the background. Send things to the background with &:\n\n[ssasidharan@lnx201 ~]$ sleep 100 &\n[1] 949751\n\nBring a background process to foreground using fg command, and terminate it using Ctrl-CCtrl-C:\n\n[ssasidharan@lnx201 ~]$ fg 2\nsleep 100\n^C"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#terminating-processes",
-    "href": "theme2/SF100/slides.html#terminating-processes",
-    "title": "Systems Fundamentals",
-    "section": "Terminating processes",
-    "text": "Terminating processes\n\nkill PID command to end one process.\nkillall command to end many processes.\n\nYou can’t kill other user’s processes."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#text-editors",
-    "href": "theme2/SF100/slides.html#text-editors",
-    "title": "Systems Fundamentals",
-    "section": "Text editors",
-    "text": "Text editors\nMany choices! Use:\n\nEmacs\nVim\nNano\nJupyterLab"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#terminal-multiplexers",
-    "href": "theme2/SF100/slides.html#terminal-multiplexers",
-    "title": "Systems Fundamentals",
-    "section": "Terminal multiplexers",
-    "text": "Terminal multiplexers\nscreen and tmux are two options. Here’s tmux.\n\n\n\nYou can “multiplex” your terminal.\nDifferent shells in different “windows”.\nYou can split panes vertically or horizontally.\nYou can detach and re-attach, and resume your work."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#hello-world",
-    "href": "theme2/SF100/slides.html#hello-world",
-    "title": "Systems Fundamentals",
-    "section": "Hello world!",
-    "text": "Hello world!\n\n\nhello.sh\n\n1#! /bin/bash\n\n2# A simple script.\n\n3echo \"Hello $USER!\"\n\n\n1\n\nThe “shebang”\n\n2\n\nA comment.\n\n3\n\nAn actual line of code.\n\n\n\nMake the thing executable with chmod +x hello.sh\nRun the thing with ./hello.sh"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#other-things",
-    "href": "theme2/SF100/slides.html#other-things",
-    "title": "Systems Fundamentals",
-    "section": "Other things",
-    "text": "Other things\nBash supports a programming language with:\n\nif statements\nfor, while, until statements\nfunctions\net cetera.\nTake a peek at /etc/bashrc and $HOME/.bashrc for a taste\n\nBUT\n\nThis is not really in scope of this presentation."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#a-cheat-sheet",
-    "href": "theme2/SF100/slides.html#a-cheat-sheet",
-    "title": "Systems Fundamentals",
-    "section": "A cheat sheet",
-    "text": "A cheat sheet\n\n(Via Stephen Turner.)"
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#resources-elsewhere",
-    "href": "theme2/SF100/slides.html#resources-elsewhere",
-    "title": "Systems Fundamentals",
-    "section": "Resources elsewhere",
-    "text": "Resources elsewhere\n\nThe Linux Command Line, A Complete Introduction by William E. Shotts, Jr. The book is freely available under a Creative Commons license, and contains a good discussion about shell scripting.\nThe Unix Programming Environment by Brian W. Kernighan and Rob Pike. Old classic, still useful. Places things in a historical context.\nShell Tools and Scripting module of MIT “The Missing Semester of Your CS Education” class."
-  },
-  {
-    "objectID": "theme2/SF100/slides.html#other-resources",
-    "href": "theme2/SF100/slides.html#other-resources",
-    "title": "Systems Fundamentals",
-    "section": "Other resources",
-    "text": "Other resources\n\nThe Internet is pretty great. Use it.\nHowever: DO NOT trust everything you read on the Internet.\n\nDo not copy and paste commands from the Internet indiscriminately.\nUnderstand how things work, and then use it."
-  },
-  {
-    "objectID": "theme2/SF200/parallel-computing.html",
-    "href": "theme2/SF200/parallel-computing.html",
-    "title": "Parallel Computing Concepts",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is work in progress."
-  },
-  {
-    "objectID": "theme4/XS102/large-scale-data-analysis.html",
-    "href": "theme4/XS102/large-scale-data-analysis.html",
-    "title": "Large-scale Data Analysis: from Images to Science Parameters to Interpretation",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is work in progress."
-  },
-  {
-    "objectID": "theme4/XS200/metadata.html",
-    "href": "theme4/XS200/metadata.html",
-    "title": "Metadata for Data Fidelity and Systematic Checks",
-    "section": "",
-    "text": "Note\n\n\n\nThis page is work in progress."
-  },
-  {
-    "objectID": "theme4/XS101/data-analysis.html",
-    "href": "theme4/XS101/data-analysis.html",
-    "title": "Basic / on-the-fly data analysis, viewing detector images",
-    "section": "",
-    "text": "Basic / on-the-fly data analysis, viewing detector images\nThe following hands-on exercises demonstrate various methods of analyzing and viewing x-ray detector images. The first two exercises require an activated CLASSE account and access to the CLASSE JupyterHub.\n\nLow complexity: Azimuthal integration of 2D diffraction patterns\n\nSkills: CHAP, python, Linux command line, navigating CHESS filesystems, Jupyter notebooks, matplotlib\n\nMedium complexity: Tomographic reconstruction\n\nSkills: CHAP, python, Linux command line, navigating CHESS filesystems, NoMachine, NeXpy, Galaxy\n\nLow complexity: Browser-based data visualization dashboard\n\nPractice choosing a dataset, navigating through an image stack, zooming in and out, changing the color palette, switching between lin/log scale, dropping probes in multiple locations\nSkills: Examining detector images"
   },
   {
     "objectID": "theme5/CF101/dmp-best-practices.html",
@@ -1239,234 +1190,283 @@
     "text": "Theme 5: Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories 🚧\nCF 101: Best practices for developing DMP 🚧\nCF 102: Metadata annotation and DOI 🚧\nCF 200: Curating data, code, workflows, and publishing 🚧"
   },
   {
-    "objectID": "theme4/XS101/python-exercises.html",
-    "href": "theme4/XS101/python-exercises.html",
-    "title": "Python exercise for CHESS users",
+    "objectID": "theme4/XS101/data-analysis.html",
+    "href": "theme4/XS101/data-analysis.html",
+    "title": "Basic / on-the-fly data analysis, viewing detector images",
     "section": "",
-    "text": "Following the Linux exercises for CHESS users: 1. Open a terminal on lnx201 1. Change directory to your CHESS user directory\n\n\n\nOpen a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:\n# file.txt (file with a text)\nHello world!!!\n\n# file.data (file with numeric array)\n[1,2,3,4,5]\n\n# file.json (file with json data)\n{\"int\": 1, \"array\": [1,2,3], \"dictionary\": {\"key\":\"value\"}}\n\n\n\nThe following code will walk you through the following steps: - how to open a file in python - how to read data from a file - become familiar with different data structures: string, array, dictionary, etc. - how to manipulate the data (e.g. perform some analysis) - how to mix different data structures together - how to write data to a file\n\nType python (in the same directory where the files you created above are located). This will open an interactive python session.\nType the commands below and observe the output:\n\n# open file\nopen('file.txt')\n\n# open file and assign it to a file descriptor\nfds = open('file.txt')\n\n# read data from our file descriptor\ndata = fds.read()\nprint(\"text data:\", data)\n\n# close the file descriptor\nfds.close()\n\n# load data from a data file\ndata = open('file.data', 'r').read()\nprint(\"structural data:\", data)\n\n# load json data from a json data file\nimport json\ndata = json.load(open('file.json', 'r'))\nprint(\"json data:\", data)\n\n# let's perform data analysis on our data and enhance it further\nif 'array' in data:\n    arr = data['array']\n    for item in arr:\n        print(\"array item\", item)\n    data['sum'] = sum(arr)\n\n# let's create our own data and write it back to new file\nwith open('analysis.json', 'w') as ostream:\n    ostream.write(json.dumps(data))\n\nType Ctrl-D to exit the interactive python session\n\n\n\n\nA virtual environment is a self-contained directory that contains a Python installation for a particular project, along with all its packages. It isolates project dependencies, ensuring that different projects don’t interfere with each other’s libraries and versions.\nWhy use it? - Avoid dependency conflicts between projects. - Safely test upgrades without affecting system Python. - Clean, reproducible development environments.\n\n\n\n\nInstall virtualenv (optional) Python 3.x comes with venv built-in command which we can use to create and setup virtual environment\n\npython3 -m venv myenv\n\nmyenv is the name of the folder where the environment will be created.\n\n\nActivate the Virtual Environment\n\n\nOn Linux/macOS:\nsource myenv/bin/activate\nOn Windows (cmd.exe):\nmyenv\\Scripts\\activate\nOn Windows (PowerShell):\n.\\myenv\\Scripts\\Activate.ps1\n\nOnce activated, your shell prompt will change to show the environment name, e.g., (myenv).\n\n\n\n\nWhile the virtual environment is activated, you can install packages normally using pip:\npip install requests\n\nExample: Installing a specific version:\npip install requests==2.28.1\n\nAll installed packages will now live inside the myenv directory.\n\n\n\n\n\nWhen you’re done working inside the virtual environment, simply run:\ndeactivate\nThis will return you to the original system Python environment.\n\n\n\n\n\n\nAction\nCommand\n\n\n\n\nCreate venv\npython3 -m venv myenv\n\n\nActivate venv\nsource myenv/bin/activate (Linux/macOS)\n\n\nInstall pkg\npip install &lt;package&gt;\n\n\nDeactivate\ndeactivate"
+    "text": "Basic / on-the-fly data analysis, viewing detector images\nThe following hands-on exercises demonstrate various methods of analyzing and viewing x-ray detector images. The first two exercises require an activated CLASSE account and access to the CLASSE JupyterHub.\n\nLow complexity: Azimuthal integration of 2D diffraction patterns\n\nSkills: CHAP, python, Linux command line, navigating CHESS filesystems, Jupyter notebooks, matplotlib\n\nMedium complexity: Tomographic reconstruction\n\nSkills: CHAP, python, Linux command line, navigating CHESS filesystems, NoMachine, NeXpy, Galaxy\n\nLow complexity: Browser-based data visualization dashboard\n\nPractice choosing a dataset, navigating through an image stack, zooming in and out, changing the color palette, switching between lin/log scale, dropping probes in multiple locations\nSkills: Examining detector images"
   },
   {
-    "objectID": "theme4/XS101/python-exercises.html#step-1-logging-in",
-    "href": "theme4/XS101/python-exercises.html#step-1-logging-in",
-    "title": "Python exercise for CHESS users",
-    "section": "",
-    "text": "Following the Linux exercises for CHESS users: 1. Open a terminal on lnx201 1. Change directory to your CHESS user directory"
-  },
-  {
-    "objectID": "theme4/XS101/python-exercises.html#step-2-create-input-files",
-    "href": "theme4/XS101/python-exercises.html#step-2-create-input-files",
-    "title": "Python exercise for CHESS users",
-    "section": "",
-    "text": "Open a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:\n# file.txt (file with a text)\nHello world!!!\n\n# file.data (file with numeric array)\n[1,2,3,4,5]\n\n# file.json (file with json data)\n{\"int\": 1, \"array\": [1,2,3], \"dictionary\": {\"key\":\"value\"}}"
-  },
-  {
-    "objectID": "theme4/XS101/python-exercises.html#step-3-interact-with-files",
-    "href": "theme4/XS101/python-exercises.html#step-3-interact-with-files",
-    "title": "Python exercise for CHESS users",
-    "section": "",
-    "text": "The following code will walk you through the following steps: - how to open a file in python - how to read data from a file - become familiar with different data structures: string, array, dictionary, etc. - how to manipulate the data (e.g. perform some analysis) - how to mix different data structures together - how to write data to a file\n\nType python (in the same directory where the files you created above are located). This will open an interactive python session.\nType the commands below and observe the output:\n\n# open file\nopen('file.txt')\n\n# open file and assign it to a file descriptor\nfds = open('file.txt')\n\n# read data from our file descriptor\ndata = fds.read()\nprint(\"text data:\", data)\n\n# close the file descriptor\nfds.close()\n\n# load data from a data file\ndata = open('file.data', 'r').read()\nprint(\"structural data:\", data)\n\n# load json data from a json data file\nimport json\ndata = json.load(open('file.json', 'r'))\nprint(\"json data:\", data)\n\n# let's perform data analysis on our data and enhance it further\nif 'array' in data:\n    arr = data['array']\n    for item in arr:\n        print(\"array item\", item)\n    data['sum'] = sum(arr)\n\n# let's create our own data and write it back to new file\nwith open('analysis.json', 'w') as ostream:\n    ostream.write(json.dumps(data))\n\nType Ctrl-D to exit the interactive python session"
-  },
-  {
-    "objectID": "theme4/XS101/python-exercises.html#setting-up-python-virtual-environment",
-    "href": "theme4/XS101/python-exercises.html#setting-up-python-virtual-environment",
-    "title": "Python exercise for CHESS users",
-    "section": "",
-    "text": "A virtual environment is a self-contained directory that contains a Python installation for a particular project, along with all its packages. It isolates project dependencies, ensuring that different projects don’t interfere with each other’s libraries and versions.\nWhy use it? - Avoid dependency conflicts between projects. - Safely test upgrades without affecting system Python. - Clean, reproducible development environments.\n\n\n\n\nInstall virtualenv (optional) Python 3.x comes with venv built-in command which we can use to create and setup virtual environment\n\npython3 -m venv myenv\n\nmyenv is the name of the folder where the environment will be created.\n\n\nActivate the Virtual Environment\n\n\nOn Linux/macOS:\nsource myenv/bin/activate\nOn Windows (cmd.exe):\nmyenv\\Scripts\\activate\nOn Windows (PowerShell):\n.\\myenv\\Scripts\\Activate.ps1\n\nOnce activated, your shell prompt will change to show the environment name, e.g., (myenv).\n\n\n\n\nWhile the virtual environment is activated, you can install packages normally using pip:\npip install requests\n\nExample: Installing a specific version:\npip install requests==2.28.1\n\nAll installed packages will now live inside the myenv directory."
-  },
-  {
-    "objectID": "theme4/XS101/python-exercises.html#how-to-deactivate-the-virtual-environment",
-    "href": "theme4/XS101/python-exercises.html#how-to-deactivate-the-virtual-environment",
-    "title": "Python exercise for CHESS users",
-    "section": "",
-    "text": "When you’re done working inside the virtual environment, simply run:\ndeactivate\nThis will return you to the original system Python environment.\n\n\n\n\n\n\nAction\nCommand\n\n\n\n\nCreate venv\npython3 -m venv myenv\n\n\nActivate venv\nsource myenv/bin/activate (Linux/macOS)\n\n\nInstall pkg\npip install &lt;package&gt;\n\n\nDeactivate\ndeactivate"
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#chess-experimental-stations",
-    "href": "theme4/XS100/data-collection.html#chess-experimental-stations",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "CHESS Experimental Stations",
-    "text": "CHESS Experimental Stations\nData collection at all the CHESS experimental stations is supported by a complex controls, software, hardware, and cyberinfrastructure ecosystem. Having a basic understanding of this system and some relevant computing and software literacy will help prepare you for your beamtime. Historically, we have performed these trainings on the day of arrival, but preparation ahead of the beamtime will allow you to be more engaged with decisions on your experiment and focus on producing the highest quality experiment with your allocated beamtime.\nThe Cornell High Energy Synchrotron Source (CHESS) is currently home to 7 experimental stations spanning 3 sub-facilities. The diverse science, techniques, and missions of each beamline program leads to heterogeneous landscape of data collection experiences and computing literacy needed for each user. This training will cover the commonalities of CHESS data collection and resources to leverage, as well as where to expect to expect differences across beamlines and what questions to ask."
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#anatomy-of-an-experiment",
-    "href": "theme4/XS100/data-collection.html#anatomy-of-an-experiment",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "Anatomy of an experiment",
-    "text": "Anatomy of an experiment\n\nMost experiments start well in advance of the awarded beamtime - and so does the computing and cyber-infrastructure needs.\nWhile CHESS provides state-of-the-art hardware, software, computing resources and trainings, users are responsible for the integrity of their experiment through thoughtful planning, experimental execution, and data handling and analysis. This includes maintaining best practices in experimental logs, metadata tracking, and recording of researcher decisions. Due to the nature of synchrotron experiments, the data integrity and intepretabilty - even within one research group - will be dependent on the practices adpoted by the research group."
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#beamtime-notes-and-experimental-logbook",
-    "href": "theme4/XS100/data-collection.html#beamtime-notes-and-experimental-logbook",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "Beamtime Notes and Experimental Logbook:",
-    "text": "Beamtime Notes and Experimental Logbook:\nIt is always the responsibility of the experimenter to take detailed beamtime notes and a log of the data. Although work is ongoing to integrate metadata and capture requisite information in the data itself, automate workflows, visualizations, etc., it is imperative that experimenter notes are taken and ideally a copy is kept with the data on the CHESS system.\nJoint Experimenter Notes\nOften you will have a team of researchers taking data together - it is typically best practice to keep a collaborative log. In addition to your team - you should share these notes with your beamline scientist - they can often provide useful details you may miss if they observe some important or irregular behavior about the instrument itself that may or may not be obvious from the metadata streams.\nRemember - your beamline scientist is not responsible for memorizing the history of your data collected. They see so many experiments, if you ask 2 years later if they rememeber what you did - good luck.\nFor recording notes during the beamtime, we recommend using plain text or Markdown language (formatted text file) because it is easy to read in many systems, rather than a Microsoft Word Document which has a proprietary format. Images can be rendered in markdown formats.\nCo-Locate Your Beamtime Notes with Data\nSave your beamtime notes or a copy of your beamtime notes or (link to your google doc / equivalent) on the CHESS filesystem with your data (your beamline scientist will tell you where the best place is).\nLeverage MetaData Services\nWhenever possible, we encourage users to leverage the metadata services, beamline-specific software strategies (e.g. adding metadata to image frame headers), piping unique signals through software or hardware signals - saving these metadata with the data at the time of data collection. For unique aspects of your experiment, it is important to identify useful metadata to have associated with the x-ray data ahead of the beamtime. If signals are required to be monitored, this may need to be arranged for two weeks in advanced (see Bring Your Own Device (BYOD).\nCommenting Software\nComment any code produced at the beamtime. If this code was used to make decisions about the experiment, it should be saved and referred to in your experimental log."
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#station-computer-beamline-control-central",
-    "href": "theme4/XS100/data-collection.html#station-computer-beamline-control-central",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "Station Computer : Beamline Control Central",
-    "text": "Station Computer : Beamline Control Central\nEvery experimental station has a station computer that acts as controls central. The station computer typically runs a number of processes and is responsible for orchestrating data collection, motor motions, synchronized triggers, metadata logging, and more.\n\nStation Computer ground rules:\n\nMost users directly interact with the station computer. Users associated with the beamtime will have permission to log directly into the station computer remotely through No Machine (LINK to CLASSE). Your beamline scientist will be training you in how to run your experiment - pay close attention and take ownership of your role during your beamtime. Your beamline scientist may only be training your group at a specific time(s) during the beamtime - make sure all users can be present during this training and/or take notes and be prepared to train your fellow users on the basic operations. When in doubt, always communicate with your staff scientist. Some processes staff scientists will insist that the user be trained by the scientist and not a fellow user.\nThe station computer is running many processes that enable your experiment to run. You will be asked to interact with specific processes during your beamtime. It is imperative you ONLY interact with the processes that your beamline scientist has given you permission to run. Some UI’s and data reduction processes will be running on other computers through terminals on the station computer - accidentally running these processes on the station computer itself may disrupt data collection, overwhelm the station computer, or even cause it to freeze or shut down.\nThe station computer has many special permissions, for instance it is able to write to the the CHESS DAQ (raw directory). When saving files such as beamtime notes, it is important to save these in the directories prescribed by your beamline scientist. (link to later section on CHESS file system and directories)\n\n\nThis is an example of a station computer screen shot with many processes. There are 4 desktops on the station computer, each with windows spanning 4 screens. This image is of the first desktop and shows a main controls terminal (SPEC), controls screens (MEDM screens), a data reduction GUI (HEXRD). There will typically be even more processes running than this.\nEvery beamline will have a unique version of this computer - some techniques even may be executed exclusively through a GUI.\n###1 Controls Hardware, Software, and Signal Monitoring\nThis section will discuss the hardware connections, motor configurations, and overall connectivity of signals being tracked in the beamline."
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#controls-software",
-    "href": "theme4/XS100/data-collection.html#controls-software",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "Controls Software",
-    "text": "Controls Software\nThere are many controls languages and strategies across the lab. The two most common cases are SPEC and EPICS which will briefly be introduced here. Python-based controls are also very common.\nSPEC\nSPEC is a language, loosely based on C, used for instrument control and data acquisition at many synchrotrons.\nWhen using spec, you will interact with a SPEC terminal and run a combination of “standard” SPEC commands and/or a series of compiled programs for your technique\nImportantly, only ever use SPEC or edit Macros with the explicit permission of your staff scientist. This may vary from beamline to beamline SPEC commands continued.\nBelow is a video of a SPEC command window with built-in and custom macros.\n\n\n\nEPICS\nEPICS is a set of software tools and applications which provide a software infrastructure for use in building distributed control systems to operate devices\nMany of the devices at CHESS leverage EPICS drivers for operation EPICS PVs (process variables) are commonly used for signal monitoring and metadata/data logging.\nMany important metadata signals can also be tracked using “EPICS PVs.” While many of these PVs (process variables) are used throughout data collection, they can also be an important part of data monitoring. Your beamline scientist may have you observe the monitoring page depending on your experiments sensitivity to certain signals to monitor specific station signals (link to signals.chess.cornell.edu).\nAn Epics MEDM (Motif Editor and Display Manager) Screen for a Detector is shown in the annotated station view.\nPYMCA\nA common GUI used at the beamline is the PyMCA GUI. In addition to it’s original use for XRF, this GUI can be used to load in spec.log data and plot the counters at your beamline.\nPython, MATLAB, etc.\nYou may have specific other software: Python scripts (link to python tutorial), other UI’s for instrumentation, that you should receive training from your beamline scientist. See Python module if that is important."
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#networks-and-filesystems",
-    "href": "theme4/XS100/data-collection.html#networks-and-filesystems",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "Networks and Filesystems",
-    "text": "Networks and Filesystems\n\nDuring data collection, raw data is written directly to the CHESS-DAQ filesystems. The CHESS-DAQ consists of approximately 2 petabytes of dedicated online storage arrays connected to the CHESS experimental stations through a high-speed 10Gb data collection network.\nTo protect the communication signals between the station computer, experimental station equipment, and other local systems, each experimental station has an isolated network with direct connections.\nDetectors often have direct fiber optic / high speed data lines to inline computing resources and/or the CHESS-DAQ.\n\nThe CHESS filesystem has different locations for storing raw data, reduced data, etc. These different locations have different backup schedules and total storage amounts. Typically best practice is as follows: 1. Raw Data that cannot be reproduced is located in RAW/DAQ 2. Reduced Data that can be reproduced from Raw Data/Other Protected Data is in REDUCED DATA 3. Metadata that is small and not reproducible should be saved in METADATA (backed up nightly) 4. Data that is being produced and does not need to be backed up and could be processed again should be done in SCRATCH. This is a good location for testing code before performing Data Reduction. 5. For Data NOT associated with a particular beamtime, USER is an appropriate place for these projects.\n\nProtected Data: Intellectual Property (IP) and Export Control\nSome data needs to be protected, e.g. data covered under Intellectual Property or Export Control agreements\nAll such data must be declared and all agreements signed before ANY data is on CHESS/Cornell computing systems (including preparatory material that falls under IP or Export Control categories).\nData Collection, Storage, and Analysis can be customized to comply with data agreements, including: - Modifying isolated networks - Mounting encrypted drives - Configuring encrypted computers - Modifying permissions on filesystem locations - Securing the experimental station with an entry password - Disconnecting streaming video to the experimental station"
-  },
-  {
-    "objectID": "theme4/XS100/data-collection.html#data-handling-and-analysis",
-    "href": "theme4/XS100/data-collection.html#data-handling-and-analysis",
-    "title": "Data Collection, Preparing Input Parameters, SPEC and CLI",
-    "section": "Data Handling and Analysis",
-    "text": "Data Handling and Analysis\n\nIf you wish to move any data from the CHESS filesystem to another location, the preferred way of doing so is through Globus. Please see here (https://wiki.classe.cornell.edu/Computing/GlobusDataTransfer) for directions on ways to transfer data from the CHESS filesystem.\nYour beamline may be producing very large quantities of data. Due to it’s size, you may not be able to take your data home or transfer it home via globus. your data in raw may only stay in hot storage for a short amount of time (6 months). Your experimental station will have best practices for how to compress or reduce this data so that it is small enough to take home or live in a different part of our filesystem.\n\nThe data is still saved, but to transfer or perform analysis on the files you will need to arrange to have it rolled back into “hot storage” - AKA take out an IT ticket: https://wiki.classe.cornell.edu/Computing/ServiceRequestTips\n\n\nBring Your Own Device (BYOD)\nUsers may need to bring their own devices to be beamline - either physically in the lab or remotely connected to the CHESS networks\nExamples include: - Controls computer for equipment they have integrated for an experiment - Analysis computer for on-the-fly analysis\nAll devices must be approved at least two weeks in advance. It may not be possible to consider integration on a shorter time period.\nBecause the CHESS-DAQ filesystems are a critical resource for data collection, write access is only granted to registered devices on the CHESS-DAQ network. If you wish to bring your own device to write data to the CHESS-DAQ, please discuss your needs with your staff scientist at least one month before your beamtime. Before your device can be registered on the CHESS-DAQ, it must undergo a cybersecurity evaluation by CLASSE-IT.\nRead access to the CHESS-DAQ filesystem may be obtained by registering your device for the LNS Protected network using this request form.\n\n\nMetaData Handling\nIdeally, all the data necessary to fully reproduce your results are recorded and disseminated in a manner that others can interpret after your experiment. Ideally the provenance remains unbroken from experiment planning.\nMetadata and parallel data streams are generated at every stage of your experiment. CHESS is continuing to develop and implement services to help with this creation. From programs like Galaxy, to our Metadata service -\nThe metadata service (https://wiki.classe.cornell.edu/bin/viewauth/CHESS/Private/CHESSMetadataService) provides tools to record and automatically ingest machine-readable metadata in a systematic way. It includes variables that historically were not recorded via a second data stream (e.g. the material processing parameters).\n\n\n\nOn-the-fly Data Processing & Visualization\nNeed to be looking at your data as it is coming off for data fidelity. At some beamlines, you will need to interact manually with a GUI to render your images and make sure the data quality is what you are expecting. At some beamlines, the new NSDF (National Data Science Fabric) Dashboard has been deployed for some datatypes which allows interactive visualization of data as it is coming off the beamline. An example can be found here: https://services.nationalsciencedatafabric.org/chess/.\nMany beamlines have an initial “data reduction” procedure that reduces the size of the data through compression or on-the-fly analysis to have smaller file sizes that are more manageable to analyze at your home institution.\nSome of these processes are software procedures performed on the data after it is written to the raw directory, while other beamlines utilize inline data processing/compression prior to writing their files to the raw directory. Overtime we will build out station specific training on these, for now it is the responsibility of the user to work with their beamline scientist and read any requisite materials they provide.\n\n\nData Reduction and Analysis\n\nCompute Farm\nThe CLASSE Compute Farm is a central resource consisting of approximately 60 enterprise-class Linux nodes (with around 400 cores), with a front-end queueing system (Son of Grid Engine, or SGE) that distributes jobs across the Compute Farm nodes. SGE supports interactive, batch, parallel, and GPU jobs, and it ensures equitable access to the Compute Farm for all users.\nData on the CHESS-DAQ filesystems can be directly accessed using the Compute Farm, and instructions for job submission are available here.\nCHESS Analysis Pipeline (CHAP)\nThe CHESS Analysis Pipeline (CHAP) is an object-oriented framework for organizing data analysis code into reusable modules. The most basic pipeline consists of the following modules: - Reader: takes an input file or data source and converts it into a standard data structure - Processor: takes a data structure from a Reader, executes a data processing algorithm, and writes an output data structure - Writer: takes a data structure from a Processor and converts it to a specific file format\n\nAn example of a concrete CHAP implementation is shown below. Here, the Processor accepts inputs from multiple Readers that provide both raw data and metadata.\n\nCHAP pipelines can be executed from a Linux command line or from the Galaxy science gateway. A third method called CHAPBook is currently under development, which presents a notebook-like coding interface for non-expert users.\nTechnique/Beamline Specific Software\nCHESS has many common X-ray software packages available on the system. Speak with your beamline scientist for the preferred software package for your experiment."
-  },
-  {
-    "objectID": "theme2/SF201/batch-systems-and-compute-farms.html",
-    "href": "theme2/SF201/batch-systems-and-compute-farms.html",
-    "title": "Batch Systems and Compute Farms",
+    "objectID": "theme4/XS200/metadata.html",
+    "href": "theme4/XS200/metadata.html",
+    "title": "Metadata for Data Fidelity and Systematic Checks",
     "section": "",
     "text": "Note\n\n\n\nThis page is work in progress."
   },
   {
-    "objectID": "theme2/SF101/containers-and-virtualization.html",
-    "href": "theme2/SF101/containers-and-virtualization.html",
-    "title": "Containers and Virtualization",
+    "objectID": "theme4/XS102/large-scale-data-analysis.html",
+    "href": "theme4/XS102/large-scale-data-analysis.html",
+    "title": "Large-scale Data Analysis: from Images to Science Parameters to Interpretation",
     "section": "",
     "text": "Note\n\n\n\nThis page is work in progress."
   },
   {
-    "objectID": "theme2/SF100/index.html",
-    "href": "theme2/SF100/index.html",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF200/parallel-computing.html",
+    "href": "theme2/SF200/parallel-computing.html",
+    "title": "Parallel Computing Concepts",
     "section": "",
-    "text": "The following notes assume that you are all set up to use your accounts on the CLASSE Linux systems.\nDepending on your level of familiarity with the system, you might know enough commands to find your way around. Since it probably is not a good idea to make such assumptions right off the bat, let us see what you might need to know to in order to become a proficient user of the systems."
+    "text": "Note\n\n\n\nThis page is work in progress."
   },
   {
-    "objectID": "theme2/SF100/index.html#linux",
-    "href": "theme2/SF100/index.html#linux",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#assumptions",
+    "href": "theme2/SF100/slides.html#assumptions",
+    "title": "Systems Fundamentals",
+    "section": "Assumptions",
+    "text": "Assumptions\n\nYou have your CLASSE accounts set up.\n\nTalk to CLASSE staff otherwise!\n\nOptions:\n\nUse ssh\nUse NoMachine\nUse JupyterLab"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#use-ssh",
+    "href": "theme2/SF100/slides.html#use-ssh",
+    "title": "Systems Fundamentals",
+    "section": "Use SSH",
+    "text": "Use SSH\n\nssh ${username}@lnx201.classe.cornell.edu\n\nUse terminal or iTerm on macOS.\nUse whichever terminal you want on Linux.\nUse PuTTY (https://putty.org/) on Windows.\n\n\n\nUse terminal or iTerm on macOS. There are other choices too, but these seem popular.\nUse whatever terminal you want on Linux. You know what you are doing, and you know how to figure out stuff.\nUse PuTTY on Windows. I am not up to speed on Windows."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#use-nomachine",
+    "href": "theme2/SF100/slides.html#use-nomachine",
+    "title": "Systems Fundamentals",
+    "section": "Use NoMachine",
+    "text": "Use NoMachine\n\nhttps://wiki.classe.cornell.edu/Computing/NoMachine\n\n\nThere is a client that you can install.\nThere is also web access, which I have used a few times. Seemed shaky."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#use-jupyterlab",
+    "href": "theme2/SF100/slides.html#use-jupyterlab",
+    "title": "Systems Fundamentals",
+    "section": "Use JupyterLab",
+    "text": "Use JupyterLab\n\nhttps://jupyter01.classe.cornell.edu/\n\n\nUse the terminal icon on the launcher.\nOr use File -&gt; New -&gt; Terminal"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#linux",
+    "href": "theme2/SF100/slides.html#linux",
+    "title": "Systems Fundamentals",
     "section": "Linux",
-    "text": "Linux\nLinux is a free and open source operating system known for stability, security, and versatility. Linux runs on a variety of machines from small embedded systems to powerful servers. A great deal of software runs on Linux.\nYou probably know all this already, so let us skip ahead."
+    "text": "Linux\n\nA popular operating system.\n\n(Actually an OS kernel, plus userland from various other projects. But those are details…)\n\nUnix-like, which traces back to 1969, therefore has accumulated quirks.\n\nExpect “hysterical raisins”."
   },
   {
-    "objectID": "theme2/SF100/index.html#the-command-line",
-    "href": "theme2/SF100/index.html#the-command-line",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#lnx201",
+    "href": "theme2/SF100/slides.html#lnx201",
+    "title": "Systems Fundamentals",
+    "section": "lnx201",
+    "text": "lnx201\n\nThe Linux host we’ll be using is lnx201.classe.cornell.edu.\nRuns a distribution called Scientific Linux.\nGood enough for general use.\nDo not run anything resource heavy on lnx201.\n\n“Heavy” in terms CPU, memory, network usage etc.\nlnx201 is a shared resource.\n\nThere is a Compute Farm to run heavy things.\n\n\n\nI am not the expert on lnx201 or compute farm. I just happen to present today!"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#the-command-line",
+    "href": "theme2/SF100/slides.html#the-command-line",
+    "title": "Systems Fundamentals",
     "section": "The command line",
-    "text": "The command line\nTo perform certain kinds of tasks, using the command line is often quicker and more efficient. You can “chain” or compose separate programs together, each of them specializing in doing different things. You can save longer tasks in the form of scripts for later use, and share them with your colleagues.\nHere’s a quick example. You will find documentation for the software installed on lnx201 in the directory /usr/share/doc. Many of those are named README, or README.md, or README.rst, or readme.txt, or some such variation. How many such files are there in /usr/share/doc?\nWe can find that out by using find (a program for searching for files under a directory tree) and wc (a word count program):\n[ssasidharan@lnx201 ~]$ find /usr/share/doc/ -iname \"readme*\" | wc -l\n1589\nMany of the files in /usr/share/doc mention the word “license” or “LICENSE” or some variation thereof. How many such lines are there? In order to find that out, we can use grep (a program that matches patterns), and wc together:\n[ssasidharan@lnx201 ~]$ grep -ir license /usr/share/doc/ | wc -l\n84089\nLearning to use the command line well will leave more power on your hands."
+    "text": "The command line\n\n\nYou will type commands in a shell, at the shell prompt, hit enterenter key, and then things happen.\n\n\n\nAll of this is a text user interface.\nAs opposed to clicking on GUI widgets.\nThe prompt is that piece of text that begins with [ and ends with ] $. They can look different too."
   },
   {
-    "objectID": "theme2/SF100/index.html#using-the-shell-prompt",
-    "href": "theme2/SF100/index.html#using-the-shell-prompt",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Using the shell prompt",
-    "text": "Using the shell prompt\nThe [ssasidharan@lnx201 ~]$ thing with a blinking cursor at the end is called a shell prompt. You type commands at the shell prompt, hit enter, and then something happens in response to that.\nThe examples in these notes are my shell prompt: it contains my username on lnx201, followed by @ character, followed by the name of the computer (or “hostname”), followed by the current directory. Your prompt will be different, because it will contain your username.\nAfter entering the first few characters of a command, you can use the tabtab key for auto-completing commands.\n[ssasidharan@lnx201 /]$ ssh&lt;tab&gt;\nssh          ssh-agent    sshd         sshfs        ssh-keyscan  \nssh-add      ssh-copy-id  sshd-keygen  ssh-keygen   sshpass   \n[ssasidharan@lnx201 /]$ condor_&lt;tab&gt;\nDisplay all 119 possibilities? (y or n)\nBash offers some helpful methods for editing and navigating the history of commands you have previously executed.\n\nYou can use up/down arrow keys to navigate history.\nhistory command will print a list of recently used commands.\nYou can use Ctrl-RCtrl-R to search command history.\nCtrl-ACtrl-A will make the cursor to the beginning of the line.\nCtrl-ECtrl-E will go to the end of the line.\nCtrl-KCtrl-K will “kill” (cut) text from current position to end of line to a buffer called the “kill-ring”.\nCtrl-YCtrl-Y will “yank” (paste) most recently killed text from the kill ring to current cursor position.\nAlt-YAlt-Y will cycle through the kill-ring.\n\nTo exit the shell, you can use exit command or Ctrl-DCtrl-D.\nIf you are using ssh to connect to lnx201, exiting the shell will end your ssh session. If you had opened a terminal window, exiting the shell will close the window."
+    "objectID": "theme2/SF100/slides.html#commands",
+    "href": "theme2/SF100/slides.html#commands",
+    "title": "Systems Fundamentals",
+    "section": "Commands",
+    "text": "Commands\n\nCommands are either programs or shell builtins.\nUse one of these commands to read documentation:\n\nman ${command}\ninfo ${command}\nor ${command} --help (sometimes!)\n\n\n\n\nPrograms can be compiled or scripts.\nThey live somewhere in your $PATH."
   },
   {
-    "objectID": "theme2/SF100/index.html#how-does-bash-set-up-the-environment",
-    "href": "theme2/SF100/index.html#how-does-bash-set-up-the-environment",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "How does bash set up the environment?",
-    "text": "How does bash set up the environment?\nThere are two kinds of shell sessions: login and non-login. login session starts when you enter a username and password, such as when using ssh. A non-login session starts when you open a terminal window from a desktop.\nDepending on how the session was started, a few shell scripts are read and executed when starting a shell.\nFor login shells these will be:\n\n/etc/profile is a global script that applies to all users.\n\n~/.bash_profile is a script in your home directory, and it is applied when you start a shell.\nIf ~/.bash_profile was not found, bash will attempt to read ~/.bash_login and ~/.profile in order.\n\nFor non-login shells:\n\n/etc/bashrc is the script that applies to everyone.\n~/.bashrc is the script that applies to you.\n\nNon-login shells also inherit the environment from their parent process, which is usually a login shell.\nSystems vary on how they are set up. You should look around lnx201 to find out how this is done there. These files are some examples of shell scripts, which is a topic we’ll visit later in these notes."
+    "objectID": "theme2/SF100/slides.html#the-shell",
+    "href": "theme2/SF100/slides.html#the-shell",
+    "title": "Systems Fundamentals",
+    "section": "The shell",
+    "text": "The shell\n\nA program that accepts commands, and passes those commands to the OS to execute.\nA popular shell is bash, which is the default on lnx201.\n\n\nOf course there are other shells too: zsh (default on newer versions of macOS, fish, ksh, etc."
   },
   {
-    "objectID": "theme2/SF100/index.html#changing-environment-variables",
-    "href": "theme2/SF100/index.html#changing-environment-variables",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Changing environment variables",
-    "text": "Changing environment variables\nYou can also use export command to overwrite existing environment variables, or add new ones. For example:\n[ssasidharan@lnx201 /]$ export HISTSIZE=2000\n[ssasidharan@lnx201 /]$ echo $HISTSIZE\n2000\nNote that this change in HISTSIZE applies only to the current shell. It will be forgotten when you exit the shell.\nIn order to make the change permanent, you will need to add the line export HISTSIZE=2000 to your ~/.bash_profile file."
+    "objectID": "theme2/SF100/slides.html#bash",
+    "href": "theme2/SF100/slides.html#bash",
+    "title": "Systems Fundamentals",
+    "section": "Bash",
+    "text": "Bash\n\n“Bourne-again shell”\n\nBased on an earlier Bourne shell, thus the “again”.\nDeveloped by the GNU project.\nOn lnx201, /bin/bash is the program.\n\nFor documentation: info bash or man bash.\n\n\n\nGNU people made a lot of the software early on.\n\nAlso Unix people, BSD people, X11 people, and a whole bunch of other people.\nThen the Linux kernel came along, became successful, and people started to call the whole combination of all these things “Linux”."
   },
   {
-    "objectID": "theme2/SF100/index.html#absolute-and-relative-paths",
-    "href": "theme2/SF100/index.html#absolute-and-relative-paths",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Absolute and relative paths",
-    "text": "Absolute and relative paths\nPaths can be specified in two ways: absolute or relative. An absolute pathname begins with the root directory, /, and contains every directory name, branch by branch.\nAbsolute path to the Desktop directory in my home directory on lnx201 is /home/ssasidharan/Desktop/.\nIn comparison, a relative pathname starts from the working directory. When I’m in my home directory, I can simply use the relative pathname, Desktop.\nEvery directory contains two special directory names, . and .., in which . refers to the current directory, and .. refers to the parent directory of the current directory.\n[ssasidharan@lnx201 ~]$ pwd\n/home/ssasidharan\n[ssasidharan@lnx201 ~]$ cd .\n[ssasidharan@lnx201 ~]$ pwd\n/home/ssasidharan\n[ssasidharan@lnx201 ~]$ cd ..\n[ssasidharan@lnx201 home]$ pwd\n/home\n[ssasidharan@lnx201 home]$ cd ..\n[ssasidharan@lnx201 /]$ pwd\n/"
+    "objectID": "theme2/SF100/slides.html#bash-niceties-history-and-completion",
+    "href": "theme2/SF100/slides.html#bash-niceties-history-and-completion",
+    "title": "Systems Fundamentals",
+    "section": "Bash niceties: history and completion",
+    "text": "Bash niceties: history and completion\n\nYou do not have to re-type commands that you have used in the past!\n\nUse upup and downdown arrow keys to go back and forth in your command history.\nUse Ctrl-RCtrl-R (Control+R) to “search” command history.\nUse history command to list your shell history.\n\nUse tabtab key for command completion, after typing a few characters."
   },
   {
-    "objectID": "theme2/SF100/index.html#wildcards",
-    "href": "theme2/SF100/index.html#wildcards",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Wildcards",
-    "text": "Wildcards\nThe shell gives special treatment to some characters, known as wildcards. Using wildcard characters, we can quickly specify groups of files.\nThe wildcard character * stands for any set of characters. For example, you can list the names of all programs in /usr/bin that start with ab with ls /usr/bin/ab*:\n[ssasidharan@lnx201 ~]$ ls /usr/bin/ab*\n/usr/bin/ab  /usr/bin/abs2rel\nThe wildcard character ? stands for any single character. So if you want to list the filenames in /usr/bin that starts with any character, followed by abc, followed by any characters:\n[ssasidharan@lnx201 ~]$ ls /usr/bin/?abc*\n/usr/bin/kabc2mutt  /usr/bin/kabcclient"
+    "objectID": "theme2/SF100/slides.html#some-helpful-commands",
+    "href": "theme2/SF100/slides.html#some-helpful-commands",
+    "title": "Systems Fundamentals",
+    "section": "Some helpful commands",
+    "text": "Some helpful commands\n\n\n\n\n\n\n\n\nCommand\nTask\nExample Syntax\n\n\n\n\nls\nlist the files in a directory\nls [/tmp]\n\n\ncd\nmove into a directory\ncd [/tmp]\n\n\npwd\nshow curent working directory\npwd\n\n\ncp\ncopy a file to into another directory, or make a copy with a different name\ncp [file.txt] [/tmp/file.txt]\n\n\ncp -r\ncopy a folder to into another directory\ncp [file.txt] [/tmp/file.txt]\n\n\nmv\nrename or move a file into another directory\nmv [file.txt] [file1.txt]\n\n\nrm\ndelete a file\nrm [file.txt]\n\n\nrm -r\nremove a directory, recursively\nrm -r [dir]\n\n\nmkdir\ncreate a directory\nmkdir [dir]\n\n\nfind\nfind a file\nfind [/tmp] -name [file]\n\n\ngrep\nsearch for a text pattern inside a file\ngrep [text] [/tmp/file.txt]\n\n\nless\nto view the text of a text file, one screen at a time\nless [/tmp/file.txt]\n\n\nexit\nexit and logout of a Terminal (Terminal-xfce4) session\nexit\n\n\n\nSource: https://wiki.classe.cornell.edu/Computing/SummerStudentOrientation#Linux_Command_Line_40ls_44_cd_44_mv_44_find_44_grep_etc_41"
   },
   {
-    "objectID": "theme2/SF100/index.html#the-current-working-directory",
-    "href": "theme2/SF100/index.html#the-current-working-directory",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#directory-navigation",
+    "href": "theme2/SF100/slides.html#directory-navigation",
+    "title": "Systems Fundamentals",
+    "section": "Directory navigation",
+    "text": "Directory navigation\n[ssasidharan@lnx201 ~]$ tree -d -L 1 /\n/\n├── bin -&gt; usr/bin\n├── boot\n├── cdat\n├── cifs\n├── cvmfs\n├── dev\n├── etc\n├── home\n├── lib -&gt; usr/lib\n├── lib64 -&gt; usr/lib64\n├── media\n├── misc\n├── mnt\n├── net\n├── nfs\n├── opt\n├── proc\n├── root\n├── run\n├── sbin -&gt; usr/sbin\n├── srv\n├── sys\n├── tmp\n├── usr\n└── var\n\n25 directories\n\n\nDirectories and files are organized in a tree like structure.\nWell, an inverted tree, maybe.\nAt the bottom (or top?), you have the “/” directory."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#your-home-directory",
+    "href": "theme2/SF100/slides.html#your-home-directory",
+    "title": "Systems Fundamentals",
+    "section": "Your home directory",
+    "text": "Your home directory\n\nYou have a “home” directory.\n\nYou can write your files and create directories here.\n\nUsually, and on lnx201, this will be /home/$USER\n\nAlso known as $HOME\n\n\n\n\nThe stuff that follows $ are environment variables aka env vars. They are sort of key-value pairs managed by the shell.\nThere are a set of standard env vars such as $USER, $HOME, $SHELL etc.\nDon’t write too much on your home directory.\nThere are better places top store large amounts of data.\nI am not the expert here. Ask around, or wait for the next presenter."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#those-whatever-things",
+    "href": "theme2/SF100/slides.html#those-whatever-things",
+    "title": "Systems Fundamentals",
+    "section": "Those $WHATEVER things",
+    "text": "Those $WHATEVER things\n\nWhat are $HOME, $USER, $PATH, $SHELL, etc.?\nThey are called environment variables, or env vars.\nEnv vars are pieces of information maintained by the shell.\nPrograms can use them during execution.\nUse printenv or env command to list them."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#the-current-working-directory",
+    "href": "theme2/SF100/slides.html#the-current-working-directory",
+    "title": "Systems Fundamentals",
     "section": "The current working directory",
-    "text": "The current working directory\nAt any time in the shell, we are “inside” a single directory, known as the current working directory. When you list files with ls, a list of files and directories of the current working directory will be printed on the output.\nWhen you log in to lnx201, initially you will be in a directory named /home/${USER}, where ${USER} is your username on lnx201. This is what is known as your /home directory/. When you log in first, your home directory will be your current working directory.\nTo find where you are, use the command pwd.\nThe below commands are useful:\n\nmkdir test will create a directory named test\ncd test will change the working directory to test.\nls will list files and directories in the current working directory.\nrm will remove a file.\nrm &lt;name of directory&gt; will not remove a directory; you have to remove it recursively, like so: rm -r &lt;name of directory&gt;.\n\ncd - is useful: it will switch you to the directory that you were previously in:\n[ssasidharan@lnx201 /]$ cd /usr/\n[ssasidharan@lnx201 usr]$ pwd\n/usr\n[ssasidharan@lnx201 usr]$ cd share/\n[ssasidharan@lnx201 share]$ pwd\n/usr/share\n[ssasidharan@lnx201 share]$ cd -\n/usr\n[ssasidharan@lnx201 usr]$ pwd\n/usr\nRunning cd ~ (or simply cd) will drop you back in your home directory:\n[ssasidharan@lnx201 ~]$ cd /usr/share/doc/\n[ssasidharan@lnx201 doc]$ pwd\n/usr/share/doc\n[ssasidharan@lnx201 doc]$ cd ~\n[ssasidharan@lnx201 ~]$ pwd\n/home/ssasidharan\nIt is worth noting that the shell will substitute ~ for your home directory.\n. and .. are special directory names: . means the current directory, and .. means its parent directory, or the directory above it in the directory hierarchy.\ntouch command is used to change file timestamps. You can also use touch to create an empty file, like so: touch test.txt.\n\nSymbolic links\nOn my home directory on lnx201, when I do an ls -l (which is for ls with long file listing format), I would see something like this:\nlrwxrwxrwx  1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\nThe first letter of the listing is l and the entry kind of suggests that my Downloads directory is a reference to another directory, /cdat/tem/ssasidharan/Downloads. The Downloads directory in my home directory is what is called a symbolic link, which also known as a soft link or “symlink”.\nWith symbolic links, we can have shortcuts to other files or directories."
+    "text": "The current working directory\n\n\nAt any time in the shell, you are “inside” a single directory, called the current working directory.\n\nWhen you do ls, files in current working directory will be listed, etc.\n\nWhen you log in, your current working directory will be your home directory: /home/$USER aka $HOME.\nYou will use cd (change directory) to move around.\nUse the command pwd to find where you are.\n\nOr echo $PWD."
   },
   {
-    "objectID": "theme2/SF100/index.html#users-and-groups",
-    "href": "theme2/SF100/index.html#users-and-groups",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Users and groups",
-    "text": "Users and groups\nLinux is a multi-user operating system. Since many people can be using the system, there needs to be mechanisms in place to ensure separation between them, while ensuring that they can access shared resources when necessary.\nThe basic mechanism is the concept of users and groups.\nThe root user is a special user that has all the permissions. They can change most things about the system. The root user can change system configuration, add and remove users and groups, etc.\nMost of the time, we do not need neither the power nor the responsibilities of the root user. So we have a non-root, regular user account in lnx201.\nYour account also belongs to certain groups. Groups are the way to grant permission to a group of accounts. You can find the groups you belong to using groups command:\n[ssasidharan@lnx201 ~]$ groups\nchess classeuser\n[ssasidharan@lnx201 ~]$\nUsers and groups have distinct numerical identifiers too. You can find them with id command:\n[ssasidharan@lnx201 ~]$ id\nuid=63499(ssasidharan) gid=262(chess) groups=262(chess),750(classeuser)\nIf you run ls -l (-l is for long listing format) command to list files and folders in your home directory, the result will be something like this:\n[ssasidharan@lnx201 ~]$ ls -l\ntotal 4\ndrwxr-xr-x 2 ssasidharan chess   28 Mar 28 09:36 bin\ndrwxr-xr-x 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts\ndrwxr-xr-x 2 ssasidharan chess   30 Mar 26 15:22 Desktop\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Documents\nlrwxrwxrwx 1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\n-rw-r--r-- 1 ssasidharan chess 3254 Mar  7 15:55 helloworld.ipynb\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Music\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Pictures\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Public\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Templates\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Videos\nLet us see what the above columns means:\n\nThe first column lists permissions on the file/folder. (We will see what this means in the next section.)\nThe second column shows number of links to it.\nThe third one shows the user who owns it.\nThe fourth one shows the group that owns the file.\nThe fifth one is the size of the file in bytes. Note that directories are a little special here – what you see here is not the total size of all the files and folders under the directory, but the space the directory itself uses on disk.\nThe next column (the whole Mar 26 15:21 segment) shows a timestamp when the file/folder was last modified.\nFinally, the name of the file/folder. Note that Downloads -&gt;   /cdat/tem/ssasidharan/Downloads is a bit special: it means that Downloads folder is in fact a link to /cdat/tem/ssasidharan/Downloads."
+    "objectID": "theme2/SF100/slides.html#absolute-and-relative-paths",
+    "href": "theme2/SF100/slides.html#absolute-and-relative-paths",
+    "title": "Systems Fundamentals",
+    "section": "Absolute and relative paths",
+    "text": "Absolute and relative paths\nFile/folder names are also referred to as paths.\n\nAbsolute path names begin with the root directory, /.\n\nExample: /home/ssasidharan/Documents/hello.txt\n\nRelative paths start with the working directory.\n\nExample: ./Documents/hello.txt (or just Documents/hello.txt) when I’m in my home directory."
   },
   {
-    "objectID": "theme2/SF100/index.html#permissions-and-ownership",
-    "href": "theme2/SF100/index.html#permissions-and-ownership",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Permissions and ownership",
-    "text": "Permissions and ownership\nLet us see what a string like drwxr-xr-x from the above example means. This string, sometimes called “permission bits” or “file mode bits”, is ten characters long. Each of the characters are shorthand signifying something.\n\nThe first d stands for directory. (For files, this will be a -.)\nThe next three rwx are for user’s permissions.\nThe next three r-x are for group permissions.\nThe final three r-x are for permissions for the rest of the users.\n\nNow, what do those r and w and x mean?\n\nr means permission to read.\nw means permission to write.\nx means permission to execute, in the case of files. In the case of directories, x means that you can cd into them.\n\n\nChanging permissions with chmod\nYou can use chmod command to change permissions. If you create a shell script named test.sh, for example, it won’t be executable by default. You will have to change the file mode bits using chmod:\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ ./test.sh\n-bash: ./test.sh: Permission denied\n[ssasidharan@lnx201 ~]$ chmod +x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ ./test.sh\nYou can remove the x bit like so:\n[ssasidharan@lnx201 ~]$ chmod -x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\nYou can also grant permission to just the owner, or group, or others:\n[ssasidharan@lnx201 ~]$ chmod u+x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ chmod g+x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ chmod o+x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\nYou can also combine u, g, o bits and r, w, x bits with + or -:\n[ssasidharan@lnx201 ~]$ chmod ugo-r test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n--wx--x--x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\nI just made the file unreadable by everyone, even me!\n[ssasidharan@lnx201 ~]$ cat test.sh\ncat: test.sh: Permission denied\nOf course you can restore the permission with chmod ugo+r test.sh\nNote that when invoking chmod, a (or all) is equivalent of ugo (user + group + others). You can also omit a or ugo if you want everyone to have the same permissions. So the below all are equivalent:\n[ssasidharan@lnx201 ~]$ chmod ugo+r test.sh\n[ssasidharan@lnx201 ~]$ chmod a+r test.sh\n[ssasidharan@lnx201 ~]$ chmod +r test.sh\n(If you want to change owner or group of a file/folder, you can do that with chown and chgrp. This probably is not immediately useful; it is enough to know that these commands exist.)"
+    "objectID": "theme2/SF100/slides.html#some-fun-facts-about-file-names",
+    "href": "theme2/SF100/slides.html#some-fun-facts-about-file-names",
+    "title": "Systems Fundamentals",
+    "section": "Some fun facts about file names",
+    "text": "Some fun facts about file names\n\nNames that begin with “.” are “hidden”.\n\nThey are omitted from directory listing when you do ls.\nDo ls -a (or ls --all) to list them.\n\n. and .. are special directory names.\n\n. stands for the current directory.\n.. stands for the directory above the current directory."
   },
   {
-    "objectID": "theme2/SF100/index.html#noteworthy-facts-about-file-names",
-    "href": "theme2/SF100/index.html#noteworthy-facts-about-file-names",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Noteworthy facts about file names",
-    "text": "Noteworthy facts about file names\n\nFile/folder names that begin with a . (period character) are “hidden”: meaning that they will not be listed in the output of ls command by default. You can list them with ls -a. They are also called dotfiles.\nConfiguration files for the programs you use (such as .bashrc for bash configuration) are often saved in hidden files. This way they usually stay out of your way without creating a clutter.\nFile/folder names and commands are case sensitive in Linux. Thus Notes.txt and notes.txt and NOTES.TXT are all distinct files.\nAs a matter of convenience, it is better to avoid spaces and special characters in file/folder names, as it will make tasks a little more difficult. If you need to represent spaces between words, you can replace spaces with _ (the underscore character)."
+    "objectID": "theme2/SF100/slides.html#some-more-fun-facts-about-file-names",
+    "href": "theme2/SF100/slides.html#some-more-fun-facts-about-file-names",
+    "title": "Systems Fundamentals",
+    "section": "Some more fun facts about file names",
+    "text": "Some more fun facts about file names\n\nFile and directory names are case sensitive.\n\nDepends on filesystem, but that is a detail.\n\nIt is better to avoid spaces in file names, because they are a hassle.\n\nUse _ (underscore character) instead (example: file_name), or CamelCase (example: FileName).\nQuote paths within \" and \" if they happen to have spaces, or “escape” each space with \\."
   },
   {
-    "objectID": "theme2/SF100/index.html#io-redirection",
-    "href": "theme2/SF100/index.html#io-redirection",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#wildcards",
+    "href": "theme2/SF100/slides.html#wildcards",
+    "title": "Systems Fundamentals",
+    "section": "Wildcards",
+    "text": "Wildcards\nSome characters are given special treatment:\n\n* matches any set of characters.\n\n[ssasidharan@lnx201 ~]$ ls /usr/bin/ab*\n/usr/bin/ab  /usr/bin/abs2rel\n\n? matches any one character.\n\n[ssasidharan@lnx201 ~]$ ls /usr/bin/?abc*\n/usr/bin/kabc2mutt  /usr/bin/kabcclient"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#standard-input-output-and-error",
+    "href": "theme2/SF100/slides.html#standard-input-output-and-error",
+    "title": "Systems Fundamentals",
+    "section": "Standard input, output, and error",
+    "text": "Standard input, output, and error\n\nInput is read from standard input (or stdin).\nOutput is written to standard output (or stdout).\nError messages are written to standard error (or stderr).\n\n\n\n\n\n\n\nNote\n\n\nThey are files too: /dev/stdin, /dev/stdout, and /dev/stderr."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#io-redirection",
+    "href": "theme2/SF100/slides.html#io-redirection",
+    "title": "Systems Fundamentals",
     "section": "I/O redirection",
-    "text": "I/O redirection\nI/O redirection lets us to change where standard output gets printed. To redirect standard output, we use the &gt; operator.\n[ssasidharan@lnx201 ~]$ ls -l &gt; ls-output.txt\nAs a result of redirection, a new file named ls-output.txt will be created. You can view its contents using cat command.\n[ssasidharan@lnx201 ~]$ ls -l ls-output.txt\n-rw-r--r-- 1 ssasidharan chess 807 Apr  1 17:32 ls-output.txt\n[ssasidharan@lnx201 ~]$ cat ls-output.txt\ntotal 4\ndrwxr-xr-x 2 ssasidharan chess   28 Mar 28 09:36 bin\ndrwxr-xr-x 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts\ndrwxr-xr-x 2 ssasidharan chess   30 Mar 26 15:22 Desktop\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Documents\nlrwxrwxrwx 1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\n-rw-r--r-- 1 ssasidharan chess 3254 Mar  7 15:55 helloworld.ipynb\n-rw-r--r-- 1 ssasidharan chess    0 Apr  1 17:32 ls-output.txt\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Music\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Pictures\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Public\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Templates\n-rwxr-xr-x 1 ssasidharan chess    0 Mar 28 13:39 test.sh\ndrwxr-xr-x 2 ssasidharan chess    6 Mar 26 15:21 Videos\nNote that if there already was a file named ls-output.txt, the redirection above would have overwritten its contents. You want to be careful about this.\nWhat if you want to discard stdout completely? You can redirect it to the special file /dev/null:\n[ssasidharan@lnx201 ~]$ ls -l &gt; /dev/null\nIf you want to append stdout to a file instead of overwriting it, you can use &gt;&gt; operator:\n[ssasidharan@lnx201 ~]$ ls -l &gt;&gt; ls-output.txt\nThe &lt; operator is a sort of inverse of the &gt; operator:\n[ssasidharan@lnx201 ~]$ echo \"Shall I compare thee to a summer’s day?\" &gt; sonnet18.txt\n[ssasidharan@lnx201 ~]$ cat sonnet18.txt\nShall I compare thee to a summer’s day?\n[ssasidharan@lnx201 ~]$ cat &lt; sonnet18.txt\nShall I compare thee to a summer’s day?"
+    "text": "I/O redirection\nYou can redirect stdout to a file with &gt; operator:\n[ssasidharan@lnx201 ~]$ ls -l &gt; ls-output.txt\nOr append with &gt;&gt;:\n[ssasidharan@lnx201 ~]$ ls -l &gt;&gt; ls-output.txt\nTo direct a file to a programs input, use &lt; operator:\n[ssasidharan@lnx201 ~]$ cat &lt; sonnet18.txt\nShall I compare thee to a summer’s day?"
   },
   {
-    "objectID": "theme2/SF100/index.html#pipes",
-    "href": "theme2/SF100/index.html#pipes",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#pipes",
+    "href": "theme2/SF100/slides.html#pipes",
+    "title": "Systems Fundamentals",
     "section": "Pipes",
-    "text": "Pipes\nPrograms can write to standard output. Programs can also read from standard input. This means we can “chain” them together, such that one programs standard output is “piped” into another program’s standard input.\nThe operator to do this is | (vertical bar), also known as a pipe, and it is used in this manner: command1 | command2.\n[ssasidharan@lnx201 ~]$ ls -l /bin/ | less\nThe output of ls -l /bin is fairly large, so we pipe it into less, which allows you to scroll the output backward and forward, using up and down keyboard keys.\nYou can form longer pipes like this:\n[ssasidharan@lnx201 ~]$ ls /bin /usr/bin /sbin /usr/sbin | sort | uniq | wc\n   4289    4288   46820\n\nsort will sort lines of text files.\nuniq is used to filter adjacent matching lines the output of sort.\nwc is a word count program. It counts lines, words, and bytes present in its input."
+    "text": "Pipes\n\nUsing the | (“pipe”) operator, you can “chain” programs such that one programs output is another programs input:\n\n[ssasidharan@lnx201 ~]$ ls -l /bin/ | less\n\nYou can create longer pipes:\n\n[ssasidharan@lnx201 ~]$ ls /bin /sbin | sort | uniq | wc\n   4289    4288   46820"
   },
   {
-    "objectID": "theme2/SF100/index.html#listing-processes",
-    "href": "theme2/SF100/index.html#listing-processes",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#you-belong-to-groups",
+    "href": "theme2/SF100/slides.html#you-belong-to-groups",
+    "title": "Systems Fundamentals",
+    "section": "You belong (to groups)",
+    "text": "You belong (to groups)\nYour account belongs to several groups:\n[ssasidharan@lnx201 ~]$ id\nuid=63499(ssasidharan) gid=262(chess) groups=262(chess),750(classeuser)\n[ssasidharan@lnx201 ~]$ groups\nchess classeuser"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#permissions-and-ownership",
+    "href": "theme2/SF100/slides.html#permissions-and-ownership",
+    "title": "Systems Fundamentals",
+    "section": "Permissions and ownership",
+    "text": "Permissions and ownership\nDo a “long” file listing (with ls -l) and behold:\n$ ls -l\ntotal 8\ndrwxr-xr-x  2 ssasidharan chess   44 May  8 10:42 bin\ndrwxr-xr-x  2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts\ndrwxr-xr-x  2 ssasidharan chess   52 Apr  2 00:27 Desktop\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Documents\nlrwxrwxrwx  1 ssasidharan chess   31 Mar 26 15:21 Downloads -&gt; /cdat/tem/ssasidharan/Downloads\n-rw-r--r--  1 ssasidharan chess   54 Jun  2 12:38 hello.sh\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Music\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Pictures\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Public\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Templates\ndrwxr-xr-x  2 ssasidharan chess   28 Apr  2 00:27 Videos\nWhat do those characters mean?"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#changing-permissions",
+    "href": "theme2/SF100/slides.html#changing-permissions",
+    "title": "Systems Fundamentals",
+    "section": "Changing permissions",
+    "text": "Changing permissions\n\nUse chmod command to change file mode bits (the first column in the previous listing).\n\n[ssasidharan@lnx201 ~]$ chmod +x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rwxr-xr-x 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n[ssasidharan@lnx201 ~]$ chmod -x test.sh\n[ssasidharan@lnx201 ~]$ ls -l test.sh\n-rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh\n\nUse chown and chgrp commands to change owner and group (the third and fourth columns in the previous listing).\n\nProbably not immediately useful; just know that they exist."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#listing-processes",
+    "href": "theme2/SF100/slides.html#listing-processes",
+    "title": "Systems Fundamentals",
     "section": "Listing processes",
-    "text": "Listing processes\nYou can list running processes using ps command:\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 694411 pts/81   00:00:00 ps\n3479688 pts/81   00:00:00 bash\nBy default, ps prints processes of the current user and terminal in four columns:\n\nPID is process id.\nTTY is the terminal associated with the process.\nTIME is the elapsed CPU time for the process.\nCMD is the command that created the process.\n\nUsually there are many more processes running in the system, and sometimes they were started by other users. You can list them, with more detail, by passing some options to ps:\n[ssasidharan@lnx201 ~]$ ps -ef | head\nUID          PID    PPID  C STIME TTY          TIME CMD\nroot           1       0  0 Jan10 ?        03:14:05 /usr/lib/systemd/systemd --switched-root --system --deserialize 22\nroot           2       0  0 Jan10 ?        00:01:12 [kthreadd]\nroot           6       2  0 Jan10 ?        00:12:16 [ksoftirqd/0]\nroot           7       2  0 Jan10 ?        00:01:10 [migration/0]\nroot           8       2  0 Jan10 ?        00:00:00 [rcu_bh]\nroot           9       2  0 Jan10 ?        11:14:26 [rcu_sched]\nroot          10       2  0 Jan10 ?        00:00:00 [lru-add-drain]\nroot          11       2  0 Jan10 ?        00:05:22 [watchdog/0]\nroot          12       2  0 Jan10 ?        00:00:24 [watchdog/1]\nRun man ps for details.\nPrograms like top and htop will list processes in friendlier, fancier format."
+    "text": "Listing processes\n\nList running processes using ps command:\n\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 694411 pts/81   00:00:00 ps\n3479688 pts/81   00:00:00 bash\nThe four columns:\n\nPID is process id.\nTTY is the terminal associated with the process.\nTIME is the elapsed CPU time for the process.\nCMD is the command that created the process.\n\n\n(Also see: top and htop.)"
   },
   {
-    "objectID": "theme2/SF100/index.html#background-and-foreground-processes",
-    "href": "theme2/SF100/index.html#background-and-foreground-processes",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#background-and-foreground-processes",
+    "href": "theme2/SF100/slides.html#background-and-foreground-processes",
+    "title": "Systems Fundamentals",
     "section": "Background and foreground processes",
-    "text": "Background and foreground processes\nBy default, commands run in the foreground: they do their thing, use the terminal (to read input, print output), and finally exit. You need to wait for a foreground process to end before you start the next one, or use another terminal.\nWhen have a long-running process, you have the option of sending it to the background, using the & operator:\n[ssasidharan@lnx201 ~]$ sleep 100 &\n[1] 949751\nYou can use Ctrl-ZCtrl-Z to stop a foreground process and send it to the background:\n[ssasidharan@lnx201 ~]$ sleep 100\n^Z\n[1]+  Stopped                 sleep 100\nYou can list background processes using jobs command:\n[ssasidharan@lnx201 ~]$ jobs\n[1]-  Running                 sleep 100 &\n[2]+  Stopped                 sleep 100\nYou can bring a background process to foreground using fg command, and you can terminate it using Ctrl-CCtrl-C:\n[ssasidharan@lnx201 ~]$ fg 2\nsleep 100\n^C\n[ssasidharan@lnx201 ~]$\nYou can use bg command to resume a stopped background process:\n[ssasidharan@lnx201 ~]$ sleep 100 &\n[1] 1746205\n[ssasidharan@lnx201 ~]$ sleep 100\n^Z\n[2]+  Stopped                 sleep 100\n[ssasidharan@lnx201 ~]$ jobs\n[1]-  Running                 sleep 100 &\n[2]+  Stopped                 sleep 100\n[ssasidharan@lnx201 ~]$ bg %2\n[2]+ sleep 100 &"
+    "text": "Background and foreground processes\n\nSome processes run in the foreground:\n\nThey read input, write output, etc.\nThey are “attached” to a terminal.\n\nBackground processes, well, run in the background. Send things to the background with &:\n\n[ssasidharan@lnx201 ~]$ sleep 100 &\n[1] 949751\n\nBring a background process to foreground using fg command, and terminate it using Ctrl-CCtrl-C:\n\n[ssasidharan@lnx201 ~]$ fg 2\nsleep 100\n^C"
   },
   {
-    "objectID": "theme2/SF100/index.html#terminating-processes",
-    "href": "theme2/SF100/index.html#terminating-processes",
-    "title": "Linux, Command Line, and Scripting",
+    "objectID": "theme2/SF100/slides.html#terminating-processes",
+    "href": "theme2/SF100/slides.html#terminating-processes",
+    "title": "Systems Fundamentals",
     "section": "Terminating processes",
-    "text": "Terminating processes\nSometimes you might want to terminate a program, perhaps because it is using too much CPU or memory. You can find out the offending program’s ID using ps or top or htop, and then you can use kill command to end the process.\nBy default, kill sends a signal called SIGTERM (more on signals later). If SIGTERM is unable to terminate the process (such as when the program is ignoring SIGTERM), you can try SIGKILL:\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 796679 pts/116  00:00:00 bash\n1185454 pts/116  00:00:00 ps\n1748299 pts/116  00:00:00 sleep\n[ssasidharan@lnx201 ~]$ kill 1748299\n[ssasidharan@lnx201 ~]$ ps\n    PID TTY          TIME CMD\n 796679 pts/116  00:00:00 bash\n1203470 pts/116  00:00:00 ps\n1748299 pts/116  00:00:00 sleep\n[ssasidharan@lnx201 ~]$ kill -SIGKILL 1748299\n[2]+  Killed                  sleep 100\nYou can use killall command to kill processes by name:\n[ssasidharan@lnx201 ~]$ killall sleep\nsleep(1469283): Operation not permitted\nsleep(1509215): Operation not permitted\nsleep: no process found\nIn the above example, you are not running a sleep process, but some other users are, and you are not allowed to terminate them."
+    "text": "Terminating processes\n\nkill PID command to end one process.\nkillall command to end many processes.\n\nYou can’t kill other user’s processes."
   },
   {
-    "objectID": "theme2/SF100/index.html#signals",
-    "href": "theme2/SF100/index.html#signals",
-    "title": "Linux, Command Line, and Scripting",
-    "section": "Signals",
-    "text": "Signals\nAs mentioned above, kill command sends signals to running processes, and we’ve already seen SIGTERM and SIGKILL. Signals are a process control mechanism. They are used to stop, resume, or terminate processes, and more.\nWhen we use Ctrl-CCtrl-C or Ctrl-ZCtrl-Z, we are sending signals to process – SIGINT (or “keyboard interrupt”) and SIGTSTP (or “terminal stop”), respectively.\nSignals have numbers: SIGKILL is 9, so you can use kill -9 &lt;pid&gt; instead of kill -SIGKILL &lt;pid&gt;. You can also omit the SIG prefix, and use kill -KILL &lt;pid&gt;.\nHere are some common signals:\n\n       Signal     Value     Action   Comment\n       ──────────────────────────────────────────────────────────────────────\n       SIGHUP        1       Term    Hangup detected on controlling terminal\n                                     or death of controlling process\n       SIGINT        2       Term    Interrupt from keyboard\n       SIGQUIT       3       Core    Quit from keyboard\n       SIGILL        4       Core    Illegal Instruction\n       SIGABRT       6       Core    Abort signal from abort(3)\n       SIGFPE        8       Core    Floating point exception\n       SIGKILL       9       Term    Kill signal\n       SIGSEGV      11       Core    Invalid memory reference\n       SIGPIPE      13       Term    Broken pipe: write to pipe with no\n                                     readers\n       SIGALRM      14       Term    Timer signal from alarm(2)\n       SIGTERM      15       Term    Termination signal\nRun the command man 7 signal to read signal command’s manual page."
+    "objectID": "theme2/SF100/slides.html#text-editors",
+    "href": "theme2/SF100/slides.html#text-editors",
+    "title": "Systems Fundamentals",
+    "section": "Text editors",
+    "text": "Text editors\nMany choices! Use:\n\nEmacs\nVim\nNano\nJupyterLab"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#terminal-multiplexers",
+    "href": "theme2/SF100/slides.html#terminal-multiplexers",
+    "title": "Systems Fundamentals",
+    "section": "Terminal multiplexers",
+    "text": "Terminal multiplexers\nscreen and tmux are two options. Here’s tmux.\n\n\n\nYou can “multiplex” your terminal.\nDifferent shells in different “windows”.\nYou can split panes vertically or horizontally.\nYou can detach and re-attach, and resume your work."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#hello-world",
+    "href": "theme2/SF100/slides.html#hello-world",
+    "title": "Systems Fundamentals",
+    "section": "Hello world!",
+    "text": "Hello world!\n\n\nhello.sh\n\n1#! /bin/bash\n\n2# A simple script.\n\n3echo \"Hello $USER!\"\n\n\n1\n\nThe “shebang”\n\n2\n\nA comment.\n\n3\n\nAn actual line of code.\n\n\n\nMake the thing executable with chmod +x hello.sh\nRun the thing with ./hello.sh"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#other-things",
+    "href": "theme2/SF100/slides.html#other-things",
+    "title": "Systems Fundamentals",
+    "section": "Other things",
+    "text": "Other things\nBash supports a programming language with:\n\nif statements\nfor, while, until statements\nfunctions\net cetera.\nTake a peek at /etc/bashrc and $HOME/.bashrc for a taste\n\nBUT\n\nThis is not really in scope of this presentation."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#a-cheat-sheet",
+    "href": "theme2/SF100/slides.html#a-cheat-sheet",
+    "title": "Systems Fundamentals",
+    "section": "A cheat sheet",
+    "text": "A cheat sheet\n\n(Via Stephen Turner.)"
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#resources-elsewhere",
+    "href": "theme2/SF100/slides.html#resources-elsewhere",
+    "title": "Systems Fundamentals",
+    "section": "Resources elsewhere",
+    "text": "Resources elsewhere\n\nThe Linux Command Line, A Complete Introduction by William E. Shotts, Jr. The book is freely available under a Creative Commons license, and contains a good discussion about shell scripting.\nThe Unix Programming Environment by Brian W. Kernighan and Rob Pike. Old classic, still useful. Places things in a historical context.\nShell Tools and Scripting module of MIT “The Missing Semester of Your CS Education” class."
+  },
+  {
+    "objectID": "theme2/SF100/slides.html#other-resources",
+    "href": "theme2/SF100/slides.html#other-resources",
+    "title": "Systems Fundamentals",
+    "section": "Other resources",
+    "text": "Other resources\n\nThe Internet is pretty great. Use it.\nHowever: DO NOT trust everything you read on the Internet.\n\nDo not copy and paste commands from the Internet indiscriminately.\nUnderstand how things work, and then use it."
   }
 ]
