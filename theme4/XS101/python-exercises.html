@@ -166,13 +166,12 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-exercise-for-chess-users" id="toc-python-exercise-for-chess-users" class="nav-link active" data-scroll-target="#python-exercise-for-chess-users">Python exercise for CHESS users</a>
+  <li><a href="#python-exercises-for-chess-users" id="toc-python-exercises-for-chess-users" class="nav-link active" data-scroll-target="#python-exercises-for-chess-users">Python Exercises for CHESS Users</a>
   <ul class="collapse">
-  <li><a href="#step-1-logging-in" id="toc-step-1-logging-in" class="nav-link" data-scroll-target="#step-1-logging-in">Step 1: Logging in</a></li>
-  <li><a href="#step-2-create-input-files" id="toc-step-2-create-input-files" class="nav-link" data-scroll-target="#step-2-create-input-files">Step 2: Create input files</a></li>
-  <li><a href="#step-3-interact-with-files" id="toc-step-3-interact-with-files" class="nav-link" data-scroll-target="#step-3-interact-with-files">Step 3: Interact with files</a></li>
-  <li><a href="#setting-up-python-virtual-environment" id="toc-setting-up-python-virtual-environment" class="nav-link" data-scroll-target="#setting-up-python-virtual-environment">Setting up python virtual environment</a></li>
-  <li><a href="#how-to-deactivate-the-virtual-environment" id="toc-how-to-deactivate-the-virtual-environment" class="nav-link" data-scroll-target="#how-to-deactivate-the-virtual-environment">How to Deactivate the Virtual Environment</a></li>
+  <li><a href="#exercise-1-log-in" id="toc-exercise-1-log-in" class="nav-link" data-scroll-target="#exercise-1-log-in">Exercise 1: Log in</a></li>
+  <li><a href="#exercise-2-create-input-files" id="toc-exercise-2-create-input-files" class="nav-link" data-scroll-target="#exercise-2-create-input-files">Exercise 2: Create input files</a></li>
+  <li><a href="#exercise-3-interact-with-files" id="toc-exercise-3-interact-with-files" class="nav-link" data-scroll-target="#exercise-3-interact-with-files">Exercise 3: Interact with files</a></li>
+  <li><a href="#exercise-4-set-up-python-virtual-environment" id="toc-exercise-4-set-up-python-virtual-environment" class="nav-link" data-scroll-target="#exercise-4-set-up-python-virtual-environment">Exercise 4: Set up Python virtual environment</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme4/XS101/python-exercises.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -183,14 +182,14 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 
 
-<section id="python-exercise-for-chess-users" class="level1">
-<h1>Python exercise for CHESS users</h1>
-<section id="step-1-logging-in" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-logging-in">Step 1: Logging in</h2>
-<p>Following the <a href="https://github.com/RENCI-NRIG/X-CITE/blob/main/theme2/SF100/exercises.md">Linux exercises for CHESS users</a>: 1. Open a terminal on <code>lnx201</code> 1. Change directory to your CHESS user directory</p>
+<section id="python-exercises-for-chess-users" class="level1">
+<h1>Python Exercises for CHESS Users</h1>
+<section id="exercise-1-log-in" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-log-in">Exercise 1: Log in</h2>
+<p>Following the <a href="https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md">Linux exercises for CHESS users</a>: 1. Open a terminal on <code>lnx201</code> 1. Change directory to your CHESS user directory</p>
 </section>
-<section id="step-2-create-input-files" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-create-input-files">Step 2: Create input files</h2>
+<section id="exercise-2-create-input-files" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-create-input-files">Exercise 2: Create input files</h2>
 <p>Open a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:</p>
 <pre><code># file.txt (file with a text)
 Hello world!!!
@@ -201,11 +200,11 @@ Hello world!!!
 # file.json (file with json data)
 {"int": 1, "array": [1,2,3], "dictionary": {"key":"value"}}</code></pre>
 </section>
-<section id="step-3-interact-with-files" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-interact-with-files">Step 3: Interact with files</h2>
+<section id="exercise-3-interact-with-files" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-interact-with-files">Exercise 3: Interact with files</h2>
+<p>This exercise demonstrates some of the basic steps of any data analysis: reading data, processing or interacting with data, writing data. These steps can be iterated any number of times and combined in many ways.</p>
+<p>Note the conceptual similarity between these data analysis pipelines and the <a href="https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md">Linux pipes demonstrated in the Linux exercises</a> (taking one command output and pass it to another, e.g.&nbsp;<code>echo "my analysis" | cat</code>).</p>
 <p>The following code will walk you through the following steps: - how to open a file in python - how to read data from a file - become familiar with different data structures: string, array, dictionary, etc. - how to manipulate the data (e.g.&nbsp;perform some analysis) - how to mix different data structures together - how to write data to a file</p>
-<p><strong>NOTE:</strong> We chose this excercise to demonstrate fundamental concept of Physics analysis: - we read data - we perform some action with our data - we write data - and we can iterate and combine these steps any number of times</p>
-<p><strong>Hint:</strong> Did you noticed that aforementioned steps are similar to UNIX pipes? - we take one command output and pass it to another, e.g.&nbsp;<code>echo "my analysis" | cat</code></p>
 <p>Let’s proceed with basic analysis using python: 1. Type <code>python</code> (in the same directory where the files you created above are located). This will open an interactive python session. 1. Type the commands below and observe the output:</p>
 <pre><code># open file
 open('file.txt')
@@ -243,8 +242,8 @@ with open('analysis.json', 'w') as ostream:
 <li>Type <code>Ctrl-D</code> to exit the interactive python session</li>
 </ol>
 </section>
-<section id="setting-up-python-virtual-environment" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-python-virtual-environment">Setting up python virtual environment</h2>
+<section id="exercise-4-set-up-python-virtual-environment" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-set-up-python-virtual-environment">Exercise 4: Set up Python virtual environment</h2>
 <p>A <strong>virtual environment</strong> is a self-contained directory that contains a Python installation for a particular project, along with all its packages. It isolates project dependencies, ensuring that different projects don’t interfere with each other’s libraries and versions.</p>
 <p><strong>Why use it?</strong> - Avoid dependency conflicts between projects. - Safely test upgrades without affecting system Python. - Clean, reproducible development environments.</p>
 <hr>
@@ -282,13 +281,13 @@ with open('analysis.json', 'w') as ostream:
 <p>All installed packages will now live inside the <code>myenv</code> directory.</p>
 <hr>
 </section>
-</section>
-<section id="how-to-deactivate-the-virtual-environment" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-deactivate-the-virtual-environment">How to Deactivate the Virtual Environment</h2>
+<section id="how-to-deactivate-the-virtual-environment" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-deactivate-the-virtual-environment">How to Deactivate the Virtual Environment</h4>
 <p>When you’re done working inside the virtual environment, simply run:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will return you to the original system Python environment.</p>
 <hr>
+</section>
 <section id="quick-summary" class="level4">
 <h4 class="anchored" data-anchor-id="quick-summary">Quick Summary</h4>
 <table class="caption-top table">
