@@ -1,11 +1,11 @@
-# Python exercise for CHESS users
+# Python Exercises for CHESS Users
 
-## Step 1: Logging in
-Following the [Linux exercises for CHESS users](https://github.com/RENCI-NRIG/X-CITE/blob/main/theme2/SF100/exercises.md):
+## Exercise 1: Log in
+Following the [Linux exercises for CHESS users](https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md):
 1. Open a terminal on `lnx201`
 1. Change directory to your CHESS user directory
 
-## Step 2: Create input files
+## Exercise 2: Create input files
 Open a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:
 ```
 # file.txt (file with a text)
@@ -17,7 +17,11 @@ Hello world!!!
 # file.json (file with json data)
 {"int": 1, "array": [1,2,3], "dictionary": {"key":"value"}}
 ```
-## Step 3: Interact with files
+## Exercise 3: Interact with files
+This exercise demonstrates some of the basic steps of any data analysis: reading data, processing or interacting with data, writing data. These steps can be iterated any number of times and combined in many ways.
+
+Note the conceptual similarity between these data analysis pipelines and the [Linux pipes demonstrated in the Linux exercises](https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md) (taking one command output and pass it to another, e.g. `echo "my analysis" | cat`).
+
 The following code will walk you through the following steps:
 - how to open a file in python
 - how to read data from a file
@@ -25,15 +29,6 @@ The following code will walk you through the following steps:
 - how to manipulate the data (e.g. perform some analysis)
   - how to mix different data structures together
 - how to write data to a file
-
-**NOTE:** We chose this excercise to demonstrate fundamental concept of Physics analysis:
-- we read data
-- we perform some action with our data
-- we write data
-- and we can iterate and combine these steps any number of times
-
-**Hint:** Did you noticed that aforementioned steps are similar to UNIX pipes?
-- we take one command output and pass it to another, e.g. `echo "my analysis" | cat`
 
 Let's proceed with basic analysis using python:
 1. Type `python` (in the same directory where the files you created above are located). This will open an interactive python session.
@@ -74,7 +69,7 @@ with open('analysis.json', 'w') as ostream:
 ```
 3. Type `Ctrl-D` to exit the interactive python session
 
-## Setting up python virtual environment
+## Exercise 4: Set up Python virtual environment
 A **virtual environment** is a self-contained directory that contains a Python installation
 for a particular project, along with all its packages. It isolates project dependencies,
 ensuring that different projects don't interfere with each other's libraries and versions.
@@ -133,7 +128,7 @@ All installed packages will now live inside the `myenv` directory.
 
 ---
 
-## How to Deactivate the Virtual Environment
+#### How to Deactivate the Virtual Environment
 
 When you're done working inside the virtual environment, simply run:
 
