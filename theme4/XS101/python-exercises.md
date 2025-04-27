@@ -26,6 +26,16 @@ The following code will walk you through the following steps:
   - how to mix different data structures together
 - how to write data to a file
 
+**NOTE:** We chose this excercise to demonstrate fundamental concept of Physics analysis:
+- we read data
+- we perform some action with our data
+- we write data
+- and we can iterate and combine these steps any number of times
+
+**Hint:** Did you noticed that aforementioned steps are similar to UNIX pipes?
+- we take one command output and pass it to another, e.g. `echo "my analysis" | cat`
+
+Let's proceed with basic analysis using python:
 1. Type `python` (in the same directory where the files you created above are located). This will open an interactive python session.
 1. Type the commands below and observe the output:
 ```
