@@ -56,7 +56,7 @@ For example:
      - If not, keep typing letters followed by `tab` until your username is complete, then hit `return`
 
 ## UNIX pipes
-In UNIX (Linux), a **pipe (`|`)** is used to **connect the output of one command to the input of another**. This allows for **powerful chaining** of small utilities to perform complex tasks, following the UNIX philosophy:  
+In Linux (UNIX), a **pipe (`|`)** is used to **connect the output of one command to the input of another**. This allows for **powerful chaining** of small utilities to perform complex tasks, following the UNIX philosophy:  
 > *"Do one thing well."*
 
 For example:  
@@ -69,7 +69,7 @@ For the following set of exercises please review [Linux commands](https://xcitec
 
 ### Example 1: Pass text from `echo` to `cat`
 ```bash
-echo "Hello from UNIX pipe!" | cat
+echo "Hello from Linux pipe!" | cat
 ```
 *This takes the string output of `echo` and passes it to `cat`, which just prints it.*
 
@@ -79,46 +79,58 @@ env | grep HOME
 ```
 *Lists all environment variables and filters only the one containing "HOME".*
 
-### UNIX pipes exercise 1: Combine `echo`, `cat`, and `grep`
+### Linux pipes exercise 1: Combine `echo` and `grep`
 ```bash
 # yield string to Linux command line prompt:
-echo "some text"
+echo "apple\nbanana\ncherry"
 
-# now combine few commands via pipe
-echo -e "apple\nbanana\ncherry" | cat | grep 'an'
+# now combine few commands via pipe, flag -e will properly handle backslash escapes `\n` 
+echo -e "apple\nbanana\ncherry" | grep 'an'
 ```
-*What will be printed? Do we need cat here?*
+*What will be printed?*
 
 **Expected:**  
 ```
 banana
 ```
 
-### UNIX pipes exercise 2: Print your shell
+### Linux pipes exercise 2: Print your shell
 ```bash
 env | grep SHELL
 ```
 *What is your current shell?*
 
-### UNIX pipes exercise 3: Combine unix tools and redirect to output
+### Linux pipes exercise 3: Combine Linux tools and redirect to output
 Now, we can combine previous tools `echo` and `cat` in order to produce a new file
 ```bash
 # find who you are
 env | grep USER
 
-# make new area on /tmp
+# make new area on /tmp (default temporary area on ANY Linux node)
 mkdir /tmp/$USER
 
 # create new file in /tmp/$USER area
-echo "my data" | cat > /tmp/$USER/file.dat
+echo "my data" > /tmp/$USER/file.dat
 ```
 - *What would be content of /tmp/$USER/file.dat?*
 - *Can you print content of the /tmp/$USER/file.dat?*
 
 Hint: `cat` tool can be used both for viewing and creating files
 
-### UNIX pipes excercise 4: use pagination tools
-UNIX offer two pagination tools `less` and `more` which we may combine with pipe concept:
+```
+# create new file
+cat > /tmp/$USER/file.txt << EOF
+one
+two
+three
+EOF
+
+# viewing the file
+cat /tmp/$USER/file.txt
+```
+
+### Linux pipes excercise 4: use pagination tools
+Linux offer two pagination tools `less` and `more` which we may combine with pipe concept:
 ```bash
 # use paginators, less and more
 ls /etc | less
