@@ -65,13 +65,15 @@ command1 | command2
 ```
 means “take the output of `command1` and pass it as input to `command2`”.
 
+For the following set of exercises please review [Linux commands](https://xcitecourse.org/theme2/SF100/) like `echo`, `cat`, `env`, `grep`, `more` and `less`.
+
 ### Example 1: Pass text from `echo` to `cat`
 ```bash
 echo "Hello from UNIX pipe!" | cat
 ```
 *This takes the string output of `echo` and passes it to `cat`, which just prints it.*
 
-### 🔹 Example 2: Filter environment variables
+### Example 2: Filter environment variables
 ```bash
 env | grep HOME
 ```
@@ -79,9 +81,13 @@ env | grep HOME
 
 ### UNIX pipes exercise 1: Combine `echo`, `cat`, and `grep`
 ```bash
+# yield string to Linux command line prompt:
+echo "some text"
+
+# now combine few commands via pipe
 echo -e "apple\nbanana\ncherry" | cat | grep 'an'
 ```
-*What will be printed?*
+*What will be printed? Do we need cat here?*
 
 **Expected:**  
 ```
