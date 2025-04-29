@@ -1,26 +1,34 @@
 # Python Exercises for CHESS Users
+Wherever you see `<your CLASSE username>` below, substitute your own CLASSE username.
 
-## Exercise 1: Log in
+## Exercise 1: Log in and navigate to CHESS user directory
 Following the [Linux exercises for CHESS users](https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md):
 1. Open a terminal on `lnx201`
-1. Change directory to your CHESS user directory
+1. Change directory to your CHESS user directory: `cd /nfs/chess/user/<your CLASSE username>`
 
 ## Exercise 2: Create input files
-Open a file editor and create the following three files (file.txt, file.data, and file.json) by copying and pasting the contents below for each file:
+In your CHESS user directory, type following command to copy three files (file.txt, file.data, and file.json) to your current directory (`.`):
+```
+cp /nfs/chess/user/x-cite/data/python/* .
+```
+[Optional] Instead of copying the above files, type the following commands to create your own from scratch:
 ```
 # file.txt (file with a text)
-Hello world!!!
+echo 'Hello world!' > file.txt
 
 # file.data (file with numeric array)
-[1,2,3,4,5]
+echo '[1,2,3,4,5]' > file.data
 
 # file.json (file with json data)
-{"int": 1, "array": [1,2,3], "dictionary": {"key":"value"}}
+echo '{"int": 1, "array": [1,2,3], "dictionary": {"key":"value"}}' > file.json
 ```
+
+Now, view and check the contents of each file using `cat`, `less`, or `more`.
+
 ## Exercise 3: Interact with files
 This exercise demonstrates some of the basic steps of any data analysis: reading data, processing or interacting with data, writing data. These steps can be iterated any number of times and combined in many ways.
 
-Note the conceptual similarity between these data analysis pipelines and the [Linux pipes demonstrated in the Linux exercises](https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md) (taking one command output and pass it to another, e.g. `echo "my analysis" | cat`).
+Note the conceptual similarity between these data analysis pipelines and the [Linux pipes demonstrated in the Linux exercises](https://github.com/RENCI-NRIG/X-CITE/blob/main/theme4/XS101/linux-exercises.md) (taking one command output and pass it to another, e.g. env | grep USER`).
 
 The following code will walk you through the following steps:
 - how to open a file in python
