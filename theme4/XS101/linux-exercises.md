@@ -1,4 +1,4 @@
-# Linux exercises for CHESS users
+# Linux Exercises for CHESS Users
 Wherever you see `<your CLASSE username>` below, substitute your own CLASSE username.
 
 ## Exercise 1: Logging in
@@ -55,7 +55,7 @@ For example:
    - If the command line was able to complete your username, then hit `return` to go to your CHESS user directory
      - If not, keep typing letters followed by `tab` until your username is complete, then hit `return`
 
-## UNIX pipes
+## Exercise 5: Use pipe to combine commands
 In Linux (UNIX), a **pipe (`|`)** is used to **connect the output of one command to the input of another**. This allows for **powerful chaining** of small utilities to perform complex tasks, following the UNIX philosophy:  
 > *"Do one thing well."*
 
@@ -68,12 +68,12 @@ means “take the output of `command1` and pass it as input to `command2`”.
 For the following set of exercises please review [Linux commands](https://xcitecourse.org/theme2/SF100/) like `echo`, `cat`, `env`, `grep`, `more` and `less`.
 
 
-### Linux pipes exercise 1: Combine `echo` and `grep`
+### Linux pipes activity 1: Combine `echo` and `grep`
 ```bash
-# yield string to Linux command line prompt:
-echo "apple\nbanana\ncherry"
+# print string; the flag -e will properly handle backslash escapes `\n` 
+echo -e "apple\nbanana\ncherry"
 
-# now combine few commands via pipe, flag -e will properly handle backslash escapes `\n` 
+# now combine commands via pipe
 echo -e "apple\nbanana\ncherry" | grep 'an'
 ```
 *What will be printed?*
@@ -83,14 +83,14 @@ echo -e "apple\nbanana\ncherry" | grep 'an'
 banana
 ```
 
-### Linux pipes exercise 2: Print your shell
+### Linux pipes activity 2: Print your shell
 ```bash
 env | grep SHELL
 ```
-*What is your current shell?*
+*List all environment variables, then print only the one that specifies your current shell.*
 
-### Linux pipes exercise 3: Combine Linux tools and redirect to output
-Now, we can combine previous tools `echo` and `cat` in order to produce a new file
+### Linux pipes activity 3: Create files
+Combine Linux tools introduced above and redirect the output to produce a new file.
 ```bash
 # find who you are
 env | grep USER
@@ -114,17 +114,17 @@ two
 three
 EOF
 
-# viewing the file
+# view the file
 cat /tmp/$USER/file.txt
 
-# multiple pipe commands
+# chain together multiple commands with pipe
 cat /tmp/$USER/file.txt | grep t | wc -l
 ```
 
-### Linux pipes excercise 4: use pagination tools
-Linux offer two pagination tools `less` and `more` which we may combine with pipe concept:
+### Linux pipes activity 4: Use pagination tools
+Linux offer two pagination tools `less` and `more`, which can be combine with the pipe concept:
 ```bash
 # use paginators, less and more
 ls /etc | less
 ```
-Use either tool to view and navigate large file or large content
+Use either tool to view and navigate large files or lengthy output from a command.
