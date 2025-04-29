@@ -67,17 +67,6 @@ means “take the output of `command1` and pass it as input to `command2`”.
 
 For the following set of exercises please review [Linux commands](https://xcitecourse.org/theme2/SF100/) like `echo`, `cat`, `env`, `grep`, `more` and `less`.
 
-### Example 1: Pass text from `echo` to `cat`
-```bash
-echo "Hello from Linux pipe!" | cat
-```
-*This takes the string output of `echo` and passes it to `cat`, which just prints it.*
-
-### Example 2: Filter environment variables
-```bash
-env | grep HOME
-```
-*Lists all environment variables and filters only the one containing "HOME".*
 
 ### Linux pipes exercise 1: Combine `echo` and `grep`
 ```bash
@@ -127,6 +116,9 @@ EOF
 
 # viewing the file
 cat /tmp/$USER/file.txt
+
+# multiple pipe commands
+cat /tmp/$USER/file.txt | grep t | wc -l
 ```
 
 ### Linux pipes excercise 4: use pagination tools
