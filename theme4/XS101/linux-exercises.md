@@ -54,3 +54,77 @@ For example:
    - Now, type the first letter or two of your CLASSE username and hit `tab` again.
    - If the command line was able to complete your username, then hit `return` to go to your CHESS user directory
      - If not, keep typing letters followed by `tab` until your username is complete, then hit `return`
+
+## UNIX pipes
+In Linux (UNIX), a **pipe (`|`)** is used to **connect the output of one command to the input of another**. This allows for **powerful chaining** of small utilities to perform complex tasks, following the UNIX philosophy:  
+> *"Do one thing well."*
+
+For example:  
+```bash
+command1 | command2
+```
+means “take the output of `command1` and pass it as input to `command2`”.
+
+For the following set of exercises please review [Linux commands](https://xcitecourse.org/theme2/SF100/) like `echo`, `cat`, `env`, `grep`, `more` and `less`.
+
+
+### Linux pipes exercise 1: Combine `echo` and `grep`
+```bash
+# yield string to Linux command line prompt:
+echo "apple\nbanana\ncherry"
+
+# now combine few commands via pipe, flag -e will properly handle backslash escapes `\n` 
+echo -e "apple\nbanana\ncherry" | grep 'an'
+```
+*What will be printed?*
+
+**Expected:**  
+```
+banana
+```
+
+### Linux pipes exercise 2: Print your shell
+```bash
+env | grep SHELL
+```
+*What is your current shell?*
+
+### Linux pipes exercise 3: Combine Linux tools and redirect to output
+Now, we can combine previous tools `echo` and `cat` in order to produce a new file
+```bash
+# find who you are
+env | grep USER
+
+# make new area on /tmp (default temporary area on ANY Linux node)
+mkdir /tmp/$USER
+
+# create new file in /tmp/$USER area
+echo "my data" > /tmp/$USER/file.dat
+```
+- *What would be content of /tmp/$USER/file.dat?*
+- *Can you print content of the /tmp/$USER/file.dat?*
+
+Hint: `cat` tool can be used both for viewing and creating files
+
+```
+# create new file
+cat > /tmp/$USER/file.txt << EOF
+one
+two
+three
+EOF
+
+# viewing the file
+cat /tmp/$USER/file.txt
+
+# multiple pipe commands
+cat /tmp/$USER/file.txt | grep t | wc -l
+```
+
+### Linux pipes excercise 4: use pagination tools
+Linux offer two pagination tools `less` and `more` which we may combine with pipe concept:
+```bash
+# use paginators, less and more
+ls /etc | less
+```
+Use either tool to view and navigate large file or large content
