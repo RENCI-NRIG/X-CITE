@@ -5,5 +5,5 @@ date: ""
 ---
 
 ::: {.callout-note}
-This page is work in progress.
+This page is currently a work in progress.
 :::
