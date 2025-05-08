@@ -20,7 +20,7 @@ For purposes of this discussion, it is important to review some terminology.
 - **Processor** is any device that can process instructions. CPU's and GPU's
   are types of processors.
 - **CPU** is the main entity in a computer that executes instructions. 
-- Newer CPU's have multiple cores. **Core** is a single independant processing
+- Newer CPU's have multiple cores. **Core** is a single independent processing
   unit within the CPU.
 
 
@@ -61,7 +61,7 @@ Parallel computing can often be achieved by either leveraging
   processor/CPU. Threading needs be done carefully, as data is shared across threads
   and a thread can easliy modify data that another thread maybe using resulting in
   crashes or deadlocks.
-* **MPI:** Message Passing Interface(MPI) allows independant processes to access a 
+* **MPI:** Message Passing Interface(MPI) allows independent processes to access a 
   shared global memory via a message interface. This allows processes to control  
   what data is shared and which is private to the process. Using MPI you can 
   either use cores on a single CPU, or also use cores across multiple CPU's in
@@ -88,3 +88,38 @@ the superset (that could include Parallel Computing).
 
 ![Parallel vs Distributed Computing](./images/parallel-vs-distributed-computing.png)
 
+### High Performance Computing
+
+High Performance Computing involves using high performance computing clusters or
+supercomputing clusters (when sufficiently large) that consist of tightly coupled 
+compute nodes (often thousands) interconnected with a high performance shared
+filesystem and high speed interconnects. 
+
+A typical layout of a HPC cluster is shown below. 
+
+
+![HPC Cluster Layout](./images/hpc-cluster-layout.png)
+**Image Credit:** https://docs.ycrc.yale.edu/clusters-at-yale
+
+Users largely use HPC resources to run parallel codes such as MPI applications.
+However, HPC clusters are also used to run long-running serial jobs, or jobs that
+require only one node.
+
+### High Throughput Computing
+
+High Throughput Computing (HTC) involves leveraging many computing resources over long 
+periods of time to accomplish a computational task. These computing resources
+are often geographically distributed and inter-connected via the internet.
+
+HTC paradigm focused on executing a large number of tasks over a long period of
+time, often using distributed resources. Instead of maximizing performance for a 
+single job (as in High Performance Computing, HPC), HTC aims to maximize the total 
+number of jobs completed.
+
+HTC workloads are often comprised of hundreds or thousands of serial jobs that
+are mainly independent or loosely coupled, and don't need tight coupling
+the way HPC jobs require.
+
+HTC focuses on increasing the overall throughput of the system by running many
+smaller size jobs (confined to a single core or a single) in parallel over 
+a distributed computing infrastructure. 
