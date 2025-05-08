@@ -99,6 +99,7 @@ A typical layout of a HPC cluster is shown below.
 
 
 ![HPC Cluster Layout](./images/hpc-cluster-layout.png)
+
 **Image Credit:** https://docs.ycrc.yale.edu/clusters-at-yale
 
 Users largely use HPC resources to run parallel codes such as MPI applications.
