@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
+<meta name="author" content="Karan Vahi">
+<meta name="dcterms.date" content="2025-05-07">
 
 <title>Distributed Computing Concepts – X-CITE</title>
 <style>
@@ -86,7 +87,11 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta name="twitter:title" content="Distributed Computing Concepts – X-CITE">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://xcitecourse.org/theme3/DC100/images/serial-computing.png">
+<meta name="twitter:image-height" content="645">
+<meta name="twitter:image-width" content="1024">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -293,8 +298,20 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#serial-computing" id="toc-serial-computing" class="nav-link active" data-scroll-target="#serial-computing">Serial Computing</a></li>
+  <li><a href="#parallel-computing" id="toc-parallel-computing" class="nav-link" data-scroll-target="#parallel-computing">Parallel Computing</a></li>
+  <li><a href="#distributed-computing" id="toc-distributed-computing" class="nav-link" data-scroll-target="#distributed-computing">Distributed Computing</a>
+  <ul class="collapse">
+  <li><a href="#high-performance-computing" id="toc-high-performance-computing" class="nav-link" data-scroll-target="#high-performance-computing">High Performance Computing</a></li>
+  <li><a href="#high-throughput-computing" id="toc-high-throughput-computing" class="nav-link" data-scroll-target="#high-throughput-computing">High Throughput Computing</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC100/distributed-computing.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -309,7 +326,19 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karan Vahi </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 7, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -332,8 +361,81 @@ Note
 <p>This page is work in progress.</p>
 </div>
 </div>
+<p>These notes give you a brief overview of concepts of distributed computing. If you are at this chapter, it is assumed that you are familiar with writing scientific code for your analysis and are able to run it locally on your machine (laptop/desktop).</p>
+<p>For purposes of this discussion, it is important to review some terminology.</p>
+<ul>
+<li>A <strong>program</strong> or code that you run is comprised on instructions.</li>
+<li>A <strong>task</strong> is a program or code that you need to execute.</li>
+<li><strong>Processor</strong> is any device that can process instructions. CPU’s and GPU’s are types of processors.</li>
+<li><strong>CPU</strong> is the main entity in a computer that executes instructions.</li>
+<li>Newer CPU’s have multiple cores. <strong>Core</strong> is a single independent processing unit within the CPU.</li>
+</ul>
+<section id="serial-computing" class="level2">
+<h2 class="anchored" data-anchor-id="serial-computing">Serial Computing</h2>
+<p>Serial computing can be defined as executing instructions in a sequential order as laid out in your program. The order in which the instructions are executed is important and critical for correctness.</p>
+<p>In serial computing your program runs on a single CPU/processor and speed at which your programs runs is directly proportional to the CPU’s processing power which is usually measured in Clock cycles per second (Hz). A 1 Hz CPU does 1 clock cycles per second. You can consider for discussion purposes</p>
+<ul>
+<li>1 instruction takes 1 cycle to to get executed (not always true)</li>
+<li>The clock speed defines how fast your CPU can execute instructions.</li>
+<li>So a 1Gz CPU can execute 1 billion instructions per second!</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/serial-computing.png" class="img-fluid figure-img"></p>
+<figcaption>Serial Computing</figcaption>
+</figure>
+</div>
+</section>
+<section id="parallel-computing" class="level2">
+<h2 class="anchored" data-anchor-id="parallel-computing">Parallel Computing</h2>
+<p>In parallel computing you can leverage multiple CPU’s or cores to execute your program. It involves breaking down a problem into smaller, independent sub-tasks that can be processed simultaneously by multiple processors or cores. Remember modern day processors/CPU’s are now comprised of multiple cores which can act independently, allowing use to execute instructions in parallel.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/parallel-computing.png" class="img-fluid figure-img"></p>
+<figcaption>Parallel Computing</figcaption>
+</figure>
+</div>
+<p>Parallel computing can often be achieved by either leveraging</p>
+<ul>
+<li><strong>Threads:</strong> Threads are light-weight sub-processes, that have access to your program global memory. Threads allow you to leverage the multiple cores on a processor/CPU. Threading needs be done carefully, as data is shared across threads and a thread can easliy modify data that another thread maybe using resulting in crashes or deadlocks.</li>
+<li><strong>MPI:</strong> Message Passing Interface(MPI) allows independent processes to access a shared global memory via a message interface. This allows processes to control<br>
+what data is shared and which is private to the process. Using MPI you can either use cores on a single CPU, or also use cores across multiple CPU’s in a high performance computing cluster, where the CPU’s are connected via a high speed network such as infiniband.</li>
+</ul>
+<p>Even though you can acheive serious performance gains using parallel computing, it is generally considered hard and error prone. Various reasons contribute to it such as harder debugging, memory coherence issues etc. Also as humans, we are better at thinking sequentially.</p>
+</section>
+<section id="distributed-computing" class="level2">
+<h2 class="anchored" data-anchor-id="distributed-computing">Distributed Computing</h2>
+<p>Distributed computing involves leveraging multiple computers that are connected via a local area network or a wide area network to solve a problem that you cannot solve on a local computer. For example, if you do a google search the search request gets broken down and distributed amongst various nodes to get you the results back.</p>
+<p>Parallel and Distributed computing are often changed interchangeably. However, there are subtle differences between the two. For example, in distributed computing there is no shared memory to use. If anything, Distributed Computing should be viewed as the superset (that could include Parallel Computing).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/parallel-vs-distributed-computing.png" class="img-fluid figure-img"></p>
+<figcaption>Parallel vs Distributed Computing</figcaption>
+</figure>
+</div>
+<section id="high-performance-computing" class="level3">
+<h3 class="anchored" data-anchor-id="high-performance-computing">High Performance Computing</h3>
+<p>High Performance Computing involves using high performance computing clusters or supercomputing clusters (when sufficiently large) that consist of tightly coupled compute nodes (often thousands) interconnected with a high performance shared filesystem and high speed interconnects.</p>
+<p>A typical layout of a HPC cluster is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/hpc-cluster-layout.png" class="img-fluid figure-img"></p>
+<figcaption>HPC Cluster Layout</figcaption>
+</figure>
+</div>
+<p><strong>Image Credit:</strong> https://docs.ycrc.yale.edu/clusters-at-yale</p>
+<p>Users largely use HPC resources to run parallel codes such as MPI applications. However, HPC clusters are also used to run long-running serial jobs, or jobs that require only one node.</p>
+</section>
+<section id="high-throughput-computing" class="level3">
+<h3 class="anchored" data-anchor-id="high-throughput-computing">High Throughput Computing</h3>
+<p>High Throughput Computing (HTC) involves leveraging many computing resources over long periods of time to accomplish a computational task. These computing resources are often geographically distributed and inter-connected via the internet.</p>
+<p>HTC paradigm focused on executing a large number of tasks over a long period of time, often using distributed resources. Instead of maximizing performance for a single job (as in High Performance Computing, HPC), HTC aims to maximize the total number of jobs completed.</p>
+<p>HTC workloads are often comprised of hundreds or thousands of serial jobs that are mainly independent or loosely coupled, and don’t need tight coupling the way HPC jobs require.</p>
+<p>HTC focuses on increasing the overall throughput of the system by running many smaller size jobs (confined to a single core or a single) in parallel over a distributed computing infrastructure.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -758,7 +860,7 @@ Note
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC100/distributed-computing.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC100/distributed-computing.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

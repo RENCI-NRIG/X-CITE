@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
+<meta name="author" content="Karan Vahi">
+<meta name="dcterms.date" content="2025-05-08">
 
 <title>Computing with CI Ecosystem – X-CITE</title>
 <style>
@@ -20,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -86,7 +122,11 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <meta name="twitter:title" content="Computing with CI Ecosystem – X-CITE">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://xcitecourse.org/theme3/DC200/images/chess-operational-wf.png">
+<meta name="twitter:image-height" content="186">
+<meta name="twitter:image-width" content="1686">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -293,8 +333,37 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview-of-chess-operational-workflow" id="toc-overview-of-chess-operational-workflow" class="nav-link active" data-scroll-target="#overview-of-chess-operational-workflow">Overview of CHESS Operational Workflow</a></li>
+  <li><a href="#chess-ci-resources-at-cornell" id="toc-chess-ci-resources-at-cornell" class="nav-link" data-scroll-target="#chess-ci-resources-at-cornell">CHESS CI Resources at Cornell</a>
+  <ul class="collapse">
+  <li><a href="#daq-cluster" id="toc-daq-cluster" class="nav-link" data-scroll-target="#daq-cluster">DAQ Cluster</a></li>
+  <li><a href="#compute-farm" id="toc-compute-farm" class="nav-link" data-scroll-target="#compute-farm">Compute Farm</a></li>
+  <li><a href="#getting-access" id="toc-getting-access" class="nav-link" data-scroll-target="#getting-access">Getting access</a></li>
+  <li><a href="#job-submission" id="toc-job-submission" class="nav-link" data-scroll-target="#job-submission">Job Submission</a></li>
+  </ul></li>
+  <li><a href="#access" id="toc-access" class="nav-link" data-scroll-target="#access">ACCESS</a>
+  <ul class="collapse">
+  <li><a href="#access-user-registration" id="toc-access-user-registration" class="nav-link" data-scroll-target="#access-user-registration">ACCESS User Registration</a></li>
+  <li><a href="#getting-an-allocation" id="toc-getting-an-allocation" class="nav-link" data-scroll-target="#getting-an-allocation">Getting an Allocation</a></li>
+  <li><a href="#logging-to-the-access-resource" id="toc-logging-to-the-access-resource" class="nav-link" data-scroll-target="#logging-to-the-access-resource">Logging to the ACCESS resource</a></li>
+  <li><a href="#submitting-jobs" id="toc-submitting-jobs" class="nav-link" data-scroll-target="#submitting-jobs">Submitting Jobs</a></li>
+  <li><a href="#access-support" id="toc-access-support" class="nav-link" data-scroll-target="#access-support">ACCESS Support</a></li>
+  </ul></li>
+  <li><a href="#osg-and-path-facilities" id="toc-osg-and-path-facilities" class="nav-link" data-scroll-target="#osg-and-path-facilities">OSG and PATh Facilities</a>
+  <ul class="collapse">
+  <li><a href="#what-type-of-jobs-are-good-fit-for-ospool" id="toc-what-type-of-jobs-are-good-fit-for-ospool" class="nav-link" data-scroll-target="#what-type-of-jobs-are-good-fit-for-ospool">What type of jobs are good fit for OSPool</a></li>
+  <li><a href="#osg-user-registration" id="toc-osg-user-registration" class="nav-link" data-scroll-target="#osg-user-registration">OSG User Registration</a></li>
+  <li><a href="#submitting-jobs-1" id="toc-submitting-jobs-1" class="nav-link" data-scroll-target="#submitting-jobs-1">Submitting jobs</a></li>
+  <li><a href="#path" id="toc-path" class="nav-link" data-scroll-target="#path">PATh</a></li>
+  <li><a href="#os-pool-vs-path" id="toc-os-pool-vs-path" class="nav-link" data-scroll-target="#os-pool-vs-path">OS Pool vs PATh</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC200/computing-with-ci-ecosystem.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -309,7 +378,19 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karan Vahi </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 8, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -332,8 +413,371 @@ Note
 <p>This page is work in progress.</p>
 </div>
 </div>
+<p>This module provides an overview of the various Cyberinfrastructure (CI) resources available to a CHESS researcher and more broadly to all the researchers based in the US.</p>
+<p>Before we go into the various offerings available, it is useful to recap what we mean by CI. A widely used and accepted definition of CI by <a href="https://dl.acm.org/doi/10.1145/1878335.1878347">Craig A. Stewart et al</a> is as follows:</p>
+<p><em>Cyberinfrastructure consists of computing systems, data storage systems, advanced instruments and data repositories, visualization environments, and people, all linked together by software and high performance networks to improve research productivity and enable breakthroughs not otherwise possible.</em></p>
+<p>As a CHESS researcher, you have access to the following CI resources that can help you with computing</p>
+<ul>
+<li>CHESS CI Resources at Cornell</li>
+<li>ACCESS</li>
+<li>PATh / OSG</li>
+</ul>
+<section id="overview-of-chess-operational-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-chess-operational-workflow">Overview of CHESS Operational Workflow</h2>
+<p>Below is a high level overview of an overall chess operational workflow from the time a researcher puts in a proposal to use a beamline at CHESS to data collection from the beamline; and then it’s subsequent data processing and analysis before final data curation on the outputs is done.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/chess-operational-wf.png" class="img-fluid figure-img"></p>
+<figcaption>Overview of a general CHESS Operational Workflow</figcaption>
+</figure>
+</div>
+<p>CHESS’ workflow complexity is the length of time spent performing a typical data analysis. According to a CHESS survey conducted a few years back, CHESS’ workflow complexity ranges from 1 month to 24 months among survey respondents (with the average being 7.2 months). For the most complex workflows (12 months or longer), researchers often run into challenges regarding completing their data processing within the defined time constraints.</p>
+<p>Use of National CI resources, can especially help CHESS researchers in the following areas</p>
+<ul>
+<li>Processing data (reduction, analysis, simulation, interpretation), handling large data sets, leveraging existing software and CI.</li>
+<li>Metadata management, Open Science/FAIR and data curation.</li>
+</ul>
+</section>
+<section id="chess-ci-resources-at-cornell" class="level2">
+<h2 class="anchored" data-anchor-id="chess-ci-resources-at-cornell">CHESS CI Resources at Cornell</h2>
+<p>The CLASSE cyberinfrastructure (CI) consists of an interconnected series of h high-availability server clusters (HACs), data acquisition systems, control systems, compute farms, and workstations. Most of these systems run either Scientific Linux or Windows on commodity 64-bit Intel-based hardware and are centrally managed using Puppet. The median age of key CI components is approximately 5 years, with an average refresh rate of once every 10 years. The picture below provides an overview of the CHESS CI</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/chess-ci.png" class="img-fluid figure-img"></p>
+<figcaption>CHESS CI immediately available for processing/analysis by users on the Compute Farm</figcaption>
+</figure>
+</div>
+<section id="daq-cluster" class="level3">
+<h3 class="anchored" data-anchor-id="daq-cluster">DAQ Cluster</h3>
+<p>DAQ Cluster is the Data Acquisition System that runs on a dedicated server cluster. Makes available to researchers about <strong>2PB</strong> of storage for raw data collection, analysis, and simulation. Data collected at the stations written directly to the DAQ over either NFS or Samba and is immediately available for processing/analysis by users on the Compute Farm.</p>
+<p>CHESS users can also download their data remotely using the CLASSE Globus Connect Server or via SFTP.</p>
+</section>
+<section id="compute-farm" class="level3">
+<h3 class="anchored" data-anchor-id="compute-farm">Compute Farm</h3>
+<p>The HPC Cluster at CHESS/CLASSE is a central resource consisting of</p>
+<ul>
+<li>central resource of 60+ enterprise-class Linux nodes (with around 800 CPUs)</li>
+<li>4.5TB of memory</li>
+<li>uses SGE as a front-end queueing system</li>
+<li>supports interactive, batch, parallel, and GPU jobs</li>
+<li>ensures equal access to the Compute Farm for all users.</li>
+</ul>
+</section>
+<section id="getting-access" class="level3">
+<h3 class="anchored" data-anchor-id="getting-access">Getting access</h3>
+<p>In order to access the Cornel CI resources, you need a Cornell Laboratory for Accelerator-based ScienceS and Education(CLASSE) account.</p>
+<p>You can get one by following the instructions at <strong>XXX</strong>.</p>
+</section>
+<section id="job-submission" class="level3">
+<h3 class="anchored" data-anchor-id="job-submission">Job Submission</h3>
+<p>The CHESS cluster uses <strong>SGE</strong> as the front end scheduling system to submit jobs.</p>
+<p>In general, there are two basic steps to submitting a job</p>
+<ol type="1">
+<li>Create a shell script containing the commands to be run</li>
+<li>Submit this script to the Compute Farm using the qsub command.</li>
+</ol>
+<p>Below is a simple shell script <strong>myscript.sh</strong> that you can submit to the SLURM cluster if you are logged onto lnx201.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[user@lnx201</span> ~]$ cat myscript.sh</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> Running on host: <span class="kw">`</span><span class="fu">hostname</span><span class="kw">`</span>.</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> Starting on: <span class="kw">`</span><span class="fu">date</span><span class="kw">`</span>.</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 10</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> Ending on: <span class="kw">`</span><span class="fu">date</span><span class="kw">`</span>.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#$ -q all.q</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#$ -S /bin/bash</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#$ -l mem_free=8G</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In order to submit it to the cluster you can use <em>qsub</em> command</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[user@lnx201</span> ~]$ qsub <span class="at">-q</span> all.q myscript.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Detailed instructions about this can be found at <a href="https://wiki.classe.cornell.edu/Computing/GridEngine">CLASSE Wiki</a>.</p>
+</section>
+</section>
+<section id="access" class="level2">
+<h2 class="anchored" data-anchor-id="access">ACCESS</h2>
+<p><a href="https://access-ci.org/about/">ACCESS CI</a> is a program established and funded by the National Science Foundation (NSF) to help researchers and educators utilize the nation’s advanced computing systems and services. ACCESS is a collection of both large and experimental HPC resources.</p>
+<p>ACCESS provides a wide range of resources and services:</p>
+<ul>
+<li>Systems ranging from supercomputers to smaller specialized compute clusters, each with a different focus and unique set of capabilities</li>
+<li>Data and storage services</li>
+<li>Expertise to help you make effective use of resources, remove barriers, and achieve your goals</li>
+<li>Scientific applications</li>
+<li>Science gateways</li>
+</ul>
+<p>Some of the resources available are listed below</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Leadership Class</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Frontera</td>
+<td>University of Texas, Austin</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Innovative Production Systems</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anvil</td>
+<td>Purdue University</td>
+</tr>
+<tr class="even">
+<td>Bridges 2</td>
+<td>Carnegie-Mellon University</td>
+</tr>
+<tr class="odd">
+<td>Delta/ DeltaAI</td>
+<td>U of Illinois Urbana-Champaign</td>
+</tr>
+<tr class="even">
+<td>Expanse</td>
+<td>U of California, San Diego</td>
+</tr>
+<tr class="odd">
+<td>Jetstream 2</td>
+<td>University of Indiana + Partners</td>
+</tr>
+<tr class="even">
+<td>Stampede 2</td>
+<td>U of Texas, Austin</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Prototypes/Testbeds</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Neocortex</td>
+<td>Carnegie-Mellon University</td>
+</tr>
+<tr class="even">
+<td>Voyager</td>
+<td>U of California, San Diego</td>
+</tr>
+<tr class="odd">
+<td>Ookami</td>
+<td>Stonybrook University</td>
+</tr>
+<tr class="even">
+<td>NRP</td>
+<td>U of California, San Diego</td>
+</tr>
+<tr class="odd">
+<td>ACES</td>
+<td>Texas A&amp;M University</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Cloud Technology Resources</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cloudbank</td>
+<td>U of California, San Diego</td>
+</tr>
+<tr class="even">
+<td>CloudLab</td>
+<td>University of Utah</td>
+</tr>
+<tr class="odd">
+<td>Chameleon</td>
+<td>University of Chicago</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/access-resources-map.png" class="img-fluid figure-img"></p>
+<figcaption>Location of various ACCESS Resources</figcaption>
+</figure>
+</div>
+<p>Of the resources above, the leadership class system and most of the Innovative Production Systems are HPC clusters, very similar to the CHESS HPC cluster at Cornell. The main difference being that they use <strong>SLURM</strong> as their frontend queueing system instead of SGE.</p>
+<section id="access-user-registration" class="level3">
+<h3 class="anchored" data-anchor-id="access-user-registration">ACCESS User Registration</h3>
+<p>In order to use ACCESS resources, you first need to request an ACCESS user account. This account is required for you to login to the ACCESS website, manage your allocations (more on it in the next section).</p>
+<p>Getting an ACCESS user account is fairly straightforward. Instructions for getting it can be found <a href="https://operations.access-ci.org/identity/new-user">here</a>. Using an <strong>existing University account</strong> when registering with ACCESS <strong>simplifies the sign-up process</strong> and enables you to log in to ACCESS using that existing account.</p>
+</section>
+<section id="getting-an-allocation" class="level3">
+<h3 class="anchored" data-anchor-id="getting-an-allocation">Getting an Allocation</h3>
+<p>To get started, you need an ACCESS project and some resource units you can spend. Your ACCESS project and resource units are what we refer to as an Allocation. An allocation is your project to use a portion of a shared resource.</p>
+<p>Through ACCESS, you can get an allocation to use computing and data resources to accomplish your research or classroom objectives.</p>
+<p>You can get allocation for 4 different types of projects which are listed below.</p>
+<ul>
+<li><p><strong>EXPLORE</strong> — Great for resource evaluation, graduate student projects,<br>
+small classes and training events, benchmarking, code development and porting, and similar small-scale uses.</p></li>
+<li><p><strong>DISCOVER</strong> — Designed for research grants with modest resource needs, Campus Champions, large classes and training events, graduate student projects, benchmarking and code testing at scale, and gateway development.</p></li>
+<li><p><strong>ACCELERATE</strong> — Best for experienced users with mid-scale resource needs, consolidating multi-grant programs, collaborative projects, preparing for Maximize ACCESS requests, and gateways with growing communities.</p></li>
+<li><p><strong>MAXIMIZE</strong> — The choice for large-scale research activities that need more resources than the limit for Accelerate ACCESS projects.</p></li>
+</ul>
+<p>The <em>EXPLORE</em> requests are easiest to get with <em>MAXIMIZE</em> the hardest (in terms of supporting documentation required). The <em>EXPLORE</em> request will get you 400,000 ACCESS credits/SUs to start with, which is enough to explore suitability of these resources for your processing needs.</p>
+<p>More details including a detailed comparison table can be found <a href="https://allocations.access-ci.org/project-types">here</a>.</p>
+</section>
+<section id="logging-to-the-access-resource" class="level3">
+<h3 class="anchored" data-anchor-id="logging-to-the-access-resource">Logging to the ACCESS resource</h3>
+<p>Once, you have your allocation approved then in the <a href="https://allocations.access-ci.org">Allocations portal</a> you can assign your credits to a particular resource that you are interested in. Once that is done, the Resource Provider will contact you to setup your local HPC accounts.</p>
+<p>Once that is done, you can * register your ssh keys to login to your account on the HPC resource.</p>
+<p>Additionally, most of the ACCESS resources have <a href="https://support.access-ci.org/tools/ondemand">Open OnDemand</a> installed, that allow you to access and login to the clusters using a web front-end. Open OnDemand is an easy-to-use web portal that is being deployed on ACCESS resources to allow researchers to compute from anywhere without client software or command-line interface, and significantly speed up the time to science.</p>
+</section>
+<section id="submitting-jobs" class="level3">
+<h3 class="anchored" data-anchor-id="submitting-jobs">Submitting Jobs</h3>
+<p>You can login to the headnodes of these resources, and submit jobs to the SLURM clusters in a similar fashion that you submit jobs on the CHESS cluster.</p>
+<p>Additionally, all the ACCESS resources that have an Open OnDemand install, allow you to launch <strong>Jupyter notebooks</strong> to run your analysis.</p>
+<p>You can also use workflow systems such as <a href="https://pegasus.isi.edu">Pegasus</a> to run your analysis pipelines on ACCESS resources. One easy way to explore Pegasus workflows is to use <a href="https://support.access-ci.org/tools/pegasus">ACCESS Pegasus</a>.</p>
+</section>
+<section id="access-support" class="level3">
+<h3 class="anchored" data-anchor-id="access-support">ACCESS Support</h3>
+<p>ACCESS does provide support for researchers looking to leverage their resources. The support comes in various flavors as illustrated in the picture below.</p>
+<p><a href="https://support.access-ci.org">ACCESS Support</a> provides researchers with access to</p>
+<ul>
+<li>Tools, growing knowledge base</li>
+<li>Match-making with experts</li>
+<li>Student engagement</li>
+<li>Engagement from community</li>
+</ul>
+<p>ACCESS provides <a href="https://support.access-ci.org/match/overview">Match services</a> (Tier 3 and Tier 4) which connects researchers with experts to help you select the right system, run on a supercomputer, and solve basic code and research problems.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/access-support-pyramid.png" class="img-fluid figure-img"></p>
+<figcaption>ACCESS Support Tiers</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="osg-and-path-facilities" class="level2">
+<h2 class="anchored" data-anchor-id="osg-and-path-facilities">OSG and PATh Facilities</h2>
+<p><a href="https://path-cc.io">PATh</a> and <a href="https://osg-htc.org">OSG</a> make up the <strong>OSG Consortium</strong> that builds and operates a set of pools of shared computing and data capacity for distributed high-throughput computing (dHTC).</p>
+<p>The OSG Consortium builds and operates a set of HTCondor pools of shared computing and data capacity for distributed high-throughput computing (dHTC). Each pool is organized and operated to serve a particular research community (e.g.&nbsp;a campus, multi-institutional collaboration, etc.), using technologies and services provided by the core OSG Team. One of these pools, known as the <strong>Open Science Pool</strong> is operated for all of US-associated open science.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/osg-resources-map.png" class="img-fluid figure-img"></p>
+<figcaption>OSPools Geographic Distribution</figcaption>
+</figure>
+</div>
+<p><strong>Image Credit:</strong> OSG Research Facilitation Team</p>
+<p>One of the most attractive features of using the OSPool is that it has a <strong>No Proposal, No Allocation, No Cost</strong> principle. It povides its users with fair-share access to compute and storage capacity contributed by university campuses, and government-supported supercomputing institutions.</p>
+<section id="what-type-of-jobs-are-good-fit-for-ospool" class="level3">
+<h3 class="anchored" data-anchor-id="what-type-of-jobs-are-good-fit-for-ospool">What type of jobs are good fit for OSPool</h3>
+<p>The OSPool is made up of mostly opportunistic capacity - contributing clusters may interrupt jobs at any time. Thus, the OSPool supports workloads of numerous jobs that individually complete or checkpoint within 20 hours.</p>
+<p>The OSG consortium provides guidance on what type of jobs are a good fit. It is replicated from the <a href="https://osg-htc.org/services/ospool/">OSPool website</a> below.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 21%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Ideal Jobs!</strong></th>
+<th><strong>Still very advantageous</strong></th>
+<th><strong>Maybe not, but get in touch!</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Expected Throughput, per user</strong></td>
+<td>1000s concurrent cores</td>
+<td>100s concurrent cores</td>
+<td>Let’s discuss!</td>
+</tr>
+<tr class="even">
+<td><strong>CPU</strong></td>
+<td>1 per job</td>
+<td>&lt; 8 per job</td>
+<td>&gt; 8 per job</td>
+</tr>
+<tr class="odd">
+<td><strong>Walltime</strong></td>
+<td>&lt; 10 hrs*</td>
+<td>&lt; 20 hrs*</td>
+<td>&gt; 20 hrs</td>
+</tr>
+<tr class="even">
+<td><strong>RAM</strong></td>
+<td>&lt; few GB</td>
+<td>&lt; 40 GB</td>
+<td>&gt; 40 GB</td>
+</tr>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td>&lt; 500 MB</td>
+<td>&lt; 10 GB</td>
+<td>&gt; 10 GB**</td>
+</tr>
+<tr class="even">
+<td><strong>Output</strong></td>
+<td>&lt; 1 GB</td>
+<td>&lt; 10 GB</td>
+<td>&gt; 10 GB**</td>
+</tr>
+<tr class="odd">
+<td><strong>Software</strong></td>
+<td>pre-compiled binaries, containers</td>
+<td>Most other than →</td>
+<td>Licensed Software, non-Linux</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="osg-user-registration" class="level3">
+<h3 class="anchored" data-anchor-id="osg-user-registration">OSG User Registration</h3>
+<p>To get started with the OSPool, please complete the account application <a href="https://portal.osg-htc.org/application">here</a>. After submitting the form, you’ll receive an invitation to a new user meeting with an OSG facilitator. During the meeting, you’ll get an overview of OSG and discuss how to run your computations on the platform. Your account and project will be set up following this meeting.</p>
+</section>
+<section id="submitting-jobs-1" class="level3">
+<h3 class="anchored" data-anchor-id="submitting-jobs-1">Submitting jobs</h3>
+<p>Submitting jobs involves logging into one of the OSG Access points, from where you can submit a job using HTCondor or a workflow tool like Pegasus to the OSPool. Submitting the job is similar to how you submit a job on your local HPC cluster. The main difference is that you are interacting with HTCondor not SLURM or SGE.</p>
+<p>Another <strong>important difference</strong> to keep in mind is that unlike HPC clusters, you <strong>cannot expect a shared filesystem</strong> between the login node (from where you submit the job) and the nodes on which your jobs execute. The nodes on which your jobs run are geographically distributed as illustrated in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/osg-submitting-jobs.png" class="img-fluid figure-img"></p>
+<figcaption>OSPools Job Submission</figcaption>
+</figure>
+</div>
+<p><strong>Image Credit:</strong> OSG Research Facilitation Team</p>
+</section>
+<section id="path" class="level3">
+<h3 class="anchored" data-anchor-id="path">PATh</h3>
+<p>The <a href="https://path-cc.io">PATh Facility</a> is part of a pilot project funded by the NSF Office of Advanced Cyberinfrastructure. NSF-funded researchers can apply to request credits for the PATh facility. In that aspect, PATh is also similar to <strong>ACCESS</strong> resources in that you need to apply for credits to run on these resources.</p>
+<p>Composed of current gen hardware, the PATh facility provides users access to</p>
+<ul>
+<li>30,000 cores and</li>
+<li>36 A100 GPUs</li>
+</ul>
+<p>PATh user registration can be found on the <a href="https://portal.path-cc.io/documentation/overview/account_setup/getting-started/">PATh website</a>.</p>
+</section>
+<section id="os-pool-vs-path" class="level3">
+<h3 class="anchored" data-anchor-id="os-pool-vs-path">OS Pool vs PATh</h3>
+<p>A researcher’s experience on PATh Facility and OSG’s Open Science Pool (OSPool) compute systems is similar: both offer thousands of CPU resources, as well as GPUs, disk space for saving actively-used data, and support technologies such as containerized software and checkpointing. They also both use a HTCondor Software Suite as a job scheduling software, which specializes in managing large high-throughput workflows.</p>
+<p>The main differences between the two are</p>
+<ol type="1">
+<li>OSPool is open to any US-affiliated academic, non-profit, or government research projects while PATh is available to only researchers with accepted or active NSF award with selected <a href="https://portal.path-cc.io/documentation/overview/account_setup/getting-started/#meet-path-facility-criteria">affiliated programs</a>.</li>
+<li>PATh uses <em>compute</em> credit system to request resources.</li>
+<li>On PATh researchers can request larger amounts of CPU/GPUs, more memory, disk space, and a longer runtime and are guaranteed these resources until their job completes.</li>
+</ol>
+<p>Full details on these differences can be found <a href="https://portal.path-cc.io/documentation/overview/references/PATh_vs_OSPool/">here</a>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -758,7 +1202,7 @@ Note
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC200/computing-with-ci-ecosystem.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC200/computing-with-ci-ecosystem.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
