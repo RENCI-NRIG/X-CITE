@@ -1,7 +1,7 @@
 ---
 title: Distributed Computing Concepts 
 author: "Karan Vahi"
-date: "May 7th, 2025"
+date: "May 7, 2025"
 ---
 
 ::: {.callout-note}

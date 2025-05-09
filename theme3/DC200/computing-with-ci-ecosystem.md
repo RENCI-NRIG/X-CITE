@@ -1,7 +1,7 @@
 ---
 title: Computing with CI Ecosystem
 author: "Karan Vahi"
-date: "May 8th, 2025"
+date: "May 8, 2025"
 ---
 
 ::: {.callout-note}
@@ -287,5 +287,119 @@ the right system, run on a supercomputer, and solve basic code and research prob
 
 ![ACCESS Support Tiers](./images/access-support-pyramid.png)
 
-## PATh / OSG
+## OSG and PATh Facilities
 
+[PATh](https://path-cc.io) and [OSG](https://osg-htc.org) make up the **OSG Consortium** 
+that builds and operates a set of pools of shared computing and data capacity for
+distributed high-throughput computing (dHTC). 
+
+The OSG Consortium builds and operates a set of HTCondor pools of shared 
+computing and data capacity for distributed high-throughput computing (dHTC).
+Each pool is organized and operated to serve a particular research 
+community (e.g. a campus, multi-institutional collaboration, etc.),
+using technologies and services provided by the core OSG Team. 
+One of these pools, known as the **Open Science Pool** is operated for 
+all of US-associated open science.
+
+![OSPools Geographic Distribution](./images/osg-resources-map.png)
+
+**Image Credit:** OSG Research Facilitation Team
+
+One of the most attractive features of using the OSPool is that 
+it has a **No Proposal, No Allocation, No Cost** principle. It
+povides its users with fair-share access to compute and storage 
+capacity contributed by university campuses, and government-supported
+supercomputing institutions.
+
+### What type of jobs are good fit for OSPool
+
+The OSPool is made up of mostly opportunistic capacity - 
+contributing clusters may interrupt jobs at any time. Thus, the OSPool 
+supports workloads of numerous jobs that individually complete or 
+checkpoint within 20 hours.
+
+The OSG consortium provides guidance on what type of jobs are a good
+fit. It is replicated from the
+[OSPool website](https://osg-htc.org/services/ospool/) below.
+
+|                                   | **Ideal Jobs!**                   | **Still very advantageous** | **Maybe not, but get in touch!** |
+|-----------------------------------|-----------------------------------|-----------------------------|----------------------------------|
+| **Expected Throughput, per user** | 1000s concurrent cores            | 100s concurrent cores       | Let's discuss!                   |
+| **CPU**                           | 1 per job                         | < 8 per job                 | > 8 per job                      |
+| **Walltime**                      | < 10 hrs*                         | < 20 hrs*                   | > 20 hrs                         |
+| **RAM**                           | < few GB                          | < 40 GB                     | > 40 GB                          |
+| **Input**                         | < 500 MB                          | < 10 GB                     | > 10 GB**                        |
+| **Output**                        | < 1 GB                            | < 10 GB                     | > 10 GB**                        |
+| **Software**                      | pre-compiled binaries, containers | Most other than →           | Licensed Software, non-Linux     |
+
+
+
+### OSG User Registration
+
+To get started with the OSPool, please complete the account application 
+[here](https://portal.osg-htc.org/application). After submitting the form, 
+you’ll receive an invitation to a new user meeting with an OSG facilitator. 
+During the meeting, you’ll get an overview of OSG and discuss how to
+run your computations on the platform. Your account and project will be 
+set up following this meeting.
+
+
+### Submitting jobs
+
+Submitting jobs involves logging into one of the OSG Access points, from
+where you can submit a job using HTCondor or a workflow tool like Pegasus
+to the OSPool. Submitting the job is similar to how you submit a job on 
+your local HPC cluster. The main difference is that you are interacting
+with HTCondor not SLURM or SGE.
+
+Another **important difference** to keep in mind is that unlike HPC clusters, 
+you **cannot expect a shared filesystem** between the login node
+(from where you submit the job) and the nodes on which your jobs execute.
+The nodes on which your jobs run are geographically distributed as 
+illustrated in the figure below.
+
+![OSPools Job Submission](./images/osg-submitting-jobs.png)
+
+**Image Credit:** OSG Research Facilitation Team
+
+### PATh
+
+The [PATh Facility](https://path-cc.io)  is part of a pilot project funded 
+by the NSF Office of Advanced Cyberinfrastructure. NSF-funded researchers 
+can apply to request  credits for the PATh facility. In that aspect, PATh 
+is also similar to **ACCESS** resources in that you need to apply for credits 
+to run on  these resources.
+
+Composed of current gen hardware, the PATh facility provides users 
+access to 
+
+- 30,000 cores and
+- 36 A100 GPUs
+
+
+PATh user registration can be found on the 
+[PATh website](https://portal.path-cc.io/documentation/overview/account_setup/getting-started/). 
+
+
+### OS Pool vs PATh
+
+A researcher’s experience on PATh Facility and OSG’s Open Science Pool (OSPool) 
+compute systems is similar: both offer thousands of CPU resources, as well as 
+GPUs, disk space for saving actively-used data, and support technologies 
+such as containerized software and checkpointing. They also both use a 
+HTCondor Software Suite as a job scheduling software, which specializes in 
+managing large high-throughput workflows.
+
+The main differences between the two are 
+
+1. OSPool is open to any US-affiliated academic, non-profit, or 
+   government research projects while PATh is available to only 
+   researchers with accepted or active NSF award with selected
+   [affiliated programs](https://portal.path-cc.io/documentation/overview/account_setup/getting-started/#meet-path-facility-criteria).
+2. PATh uses *compute* credit system to request resources. 
+3. On PATh researchers can request larger amounts of CPU/GPUs, 
+   more memory, disk space, and a longer runtime and are guaranteed 
+   these resources until their job completes.
+
+Full details on these differences can be found 
+[here](https://portal.path-cc.io/documentation/overview/references/PATh_vs_OSPool/).
