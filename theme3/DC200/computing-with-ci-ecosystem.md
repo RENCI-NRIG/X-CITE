@@ -28,7 +28,7 @@ help you with computing
 - ACCESS
 - PATh / OSG
 
-## Overview of CHESS operational workflow
+## Overview of CHESS Operational Workflow
 
 Below is a high level overview of an overall chess operational workflow from the time 
 a researcher puts in a proposal to use a beamline at CHESS to data collection from
@@ -131,5 +131,140 @@ Detailed instructions about this can be found at
 
 
 ## ACCESS
+
+[ACCESS CI](https://access-ci.org/about/)  is a program established and
+funded by the National Science Foundation (NSF) to help researchers and 
+educators utilize the nation’s advanced computing systems and services.
+ACCESS is a collection of both large and experimental HPC resources.
+
+ACCESS provides a wide range of resources and services:
+
+- Systems ranging from supercomputers to smaller specialized compute 
+  clusters, each with a different focus and unique set of capabilities 
+- Data and storage services
+- Expertise to help you make effective use of resources, remove barriers,
+  and achieve your goals
+- Scientific applications
+- Science gateways 
+
+Some of the resources available are listed below 
+
+| Leadership Class |                             |
+|------------------|-----------------------------|
+| Frontera         | University of Texas, Austin |
+
+
+| Innovative Production Systems |                                  |
+|-------------------------------|----------------------------------|
+| Anvil                         | Purdue University                |
+| Bridges 2                     | Carnegie-Mellon University       |
+| Delta/ DeltaAI                | U of Illinois Urbana-Champaign   |
+| Expanse                       | U of California, San Diego       |
+| Jetstream 2                   | University of Indiana + Partners |
+| Stampede 2                    | U of Texas, Austin               |
+
+
+| Prototypes/Testbeds |                            |
+|---------------------|----------------------------|
+| Neocortex           | Carnegie-Mellon University |
+| Voyager             | U of California, San Diego |
+| Ookami              | Stonybrook University      |
+| NRP                 | U of California, San Diego |
+| ACES                | Texas A&M University       |
+
+| Cloud Technology Resources |                            |
+|----------------------------|----------------------------|
+| Cloudbank                  | U of California, San Diego |
+| CloudLab                   | University of Utah         |
+| Chameleon                  | University of Chicago      |
+
+
+![Location of various ACCESS Resources](./images/access-resources-map.png)
+
+
+Of the resources above, the leadership class system and most of the Innovative
+Production Systems are HPC clusters, very similar to the CHESS HPC
+cluster at Cornell. The main difference being that they use **SLURM** 
+as their frontend queueing system instead of SGE.
+
+### ACCESS User Registration
+
+In order to use ACCESS resources, you first need to request an ACCESS user account.
+This account is required for you to login to the ACCESS website, manage
+your allocations (more on it in the next section). 
+
+Getting an ACCESS user account is fairly straightforward. Instructions for
+getting it can be found [here](https://operations.access-ci.org/identity/new-user).
+Using an **existing University account** when registering with ACCESS **simplifies 
+the sign-up process** and enables you to log in to ACCESS using that existing account. 
+
+### Getting an Allocation
+
+To get started, you need an ACCESS project and some resource units you can spend. 
+Your ACCESS project and resource units are what we refer to as an Allocation. 
+An allocation is your project to use a portion of a shared resource.
+
+Through ACCESS, you can get an allocation to use computing and data 
+resources to accomplish your research or classroom objectives.
+
+You can get allocation for 4 different types of projects which are
+listed below.
+
+- **EXPLORE** — Great for resource evaluation, graduate student projects,  
+  small classes and training events, benchmarking, code development and 
+  porting, and similar small-scale uses.
+
+- **DISCOVER** — Designed for research grants with modest resource needs, 
+  Campus Champions, large classes and training events, graduate student 
+  projects, benchmarking and code testing at scale, and gateway development.
+
+- **ACCELERATE** — Best for experienced users with mid-scale resource needs, 
+  consolidating multi-grant programs, collaborative projects, preparing for 
+  Maximize ACCESS requests, and gateways with growing communities.
+
+- **MAXIMIZE** — The choice for large-scale research activities that need
+  more resources than the limit for Accelerate ACCESS projects.
+
+The *EXPLORE* requests are easiest to get with *MAXIMIZE* the hardest
+(in terms of supporting documentation required). The *EXPLORE* request
+will get you 400,000 ACCESS credits/SUs to start with, which is enough
+to explore suitability of these resources for your processing needs. 
+
+More details including a detailed comparison table can be found 
+[here](https://allocations.access-ci.org/project-types).
+
+### Logging to the ACCESS resource
+
+Once, you have your allocation approved then in the 
+[Allocations portal](https://allocations.access-ci.org)  you
+can assign your credits to a particular resource that you are 
+interested in. Once that is done, the Resource Provider will contact
+you to setup your local HPC accounts. 
+
+Once that is done, you can 
+* register  your ssh keys to login to your account on the HPC resource.
+
+Additionally, most of the ACCESS resources have 
+[Open OnDemand](https://support.access-ci.org/tools/ondemand) installed,
+that allow you to access and login to the clusters using a web front-end.
+Open OnDemand is an easy-to-use web portal that is being deployed on
+ACCESS resources to allow researchers to compute from anywhere 
+without client software or command-line interface, and significantly
+speed up the time to science.
+
+### Submitting Jobs
+
+You can login to the headnodes of these resources, and submit jobs
+to the SLURM clusters in a similar fashion that you submit jobs on the
+CHESS cluster. 
+
+Additionally, all the ACCESS resources that have an Open OnDemand install, 
+allow you to launch **Jupyter notebooks** to run your analysis.
+
+You can also use workflow systems such as 
+[Pegasus](https://pegasus.isi.edu) to run 
+your analysis pipelines on ACCESS resources. One easy way to explore
+Pegasus workflows is to use 
+[ACCESS Pegasus](https://support.access-ci.org/tools/pegasus).
 
 ## PATh / OSG
