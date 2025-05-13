@@ -94,7 +94,11 @@ The HPC Cluster at CHESS/CLASSE is a central resource consisting of
 In order to access the Cornel CI resources, you need a 
 Cornell Laboratory for Accelerator-based ScienceS and Education(CLASSE) account.
 
-You can get one by following the instructions at **XXX**.
+CHESS users can request a CLASSE account through the 
+[CHESS User Dashboard (BeamPASS)](https://webapps.chess.cornell.edu/beampass/login.xhtml). 
+
+More info in the [user guide](https://www.chess.cornell.edu/user-guide), 
+under *"Activate your CLASSE Account"*.
 
 ### Job Submission
 
