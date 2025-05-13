@@ -66,6 +66,17 @@ overview of the CHESS CI
 
 ![CHESS CI immediately available for processing/analysis by users on the Compute Farm](./images/chess-ci.png)
 
+### Getting access
+
+In order to access the Cornell CI resources, you need a 
+Cornell Laboratory for Accelerator-based ScienceS and Education(CLASSE) account.
+
+CHESS users can request a CLASSE account through the 
+[CHESS User Dashboard (BeamPASS)](https://webapps.chess.cornell.edu/beampass/login.xhtml). 
+
+More info in the [user guide](https://www.chess.cornell.edu/user-guide), 
+under *"Activate your CLASSE Account"*.
+
 ### DAQ Cluster
 
 DAQ Cluster is the Data Acquisition System that runs on a dedicated server cluster. 
@@ -87,18 +98,25 @@ The HPC Cluster at CHESS/CLASSE is a central resource consisting of
 - uses SGE as a front-end queueing system
 - supports interactive, batch, parallel, and GPU jobs
 - ensures equal access to the Compute Farm for all users.
- 
 
-### Getting access
+This cluster is suited for doing both HPC and HTC type jobs.
 
-In order to access the Cornel CI resources, you need a 
-Cornell Laboratory for Accelerator-based ScienceS and Education(CLASSE) account.
+#### Login Node and other information
 
-CHESS users can request a CLASSE account through the 
-[CHESS User Dashboard (BeamPASS)](https://webapps.chess.cornell.edu/beampass/login.xhtml). 
+The CHESS cluster login node is to use ssh to login to 
+*lnx201.classe.cornell.edu* which is the headnode of the cluster.
 
-More info in the [user guide](https://www.chess.cornell.edu/user-guide), 
-under *"Activate your CLASSE Account"*.
+```{.bash}
+ssh <your CLASSE username>@lnx201.classe.cornell.edu
+```
+
+There is also a shared filesystem  available across all the nodes in the cluster.
+This can be accessed at */nfs/chess/user/<your-CLASSE-username>* .
+
+A complete list of various filesystems accessible can be found at
+[CLASSE Wiki](https://www.classe.cornell.edu/private/computing/filesystems.html).
+
+
 
 ### Job Submission
 
@@ -132,6 +150,23 @@ In order to submit it to the cluster you can use *qsub* command
 
 Detailed instructions about this can be found at
 [CLASSE Wiki](https://wiki.classe.cornell.edu/Computing/GridEngine).
+
+If you want to submit job to another queue, you can change the -q option.
+In order to see all the queues on the cluster, you can run the following 
+command. 
+
+```{.bash}
+[user@lnx201 ~]$ qconf -sql
+all.q
+benchmark.q
+chess.q
+chess_fast.q
+...
+chess_xleap_interactive.q
+interactive.q
+```
+
+The above output is shortened for display purposes.
 
 
 ## ACCESS
