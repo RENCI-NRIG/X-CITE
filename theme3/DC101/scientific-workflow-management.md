@@ -13,7 +13,7 @@ their data processing tasks and in the process shortening the turn around time f
 data processing that needs to be done on data collected at a beamline. 
 
 The content in this module is gathered from author's various presentations over 
-the years and work on Pegasus WMS.
+the years and their work on workflows.
 
 ## What are Scientific Workflows
 
@@ -141,4 +141,67 @@ are some common challenges that you may encounter.
   resource on which you are currently running may go away (no longer operational),
   software dependencies on which your code requires change.
 - **How to have ease of use?** Ability to debug and monitor large workflows.
+
+
+### Workflow Creation
+
+There are a variety of workflow systems available that you can use in general.
+Some of them allow you to create workflows using
+
+* A graphical interface
+* Programmatically using an API in a main stream programming language such as Python
+
+CHESS researchers have access to the following systems for running workflows
+
+* CHESS Workflow Runner
+* Galaxy (to be covered in DC102)
+* Pegasus  Workflows
+
+### CHESS Workflow Runner
+
+To be added
+
+### Pegasus Workflows
+
+Pegasus WMS allows users to model their computational pipelines as workflows, that
+can execute in a number of different environments including 
+
+- desktops, 
+- campus clusters, 
+- distributed computing environments such as PATh and OSG OSPool, 
+- supercomputing CI such as ACCESS and clouds.
+ 
+Pegasus bridges the scientific domain and the execution environment by automatically 
+mapping high-level workflow descriptions onto distributed resources. It automatically 
+locates the necessary input data and computational resources necessary for workflow 
+execution. Pegasus enables scientists to construct workflows in abstract terms 
+without worrying about the details of the underlying execution environment or 
+the particulars of the low-level specifications required by the middleware 
+(HTCondor, SLURM,  or Amazon EC2). 
+
+The clean separation of how the user defines a Pegasus workflow (in a resource
+agnostic way) called the *Abstract* workflow and the *Executable* workflow that 
+actually runs on your target resource is illustrated below. 
+
+![Pegasus Translation of User Defined Abstract Workflow to Executable Workflow](./images/pegasus-abstract-to-executable)
+
+As a user when you define a Pegasus workflow, you 
+
+- identify both input and data sets that a job requires by their logical identifiers called *LFN*.
+- identify the executable that needs to be invoked for a job by it's logical identifier called *transformation*.
+
+The *Abstract* workflow when given to Pegasus gets transformed to an *Executable* 
+workflow that can execute on your target resource. As part of this transformation
+of the workflow Pegasus will figure out
+
+- how to get/stage the input data required for your workflow. add data stage-in jobs
+- maps your jobs to a compute resource
+- how to stage-out data that your workflow generates
+
+Additionally, as part of this transformation Pegasus can do a lot of optimizations
+on your workflow such as
+
+- add data cleanup nodes, that clean up data from cluster when it is not required
+- cluster short running jobs together
+- data reuse (delete jobs whose datasets already exist)
 
