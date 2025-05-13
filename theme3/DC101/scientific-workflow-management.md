@@ -297,8 +297,8 @@ To plan the workflow, run the *./plan.sh* script.
 2025.05.13 14:56:10.808 EDT:   ----------------------------------------------------------------------- 
 2025.05.13 14:56:23.174 EDT:   Database version: '5.1.0dev' (sqlite:////home/kvahi/.pegasus/workflow.db) 
 2025.05.13 14:56:28.480 EDT:   Pegasus database was successfully created. 
-2025.05.13 14:56:28.485 EDT:   Database version: '5.1.0dev' (sqlite:////nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db) 
-2025.05.13 14:56:28.693 EDT:   Output replica catalog set to jdbc:sqlite:/nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db 
+2025.05.13 14:56:28.485 EDT:   Database version: '5.1.0dev' (sqlite:////nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db) 
+2025.05.13 14:56:28.693 EDT:   Output replica catalog set to jdbc:sqlite:/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db 
 2025.05.13 14:56:28.693 EDT:   
 
 
@@ -307,7 +307,7 @@ into the workflow database with a state of "planned". The next step is
 to start or execute your workflow. The invocation required is
 
 
-pegasus-run  /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 
  
 2025.05.13 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds 
@@ -317,7 +317,7 @@ The above command generated the **executable** workflow that you can run.
 To do this copy the *pegasus-run* command invocation that you see in your terminal.
 
 ```{.bash}
-(pegasus-env) [kvahi@lnx201 diamond]$ pegasus-run  /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+(pegasus-env) [kvahi@lnx201 diamond]$ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 
 Submitting to condor diamond-0.dag.condor.sub
 Submitting job(s).
@@ -325,15 +325,15 @@ Submitting job(s).
 
 Your workflow has been started and is running in the base directory:
 
-/nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 
 *** To monitor the workflow you can run ***
 
-pegasus-status -l /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+pegasus-status -l /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 
 *** To remove your workflow run ***
 
-pegasus-remove /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+pegasus-remove /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 
 ```
 
@@ -345,12 +345,28 @@ Again make sure you copy the *pegasus-status* invocation that you see in your te
 and add the *-w 30* option after *-l* option.
 
 ```{bash}
-(pegasus-env) [kvahi@lnx201 diamond]$ pegasus-status -l -w 30 /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+(pegasus-env) [kvahi@lnx201 diamond]$ pegasus-status -l -w 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
    ID        SITE      STAT  IN_STATE  JOB                      
-  693        local      Run    03:06   diamond-0 (/nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001)
+  693        local      Run    03:06   diamond-0 (/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001)
   696         sge      Done    00:04   ┗━untar_diamond_0_sge    
 Summary: 2 Condor jobs total (R:1)
 
 UNREADY READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  
   13      0     0    0     1     2     0    12.5 Running diamond-0.dag           
+```
+
+Once the workflow completes you will see somthing similar to the following
+
+```{bash}
+pegasus-env) [kvahi@lnx201 diamond]$ pegasus-status -l -w 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
+Press Ctrl+C to exit                                    (pid=2380412)                                 Tue May-13-2025 15:07:51
+
+   ID        SITE      STAT  IN_STATE  JOB                      
+  693        local      Run    08:58   diamond-0 (/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001)
+Summary: 1 Condor job total (R:1)
+
+UNREADY READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  
+   0      0     0    0     0     16    0   100.0 Success diamond-0.dag            
+Summary: 1 DAG total (Success:1)
+
 ```
