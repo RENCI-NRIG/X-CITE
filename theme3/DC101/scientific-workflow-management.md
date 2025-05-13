@@ -205,3 +205,152 @@ on your workflow such as
 - cluster short running jobs together
 - data reuse (delete jobs whose datasets already exist)
 
+#### Getting Started with Pegasus @ CHESS
+
+Pegasus is already installed and configured to run on the CHESS cluster.
+In order to use Pegasus, you need to login to the node
+**lnx201.classe.cornell.edu** . 
+
+```{.bash}
+X-CITE vahi$ ssh  lnx201.classe.cornell.edu
+(vahi@lnx201.classe.cornell.edu) Password: 
+```
+
+To setup a test workflow that runs on the CHESS SGE cluster, you can use the
+**pegasus-init** executable and answer the questions asked. 
+
+You should do the following selectionsw when prompted
+
+- Select an execution environment [1]: 5
+- What's the execution environment's queue: chess.q
+- What's your project's name []: 
+- Select an example workflow [1]: 1
+
+```{.bash}
+[kvahi@lnx201 pegasus]$ pegasus-init diamond
+###########################################################
+###########   Available Execution Environments   ##########
+###########################################################
+1) Local Machine Condor Pool
+2) Local SLURM Cluster
+3) Remote SLURM Cluster
+4) Local LSF Cluster
+5) Local SGE Cluster
+6) OLCF Summit from OLCF Headnode
+7) OLCF Summit from OLCF Hosted Kubernetes Pod
+
+Select an execution environment [1]: 5
+What's the execution environment's queue: chess.q
+What's your project's name []: 
+What's the location of the PEGASUS_HOME dir on the compute nodes [/nfs/chess/user/kvahi/software/pegasus/default]: 
+###########################################################
+###########     Available Workflow Examples      ##########
+###########################################################
+1) pegasus-isi/diamond-workflow
+2) pegasus-isi/hierarichal-sample-wf
+3) pegasus-isi/merge-workflow
+4) pegasus-isi/pipeline-workflow
+5) pegasus-isi/split-workflow
+
+Select an example workflow [1]: 1
+Fetching workflow from https://github.com/pegasus-isi/diamond-workflow.git
+Generating workflow based on pegasus-isi/diamond-workflow
+This workflow will target queue "chess.q"
+The PEGASUS_HOME location is "/nfs/chess/user/kvahi/software/pegasus/default"
+Creating workflow properties...
+Creating transformation catalog...
+Creating replica catalog...
+Creating diamond workflow dag...
+INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000001, transformation=preprocess)
+INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000002, transformation=findrange)
+INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000003, transformation=findrange)
+INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000004, transformation=analyze)
+INFO:Pegasus.api.workflow:inferring diamond dependencies
+INFO:Pegasus.api.workflow:workflow diamond with 4 jobs generated and written to workflow.yml
+Creating properties file...
+Creating site catalog for SitesAvailable.SGE...
+
+```
+
+The example workflow gets generated in the diamond directory 
+
+```{.bash}
+[kvahi@lnx201 pegasus]$ cd diamond/
+(pegasus-env) [kvahi@lnx201 diamond]$ ls
+diamond-workflow  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml
+```
+
+To plan the workflow, run the *./plan.sh* script.
+
+```{.bash}
+(pegasus-env) [kvahi@lnx201 diamond]$ ./plan.sh
+./plan.sh 
+2025.05.13 14:56:10.755 EDT:    
+2025.05.13 14:56:10.761 EDT:   ----------------------------------------------------------------------- 
+2025.05.13 14:56:10.766 EDT:   File for submitting this DAG to HTCondor           : diamond-0.dag.condor.sub 
+2025.05.13 14:56:10.771 EDT:   Log of DAGMan debugging messages                 : diamond-0.dag.dagman.out 
+2025.05.13 14:56:10.777 EDT:   Log of HTCondor library output                     : diamond-0.dag.lib.out 
+2025.05.13 14:56:10.782 EDT:   Log of HTCondor library error messages             : diamond-0.dag.lib.err 
+2025.05.13 14:56:10.787 EDT:   Log of the life of condor_dagman itself          : diamond-0.dag.dagman.log 
+2025.05.13 14:56:10.792 EDT:    
+2025.05.13 14:56:10.798 EDT:   -no_submit given, not submitting DAG to HTCondor.  You can do this with: 
+2025.05.13 14:56:10.808 EDT:   ----------------------------------------------------------------------- 
+2025.05.13 14:56:23.174 EDT:   Database version: '5.1.0dev' (sqlite:////home/kvahi/.pegasus/workflow.db) 
+2025.05.13 14:56:28.480 EDT:   Pegasus database was successfully created. 
+2025.05.13 14:56:28.485 EDT:   Database version: '5.1.0dev' (sqlite:////nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db) 
+2025.05.13 14:56:28.693 EDT:   Output replica catalog set to jdbc:sqlite:/nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db 
+2025.05.13 14:56:28.693 EDT:   
+
+
+I have concretized your abstract workflow. The workflow has been entered 
+into the workflow database with a state of "planned". The next step is 
+to start or execute your workflow. The invocation required is
+
+
+pegasus-run  /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+
+ 
+2025.05.13 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds 
+```
+
+The above command generated the **executable** workflow that you can run.
+To do this copy the *pegasus-run* command invocation that you see in your terminal.
+
+```{.bash}
+(pegasus-env) [kvahi@lnx201 diamond]$ pegasus-run  /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+
+Submitting to condor diamond-0.dag.condor.sub
+Submitting job(s).
+1 job(s) submitted to cluster 693.
+
+Your workflow has been started and is running in the base directory:
+
+/nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+
+*** To monitor the workflow you can run ***
+
+pegasus-status -l /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+
+*** To remove your workflow run ***
+
+pegasus-remove /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+
+```
+
+
+To check the status of the worklfow we can run the command *pegasus-status* with a 
+*-w 30* option to watch it every 30 seconds.
+
+Again make sure you copy the *pegasus-status* invocation that you see in your terminal 
+and add the *-w 30* option after *-l* option.
+
+```{bash}
+(pegasus-env) [kvahi@lnx201 diamond]$ pegasus-status -l -w 30 /nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001
+   ID        SITE      STAT  IN_STATE  JOB                      
+  693        local      Run    03:06   diamond-0 (/nfs/chess/user/kvahi/software/pegasus/diamond/submit/kvahi/pegasus/diamond/run0001)
+  696         sge      Done    00:04   ┗━untar_diamond_0_sge    
+Summary: 2 Condor jobs total (R:1)
+
+UNREADY READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  
+  13      0     0    0     1     2     0    12.5 Running diamond-0.dag           
+```
