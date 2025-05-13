@@ -344,7 +344,7 @@ To check the status of the worklfow we can run the command *pegasus-status* with
 Again make sure you copy the *pegasus-status* invocation that you see in your terminal 
 and add the *-w 30* option after *-l* option.
 
-```{bash}
+```{.bash}
 (pegasus-env) [kvahi@lnx201 diamond]$ pegasus-status -l -w 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
    ID        SITE      STAT  IN_STATE  JOB                      
   693        local      Run    03:06   diamond-0 (/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001)
@@ -357,7 +357,7 @@ UNREADY READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME
 
 Once the workflow completes you will see somthing similar to the following
 
-```{bash}
+```{.bash}
 pegasus-env) [kvahi@lnx201 diamond]$ pegasus-status -l -w 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 Press Ctrl+C to exit                                    (pid=2380412)                                 Tue May-13-2025 15:07:51
 
@@ -368,5 +368,5 @@ Summary: 1 Condor job total (R:1)
 UNREADY READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  
    0      0     0    0     0     16    0   100.0 Success diamond-0.dag            
 Summary: 1 DAG total (Success:1)
-
 ```
+
