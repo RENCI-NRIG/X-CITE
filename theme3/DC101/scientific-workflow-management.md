@@ -157,11 +157,11 @@ CHESS researchers have access to the following systems for running workflows
 * Galaxy (to be covered in DC102)
 * Pegasus  Workflows
 
-### CHESS Workflow Runner
+## CHESS Workflow Runner
 
 To be added
 
-### Pegasus Workflows
+## Pegasus Workflows
 
 Pegasus WMS allows users to model their computational pipelines as workflows, that
 can execute in a number of different environments including 
@@ -205,7 +205,7 @@ on your workflow such as
 - cluster short running jobs together
 - data reuse (delete jobs whose datasets already exist)
 
-#### Getting Started with Pegasus @ CHESS
+### Getting Started with Pegasus @ CHESS
 
 Pegasus is already installed and configured to run on the CHESS cluster.
 In order to use Pegasus, you need to login to the node
@@ -227,7 +227,7 @@ in your PATH. You can do this by sourcing the following setup file.
 5.1.0dev
 ```
 
-**Setup a test diamond workflow and run it**
+### Setup a test diamond workflow and run it
 
 In this example, we will try and run a test *diamond* workflow through Pegasus.
 
@@ -412,7 +412,7 @@ passed to the *pegasus-status* command.
 - **pegasus-statistics <submit-dir>** - This allows you to generate runtime statistics
   about your workflow run such how long it run, how much resources were used etc.
 
-**Support**
+### Support
 
 If you would like to use Pegasus to run your pipeline you can contact via
 
