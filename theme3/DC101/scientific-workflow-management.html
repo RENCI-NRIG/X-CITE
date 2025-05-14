@@ -344,8 +344,13 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
   <li><a href="#workflow-constructs" id="toc-workflow-constructs" class="nav-link" data-scroll-target="#workflow-constructs">Workflow Constructs</a></li>
   <li><a href="#workflow-challenges" id="toc-workflow-challenges" class="nav-link" data-scroll-target="#workflow-challenges">Workflow Challenges</a></li>
   <li><a href="#workflow-creation" id="toc-workflow-creation" class="nav-link" data-scroll-target="#workflow-creation">Workflow Creation</a></li>
+  </ul></li>
   <li><a href="#chess-workflow-runner" id="toc-chess-workflow-runner" class="nav-link" data-scroll-target="#chess-workflow-runner">CHESS Workflow Runner</a></li>
-  <li><a href="#pegasus-workflows" id="toc-pegasus-workflows" class="nav-link" data-scroll-target="#pegasus-workflows">Pegasus Workflows</a></li>
+  <li><a href="#pegasus-workflows" id="toc-pegasus-workflows" class="nav-link" data-scroll-target="#pegasus-workflows">Pegasus Workflows</a>
+  <ul class="collapse">
+  <li><a href="#getting-started-with-pegasus-chess" id="toc-getting-started-with-pegasus-chess" class="nav-link" data-scroll-target="#getting-started-with-pegasus-chess">Getting Started with Pegasus @ CHESS</a></li>
+  <li><a href="#setup-a-test-diamond-workflow-and-run-it" id="toc-setup-a-test-diamond-workflow-and-run-it" class="nav-link" data-scroll-target="#setup-a-test-diamond-workflow-and-run-it">Setup a test diamond workflow and run it</a></li>
+  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">Support</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC101/scientific-workflow-management.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -501,12 +506,13 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <li>Pegasus Workflows</li>
 </ul>
 </section>
-<section id="chess-workflow-runner" class="level3">
-<h3 class="anchored" data-anchor-id="chess-workflow-runner">CHESS Workflow Runner</h3>
+</section>
+<section id="chess-workflow-runner" class="level2">
+<h2 class="anchored" data-anchor-id="chess-workflow-runner">CHESS Workflow Runner</h2>
 <p>To be added</p>
 </section>
-<section id="pegasus-workflows" class="level3">
-<h3 class="anchored" data-anchor-id="pegasus-workflows">Pegasus Workflows</h3>
+<section id="pegasus-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="pegasus-workflows">Pegasus Workflows</h2>
 <p>Pegasus WMS allows users to model their computational pipelines as workflows, that can execute in a number of different environments including</p>
 <ul>
 <li>desktops,</li>
@@ -539,136 +545,179 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <li>cluster short running jobs together</li>
 <li>data reuse (delete jobs whose datasets already exist)</li>
 </ul>
-<section id="getting-started-with-pegasus-chess" class="level4">
-<h4 class="anchored" data-anchor-id="getting-started-with-pegasus-chess">Getting Started with Pegasus @ CHESS</h4>
+<section id="getting-started-with-pegasus-chess" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-pegasus-chess">Getting Started with Pegasus @ CHESS</h3>
 <p>Pegasus is already installed and configured to run on the CHESS cluster. In order to use Pegasus, you need to login to the node <strong>lnx201.classe.cornell.edu</strong> .</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">X-CITE</span> vahi$ ssh  lnx201.classe.cornell.edu</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">vahi@lnx201.classe.cornell.edu</span><span class="kw">)</span> <span class="ex">Password:</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">user@lnx201.classe.cornell.edu</span><span class="kw">)</span> <span class="ex">Password:</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Source Pegasus binaries in your PATH</strong></p>
+<p>In order to run Pegasus you need to make sure that Pegasus executables are in your PATH. You can do this by sourcing the following setup file.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> ~]$ source /nfs/chess/sw/pegasus/setup.sh</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> ~]$ pegasus-version </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">5.1.0dev</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="setup-a-test-diamond-workflow-and-run-it" class="level3">
+<h3 class="anchored" data-anchor-id="setup-a-test-diamond-workflow-and-run-it">Setup a test diamond workflow and run it</h3>
+<p>In this example, we will try and run a test <em>diamond</em> workflow through Pegasus.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/diamond-abstract-wf.png" class="img-fluid figure-img"></p>
+<figcaption>Diamond Abstract Workflow</figcaption>
+</figure>
+</div>
 <p>To setup a test workflow that runs on the CHESS SGE cluster, you can use the <strong>pegasus-init</strong> executable and answer the questions asked.</p>
-<p>You should do the following selectionsw when prompted</p>
+<p>You should do the following selections when prompted</p>
 <ul>
 <li>Select an execution environment [1]: 5</li>
 <li>What’s the execution environment’s queue: chess.q</li>
 <li>What’s your project’s name []:</li>
 <li>Select an example workflow [1]: 1</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ pegasus-init diamond</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">###########   Available Execution Environments   ##########</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span><span class="er">)</span> <span class="ex">Local</span> Machine Condor Pool</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span><span class="er">)</span> <span class="ex">Local</span> SLURM Cluster</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span><span class="er">)</span> <span class="ex">Remote</span> SLURM Cluster</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span><span class="er">)</span> <span class="ex">Local</span> LSF Cluster</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ex">5</span><span class="er">)</span> <span class="ex">Local</span> SGE Cluster</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ex">6</span><span class="er">)</span> <span class="ex">OLCF</span> Summit from OLCF Headnode</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">7</span><span class="er">)</span> <span class="ex">OLCF</span> Summit from OLCF Hosted Kubernetes Pod</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Select</span> an execution environment <span class="pp">[</span><span class="ss">1</span><span class="pp">]</span>: 5</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s the execution environment'</span><span class="ex">s</span> queue: chess.q</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s your project'</span><span class="ex">s</span> name []: </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s the location of the PEGASUS_HOME dir on the compute nodes [/nfs/chess/user/kvahi/software/pegasus/default]: </span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">###########################################################</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">###########     Available Workflow Examples      ##########</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">###########################################################</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">1) pegasus-isi/diamond-workflow</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">2) pegasus-isi/hierarichal-sample-wf</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">3) pegasus-isi/merge-workflow</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">4) pegasus-isi/pipeline-workflow</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">5) pegasus-isi/split-workflow</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">Select an example workflow [1]: 1</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">Fetching workflow from https://github.com/pegasus-isi/diamond-workflow.git</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">Generating workflow based on pegasus-isi/diamond-workflow</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">This workflow will target queue "chess.q"</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">The PEGASUS_HOME location is "/nfs/chess/user/kvahi/software/pegasus/default"</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">Creating workflow properties...</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">Creating transformation catalog...</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">Creating replica catalog...</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">Creating diamond workflow dag...</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000001, transformation=preprocess)</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000002, transformation=findrange)</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000003, transformation=findrange)</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000004, transformation=analyze)</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:inferring diamond dependencies</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:workflow diamond with 4 jobs generated and written to workflow.yml</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="st">Creating properties file...</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="st">Creating site catalog for SitesAvailable.SGE...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The example workflow gets generated in the diamond directory</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ cd diamond/</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ls</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond-workflow</span>  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ pegasus-init diamond</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">###########   Available Execution Environments   ##########</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span><span class="er">)</span> <span class="ex">Local</span> Machine Condor Pool</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span><span class="er">)</span> <span class="ex">Local</span> SLURM Cluster</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span><span class="er">)</span> <span class="ex">Remote</span> SLURM Cluster</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span><span class="er">)</span> <span class="ex">Local</span> LSF Cluster</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">5</span><span class="er">)</span> <span class="ex">Local</span> SGE Cluster</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">6</span><span class="er">)</span> <span class="ex">OLCF</span> Summit from OLCF Headnode</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">7</span><span class="er">)</span> <span class="ex">OLCF</span> Summit from OLCF Hosted Kubernetes Pod</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Select</span> an execution environment <span class="pp">[</span><span class="ss">1</span><span class="pp">]</span>: 5</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s the execution environment'</span><span class="ex">s</span> queue: chess.q</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s your project'</span><span class="ex">s</span> name []: </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s the location of the PEGASUS_HOME dir on the compute nodes [/nfs/chess/user/kvahi/software/pegasus/default]: </span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="st">###########################################################</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st">###########     Available Workflow Examples      ##########</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">###########################################################</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">1) pegasus-isi/diamond-workflow</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">2) pegasus-isi/hierarichal-sample-wf</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">3) pegasus-isi/merge-workflow</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">4) pegasus-isi/pipeline-workflow</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">5) pegasus-isi/split-workflow</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="st">Select an example workflow [1]: 1</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">Fetching workflow from https://github.com/pegasus-isi/diamond-workflow.git</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="st">Generating workflow based on pegasus-isi/diamond-workflow</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="st">This workflow will target queue "chess.q"</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="st">The PEGASUS_HOME location is "/nfs/chess/user/kvahi/software/pegasus/default"</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="st">Creating workflow properties...</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="st">Creating transformation catalog...</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="st">Creating replica catalog...</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="st">Creating diamond workflow dag...</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000001, transformation=preprocess)</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000002, transformation=findrange)</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000003, transformation=findrange)</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000004, transformation=analyze)</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:inferring diamond dependencies</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:workflow diamond with 4 jobs generated and written to workflow.yml</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="st">Creating properties file...</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="st">Creating site catalog for SitesAvailable.SGE...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The example workflow gets generated in the diamond directory.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ cd diamond/</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ls</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond-workflow</span>  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this directory, you will see the following yaml files</p>
+<ul>
+<li><strong>workflow.yml</strong> - the abstract workflow generated for the diamond workflow that we will run.</li>
+<li><strong>replicas.yml</strong> - a yaml formatted file that lists the locations of the inputs for the workflow.</li>
+<li><strong>transformations.yml</strong> - a yaml formatted file that lists the locations of executables used by the workflows.</li>
+<li><strong>sites.yml</strong> - a yaml formated file that describe the CHESS SGE cluster to Pegasus.</li>
+</ul>
+<p>The above catalog files are described in the <a href="https://pegasus.isi.edu/documentation/reference-guide/catalogs.html">Pegasus documentation</a>.</p>
 <p>To plan the workflow, run the <em>./plan.sh</em> script.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ./plan.sh</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./plan.sh</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.755 EDT:    </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.761 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.766 EDT:   File for submitting this DAG to HTCondor           : diamond-0.dag.condor.sub </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.771 EDT:   Log of DAGMan debugging messages                 : diamond-0.dag.dagman.out </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.777 EDT:   Log of HTCondor library output                     : diamond-0.dag.lib.out </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.782 EDT:   Log of HTCondor library error messages             : diamond-0.dag.lib.err </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.787 EDT:   Log of the life of condor_dagman itself          : diamond-0.dag.dagman.log </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.792 EDT:    </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.798 EDT:   <span class="at">-no_submit</span> given, not submitting DAG to HTCondor.  You can do this with: </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.808 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:23.174 EDT:   Database version: <span class="st">'5.1.0dev'</span> <span class="er">(</span><span class="ex">sqlite:////home/kvahi/.pegasus/workflow.db</span><span class="kw">)</span> </span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.480 EDT:   Pegasus database was successfully created. </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.485 EDT:   Database version: <span class="st">'5.1.0dev'</span> <span class="er">(</span><span class="ex">sqlite:////nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db</span><span class="kw">)</span> </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.693 EDT:   Output replica catalog set to jdbc:sqlite:/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db </span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.693 EDT:   </span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">I</span> have concretized your abstract workflow. The workflow has been entered </span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ex">into</span> the workflow database with a state of <span class="st">"planned"</span>. The next step is </span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">to</span> start or execute your workflow. The invocation required is</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-run</span>  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The above command generated the <strong>executable</strong> workflow that you can run. To do this copy the <em>pegasus-run</em> command invocation that you see in your terminal.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> to condor diamond-0.dag.condor.sub</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="bu">.</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span> <span class="ex">submitted</span> to cluster 693.</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> workflow has been started and is running in the base directory:</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To monitor the workflow you can run <span class="pp">***</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-status</span> <span class="at">-l</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To remove your workflow run <span class="pp">***</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-remove</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ./plan.sh</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./plan.sh</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.755 EDT:    </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.761 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.766 EDT:   File for submitting this DAG to HTCondor           : diamond-0.dag.condor.sub </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.771 EDT:   Log of DAGMan debugging messages                 : diamond-0.dag.dagman.out </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.777 EDT:   Log of HTCondor library output                     : diamond-0.dag.lib.out </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.782 EDT:   Log of HTCondor library error messages             : diamond-0.dag.lib.err </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.787 EDT:   Log of the life of condor_dagman itself          : diamond-0.dag.dagman.log </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.792 EDT:    </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.798 EDT:   <span class="at">-no_submit</span> given, not submitting DAG to HTCondor.  You can do this with: </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.808 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:23.174 EDT:   Database version: <span class="st">'5.1.0dev'</span> <span class="er">(</span><span class="ex">sqlite:////home/kvahi/.pegasus/workflow.db</span><span class="kw">)</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.480 EDT:   Pegasus database was successfully created. </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.485 EDT:   Database version: <span class="st">'5.1.0dev'</span> <span class="er">(</span><span class="ex">sqlite:////nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db</span><span class="kw">)</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.693 EDT:   Output replica catalog set to jdbc:sqlite:/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.693 EDT:   </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ex">I</span> have concretized your abstract workflow. The workflow has been entered </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">into</span> the workflow database with a state of <span class="st">"planned"</span>. The next step is </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ex">to</span> start or execute your workflow. The invocation required is</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-run</span>  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The above command generated the <strong>executable</strong> workflow that you can run.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/diamond-executable-wf.png" class="img-fluid figure-img"></p>
+<figcaption>Diamond Executabe Workflow</figcaption>
+</figure>
+</div>
+<p>To do this copy the <em>pegasus-run</em> command invocation that you see in your terminal.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> to condor diamond-0.dag.condor.sub</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span> <span class="ex">submitted</span> to cluster 693.</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> workflow has been started and is running in the base directory:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To monitor the workflow you can run <span class="pp">***</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-status</span> <span class="at">-l</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To remove your workflow run <span class="pp">***</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-remove</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To check the status of the worklfow we can run the command <em>pegasus-status</em> with a <em>-w 30</em> option to watch it every 30 seconds.</p>
 <p>Again make sure you copy the <em>pegasus-status</em> invocation that you see in your terminal and add the <em>-w 30</em> option after <em>-l</em> option.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    03:06   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">696</span>         sge      Done    00:04   ┗━untar_diamond_0_sge    </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 2 Condor jobs total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">13</span>      0     0    0     1     2     0    12.5 Running diamond-0.dag           </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    03:06   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">696</span>         sge      Done    00:04   ┗━untar_diamond_0_sge    </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 2 Condor jobs total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">13</span>      0     0    0     1     2     0    12.5 Running diamond-0.dag           </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once the workflow completes you will see somthing similar to the following</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-env</span><span class="er">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> Ctrl+C to exit                                    <span class="er">(</span><span class="va">pid</span><span class="op">=</span>2380412<span class="kw">)</span>                                 <span class="ex">Tue</span> May-13-2025 15:07:51</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    08:58   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 Condor job total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">0</span>      0     0    0     0     16    0   100.0 Success diamond-0.dag            </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 DAG total <span class="er">(</span><span class="ex">Success:1</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-env</span><span class="er">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> Ctrl+C to exit                                    <span class="er">(</span><span class="va">pid</span><span class="op">=</span>2380412<span class="kw">)</span>                                 <span class="ex">Tue</span> May-13-2025 15:07:51</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    08:58   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 Condor job total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">0</span>      0     0    0     0     16    0   100.0 Success diamond-0.dag            </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 DAG total <span class="er">(</span><span class="ex">Success:1</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also run additional pegasus commands after your worklfow finishes. The <em><submit-dir></submit-dir></em> should be replaced by the directory you passed to the <em>pegasus-status</em> command.</p>
+<ul>
+<li><strong>pegasus-analyser <submit-dir></submit-dir></strong> - This allows you to debug your workflow if it fails. Will tell you what jobs failed and why.</li>
+<li><strong>pegasus-statistics <submit-dir></submit-dir></strong> - This allows you to generate runtime statistics about your workflow run such how long it run, how much resources were used etc.</li>
+</ul>
 </section>
+<section id="support" class="level3">
+<h3 class="anchored" data-anchor-id="support">Support</h3>
+<p>If you would like to use Pegasus to run your pipeline you can contact via</p>
+<ul>
+<li><strong>Email</strong> - Support requests and bug reports can be emailed to <strong>pegasus-support@isi.edu</strong>.</li>
+<li><strong>Slack</strong> - We encourage you to join the Slack Workspace as it is an<br>
+on-going, open forum for all Pegasus users to share ideas, experiences, and talk out issues with the Pegasus Development team. Please ask for an invite by trying to join <strong>pegasus-users.slack.com</strong> in the Slack app, or email <em>pegasus-support@isi.edu</em> and request an invite.</li>
+</ul>
+
+
 </section>
 </section>
 
