@@ -13,7 +13,7 @@ their data processing tasks and in the process shortening the turn around time f
 data processing that needs to be done on data collected at a beamline. 
 
 The content in this module is gathered from author's various presentations over 
-the years and their work on workflows.
+the years and their group's work on workflows.
 
 ## What are Scientific Workflows
 
@@ -156,10 +156,6 @@ CHESS researchers have access to the following systems for running workflows
 * CHESS Workflow Runner
 * Galaxy (to be covered in DC102)
 * Pegasus  Workflows
-
-## CHESS Workflow Runner
-
-To be added
 
 ## Pegasus Workflows
 
@@ -422,4 +418,8 @@ If you would like to use Pegasus to run your pipeline you can contact via
   talk out issues with the Pegasus Development team. Please ask for an invite by
   trying to join **pegasus-users.slack.com** in the Slack app, or email
   *pegasus-support@isi.edu* and request an invite.
+
+## CHESS Workflow Runner
+
+To be added. Coming soon in FALL 2025.
 
