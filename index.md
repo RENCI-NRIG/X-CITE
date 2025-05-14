@@ -28,7 +28,7 @@ This is the training overview:
 ## Theme 3: Distributed Computing and the CI Ecosystem
 
 - DC 100: [Distributed computing concepts][dc100] 
-- DC 101: [Scientific workflow management][dc101] 🚧
+- DC 101: [Scientific workflow management][dc101] 
 - DC 102: [Using science gateways with Open OnDemand example][dc102] 🚧
 - DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] 
 
