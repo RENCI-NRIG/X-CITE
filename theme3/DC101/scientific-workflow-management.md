@@ -213,13 +213,31 @@ In order to use Pegasus, you need to login to the node
 
 ```{.bash}
 X-CITE vahi$ ssh  lnx201.classe.cornell.edu
-(vahi@lnx201.classe.cornell.edu) Password: 
+(user@lnx201.classe.cornell.edu) Password: 
 ```
+
+**Source Pegasus binaries in your PATH**
+
+In order to run Pegasus you need to make sure that Pegasus executables are
+in your PATH. You can do this by sourcing the following setup file. 
+
+```{.bash} 
+[kvahi@lnx201 ~]$ source /nfs/chess/sw/pegasus/setup.sh
+(pegasus-env) [kvahi@lnx201 ~]$ pegasus-version 
+5.1.0dev
+```
+
+**Setup a test diamond workflow and run it**
+
+In this example, we will try and run a test *diamond* workflow through Pegasus.
+
+![Diamond Abstract Workflow](./images/diamond-abstract-wf.png)
+
 
 To setup a test workflow that runs on the CHESS SGE cluster, you can use the
 **pegasus-init** executable and answer the questions asked. 
 
-You should do the following selectionsw when prompted
+You should do the following selections when prompted
 
 - Select an execution environment [1]: 5
 - What's the execution environment's queue: chess.q
@@ -272,13 +290,24 @@ Creating site catalog for SitesAvailable.SGE...
 
 ```
 
-The example workflow gets generated in the diamond directory 
+The example workflow gets generated in the diamond directory.
 
 ```{.bash}
 [kvahi@lnx201 pegasus]$ cd diamond/
 (pegasus-env) [kvahi@lnx201 diamond]$ ls
 diamond-workflow  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml
 ```
+
+In this directory, you will see the following yaml files
+
+- **workflow.yml** - the abstract workflow generated for the diamond workflow that we will run.
+- **replicas.yml** - a yaml formatted file that lists the locations of the inputs for the workflow.
+- **transformations.yml** - a yaml formatted file that lists the locations of executables used by the workflows.
+- **sites.yml** - a yaml formated file that describe the CHESS SGE cluster to Pegasus.
+
+The above catalog files are described in the
+[Pegasus documentation](https://pegasus.isi.edu/documentation/reference-guide/catalogs.html). 
+
 
 To plan the workflow, run the *./plan.sh* script.
 
@@ -314,6 +343,10 @@ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001
 ```
 
 The above command generated the **executable** workflow that you can run.
+
+![Diamond Executabe Workflow](./images/diamond-executable-wf.png)
+
+
 To do this copy the *pegasus-run* command invocation that you see in your terminal.
 
 ```{.bash}
@@ -369,4 +402,24 @@ UNREADY READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME
    0      0     0    0     0     16    0   100.0 Success diamond-0.dag            
 Summary: 1 DAG total (Success:1)
 ```
+
+You can also run additional pegasus commands after your worklfow 
+finishes. The *<submit-dir>* should be replaced by the directory you
+passed to the *pegasus-status* command.
+
+- **pegasus-analyser <submit-dir>** - This allows you to debug your workflow if it fails. 
+  Will tell you what jobs failed and why.
+- **pegasus-statistics <submit-dir>** - This allows you to generate runtime statistics
+  about your workflow run such how long it run, how much resources were used etc.
+
+**Support**
+
+If you would like to use Pegasus to run your pipeline you can contact via
+
+- **Email** - Support requests and bug reports can be emailed to **pegasus-support@isi.edu**.
+- **Slack** - We encourage you to join the Slack Workspace as it is an  
+  on-going, open forum for all Pegasus users to share ideas, experiences, and 
+  talk out issues with the Pegasus Development team. Please ask for an invite by
+  trying to join **pegasus-users.slack.com** in the Slack app, or email
+  *pegasus-support@isi.edu* and request an invite.
 
