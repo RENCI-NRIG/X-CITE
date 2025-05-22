@@ -64,6 +64,7 @@ This is the training overview:
 [sf100]: ./theme2/SF100/index.md
 
 [sf101]: ./theme2/SF101/containers-and-virtualization.md
+
 [sf200]: ./theme2/SF200/parallel-computing.md
 [sf201]: ./theme2/SF201/batch-systems-and-compute-farms.md
 
