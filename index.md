@@ -3,11 +3,11 @@ title: "X-CITE training materials"
 toc: false
 ---
 
-X-CITE course is geared toward the community of scientists and
+This X-CITE courseware is geared toward the community of scientists and
 researchers using the [CHESS] synchrotron X-ray facility and similar
 light sources.
 
-This is the training overview:
+Training overview:
 
 ## Theme 1: Programming Fundamentals
 
@@ -21,7 +21,6 @@ This is the training overview:
 
 - SF 100: [Intro to Linux, commandline, and scripting][sf100]
 - SF 101: [Containers and virtualization][sf101] 🚧
-- SF 200: [Parallel computing concepts][sf200] 🚧 
 - SF 201: [Batch systems and compute farms with CHESS example][sf201] 🚧
 
 ## Theme 3: Distributed Computing and the CI Ecosystem
@@ -63,7 +62,7 @@ This is the training overview:
 
 [sf100]: ./theme2/SF100/linux-commandline-scripting.md
 [sf101]: ./theme2/SF101/containers-and-virtualization.md
-[sf200]: ./theme2/SF200/parallel-computing.md
+<!-- [sf200]: ./theme2/SF200/parallel-computing.md -->
 [sf201]: ./theme2/SF201/batch-systems-and-compute-farms.md
 
 [dc100]: ./theme3/DC100/distributed-computing.md
