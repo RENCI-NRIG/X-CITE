@@ -24,6 +24,8 @@ the following sections in order.
 - Writing Standalone Python Programs
 - How Linux Really Works
 
+[getting-started]: ./getting-started.md
+
 Let's get started, shall we? Go ahead, click on the link for Getting Started, and
 we'll get connected to the servers.
 
