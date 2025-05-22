@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-05-21">
+
+<title>Getting Started - Accessing the Linux Cluster with NoMachine and SSH – X-CITE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d569885fc010eb998ddf20f357a9a761.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-306d40c9c86e7331cee2d05936f14859.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d569885fc010eb998ddf20f357a9a761.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LSVR8LKB1J"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Getting Started - Accessing the Linux Cluster with NoMachine and SSH – X-CITE">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://xcitecourse.org/theme2/SF100/01-initialLogin.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">X-CITE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#getting-started---accessing-the-linux-cluster-with-nomachine-and-ssh" id="toc-getting-started---accessing-the-linux-cluster-with-nomachine-and-ssh" class="nav-link active" data-scroll-target="#getting-started---accessing-the-linux-cluster-with-nomachine-and-ssh">Getting Started - Accessing the Linux Cluster with NoMachine and SSH</a>
+  <ul class="collapse">
+  <li><a href="#remote-desktop-access" id="toc-remote-desktop-access" class="nav-link" data-scroll-target="#remote-desktop-access">Remote Desktop Access</a></li>
+  <li><a href="#virtual-desktops---nomachine" id="toc-virtual-desktops---nomachine" class="nav-link" data-scroll-target="#virtual-desktops---nomachine">Virtual Desktops - NoMachine</a></li>
+  <li><a href="#remote-terminal-access-with-ssh" id="toc-remote-terminal-access-with-ssh" class="nav-link" data-scroll-target="#remote-terminal-access-with-ssh">Remote Terminal Access with SSH</a></li>
+  <li><a href="#parting-shot-and-a-note-to-the-nerds" id="toc-parting-shot-and-a-note-to-the-nerds" class="nav-link" data-scroll-target="#parting-shot-and-a-note-to-the-nerds">Parting Shot, and a Note to the Nerds</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme2/SF100/getting-started.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Getting Started - Accessing the Linux Cluster with NoMachine and SSH</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 21, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">May 22, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="getting-started---accessing-the-linux-cluster-with-nomachine-and-ssh" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started---accessing-the-linux-cluster-with-nomachine-and-ssh">Getting Started - Accessing the Linux Cluster with NoMachine and SSH</h2>
+<p>In the course of your research at CHESS, you’ll need to do a lot of computation. What constitutes “a lot” is discipline-specific and varies tremendously depending on what the exact processing is. It’s entirely possible that much of your work can be completed on your laptop. On the other hand, it’s also likely that at least some, and possibly a great deal, of your computing will need to be done on the Linux cluster. In simple terms, the cluster is a collection of machines running Linux (a variant of Unix) and able to coordinate workflows, assigning the running of “stuff” to an appropriate server at the right time.</p>
+<p>While there are many servers in the cluster, one of them is special. It’s name is “LNX201”, and it’s responsible for accepting new jobs and dealing with the output. It’s also the right server to use for developing your programs. Keep in mind that dozens of people may be using LNX201 at the same time, so don’t use it for running lengthy computations. If your job runs for more than a few seconds, it’s probably time to learn how to run it on some of the worker nodes. We’ll talk about that subject in SF201 when we get our first look at batch processing. Until then, we’ll keep our examples comfortably small so LNX201 will be the perfect home.</p>
+<section id="remote-desktop-access" class="level3">
+<h3 class="anchored" data-anchor-id="remote-desktop-access">Remote Desktop Access</h3>
+<p>Why do we need remote access at all? My laptop has a pretty decent processor, nice graphics, and a tolerable keyboard. Why don’t I just use that? The answer, or one of the answers, is that the computers in the cluster are large and powerful. LNX201 has 16 CPUs (“cores”, sort of) and 128 gigabytes of RAM. Each of the cores in the server are several times faster than the ones in a laptop. In short, the compute cluster can handle jobs that would bring a laptop to its knees, fans screaming, and too hot to handle.</p>
+<p>There are two kinds of remote access and both have their strengths and weaknesses. The first approach we’ll look at is the “virtual desktop”. This strategy takes the full graphical experience of using a computer in a far-flung destination and shows what is going on right in front of you. The effect is to make your computer’s screen, keyboard, and mouse act like they’re connected to the remote machine, albeit with a really, really long set of cables. The second approach is to use a program on your laptop or desktop to connect over the network to a remote machine and just pass characters back and forth. It gives you, for all practical purposes, something that looks like a window for using the command line, only the computer running those commands is remote.</p>
+</section>
+<section id="virtual-desktops---nomachine" class="level3">
+<h3 class="anchored" data-anchor-id="virtual-desktops---nomachine">Virtual Desktops - NoMachine</h3>
+<p>CHESS uses a software system called “NoMachine” for remote Virtual Desktop access. NoMachine has oodles (a scientific term) of features and configuration settings, but if you just want a basic Virtual Desktop that is good enough for all but a few special cases then you can just play on Easy Mode: use the web client that runs inside a browser and just take the default settings.</p>
+<p>The rest of this lesson assumes you have: 1 - A CLASSE username and password 1 - The DUO app installed on your phone and configured for access to CLASSE 1 - The “Pritunl” Virtual Private Network software installed on your laptop.</p>
+<p>The instructions for each of these steps are in the very first steps shown in <a href="https://wiki.classe.cornell.edu/Computing/SummerStudentOrientation">CLASSE-IT 2025 Summer Student Guide</a>.</p>
+<p>Go ahead and connect to the CLASSE VPN (internal network) through the Pritunl software. Then go to your web browser and put in the destination URL [https://nomachine.classe.cornell.edu][nomachine-classe]. In just a moment, you should be seeing the initial login screen for NoMachine itself:</p>
+<p>Put in your username and password, then click on “OK” in the lower right corner.</p>
+<p><img src="./01-initialLogin.png" class="img-fluid"></p>
+<p>This starts the login process, the next part of which is using DUO for two-factor authentication:</p>
+<p><img src="./02-duo.png" class="img-fluid"></p>
+<p>On this screen, enter a “1” if you want to use the Duo app on your phone. Otherwise, you can enter “2” and the Duo servers will call you to verify that the person trying to log in at least controls that phone number. If you selected “1”, then in just a moment your phone will beep, you can go to the Duo app, and click the green button to approve of the login request. Completing the Duo process will take you to the next screen.</p>
+<p><img src="./03-listOfServers.png" class="img-fluid"></p>
+<p>In this screenshot, I’ve already selected “lnx201” so you can spot it right away. This is the one you’ll want to use. Go on and double click it to start logging in to LNX201. You’ll see a screen listing the available session types. In principle, you could create different graphical environments here, but in reality you should just take the default.</p>
+<p><img src="./04-createNewSession.png" class="img-fluid"></p>
+<p>Clicking OK on that will take you a quick reminder of some commands that might be useful when you’re connected. There is a checkbox you can select when you get familiar with this and that will keep this screen from showing up again.</p>
+<p><img src="./05-firstGuide.png" class="img-fluid"></p>
+<p>In the meantime, click OK to continue to the next helpful screen:</p>
+<p><img src="./06-secondGuide.png" class="img-fluid"></p>
+<p>And then OK again to see a screen with some helpful advice, to be sure, but also a chance to select how the screen resolution should be handled.</p>
+<p><img src="./07-thirdGuide.png" class="img-fluid"></p>
+<p>On this screen I have selected the first option, “Scale the remote desktop to fit into the window”, because I like being able to change the size of my browser window and yet still see the same amount of screen space on the remote machine. Try different options here - you won’t break anything. Clicking “OK” will take you to the final information-and-setup screen:</p>
+<p><img src="./08-fourthGuide.png" class="img-fluid"></p>
+<p>This screen gives options for setting up the screen resolution on the remote computer. Because LNX201 is a server and not a machine with an actual desktop GUI, all the sessions use simulated (virtual) desktops and so they can be set to any resolution you want. Selecting “Don’t resize” is a reasonable starting point. You might want to experiment with the others later. In any case, we can finally click on “OK” for this screen and connect to the desktop session!</p>
+<p><img src="./09-loginSuccess.png" class="img-fluid"></p>
+<p>It may take a moment for everything to start up, and another moment for the remote screen drawing to catch up, but pretty soon you’ll see a Linux desktop environment. Desktop environments have mostly converged on roughly the same concepts. The one you see here is “Xfce”, and it traces its heritage to the great Unix Workstations of the 1980s. MacOS, similarly, is derived from NeXTstep which is based on work on Unix Workstations in the 1980s. Various versions of Windows are based on… you get the idea. They’re all more alike than different.</p>
+<p>Nonetheless, the most common thing we’ll do on a remote desktop session is “start a terminal window”. In this case, it’s dead simple: click on the “Applications” menu and select the “Terminal Emulator” item.</p>
+<p><img src="./10-runTerminalEmulator.png" class="img-fluid"></p>
+<p>In just a moment, the terminal window appears:</p>
+<p><img src="./11-terminalEmulatorRunning.png" class="img-fluid"></p>
+<p>Just as you would expect, we have a file browser available and it’s more or equivalent to Explorer or Finder. Double Click on the “Home” folder…</p>
+<p><img src="./12-fileBrowser.png" class="img-fluid"></p>
+<p>Quite a few applications are already installed in the Linux cluster, some of which can really take advantage of having graphics through a remote desktop environment. One example is Mathematica:</p>
+<p><img src="./13-mathematica.png" class="img-fluid"></p>
+<p>At this point, we’ve how to log in to the Linux cluster through a virtual desktop session, seen how to move around just a bit in that graphical environment, and teased ourselves with a bit of mathematical goodness. All good things must come to an end, eventually, and this session is no exception. When you’re ready to go, click on your name in the upper right corner of the desktop, select the “Log Out…” menu item, and log off. This will cause the session to end and you’ll go back to the initial login screen for NoMachine.</p>
+<p><img src="./14-logout.png" class="img-fluid"></p>
+<p>Now that we’ve gone through the basics, there might be (should be?) one nagging… consideration. Doesn’t this seem like a fairly complicated and not terribly fast way to use to use a Linux machine remotely if all I want to do is work in a terminal session?</p>
+<p>Yes. Yes it is.</p>
+<p>Fortunately, there’s another way. It’s called “SSH”.</p>
+</section>
+<section id="remote-terminal-access-with-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="remote-terminal-access-with-ssh">Remote Terminal Access with SSH</h3>
+<p>To have a good understanding of SSH, you need to know just a little bit about the history of Unix (and Linux is just a modern version of Unix). In the Old Days (1974-ish) Unix ran on a machine the size of home refridgerator and the server didn’t even have a keyboard. To interact with it, teletypes were plugged into serial ports on the back on the computers. Users performed all of their interaction with the machine by pressing a key on the teletype (sending a character) and waiting for the computer to send back characters to be printed. By the late 1970s, teletypes were getting rare because they had been replaced by “terminals” (a keyboard, a picture tube, and enough electronics to draw the characters on the screen). The connection to the computer was still a serial cable. To this day, you can plug a USB-to-Serial converter into a Linux machine, set up a configuration file, and log in this way. It’s fun a time or two, but the novelty wears off.</p>
+<p>Serial cables had a length limitation and a speed one. Half a mile was easy (9600 bits per second, even!) but a mile was getting unreliable at any speed much over 1200 bits per second. Covering a whole campus required a network of some sort, and what the research and academic world standardized on was “Internet Protocol” (IP). One of the first programs ever written for IP was a program called “telnet”. This program used the network to set up a stream of characters to and from a remote machine to the local one. It was like having a serial cable, except it was literally a thousand times faster and could reach around the world. To this day, telnet is still the way to use Internet Relay Chat (IRC).</p>
+<p>Telnet was great in the early days of networking. But we were so naive back then. Anyone who could get access to the network could listen in whatever traffic was going over these telnet connections. Most of the traffic was utterly boring - email, experimental results, and some command lines. But there was one thing worth snooping on, and it was the first two things a user typed when they set up a connection: their username and their password. In the late 1980s and early 1990s, this was mostly a theoretical concern. The problem was the explosive growth of the Internet in the “Dot Com” era (1995-2000). Once there were a critical mass of Internet users, and once these users started using the Internet for things that were <em>worth actual money</em>, security started moving front and center. By this point, sending anything over the internet without encrypting it first became a VBA (Very Bad Idea). Thus was born the Secure SHell (SSH).</p>
+<p>The simple explanation of SSH is “it’s just telnet, except all the communication is encrypted”. This statement is true, in the sense that SSH replicates every telnet function, but SSH also does some other tricks. For our purposes, we’re going to keep it simple and just use it like a “better telnet”.</p>
+<p>To use SSH on your computer, you need to bring up a “Terminal Window” (Mac) or “Command Window” (Windows). On a Mac, use Finder to browse the Applications folder. In there, open the Utilities folder, then double click on Terminal. (After a while, you might decide to just use Spotlight to search for Terminal.app, but it’s up to you). On a PC, the easiest thing to do is press and release the “Windows” key, then type “cmd” and press enter. That will bring up a command window.</p>
+<p>Either way, you’re now looking at a terminal window of some sort. Characters are entered and sent to some program, and programs send characters back out and the terminal window draws them on the screen. Just like a teletype, except no paper and no oily smell. Windows users will probably see something similar to <code>C:\&gt;</code>. Mac users will see something more akin to <code>escott@RENCI_LP91DX62MX ~ %</code>. Both of these are “prompts”, meaning “you can type a command here”. In both cases the command to type is <code>ssh lnx201.classe.cornell.edu</code>. The lower case letter in “ssh” are important. Linux commands <em>almost</em> never contain uppercase letters. Go ahead, enter that ssh command, and press Enter. If this is the very first time you’ve ssh’ed into lnx201 from the machine you’re at, you’ll get some warnings just to remind you to be wary:</p>
+<p><code>The authenticity of host 'lnx201.classe.cornell.edu (128.84.45.81)' can't be established. ED25519 key fingerprint is SHA256:cIplmL7rqVGlAKYlTwtfml+KiSvUuBhgKuyjkPbde7E. This key is not known by any other names. Are you sure you want to continue connecting (yes/no/[fingerprint])?</code></p>
+<p>You can type “yes” here and press enter, and ssh will tell us it’s storing that cryptographic fingerprint. The “fingerprint”, by the way, refers to a encrypted, secure way to tell we’re reaqlly using the server we think we are. It has nothing to do with ridges and swirls on our fingertips. We’re going to assume no one has hijacked the actual name of the server and put up a fake one. There is a way to protect against this, but it’s a (minor?) hassle so it’s rarely done. But since we’re doing this the rough-and-ready way, ssh informs us it’s going to store a cryptographic “fingerprint” for the server. It will check that fingerprint every time we try to connect in the future and make sure it matches. If it doesn’t, it’ll warn us to be suspicious and not continue until we’re comfortable we know why.</p>
+<p>Whether it needs to notify us of anything or not, it will always prompt with the following:</p>
+<pre><code>(escott@lnx201.classe.cornell.edu) Password:</code></pre>
+<p>At this point, type your password. Nothing will appear as you’re typing, not even any little dots. When you think about it, teletypes didn’t have any little dots.</p>
+<p>If you type your password correctly, you’ll see one more prompt:</p>
+<pre><code>(escott@lnx201.classe.cornell.edu) Duo two-factor login for escott
+
+Enter a passcode or select one of the following options:
+
+ 1. Duo Push to XXX-XXX-3880
+ 2. Phone call to XXX-XXX-3880
+
+Passcode or option (1-2):</code></pre>
+<p>Enter a “1” and press enter. You’ll hear Duo chiming on your phone. Approve your login, let all of that percolate through the system for a second, and you’ll see your command line prompt on LNX201:</p>
+<p>`` [escott@lnx201 ~]$ ```</p>
+<p>At this point, you can run all of your favorite commands - ls, mkdir, the whole bunch. When you are done, don’t forget to log out. The “exit” command logs you out and breaks down the SSH connection.</p>
+</section>
+<section id="parting-shot-and-a-note-to-the-nerds" class="level3">
+<h3 class="anchored" data-anchor-id="parting-shot-and-a-note-to-the-nerds">Parting Shot, and a Note to the Nerds</h3>
+<p>We’ve just looked at two very different ways to remotely access the CLASSE Linux servers that CHESS uses. The remote desktop approach, using NoMachine, has the advantage of being relatively easy to use and of fully supporting graphical programs but at the expense of potentially quite a bit of lag time between doing something and seeing the results on the screen. Using SSH, on the other hand, will usually feel more responsive and use less network bandwidth but is for command line use only - no graphics. Which one to use is a matter of deciding what tradeoffs are acceptable. If you’re on campus then bandwidth isn’t an issue. Use both - no one will judge you. If you’re out in the boondocks and getting network connectivity through a bad cellphone connection then you might want to use SSH.</p>
+<p>SSH has a few more tricks up its sleeve. One is that it can copy files. When you copy files this way you use the “scp’ command instead of”ssh”, but it’s really the same program behind the scenes. Another trick is that it can do “port forwarding” - a poor substitute for a VPN, but sometimes you’re in a situation where you’re not allowed to install a VPN to get to your instrument, for instance. And finally, yes, I have to acknowledge this for the nerds who’ve been waiting to ambush me… ssh <em>can</em> be used to run graphical programs remotely. The “-X” and “-Y” options are the relevant ones. Results are “good enough” for simple programs over very fast networks, but slower networks make the experience miserable and complicated graphical programs (Chrome? Just saying.) are awful no matter how fast the network is.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+<p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
+<p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme2/SF100/getting-started.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
