@@ -1,18 +1,19 @@
 ---
-title: "Linux, Remote Access,the Command Line, and Scripting"
+title: "Intro to Linux, the command line, and programming in Python"
 date: "2025-05-21"
 date-modified: last-modified
 aliases:
   - "/theme2/SF100/"
 ---
 
-Welcome to Systems Fundamentals! In this section, we're going to
-learn some of how to use the computing resources available at CHESS.
-There is a pool of servers all running Linux available for your use.
-Whether you're writing code for simulation or using pre-existing
-software for data reduction and analysis, you'll soon have a
-visceral understanding of why computing is being called The Third
-Pillar of Science (if you don't already).
+Welcome to Systems Fundamentals! In this section, we're going to learn
+how to use the computing resources available at CHESS.  In particular,
+we'll focus on the Linux cluster available to researchers.  How to
+access these computers remotely, how to use them via their
+command-line interface, and how to write actual, legitimate Python
+programs are the three main topics. In addition, a "bonus" section at
+the end will look deeper into what is really happening on the servers
+when we do things like access files or run programs.
 
 There is a lot of material to cover, and in truth we'll still just be scratching the surface.
 The goal here is to give you enough information to get started and
@@ -26,6 +27,6 @@ the following sections in order.
 
 [getting-started]: ./getting-started.md
 
-Let's get started, shall we? Go ahead, click on the link for Getting Started, and
-we'll get connected to the servers.
+Shall we begin? Go ahead, click on the link for "Getting Started", and
+let's connect to a server!
 

@@ -20,7 +20,7 @@ This is the training overview:
 
 ## Theme 2: Systems Fundamentals
 
-- SF 100: [Intro to Linux, commandline, and scripting][sf100]
+- SF 100: [Intro to Linux, the command line, and programming in Python][sf100]
 - SF 101: [Containers and virtualization][sf101] 🚧
 - SF 200: [Parallel computing concepts][sf200] 🚧 
 - SF 201: [Batch systems and compute farms with CHESS example][sf201] 🚧
