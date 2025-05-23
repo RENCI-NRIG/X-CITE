@@ -359,7 +359,7 @@ ambush me... ssh _can_ be used to run graphical programs remotely. The
 "-X" and "-Y" options are the relevant ones. Results are "good enough"
 for simple programs over very fast networks, but slower networks make
 the experience miserable and complicated graphical programs (Chrome?
-Just saying.) are awful no matter how fast the network is.
+Just saying...) are awful no matter how fast the network is.
 
 
 _Coming up next, we'll use these remote connections to start learning
