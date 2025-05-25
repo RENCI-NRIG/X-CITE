@@ -12,7 +12,7 @@ a JupyterHub instance, such as [CLASSE JupyterHub][classe-jupyterhub].
 See [CLASSE Wiki][classe-wiki-jupyterhub] for details.
 
 [jupyter]: https://en.wikipedia.org/wiki/Project_Jupyter
-[classe-jupyterhub]: https://jupyter01.classe.cornell.edu/
+[classe-jupyterhub]: https://jupyterhub.classe.cornell.edu/
 [classe-wiki-jupyterhub]: https://wiki.classe.cornell.edu/Computing/JupyterHub
 
 :::
