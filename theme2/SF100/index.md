@@ -13,8 +13,7 @@ accounts on the CLASSE Linux systems.
 
 - You know how to use `ssh` to access `lnx201.classe.cornell.edu`
   (just `lnx201` henceforth); or
-- You know how to launch a terminal from [CLASSE JupyterLab
-  instance][jupyerlab]; or
+- You know how to launch a terminal from [CLASSE JupyterHub][jupyterhub]; or
 - You know how to use [NoMachine][nomachine] to access `lnx201`.
 
 Depending on your level of familiarity with the system, you might know
@@ -119,7 +118,7 @@ too: `csh`, `ksh`, `dash`, `zsh`, and so on.  But let us not get
 distracted and just commit to `bash` for now.
 
 [bash]: https://en.wikipedia.org/wiki/Bash_(Unix_shell)
-[JupyerLab]: https://jupyter01.classe.cornell.edu/
+[JupyterHub]: https://jupyterhub.classe.cornell.edu/
 [NoMachine]: https://wiki.classe.cornell.edu/Computing/NoMachine
 [NoMachine-web]: https://nomachine.classe.cornell.edu/
 
