@@ -1072,7 +1072,7 @@ pick one that works for you.
 [vim]: https://www.vim.org/
 [emacs]: https://www.gnu.org/software/emacs/
 
-If you use [JupyerLab][jupyerlab], use the editor there.  If you use
+If you use [JupyterHub][jupyterhub], use the editor there.  If you use
 [NoMachine][nomachine], use the menu system to find an editor that
 works for you.
 
