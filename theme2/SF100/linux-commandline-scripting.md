@@ -21,11 +21,12 @@ to find more information as you need it. We recommend you explore each of
 the following sections in order.
 
 - [Getting Started (logging in and out with NoMachine and ssh)][getting-started]
-- Command Line Basics
+- [Command Line Basics][command-line-basics]
 - Writing Standalone Python Programs
 - How Linux Really Works
 
 [getting-started]: ./getting-started.md
+[command-line-basics]: ./index.md
 
 Shall we begin? Go ahead, click on the link for "Getting Started", and
 let's connect to a server!
