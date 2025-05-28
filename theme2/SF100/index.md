@@ -102,7 +102,7 @@ and then I'm running some commands on `lnx201`.
 
 ![](./lnx201.png)
 
-Or you can use CLASSE's [JupyerLab], and then can launch a terminal
+Or you can use CLASSE's [JupyterHub], and then can launch a terminal
 (from File > New > Terminal from the menu, or the "Terminal" icon on
 the launcher):
 
