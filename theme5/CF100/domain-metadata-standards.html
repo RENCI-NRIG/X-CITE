@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
 
-<title>Intro to Domain Metadata Standards, Formats and Repositories – X-CITE</title>
+<title>domain-metadata-standards – X-CITE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +84,8 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta name="twitter:title" content="Intro to Domain Metadata Standards, Formats and Repositories – X-CITE">
+<meta name="twitter:title" content="X-CITE">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -293,47 +293,119 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fair-data---better-science-through-data-sharing" id="toc-fair-data---better-science-through-data-sharing" class="nav-link active" data-scroll-target="#fair-data---better-science-through-data-sharing">FAIR Data - Better Science Through Data Sharing</a>
+  <ul class="collapse">
+  <li><a href="#why-fair" id="toc-why-fair" class="nav-link" data-scroll-target="#why-fair">Why FAIR?</a></li>
+  <li><a href="#the-principles-of-fair-ness" id="toc-the-principles-of-fair-ness" class="nav-link" data-scroll-target="#the-principles-of-fair-ness">The Principles of FAIR-ness</a>
+  <ul class="collapse">
+  <li><a href="#findable" id="toc-findable" class="nav-link" data-scroll-target="#findable">Findable</a></li>
+  <li><a href="#accessible" id="toc-accessible" class="nav-link" data-scroll-target="#accessible">Accessible</a></li>
+  <li><a href="#interoperable" id="toc-interoperable" class="nav-link" data-scroll-target="#interoperable">Interoperable</a></li>
+  <li><a href="#reusable" id="toc-reusable" class="nav-link" data-scroll-target="#reusable">Reusable</a></li>
+  </ul></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a>
+  <ul class="collapse">
+  <li><a href="#what-metadata-is-and-why-we-care" id="toc-what-metadata-is-and-why-we-care" class="nav-link" data-scroll-target="#what-metadata-is-and-why-we-care">What Metadata is and why we care</a></li>
+  <li><a href="#metadata-representation-and-searching" id="toc-metadata-representation-and-searching" class="nav-link" data-scroll-target="#metadata-representation-and-searching">Metadata representation and searching</a></li>
+  <li><a href="#the-future-ai-generated-metadata" id="toc-the-future-ai-generated-metadata" class="nav-link" data-scroll-target="#the-future-ai-generated-metadata">The future: AI-generated Metadata</a></li>
+  </ul></li>
+  <li><a href="#foxden---a-pilot-prototype-example" id="toc-foxden---a-pilot-prototype-example" class="nav-link" data-scroll-target="#foxden---a-pilot-prototype-example">FOXDEN - a Pilot, Prototype Example</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF100/domain-metadata-standards.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Intro to Domain Metadata Standards, Formats and Repositories</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
+<section id="fair-data---better-science-through-data-sharing" class="level1">
+<h1>FAIR Data - Better Science Through Data Sharing</h1>
+<p>Wouldn’t it be great if you could quickly find data generated from other people’s experiments, combine it with your own data, and produce new, high-value output? Wouldn’t it be even better if other people could discover your data, utilize it, and cite your data in their papers? That is precisely the goal of FAIR Data - making results Findable, Accessible, Interoperable, and Reusable.</p>
+<p>In this section of the X-CITE training materials, we’ll look at the motivations behind FAIR, take a more detailed look at each of the four components, and consider some of the implications of these large-scale sharing principles.</p>
+<section id="why-fair" class="level2">
+<h2 class="anchored" data-anchor-id="why-fair">Why FAIR?</h2>
+<p>Running experiments and collecting data is expensive [citation needed]. Funding agencies don’t want to pay for running the same experimental design over and over beyond, perhaps, a replication study. Publishers are looking for new ways to add value to their curation of articles. And most importantly (to us, at least) there are the researchers who are producing these voluminous datasets.</p>
+<p>Individual researchers have their own needs for FAIR. Speed is a big one - having Findable and Accessible data already available can lead to faster hypothosis formation, allow earlier grant proposals, and establish priority in publication. A second concern is publication. Historically it wasn’t easy to publish raw data because it’s expensive to keep and grants wouldn’t pay for it. There are repositories now where your experimental data can be stored and accessed. Some of them are very domain specific (such as Cornell’s FOXDEN, which we look at later) and others are designed more for “general purpose” use. Finally, adhering to the FAIR Data principles makes it easy (and expected!) for other researchers using your data to cite your work with unambiguous credit and with a permanent network location where the material can be found. FAIR is not restricted to data in the historical sense, but also encompasses source code and workflows.</p>
+<p>Publishers stand to benefit from FAIR, especially if they take full advantage of the ideas. Findable and Accessible (not to mention Interoperable and Reusable) data leads to it being used more and by a wider distribution of users. Researchers in one field probably don’t read journals in a different one. But what if that outlier of a researcher was able to discover data relevant to their work? Now the publisher may have a broader market to sell into. Discoverable data doesn’t come from outer space, with apologies to the astronomers, but is a product of research and that research is accompanied by publications. Publishers will barely care if the underlying data is cited, but they care deeply that the associated journal articles are. FAIR principles, through the “side effect” of increasing publication citations, boost the Impact Factor for journals and that benefits both the authors and the publisher.</p>
+</section>
+<section id="the-principles-of-fair-ness" class="level2">
+<h2 class="anchored" data-anchor-id="the-principles-of-fair-ness">The Principles of FAIR-ness</h2>
+<p>Findable, Accessible, Interoperable, and Reusable.</p>
+<p>In this section we will look at the aspects that make up each of Findability, Accessibility, Interoperability, and Reusability. As you read this, keep in mind that the principles are <em>descriptive</em> rather than <em>prescriptive</em>. There is no attempt to describe <em>how</em> to implement an archive, for instance, but rather to discuss what the requirement is and leave the implementation details up to the implementers.</p>
+<section id="findable" class="level3">
+<h3 class="anchored" data-anchor-id="findable">Findable</h3>
+<p>The first requirement for a data set to be useful is for it to be findable. If no one can find it, it may as well not exist. There has to be some kind of automatic way to describe what you are looking for and get a list of possible results in return. If this sounds like a Search Engine, then you’re on the right track. Search engines are pretty good at what they’re designed for, which is hunting through immense collections of text and determining which documents are statistically likely to be useful. The problem is the “collections of text” part: general-purpose search engines have little or no conception of structured data. Imagine trying to search for spreadsheets that contain bond angle data and find the ones that have particular angles, in a particular order, under specific circumstances. Clearly, we’re going to need something more versatile than just a text search engine (sorry, Google).</p>
+<p>There are four elements that make up the “Findable” principle:</p>
+<ul>
+<li>F1. (meta)data are assigned a globally unique and persistent identifier</li>
+<li>F2. data are described with rich metadata (defined by R1 below)</li>
+<li>F3. metadata clearly and explicitly include the identfier of the data it describes</li>
+<li>F4. (meta)data are registered or indexed in a searchable resource</li>
+</ul>
+<p>Looking at these elements, we see that there must be rich metadata available to describe a data set well enough to facilitate people finding the (meta)data, and both the data itself as well as the metadata need to be published in a way that facilitates indexing both. The data and metadata must each have a Globally Unique Identifier - think of it as being like a URL. If you have already seen “doi:” used to refer to journal articles, then it will come as no surprise to see this extended to (meta)data.</p>
+</section>
+<section id="accessible" class="level3">
+<h3 class="anchored" data-anchor-id="accessible">Accessible</h3>
+<p>Moving on to “Accessible”, let’s take a look at what goes into that:</p>
+<ul>
+<li>A1. (meta)data are retrievable by their identifier using a standardized communications protocol</li>
+<li>A1.1 the protocol is open, free, and universally implementable</li>
+<li>A1.2 the protocol allows for an authentication and authorization procedure, where necessary</li>
+<li>A2. metadata are accessible, even when the data are no longer available</li>
+</ul>
+<p>There are two basic aims here. The first is to use a well-known, fully-documented, unencumbered protocol that (optionally) allow for authentication and authorization tasks (“logging in”) to be completed. The last aim is unexpected at first blush but makes sense when you think about it: metadata live forever, even after the data they describe has finally been deleted. Permanently keeping the metadata as a record of what work has gone before makes it possible to get an idea of past research directions. Interestingly, “mining” collections of metadata can produce new knowledge of its own.</p>
+</section>
+<section id="interoperable" class="level3">
+<h3 class="anchored" data-anchor-id="interoperable">Interoperable</h3>
+<p>Interoperability simply means that the data are sufficiently described by their metadata so that researchers can create their own tools, or use the tools of others, to work with the data without having to use the same software as the original researcher. Very importantly, if at all possible the data should be preserved in a way that doesn’t require the use of proprietary software to read it. This is not simply because of cost, though that can be a major barrier, but is also a matter of historical preservation - it may be impossible to locate or run old enough software. Imagine having a really useful data set except it’s only readable by a program that only runs on a 25 year old version of MacOS. Yes, that really happens. If we design our (meta)data for interoperability then we can take that 25+ year old dataset and work with it using modern tools.</p>
+<ul>
+<li>I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.</li>
+<li>I2. (meta)data use vocabularies that follow FAIR principles</li>
+<li>I3. (meta)data include qualified references to other (meta)data</li>
+</ul>
+<p>The first of these elements is a challenge, honestly. The goal is to have a very rich way of representing metadata that preserves the semantics of the metadata. It’s not enough to simply say “the third column is conductance”. What is needed is a way to say “the third column is conductance, it’s an electronic measure, it’s related to resistance, and here is how”. It’s a lot of work, but luckily for us most of it has been done and we can reuse it - Resource Definition Framework (RDF). We’ll talk more about this in a later section.</p>
+</section>
+<section id="reusable" class="level3">
+<h3 class="anchored" data-anchor-id="reusable">Reusable</h3>
+<p>R1. meta(data) are richly described with a plurality of accurate and relevant attributes R1.1. (meta)data are released with a clear and accessible data usage license R1.2. (meta)data are associated with detailed provenance R1.3. (meta)data meet domain-relevant community standards</p>
+<p>The crux of this principle is ensuring high-quality curation. The metadata should be thoroughly descriptive and will indicate, among other things, the rights the authors has granted to future users and a “chain of custody” that describes how the (meta)data came to be. Finally, the (meta)data should of course be of high quality to begin with, in line with the standards of the discipline. If you are dealing with human subjects, be aware that data privacy requirements (HIPPA, IRB) may restrict or prohibit the publication of data and even metadata. Enough metadata can sometimes be used to reconstruct the data itself. As an example, sometimes age, zip code, and gender is enough to identify someone - some zip codes have very people in them. 28520 has about 250 people.</p>
+</section>
+</section>
+<section id="metadata" class="level2">
+<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
+<p>As mentioned above, metadata is simply information that describes your data. Hidden behind that word “simply” is the slight complication that metadata can be really simple or it can be really complicated. Where it falls on that continuum is situational. Small amounts of simple data will probably have simple metadata</p>
+<section id="what-metadata-is-and-why-we-care" class="level3">
+<h3 class="anchored" data-anchor-id="what-metadata-is-and-why-we-care">What Metadata is and why we care</h3>
+</section>
+<section id="metadata-representation-and-searching" class="level3">
+<h3 class="anchored" data-anchor-id="metadata-representation-and-searching">Metadata representation and searching</h3>
+<section id="json" class="level4">
+<h4 class="anchored" data-anchor-id="json">JSON</h4>
+</section>
+<section id="rdf" class="level4">
+<h4 class="anchored" data-anchor-id="rdf">RDF</h4>
+</section>
+</section>
+<section id="the-future-ai-generated-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="the-future-ai-generated-metadata">The future: AI-generated Metadata</h3>
+</section>
+</section>
+<section id="foxden---a-pilot-prototype-example" class="level2">
+<h2 class="anchored" data-anchor-id="foxden---a-pilot-prototype-example">FOXDEN - a Pilot, Prototype Example</h2>
+<p>FOXDEN (FAIR Open-Science Extensible Data Exchange Network) is a preliminary implementation of a data management system that can be used to meet the FAIR requirements. The system gets inspiration from Linux, in that it provides a collection of tools that work together in a modular fashion. It is possible to use all or some of the components.</p>
+<p>Access to the FOXDEN modules is via either a web page for each module or by using a command-line tool. The comma</p>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This page is currently a work in progress.</p>
-</div>
-</div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -758,7 +830,7 @@ Note
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF100/domain-metadata-standards.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF100/domain-metadata-standards.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
