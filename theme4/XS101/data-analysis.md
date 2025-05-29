@@ -24,6 +24,6 @@ JupyterHub.
 
    - Skills: navigating and searching for CHESS datasets
       
-5. Scientific workflows (high complexity): [Pegasus workflow management system](./theme3/DC101/scientific-workflow-management.md)
+5. Scientific workflows (high complexity): [Pegasus workflow management system](../../theme3/DC101/scientific-workflow-management.md)
    
    - Skills: setting up and running Pegasus workflows at CHESS
