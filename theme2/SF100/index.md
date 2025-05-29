@@ -620,7 +620,7 @@ You can remove the `x` bit like so:
 -rw-r--r-- 1 ssasidharan chess 0 Mar 28 13:39 test.sh
 ```
 
-You can also grant permission to just the **o**wner, or **g**roup, or others:
+You can also grant permission to just the **u**ser, or **g**roup, or **o**thers:
 
 ```{.bash}
 [ssasidharan@lnx201 ~]$ chmod u+x test.sh
@@ -840,7 +840,7 @@ root          12       2  0 Jan10 ?        00:00:24 [watchdog/1]
 
 Run `man ps` for details.
 
-Programs like `top` and `htop` will list processes in friendlier,
+Programs like `top` will list processes in friendlier,
 fancier format.
 
 
