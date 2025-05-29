@@ -24,10 +24,6 @@ JupyterHub.
 
    - Skills: navigating and searching for CHESS datasets
       
-5. Data visualization (low complexity): [Browser-based data visualization
-   dashboard](http://services.nationalsciencedatafabric.org/chess/)
+5. Scientific workflows (high complexity): [Pegasus workflow management system](./theme3/DC101/scientific-workflow-management.md#pegasus-workflows)
    
-   - Practice choosing a dataset, navigating through an image stack,
-     zooming in and out, changing the color palette, switching
-     between lin/log scale, dropping probes in multiple locations
-   - Skills: Examining detector images
+   - Skills: setting up and running Pegasus workflows at CHESS
