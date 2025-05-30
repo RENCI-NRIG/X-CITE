@@ -127,9 +127,9 @@ require the use of proprietary software to read it. This is not simply
 because of cost, though that can be a major barrier, but is also a
 matter of historical preservation - it may be impossible to locate or
 run old enough software. Imagine having a really useful data set
-except it's only readable by a program that only runs on a 25 year old
+except it's only readable by a program that only runs on a 35 year old
 version of MacOS. Yes, that really happens. If we design our
-(meta)data for interoperability then we can take that 25+ year old
+(meta)data for interoperability then we can take that 35+ year old
 dataset and work with it using modern tools.
 
 * I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
@@ -143,7 +143,8 @@ column is conductance". What is needed is a way to say "the third
 column is conductance, it's an electronic measure, it's related to
 resistance, and here is how". It's a lot of work, but luckily for us
 most of it has been done and we can reuse it - Resource Definition
-Framework (RDF). We'll talk more about this in a later section.
+Framework (RDF) is made for this job. We'll talk more about this in a
+later section.
 
 ### Reusable
 
@@ -169,19 +170,99 @@ them. 28520 has about 250 people.
 
 As mentioned above, metadata is simply information that describes your
 data. Hidden behind that word "simply" is the slight complication that
-metadata can be really simple or it can be really complicated. Where
+metadata can be anything from really simple to really complicated. Where
 it falls on that continuum is situational. Small amounts of simple
-data will probably have simple metadata
-
-### What Metadata is and why we care
+data will probably have simple metadata.
 
 ### Metadata representation and searching
 
-#### JSON
+Without a standard means of representation and agreed-upon meanings,
+the metadata we assemble might be more of a hinderance than a
+help. Selecting our data's properties to record is domain-specific in
+many cases. A very general set of attributes is available at
+[schema.org](https://schema.org/). Other ontologies exist, of course,
+and selection among them tends to narrow as you go.
 
 #### RDF
 
-### The future: AI-generated Metadata
+RDF is "Resource Description Format" and is a broadly used concept
+even outside of FAIR. Fundamentally, RDF's "intention" is to describe
+the world in terms of triples: subject, predicate, and object. From
+these building blocks we can construct graph structures (in the
+"discrete math" sense of the term). As they grow, they can represent
+linkages between related items, for instance, and that is when the
+real power of RDF can start to be exploited. With small collections of
+metadata there is little choice but to handle search terms, for
+instance. Once the collection expands, new kinds of queries are
+possible. For instance, different researchers might submit data to an
+archive. We know the possible range of metadata descriptors and we
+know what each one means. At this point, we can traverse the RDF
+graph. It's easy to go from the starting place to enter the graph and
+then follow along, hop by hop, expanding the search possibilities by
+adding related terms.
+
+#### JSON and JSON-LD
+
+For any data to be useable by a computer, it has to be represented in
+a way that it can be understood. Metadata is no exception. RDF is both
+a conceptual layout for in-memory processing and also a defined way of
+writing out the structure. There are just two problems. One is that
+the format is a lot to digest when you first start working with
+it. The other is that, depending on the language you're using, you
+might end up having to write your own parser for this. Luck is smiling
+on us, though, in the form of alternative ways to represent that graph
+structure. A very common representation, and one that is becoming
+increasingly popular, is JSON (Javascript Object Notation). It has its
+roots in Javascript, but it has spread far and wide in dozens of
+languages. Support for it is nearly ubiquitous now. Take a look at it.
+
+```
+{
+  "first_name": "John",
+  "last_name": "Smith",
+  "is_alive": true,
+  "age": 27,
+  "address": {
+    "street_address": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10021-3100"
+  },
+  "phone_numbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [
+    "Catherine",
+    "Thomas",
+    "Trevor"
+  ],
+  "spouse": null
+}
+```
+
+JSON is good for representing lots of structured data, but there needs
+to be something that can go beyond that and hold references to the
+schemas that apply to certain fields. For this, there is JSON-LD. The
+LD stands for "Linked Data". JSON-LD stores additional data in the
+form of "context" fields and these fields can contain URLs to outside
+sites storing official, curated ontologies:
+
+```
+{
+  "@context": "https://json-ld.org/contexts/person.jsonld",
+  "@id": "http://dbpedia.org/resource/John_Lennon",
+  "name": "John Lennon",
+  "born": "1940-10-09",
+  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+}
+```
 
 ## FOXDEN - a Pilot, Prototype Example
 
@@ -192,4 +273,109 @@ Linux, in that it provides a collection of tools that work together in
 a modular fashion. It is possible to use all or some of the components.
 
 Access to the FOXDEN modules is via either a web page for each module
-or by using a command-line tool. The comma
+or by using a command-line tool. Besides being a perfectly reasonable
+way to use the tools, the command line tool is also well suited to use
+in scripts.
+
+### The Modules
+
+FOXDEN's modular architecture makes it easy to select which components
+of it you'd like to use and even makes it possible to substitute your
+own software if you have specialized needs. The FOXDEN documentation
+has a walkthrough of basic use. This document will instead give some
+brief background on each component. You're encouraged to work through
+the "Quick Start Guide".
+
+#### Frontend service: web interface
+
+As you would (likely) expect, the Frontend service generates the web
+pages through which users can easily interact with the
+system. Initially, the user is presented with a login page. Once past
+that, access to the other modules is a click or two away. Of
+particular interest is the "docs" button toward the upper-right
+corner. Having the documentation close at hand will prove... handy.
+
+#### Command line (CLI) tool
+
+The command line tool ("foxden") is both an alternative way users can
+access the system as well as a means to interface shell scripts to the
+system for automating common tasks. The "foxden" command by itself
+with no arguments will display a list of the available commands and
+also gives a link to the documentation and a reminder of how to get
+more detailed help.
+
+#### Authentication and authorization service
+
+Even in a purely open research environment, it's still necessary to
+keep track of who is making changes. This is both for proper
+attribution as well as non-repudiation (perhaps less of a factor in
+X-Ray Science than in other disciplines, but the system is built to be
+versatile). Web users will see a familiar-looking login screen. CLI
+users will need to authenticate via Kerberos - don't worry, it's well
+described in the introductory documentation. FOXDEN mercifully
+provides a way to use Kerberos that is simpler than the old-school
+way.
+
+#### Data Discovery service
+
+The Discovery service provides a way to query the underlying
+"management database" that tracks movement of files and the metadata
+associated with them. The query language is the same one MongoDB used
+(Mongo QL).
+
+#### MetaData service
+
+The MetaData service is one of the critical components. This module
+can not only query metadata, for instance finding matching schemas,
+but also create new schemas and manipulate existing ones.
+
+#### Provenance service
+
+The Provenance service provides a lot of functionality. The tracking
+of "provenance" is not just something art historians do. The term
+refers to the tracking of every movement of the data we're managing,
+what tools were used to transform it and under what circumstances, and
+where the data came from. This last element could be, say, "from this
+instrument on this beamline" or it could be "Dr. J. Doe's Sept 13th
+dataset, reduced by this lump of MATLAB code".
+
+#### Data Management service
+
+The Data Management service abstracts data movement in and out of the
+underlying Object Store (AWS S3 or compatible). Functions are provided
+to both manage the Object Store as well as to move data in, move it
+out, or delete it.
+
+#### Publication service
+
+The Publication service has two major sections. The first handles the
+creation and assignment of DOIs (Document Object Identifiers - you've
+seen these in "References" sections) and the association of that
+identifier with metadata and data. The second section provides a means
+to interact with Zenodo in a manner consistent with the rest of
+FOXDEN.
+
+#### SpecScan service
+
+SpecScan is pretty specific: it is used to create and manipulate
+records for spec scans. It does what it says on the tin.
+
+#### MLHub
+
+The MLHub service allows the user to run various Machine Learning (ML)
+algorithms directly in the FOXDEN environment. TensorFlow is directly
+supported. Doing this directly inside of FOXDEN seems odd at first,
+but it follows the paradigm of "moving the compute to the data",
+preventing time-consuming retrievals.
+
+#### CHESS Analysis Pipeline (CHAP)
+
+The CHAP service simplifies running the CHESS-developed CHAP algorithms on data stored in FOXDEN. 
+
+#### CHAP Notebook
+
+Designed for novice programmers, the CHAP Notebook service simplifies
+data analysis by giving users a Jupyter-like interface for writing
+code modules that are inserted into pre-defined workflows. These
+modules are also deposited in a code repository for future
+dissemination.
