@@ -310,11 +310,12 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a>
   <ul class="collapse">
-  <li><a href="#what-metadata-is-and-why-we-care" id="toc-what-metadata-is-and-why-we-care" class="nav-link" data-scroll-target="#what-metadata-is-and-why-we-care">What Metadata is and why we care</a></li>
   <li><a href="#metadata-representation-and-searching" id="toc-metadata-representation-and-searching" class="nav-link" data-scroll-target="#metadata-representation-and-searching">Metadata representation and searching</a></li>
-  <li><a href="#the-future-ai-generated-metadata" id="toc-the-future-ai-generated-metadata" class="nav-link" data-scroll-target="#the-future-ai-generated-metadata">The future: AI-generated Metadata</a></li>
   </ul></li>
-  <li><a href="#foxden---a-pilot-prototype-example" id="toc-foxden---a-pilot-prototype-example" class="nav-link" data-scroll-target="#foxden---a-pilot-prototype-example">FOXDEN - a Pilot, Prototype Example</a></li>
+  <li><a href="#foxden---a-pilot-prototype-example" id="toc-foxden---a-pilot-prototype-example" class="nav-link" data-scroll-target="#foxden---a-pilot-prototype-example">FOXDEN - a Pilot, Prototype Example</a>
+  <ul class="collapse">
+  <li><a href="#the-modules" id="toc-the-modules" class="nav-link" data-scroll-target="#the-modules">The Modules</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme5/CF100/domain-metadata-standards.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -365,13 +366,13 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 </section>
 <section id="interoperable" class="level3">
 <h3 class="anchored" data-anchor-id="interoperable">Interoperable</h3>
-<p>Interoperability simply means that the data are sufficiently described by their metadata so that researchers can create their own tools, or use the tools of others, to work with the data without having to use the same software as the original researcher. Very importantly, if at all possible the data should be preserved in a way that doesn’t require the use of proprietary software to read it. This is not simply because of cost, though that can be a major barrier, but is also a matter of historical preservation - it may be impossible to locate or run old enough software. Imagine having a really useful data set except it’s only readable by a program that only runs on a 25 year old version of MacOS. Yes, that really happens. If we design our (meta)data for interoperability then we can take that 25+ year old dataset and work with it using modern tools.</p>
+<p>Interoperability simply means that the data are sufficiently described by their metadata so that researchers can create their own tools, or use the tools of others, to work with the data without having to use the same software as the original researcher. Very importantly, if at all possible the data should be preserved in a way that doesn’t require the use of proprietary software to read it. This is not simply because of cost, though that can be a major barrier, but is also a matter of historical preservation - it may be impossible to locate or run old enough software. Imagine having a really useful data set except it’s only readable by a program that only runs on a 35 year old version of MacOS. Yes, that really happens. If we design our (meta)data for interoperability then we can take that 35+ year old dataset and work with it using modern tools.</p>
 <ul>
 <li>I1. (meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.</li>
 <li>I2. (meta)data use vocabularies that follow FAIR principles</li>
 <li>I3. (meta)data include qualified references to other (meta)data</li>
 </ul>
-<p>The first of these elements is a challenge, honestly. The goal is to have a very rich way of representing metadata that preserves the semantics of the metadata. It’s not enough to simply say “the third column is conductance”. What is needed is a way to say “the third column is conductance, it’s an electronic measure, it’s related to resistance, and here is how”. It’s a lot of work, but luckily for us most of it has been done and we can reuse it - Resource Definition Framework (RDF). We’ll talk more about this in a later section.</p>
+<p>The first of these elements is a challenge, honestly. The goal is to have a very rich way of representing metadata that preserves the semantics of the metadata. It’s not enough to simply say “the third column is conductance”. What is needed is a way to say “the third column is conductance, it’s an electronic measure, it’s related to resistance, and here is how”. It’s a lot of work, but luckily for us most of it has been done and we can reuse it - Resource Definition Framework (RDF) is made for this job. We’ll talk more about this in a later section.</p>
 </section>
 <section id="reusable" class="level3">
 <h3 class="anchored" data-anchor-id="reusable">Reusable</h3>
@@ -381,29 +382,114 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 </section>
 <section id="metadata" class="level2">
 <h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
-<p>As mentioned above, metadata is simply information that describes your data. Hidden behind that word “simply” is the slight complication that metadata can be really simple or it can be really complicated. Where it falls on that continuum is situational. Small amounts of simple data will probably have simple metadata</p>
-<section id="what-metadata-is-and-why-we-care" class="level3">
-<h3 class="anchored" data-anchor-id="what-metadata-is-and-why-we-care">What Metadata is and why we care</h3>
-</section>
+<p>As mentioned above, metadata is simply information that describes your data. Hidden behind that word “simply” is the slight complication that metadata can be anything from really simple to really complicated. Where it falls on that continuum is situational. Small amounts of simple data will probably have simple metadata.</p>
 <section id="metadata-representation-and-searching" class="level3">
 <h3 class="anchored" data-anchor-id="metadata-representation-and-searching">Metadata representation and searching</h3>
-<section id="json" class="level4">
-<h4 class="anchored" data-anchor-id="json">JSON</h4>
-</section>
+<p>Without a standard means of representation and agreed-upon meanings, the metadata we assemble might be more of a hinderance than a help. Selecting our data’s properties to record is domain-specific in many cases. A very general set of attributes is available at <a href="https://schema.org/">schema.org</a>. Other ontologies exist, of course, and selection among them tends to narrow as you go.</p>
 <section id="rdf" class="level4">
 <h4 class="anchored" data-anchor-id="rdf">RDF</h4>
+<p>RDF is “Resource Description Format” and is a broadly used concept even outside of FAIR. Fundamentally, RDF’s “intention” is to describe the world in terms of triples: subject, predicate, and object. From these building blocks we can construct graph structures (in the “discrete math” sense of the term). As they grow, they can represent linkages between related items, for instance, and that is when the real power of RDF can start to be exploited. With small collections of metadata there is little choice but to handle search terms, for instance. Once the collection expands, new kinds of queries are possible. For instance, different researchers might submit data to an archive. We know the possible range of metadata descriptors and we know what each one means. At this point, we can traverse the RDF graph. It’s easy to go from the starting place to enter the graph and then follow along, hop by hop, expanding the search possibilities by adding related terms.</p>
 </section>
+<section id="json-and-json-ld" class="level4">
+<h4 class="anchored" data-anchor-id="json-and-json-ld">JSON and JSON-LD</h4>
+<p>For any data to be useable by a computer, it has to be represented in a way that it can be understood. Metadata is no exception. RDF is both a conceptual layout for in-memory processing and also a defined way of writing out the structure. There are just two problems. One is that the format is a lot to digest when you first start working with it. The other is that, depending on the language you’re using, you might end up having to write your own parser for this. Luck is smiling on us, though, in the form of alternative ways to represent that graph structure. A very common representation, and one that is becoming increasingly popular, is JSON (Javascript Object Notation). It has its roots in Javascript, but it has spread far and wide in dozens of languages. Support for it is nearly ubiquitous now. Take a look at it.</p>
+<pre><code>{
+  "first_name": "John",
+  "last_name": "Smith",
+  "is_alive": true,
+  "age": 27,
+  "address": {
+    "street_address": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postal_code": "10021-3100"
+  },
+  "phone_numbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+  ],
+  "children": [
+    "Catherine",
+    "Thomas",
+    "Trevor"
+  ],
+  "spouse": null
+}</code></pre>
+<p>JSON is good for representing lots of structured data, but there needs to be something that can go beyond that and hold references to the schemas that apply to certain fields. For this, there is JSON-LD. The LD stands for “Linked Data”. JSON-LD stores additional data in the form of “context” fields and these fields can contain URLs to outside sites storing official, curated ontologies:</p>
+<pre><code>{
+  "@context": "https://json-ld.org/contexts/person.jsonld",
+  "@id": "http://dbpedia.org/resource/John_Lennon",
+  "name": "John Lennon",
+  "born": "1940-10-09",
+  "spouse": "http://dbpedia.org/resource/Cynthia_Lennon"
+}</code></pre>
 </section>
-<section id="the-future-ai-generated-metadata" class="level3">
-<h3 class="anchored" data-anchor-id="the-future-ai-generated-metadata">The future: AI-generated Metadata</h3>
 </section>
 </section>
 <section id="foxden---a-pilot-prototype-example" class="level2">
 <h2 class="anchored" data-anchor-id="foxden---a-pilot-prototype-example">FOXDEN - a Pilot, Prototype Example</h2>
 <p>FOXDEN (FAIR Open-Science Extensible Data Exchange Network) is a preliminary implementation of a data management system that can be used to meet the FAIR requirements. The system gets inspiration from Linux, in that it provides a collection of tools that work together in a modular fashion. It is possible to use all or some of the components.</p>
-<p>Access to the FOXDEN modules is via either a web page for each module or by using a command-line tool. The comma</p>
+<p>Access to the FOXDEN modules is via either a web page for each module or by using a command-line tool. Besides being a perfectly reasonable way to use the tools, the command line tool is also well suited to use in scripts.</p>
+<section id="the-modules" class="level3">
+<h3 class="anchored" data-anchor-id="the-modules">The Modules</h3>
+<p>FOXDEN’s modular architecture makes it easy to select which components of it you’d like to use and even makes it possible to substitute your own software if you have specialized needs. The FOXDEN documentation has a walkthrough of basic use. This document will instead give some brief background on each component. You’re encouraged to work through the “Quick Start Guide”.</p>
+<section id="frontend-service-web-interface" class="level4">
+<h4 class="anchored" data-anchor-id="frontend-service-web-interface">Frontend service: web interface</h4>
+<p>As you would (likely) expect, the Frontend service generates the web pages through which users can easily interact with the system. Initially, the user is presented with a login page. Once past that, access to the other modules is a click or two away. Of particular interest is the “docs” button toward the upper-right corner. Having the documentation close at hand will prove… handy.</p>
+</section>
+<section id="command-line-cli-tool" class="level4">
+<h4 class="anchored" data-anchor-id="command-line-cli-tool">Command line (CLI) tool</h4>
+<p>The command line tool (“foxden”) is both an alternative way users can access the system as well as a means to interface shell scripts to the system for automating common tasks. The “foxden” command by itself with no arguments will display a list of the available commands and also gives a link to the documentation and a reminder of how to get more detailed help.</p>
+</section>
+<section id="authentication-and-authorization-service" class="level4">
+<h4 class="anchored" data-anchor-id="authentication-and-authorization-service">Authentication and authorization service</h4>
+<p>Even in a purely open research environment, it’s still necessary to keep track of who is making changes. This is both for proper attribution as well as non-repudiation (perhaps less of a factor in X-Ray Science than in other disciplines, but the system is built to be versatile). Web users will see a familiar-looking login screen. CLI users will need to authenticate via Kerberos - don’t worry, it’s well described in the introductory documentation. FOXDEN mercifully provides a way to use Kerberos that is simpler than the old-school way.</p>
+</section>
+<section id="data-discovery-service" class="level4">
+<h4 class="anchored" data-anchor-id="data-discovery-service">Data Discovery service</h4>
+<p>The Discovery service provides a way to query the underlying “management database” that tracks movement of files and the metadata associated with them. The query language is the same one MongoDB used (Mongo QL).</p>
+</section>
+<section id="metadata-service" class="level4">
+<h4 class="anchored" data-anchor-id="metadata-service">MetaData service</h4>
+<p>The MetaData service is one of the critical components. This module can not only query metadata, for instance finding matching schemas, but also create new schemas and manipulate existing ones.</p>
+</section>
+<section id="provenance-service" class="level4">
+<h4 class="anchored" data-anchor-id="provenance-service">Provenance service</h4>
+<p>The Provenance service provides a lot of functionality. The tracking of “provenance” is not just something art historians do. The term refers to the tracking of every movement of the data we’re managing, what tools were used to transform it and under what circumstances, and where the data came from. This last element could be, say, “from this instrument on this beamline” or it could be “Dr.&nbsp;J. Doe’s Sept 13th dataset, reduced by this lump of MATLAB code”.</p>
+</section>
+<section id="data-management-service" class="level4">
+<h4 class="anchored" data-anchor-id="data-management-service">Data Management service</h4>
+<p>The Data Management service abstracts data movement in and out of the underlying Object Store (AWS S3 or compatible). Functions are provided to both manage the Object Store as well as to move data in, move it out, or delete it.</p>
+</section>
+<section id="publication-service" class="level4">
+<h4 class="anchored" data-anchor-id="publication-service">Publication service</h4>
+<p>The Publication service has two major sections. The first handles the creation and assignment of DOIs (Document Object Identifiers - you’ve seen these in “References” sections) and the association of that identifier with metadata and data. The second section provides a means to interact with Zenodo in a manner consistent with the rest of FOXDEN.</p>
+</section>
+<section id="specscan-service" class="level4">
+<h4 class="anchored" data-anchor-id="specscan-service">SpecScan service</h4>
+<p>SpecScan is pretty specific: it is used to create and manipulate records for spec scans. It does what it says on the tin.</p>
+</section>
+<section id="mlhub" class="level4">
+<h4 class="anchored" data-anchor-id="mlhub">MLHub</h4>
+<p>The MLHub service allows the user to run various Machine Learning (ML) algorithms directly in the FOXDEN environment. TensorFlow is directly supported. Doing this directly inside of FOXDEN seems odd at first, but it follows the paradigm of “moving the compute to the data”, preventing time-consuming retrievals.</p>
+</section>
+<section id="chess-analysis-pipeline-chap" class="level4">
+<h4 class="anchored" data-anchor-id="chess-analysis-pipeline-chap">CHESS Analysis Pipeline (CHAP)</h4>
+<p>The CHAP service simplifies running the CHESS-developed CHAP algorithms on data stored in FOXDEN.</p>
+</section>
+<section id="chap-notebook" class="level4">
+<h4 class="anchored" data-anchor-id="chap-notebook">CHAP Notebook</h4>
+<p>Designed for novice programmers, the CHAP Notebook service simplifies data analysis by giving users a Jupyter-like interface for writing code modules that are inserted into pre-defined workflows. These modules are also deposited in a code repository for future dissemination.</p>
 
 
+</section>
+</section>
 </section>
 </section>
 
