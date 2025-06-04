@@ -13,12 +13,14 @@ Open a terminal on `lnx201` using one of the following options:
    - Click on `lnx201`
    - Create a new desktop or custom session → Create a new virtual desktop
    - Click on Terminal icon in bottom menu bar
+   - To log out: Applications → Log Out
 1. Use CLASSE's JupyterHub service
    - Browse to https://jupyterhub.classe.cornell.edu
    - Respond to Duo prompt
    - Server Options: Select a job profile: Local Process on JupyterHub Server, click Start
    - Launcher tab: Terminal
       - OR File → New → Terminal
+   - To log out: File → Log Out
 
 ## Exercise 2: Basic commands
 After logging in, you will be in your home directory. Start navigating in the same terminal window as before. Run the following commands:
