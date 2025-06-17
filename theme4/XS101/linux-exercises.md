@@ -17,7 +17,7 @@ Open a terminal on `lnx201` using one of the following options:
 1. Use CLASSE's JupyterHub service
    - Browse to https://jupyterhub.classe.cornell.edu
    - Respond to Duo prompt
-   - Server Options: Select a job profile: Local Process on JupyterHub Server, click Start
+   - Server Options: Select a job profile: CLASSE Compute Farm, click Start
    - Launcher tab: Terminal
       - OR File → New → Terminal
    - To log out: File → Log Out
