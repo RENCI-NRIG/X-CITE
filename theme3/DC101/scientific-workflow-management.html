@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,18 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../..//images/logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-be52865d2b6b0de5b3bb6af6f4548f03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3ab5f6e3fed2970917fba3c2829841da.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-be52865d2b6b0de5b3bb6af6f4548f03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4c8dc0533e919fe4a36c742b31bdae95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-eb480a1f238d5f6c366303cf884ea69c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4c8dc0533e919fe4a36c742b31bdae95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -298,6 +299,8 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">X-CITE</span>
     </a>
@@ -544,13 +547,13 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <section id="getting-started-with-pegasus-chess" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started-with-pegasus-chess">Getting Started with Pegasus @ CHESS</h3>
 <p>Pegasus is already installed and configured to run on the CHESS cluster. In order to use Pegasus, you need to login to the node <strong>lnx201.classe.cornell.edu</strong> .</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">X-CITE</span> vahi$ ssh  lnx201.classe.cornell.edu</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">user@lnx201.classe.cornell.edu</span><span class="kw">)</span> <span class="ex">Password:</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">X-CITE</span> vahi$ ssh  lnx201.classe.cornell.edu</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">user@lnx201.classe.cornell.edu</span><span class="kw">)</span> <span class="ex">Password:</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Source Pegasus binaries in your PATH</strong></p>
 <p>In order to run Pegasus you need to make sure that Pegasus executables are in your PATH. You can do this by sourcing the following setup file.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> ~]$ source /nfs/chess/sw/pegasus/setup.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> ~]$ source /nfs/chess/sw/pegasus/setup.sh</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> ~]$ pegasus-version </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">5.1.0dev</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">5.1.0dev</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="setup-a-test-diamond-workflow-and-run-it" class="level3">
 <h3 class="anchored" data-anchor-id="setup-a-test-diamond-workflow-and-run-it">Setup a test diamond workflow and run it</h3>
@@ -569,7 +572,7 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <li>What’s your project’s name []:</li>
 <li>Select an example workflow [1]: 1</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ pegasus-init diamond</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ pegasus-init diamond</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">###########   Available Execution Environments   ##########</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
@@ -610,11 +613,11 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:inferring diamond dependencies</span></span>
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:workflow diamond with 4 jobs generated and written to workflow.yml</span></span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="st">Creating properties file...</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="st">Creating site catalog for SitesAvailable.SGE...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="st">Creating site catalog for SitesAvailable.SGE...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The example workflow gets generated in the diamond directory.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ cd diamond/</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ cd diamond/</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ls</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond-workflow</span>  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond-workflow</span>  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In this directory, you will see the following yaml files</p>
 <ul>
 <li><strong>workflow.yml</strong> - the abstract workflow generated for the diamond workflow that we will run.</li>
@@ -624,7 +627,7 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 </ul>
 <p>The above catalog files are described in the <a href="https://pegasus.isi.edu/documentation/reference-guide/catalogs.html">Pegasus documentation</a>.</p>
 <p>To plan the workflow, run the <em>./plan.sh</em> script.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ./plan.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ./plan.sh</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./plan.sh</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.755 EDT:    </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.761 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
@@ -651,7 +654,7 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-run</span>  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The above command generated the <strong>executable</strong> workflow that you can run.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -660,7 +663,7 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 </figure>
 </div>
 <p>To do this copy the <em>pegasus-run</em> command invocation that you see in your terminal.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> to condor diamond-0.dag.condor.sub</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="bu">.</span></span>
@@ -676,19 +679,19 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To remove your workflow run <span class="pp">***</span></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-remove</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-remove</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To check the status of the worklfow we can run the command <em>pegasus-status</em> with a <em>-w 30</em> option to watch it every 30 seconds.</p>
 <p>Again make sure you copy the <em>pegasus-status</em> invocation that you see in your terminal and add the <em>-w 30</em> option after <em>-l</em> option.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    03:06   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">696</span>         sge      Done    00:04   ┗━untar_diamond_0_sge    </span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 2 Condor jobs total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">13</span>      0     0    0     1     2     0    12.5 Running diamond-0.dag           </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">13</span>      0     0    0     1     2     0    12.5 Running diamond-0.dag           </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Once the workflow completes you will see somthing similar to the following</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-env</span><span class="er">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-env</span><span class="er">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> Ctrl+C to exit                                    <span class="er">(</span><span class="va">pid</span><span class="op">=</span>2380412<span class="kw">)</span>                                 <span class="ex">Tue</span> May-13-2025 15:07:51</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
@@ -697,7 +700,7 @@ What granularity makes sense is subjective. A good rule of thumb is that the ste
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">0</span>      0     0    0     0     16    0   100.0 Success diamond-0.dag            </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 DAG total <span class="er">(</span><span class="ex">Success:1</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 DAG total <span class="er">(</span><span class="ex">Success:1</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can also run additional pegasus commands after your worklfow finishes. The <em><submit-dir></submit-dir></em> should be replaced by the directory you passed to the <em>pegasus-status</em> command.</p>
 <ul>
 <li><strong>pegasus-analyser <submit-dir></submit-dir></strong> - This allows you to debug your workflow if it fails. Will tell you what jobs failed and why.</li>
@@ -786,13 +789,14 @@ on-going, open forum for all Pegasus users to share ideas, experiences, and talk
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

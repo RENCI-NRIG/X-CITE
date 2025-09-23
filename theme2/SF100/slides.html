@@ -7,10 +7,10 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Anirban Mandal, Erik Scott, Sajith Sasidharan (RENCI, UNC Chapel Hill)">
   <meta name="author" content="Ewa Deelman, Karan Vahi, Mats Rynge (ISI, USC)">
@@ -101,7 +101,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link rel="stylesheet" href="slides.css">
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LSVR8LKB1J"></script>
 
@@ -391,7 +391,7 @@
 <h2>The command line</h2>
 
 <img data-src="lnx201.png" class="r-stretch"><ul>
-<li>You will type <strong>commands</strong> in a <strong>shell</strong>, at the <strong>shell prompt</strong>, hit <kbd aria-hidden="true">enter</kbd><span class="visually-hidden">enter</span> key, and then things happen.</li>
+<li>You will type <strong>commands</strong> in a <strong>shell</strong>, at the <strong>shell prompt</strong>, hit <kbd title="enter" aria-hidden="true">enter</kbd><span class="visually-hidden">enter</span> key, and then things happen.</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -494,11 +494,11 @@
 <ul>
 <li>You do not have to re-type commands that you have used in the past!
 <ul>
-<li>Use <kbd aria-hidden="true">up</kbd><span class="visually-hidden">up</span> and <kbd aria-hidden="true">down</kbd><span class="visually-hidden">down</span> arrow keys to go back and forth in your command history.</li>
-<li>Use <kbd aria-hidden="true">Ctrl-R</kbd><span class="visually-hidden">Ctrl-R</span> (Control+R) to “search” command history.</li>
+<li>Use <kbd title="up" aria-hidden="true">up</kbd><span class="visually-hidden">up</span> and <kbd title="down" aria-hidden="true">down</kbd><span class="visually-hidden">down</span> arrow keys to go back and forth in your command history.</li>
+<li>Use <kbd title="Ctrl-R" aria-hidden="true">Ctrl-R</kbd><span class="visually-hidden">Ctrl-R</span> (Control+R) to “search” command history.</li>
 <li>Use <code>history</code> command to list your shell history.</li>
 </ul></li>
-<li>Use <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key for command completion, after typing a few characters.</li>
+<li>Use <kbd title="tab" aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key for command completion, after typing a few characters.</li>
 </ul>
 </section></section>
 <section>
@@ -593,7 +593,7 @@
 </section>
 <section id="directory-navigation" class="slide level2">
 <h2>Directory navigation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ tree <span class="at">-d</span> <span class="at">-L</span> 1 /</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ tree <span class="at">-d</span> <span class="at">-L</span> 1 /</span>
 <span id="cb1-2"><a></a><span class="ex">/</span></span>
 <span id="cb1-3"><a></a><span class="ex">├──</span> bin <span class="at">-</span><span class="op">&gt;</span> usr/bin</span>
 <span id="cb1-4"><a></a><span class="ex">├──</span> boot</span>
@@ -621,7 +621,7 @@
 <span id="cb1-26"><a></a><span class="ex">├──</span> usr</span>
 <span id="cb1-27"><a></a><span class="ex">└──</span> var</span>
 <span id="cb1-28"><a></a></span>
-<span id="cb1-29"><a></a><span class="ex">25</span> directories</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-29"><a></a><span class="ex">25</span> directories</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <aside class="notes">
 <ul>
 <li>Directories and files are organized in a tree like structure.</li>
@@ -747,13 +747,13 @@
 <ul>
 <li><code>*</code> matches any set of characters.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/ab<span class="pp">*</span></span>
-<span id="cb2-2"><a></a><span class="ex">/usr/bin/ab</span>  /usr/bin/abs2rel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/ab<span class="pp">*</span></span>
+<span id="cb2-2"><a></a><span class="ex">/usr/bin/ab</span>  /usr/bin/abs2rel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>?</code> matches any one character.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/<span class="pp">?</span>abc<span class="pp">*</span></span>
-<span id="cb3-2"><a></a><span class="ex">/usr/bin/kabc2mutt</span>  /usr/bin/kabcclient</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/<span class="pp">?</span>abc<span class="pp">*</span></span>
+<span id="cb3-2"><a></a><span class="ex">/usr/bin/kabc2mutt</span>  /usr/bin/kabcclient</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="standard-input-output-and-error" class="slide level2">
 <h2>Standard input, output, and error</h2>
@@ -779,24 +779,24 @@
 <section id="io-redirection" class="slide level2">
 <h2>I/O redirection</h2>
 <p>You can redirect <code>stdout</code> to a file with <code>&gt;</code> operator:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> ls-output.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Or append with <code>&gt;&gt;</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;&gt;</span> ls-output.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To direct a file to a programs input, use <code>&lt;</code> operator:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat <span class="op">&lt;</span> sonnet18.txt</span>
-<span id="cb6-2"><a></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat <span class="op">&lt;</span> sonnet18.txt</span>
+<span id="cb6-2"><a></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="pipes" class="slide level2">
 <h2>Pipes</h2>
 <ul>
 <li>Using the <code>|</code> (“pipe”) operator, you can “chain” programs such that one programs output is another programs input:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> /bin/ <span class="kw">|</span> <span class="fu">less</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> /bin/ <span class="kw">|</span> <span class="fu">less</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>You can create longer pipes:</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /bin /sbin <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span></span>
-<span id="cb8-2"><a></a>   <span class="ex">4289</span>    4288   46820</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /bin /sbin <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span></span>
+<span id="cb8-2"><a></a>   <span class="ex">4289</span>    4288   46820</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!--
 
 ## Symbolic links
@@ -814,15 +814,15 @@
 <section id="you-belong-to-groups" class="slide level2">
 <h2>You belong (to groups)</h2>
 <p>Your account belongs to several groups:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ id</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ id</span>
 <span id="cb9-2"><a></a><span class="va">uid</span><span class="op">=</span>63499<span class="kw">(</span><span class="ex">ssasidharan</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span><span class="ex">,750</span><span class="er">(</span><span class="ex">classeuser</span><span class="kw">)</span></span>
 <span id="cb9-3"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ groups</span>
-<span id="cb9-4"><a></a><span class="ex">chess</span> classeuser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a></a><span class="ex">chess</span> classeuser</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="permissions-and-ownership" class="slide level2">
 <h2>Permissions and ownership</h2>
 <p>Do a “long” file listing (with <code>ls -l</code>) and behold:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">$</span> ls <span class="at">-l</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">$</span> ls <span class="at">-l</span></span>
 <span id="cb10-2"><a></a><span class="ex">total</span> 8</span>
 <span id="cb10-3"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   44 May  8 10:42 bin</span>
 <span id="cb10-4"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts</span>
@@ -834,7 +834,7 @@
 <span id="cb10-10"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Pictures</span>
 <span id="cb10-11"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Public</span>
 <span id="cb10-12"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Templates</span>
-<span id="cb10-13"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a></a><span class="ex">drwxr-xr-x</span>  2 ssasidharan chess   28 Apr  2 00:27 Videos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>What do those characters mean?</p>
 </section>
 <section id="changing-permissions" class="slide level2">
@@ -842,12 +842,12 @@
 <ul>
 <li>Use <code>chmod</code> command to change file mode bits (the first column in the previous listing).</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x test.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x test.sh</span>
 <span id="cb11-2"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
 <span id="cb11-3"><a></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
 <span id="cb11-4"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod <span class="at">-x</span> test.sh</span>
 <span id="cb11-5"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
-<span id="cb11-6"><a></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Use <code>chown</code> and <code>chgrp</code> commands to change owner and group (the third and fourth columns in the previous listing).
 <ul>
@@ -865,10 +865,10 @@
 <ul>
 <li>List running processes using <code>ps</code> command:</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
 <span id="cb12-2"><a></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
 <span id="cb12-3"><a></a> <span class="ex">694411</span> pts/81   00:00:00 ps</span>
-<span id="cb12-4"><a></a><span class="ex">3479688</span> pts/81   00:00:00 bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a></a><span class="ex">3479688</span> pts/81   00:00:00 bash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The four columns:</p>
 <ul>
 <li><code>PID</code> is process id.</li>
@@ -900,14 +900,14 @@
 </ul></li>
 <li>Background processes, well, run in the background. Send things to the background with <code>&amp;</code>:</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
-<span id="cb13-2"><a></a><span class="ex">[1]</span> 949751</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb13-2"><a></a><span class="ex">[1]</span> 949751</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>Bring a background process to foreground using <code>fg</code> command, and terminate it using <kbd aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span>:</li>
+<li>Bring a background process to foreground using <code>fg</code> command, and terminate it using <kbd title="Ctrl-C" aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span>:</li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ fg 2</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="ex">[ssasidharan@lnx201</span> ~]$ fg 2</span>
 <span id="cb14-2"><a></a><span class="fu">sleep</span> 100</span>
-<span id="cb14-3"><a></a><span class="ex">^C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a></a><span class="ex">^C</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="terminating-processes" class="slide level2">
 <h2>Terminating processes</h2>
@@ -973,11 +973,11 @@
 <div class="code-with-filename-file">
 <pre><strong>hello.sh</strong></pre>
 </div>
-<div class="sourceCode" id="annotated-cell-15" data-filename="hello.sh"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1">1</button><span id="annotated-cell-15-1" class="code-annotation-target"><a href="#annotated-cell-15-1"></a><span class="co">#! /bin/bash</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-15" data-filename="hello.sh"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1">1</button><span id="annotated-cell-15-1" class="code-annotation-target"><a href="#annotated-cell-15-1"></a><span class="co">#! /bin/bash</span></span>
 <span id="annotated-cell-15-2"><a href="#annotated-cell-15-2"></a></span>
 <button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="2">2</button><span id="annotated-cell-15-3" class="code-annotation-target"><a href="#annotated-cell-15-3"></a><span class="co"># A simple script.</span></span>
 <span id="annotated-cell-15-4"><a href="#annotated-cell-15-4"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="3">3</button><span id="annotated-cell-15-5" class="code-annotation-target"><a href="#annotated-cell-15-5"></a><span class="bu">echo</span> <span class="st">"Hello </span><span class="va">$USER</span><span class="st">!"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="3">3</button><span id="annotated-cell-15-5" class="code-annotation-target"><a href="#annotated-cell-15-5"></a><span class="bu">echo</span> <span class="st">"Hello </span><span class="va">$USER</span><span class="st">!"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
@@ -1257,7 +1257,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1331,13 +1331,14 @@
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

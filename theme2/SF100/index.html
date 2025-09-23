@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,18 +69,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../..//images/logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-be52865d2b6b0de5b3bb6af6f4548f03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3ab5f6e3fed2970917fba3c2829841da.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-be52865d2b6b0de5b3bb6af6f4548f03.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4c8dc0533e919fe4a36c742b31bdae95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-eb480a1f238d5f6c366303cf884ea69c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4c8dc0533e919fe4a36c742b31bdae95.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -299,6 +300,8 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">X-CITE</span>
     </a>
@@ -410,7 +413,7 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">June 17, 2025</p>
+      <p class="date-modified">September 23, 2025</p>
     </div>
   </div>
     
@@ -451,11 +454,11 @@ Note
 <p>To perform certain kinds of tasks, using the command line is often quicker and more efficient. You can “chain” or compose separate programs together, each of them specializing in doing different things. You can save longer tasks in the form of scripts for later use, and share them with your colleagues.</p>
 <p>Here’s a quick example. You will find documentation for the software installed on <code>lnx201</code> in the directory <code>/usr/share/doc</code>. Many of those are named <code>README</code>, or <code>README.md</code>, or <code>README.rst</code>, or <code>readme.txt</code>, or some such variation. How many such files are there in <code>/usr/share/doc</code>?</p>
 <p>We can find that out by using <a href="https://www.man7.org/linux/man-pages/man1/find.1.html">find</a> (a program for searching for files under a directory tree) and <a href="https://man7.org/linux/man-pages/man1/wc.1.html">wc</a> (a word count program):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ find /usr/share/doc/ <span class="at">-iname</span> <span class="st">"readme*"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1589</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ find /usr/share/doc/ <span class="at">-iname</span> <span class="st">"readme*"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">1589</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Many of the files in <code>/usr/share/doc</code> mention the word “license” or “LICENSE” or some variation thereof. How many such lines are there? In order to find that out, we can use <a href="https://www.man7.org/linux/man-pages/man1/grep.1.html">grep</a> (a program that matches patterns), and <code>wc</code> together:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ grep <span class="at">-ir</span> license /usr/share/doc/ <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">84089</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ grep <span class="at">-ir</span> license /usr/share/doc/ <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">84089</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Learning to use the command line well will leave more power on your hands.</p>
 </section>
 <section id="the-shell" class="level1">
@@ -475,24 +478,24 @@ Note
 <h2 class="anchored" data-anchor-id="using-the-shell-prompt">Using the shell prompt</h2>
 <p>The <code>[ssasidharan@lnx201 ~]$</code> thing with a blinking cursor at the end is called a <em>shell prompt</em>. You type commands at the shell prompt, hit enter, and then something happens in response to that.</p>
 <p>The examples in these notes are <em>my</em> shell prompt: it contains my username on <code>lnx201</code>, followed by <code>@</code> character, followed by the name of the computer (or “hostname”), followed by the current directory. Your prompt will be different, because it will contain your username.</p>
-<p>After entering the first few characters of a command, you can use the <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key for auto-completing commands.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ ssh<span class="op">&lt;</span>tab<span class="op">&gt;</span></span>
+<p>After entering the first few characters of a command, you can use the <kbd title="tab" aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key for auto-completing commands.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ ssh<span class="op">&lt;</span>tab<span class="op">&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span>          ssh-agent    sshd         sshfs        ssh-keyscan  </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span>      ssh-copy-id  sshd-keygen  ssh-keygen   sshpass   </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ condor_<span class="op">&lt;</span>tab<span class="op">&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Display</span> all 119 possibilities<span class="pp">?</span> <span class="er">(</span><span class="ex">y</span> or n<span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Display</span> all 119 possibilities<span class="pp">?</span> <span class="er">(</span><span class="ex">y</span> or n<span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Bash offers some helpful methods for editing and navigating the history of commands you have previously executed.</p>
 <ul>
 <li>You can use up/down arrow keys to navigate history.</li>
 <li><code>history</code> command will print a list of recently used commands.</li>
-<li>You can use <kbd aria-hidden="true">Ctrl-R</kbd><span class="visually-hidden">Ctrl-R</span> to search command history.</li>
-<li><kbd aria-hidden="true">Ctrl-A</kbd><span class="visually-hidden">Ctrl-A</span> will make the cursor to the beginning of the line.</li>
-<li><kbd aria-hidden="true">Ctrl-E</kbd><span class="visually-hidden">Ctrl-E</span> will go to the end of the line.</li>
-<li><kbd aria-hidden="true">Ctrl-K</kbd><span class="visually-hidden">Ctrl-K</span> will “kill” (cut) text from current position to end of line to a buffer called the “kill-ring”.</li>
-<li><kbd aria-hidden="true">Ctrl-Y</kbd><span class="visually-hidden">Ctrl-Y</span> will “yank” (paste) most recently killed text from the kill ring to current cursor position.</li>
-<li><kbd aria-hidden="true">Alt-Y</kbd><span class="visually-hidden">Alt-Y</span> will cycle through the kill-ring.</li>
+<li>You can use <kbd title="Ctrl-R" aria-hidden="true">Ctrl-R</kbd><span class="visually-hidden">Ctrl-R</span> to search command history.</li>
+<li><kbd title="Ctrl-A" aria-hidden="true">Ctrl-A</kbd><span class="visually-hidden">Ctrl-A</span> will make the cursor to the beginning of the line.</li>
+<li><kbd title="Ctrl-E" aria-hidden="true">Ctrl-E</kbd><span class="visually-hidden">Ctrl-E</span> will go to the end of the line.</li>
+<li><kbd title="Ctrl-K" aria-hidden="true">Ctrl-K</kbd><span class="visually-hidden">Ctrl-K</span> will “kill” (cut) text from current position to end of line to a buffer called the “kill-ring”.</li>
+<li><kbd title="Ctrl-Y" aria-hidden="true">Ctrl-Y</kbd><span class="visually-hidden">Ctrl-Y</span> will “yank” (paste) most recently killed text from the kill ring to current cursor position.</li>
+<li><kbd title="Alt-Y" aria-hidden="true">Alt-Y</kbd><span class="visually-hidden">Alt-Y</span> will cycle through the kill-ring.</li>
 </ul>
-<p>To exit the shell, you can use <code>exit</code> command or <kbd aria-hidden="true">Ctrl-D</kbd><span class="visually-hidden">Ctrl-D</span>.</p>
+<p>To exit the shell, you can use <code>exit</code> command or <kbd title="Ctrl-D" aria-hidden="true">Ctrl-D</kbd><span class="visually-hidden">Ctrl-D</span>.</p>
 <p>If you are using ssh to connect to <code>lnx201</code>, exiting the shell will end your ssh session. If you had opened a terminal window, exiting the shell will close the window.</p>
 </section>
 </section>
@@ -501,7 +504,7 @@ Note
 <p>On the topics covered here in these notes, there is a wealth of information out there: in the form of books, articles, videos, courses, and so on.</p>
 <p>You can also find some built-in documentation in the system itself.</p>
 <p>Often you can find help for the programs that you run by passing <code>--help</code> argument to them. For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ whoami <span class="at">--help</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ whoami <span class="at">--help</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Usage:</span> whoami <span class="pp">[</span><span class="ss">OPTION</span><span class="pp">]</span>...</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Print</span> the user name associated with the current effective user ID.</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Same</span> as id <span class="at">-un.</span></span>
@@ -510,7 +513,7 @@ Note
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>      <span class="ex">--version</span>  output version information and exit</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">GNU</span> coreutils online help: <span class="op">&lt;</span>http://www.gnu.org/software/coreutils/<span class="op">&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">For</span> complete documentation, run: info coreutils <span class="st">'whoami invocation'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">For</span> complete documentation, run: info coreutils <span class="st">'whoami invocation'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As the above text suggests, another way to find manuals is by running the command <code>info</code>. Below is the result of running <code>info coreutils 'whoami invocation'</code> as the above example suggests:</p>
 <p><img src="info.png" class="img-fluid"></p>
 <p>The <code>info</code> program runs a text-based documentation browser. You can move the cursor using tab or arrow keys, and use enter key to follow the links. A lot of the essential software on Linux, including <code>bash</code>, is made by <a href="http://gnu.org/">GNU project</a>, and info is their choice of documenting software.</p>
@@ -523,7 +526,7 @@ Note
 <h1>Environment variables</h1>
 <p>During a session, the shell maintains some information in what is known as <em>environment variables</em>. They are key-value pairs: programs can look up values by keys, and use that information.</p>
 <p>To list the environment variables present in your session, use <code>printenv</code> command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ printenv</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ printenv</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">HOSTNAME</span><span class="op">=</span>lnx201.classe.cornell.edu</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">TERM</span><span class="op">=</span>xterm-256color</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">SHELL</span><span class="op">=</span>/bin/bash</span>
@@ -535,7 +538,7 @@ Note
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="va">PATH</span><span class="op">=</span>/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/ssasidharan/bin</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="va">PWD</span><span class="op">=</span>/home/ssasidharan</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="va">LANG</span><span class="op">=</span>en_US.UTF-8</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="va">HOME</span><span class="op">=</span>/home/ssasidharan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="va">HOME</span><span class="op">=</span>/home/ssasidharan</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This omits some lines for the sake of brevity, but you get the idea.</p>
 <p>Some of these environment variables are worth knowing:</p>
 <ul>
@@ -545,8 +548,8 @@ Note
 <li><code>PATH</code> is a list of directory names, separated by <code>:</code> (colon) character. When you enter a command on the shell prompt, the shell will search directories in <code>PATH</code> to locate the program that it needs to run.</li>
 </ul>
 <p>To print an individual environment variable, use <a href="https://www.man7.org/linux/man-pages/man1/echo.1.html">echo</a> command:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ echo <span class="va">$PATH</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/ssasidharan/bin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ echo <span class="va">$PATH</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/bin:/home/ssasidharan/bin</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>$</code> prefix tells <code>echo</code> that <code>PATH</code> is an environment variable. Without the <code>$</code> prefix, <code>echo PATH</code> will simply print the string <code>PATH</code>.</p>
 <section id="how-does-bash-set-up-the-environment" class="level2">
 <h2 class="anchored" data-anchor-id="how-does-bash-set-up-the-environment">How does bash set up the environment?</h2>
@@ -570,9 +573,9 @@ Note
 <section id="changing-environment-variables" class="level2">
 <h2 class="anchored" data-anchor-id="changing-environment-variables">Changing environment variables</h2>
 <p>You can also use <code>export</code> command to overwrite existing environment variables, or add new ones. For example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ export HISTSIZE=2000</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ export HISTSIZE=2000</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ echo <span class="va">$HISTSIZE</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that this change in <code>HISTSIZE</code> applies only to the current shell. It will be forgotten when you exit the shell.</p>
 <p>In order to make the change permanent, you will need to add the line <code>export HISTSIZE=2000</code> to your <code>~/.bash_profile</code> file.</p>
 </section>
@@ -581,9 +584,9 @@ Note
 <h1>Directory navigation</h1>
 <p>Linux organizes directories and files in a <em>hierarchical directory structure</em>, meaning, they are organized in a tree-like pattern.</p>
 <p>The first, or top-level directory of this tree is a special directory, called the “root directory”, or <code>/</code>. All other directories are under the root directory. You can list things under <code>/</code> with the command <code>ls /</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[sasidharan@lnx201</span> ~]$ ls /</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[sasidharan@lnx201</span> ~]$ ls /</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bin</span>   cdat  cvmfs  etc   lib    media  mnt  nfs   opt   root  sbin  sys  usr</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">boot</span>  cifs  dev    home  lib64  misc   net  null  proc  run   srv   tmp  var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">boot</span>  cifs  dev    home  lib64  misc   net  null  proc  run   srv   tmp  var</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>It is useful to know about some of these directories:</p>
 <ul>
 <li><code>/home</code> is where user home directories are.</li>
@@ -610,7 +613,7 @@ Note
 <p>Absolute path to the <code>Desktop</code> directory in my home directory on <code>lnx201</code> is <code>/home/ssasidharan/Desktop/</code>.</p>
 <p>In comparison, a relative pathname starts from the working directory. When I’m in my home directory, I can simply use the relative pathname, <code>Desktop</code>.</p>
 <p>Every directory contains two special directory names, <code>.</code> and <code>..</code>, in which <code>.</code> refers to the current directory, and <code>..</code> refers to the parent directory of the current directory.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/ssasidharan</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cd .</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
@@ -620,17 +623,17 @@ Note
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ex">/home</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> home]$ cd ..</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ pwd</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ex">/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="wildcards" class="level2">
 <h2 class="anchored" data-anchor-id="wildcards">Wildcards</h2>
 <p>The shell gives special treatment to some characters, known as <em>wildcards</em>. Using wildcard characters, we can quickly specify groups of files.</p>
 <p>The wildcard character <code>*</code> stands for any set of characters. For example, you can list the names of all programs in <code>/usr/bin</code> that start with <code>ab</code> with <code>ls /usr/bin/ab*</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/ab<span class="pp">*</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/ab</span>  /usr/bin/abs2rel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/ab<span class="pp">*</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/ab</span>  /usr/bin/abs2rel</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The wildcard character <code>?</code> stands for any single character. So if you want to list the filenames in <code>/usr/bin</code> that starts with any character, followed by <code>abc</code>, followed by any characters:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/<span class="pp">?</span>abc<span class="pp">*</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/kabc2mutt</span>  /usr/bin/kabcclient</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /usr/bin/<span class="pp">?</span>abc<span class="pp">*</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/bin/kabc2mutt</span>  /usr/bin/kabcclient</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!-- - use `*` carefully with `rm` -->
 </section>
 <section id="the-current-working-directory" class="level2">
@@ -647,7 +650,7 @@ Note
 <li><code>rm &lt;name of directory&gt;</code> will <em>not</em> remove a directory; you have to remove it <em>recursively</em>, like so: <code>rm -r &lt;name of directory&gt;</code>.</li>
 </ul>
 <p><code>cd -</code> is useful: it will switch you to the directory that you were previously in:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ cd /usr/</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> /]$ cd /usr/</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> usr]$ pwd</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> usr]$ cd share/</span>
@@ -656,21 +659,21 @@ Note
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> share]$ cd <span class="at">-</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> usr]$ pwd</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Running <code>cd ~</code> (or simply <code>cd</code>) will drop you back in your home directory:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cd /usr/share/doc/</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cd /usr/share/doc/</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> doc]$ pwd</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/share/doc</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> doc]$ cd ~</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ pwd</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/ssasidharan</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/ssasidharan</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>It is worth noting that the shell will substitute <code>~</code> for your home directory.</p>
 <p><code>.</code> and <code>..</code> are special directory names: <code>.</code> means the current directory, and <code>..</code> means its parent directory, or the directory above it in the directory hierarchy.</p>
 <p><code>touch</code> command is used to change file timestamps. You can also use <code>touch</code> to create an empty file, like so: <code>touch test.txt</code>.</p>
 <section id="symbolic-links" class="level3">
 <h3 class="anchored" data-anchor-id="symbolic-links">Symbolic links</h3>
 <p>On my home directory on <code>lnx201</code>, when I do an <code>ls -l</code> (which is for <code>ls</code> with long file listing format), I would see something like this:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">lrwxrwxrwx</span>  1 ssasidharan chess   31 Mar 26 15:21 Downloads <span class="at">-</span><span class="op">&gt;</span> /cdat/tem/ssasidharan/Downloads</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">lrwxrwxrwx</span>  1 ssasidharan chess   31 Mar 26 15:21 Downloads <span class="at">-</span><span class="op">&gt;</span> /cdat/tem/ssasidharan/Downloads</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The first letter of the listing is <code>l</code> and the entry kind of suggests that my <code>Downloads</code> directory is a reference to another directory, <code>/cdat/tem/ssasidharan/Downloads</code>. The <code>Downloads</code> directory in my home directory is what is called a symbolic link, which also known as a soft link or “symlink”.</p>
 <p>With symbolic links, we can have shortcuts to other files or directories.</p>
 <!-- ### Creating empty files -->
@@ -684,14 +687,14 @@ Note
 <p>The root user is a special user that has all the permissions. They can change most things about the system. The root user can change system configuration, add and remove users and groups, etc.</p>
 <p>Most of the time, we do not need neither the power nor the responsibilities of the root user. So we have a non-root, <em>regular</em> user account in <code>lnx201</code>.</p>
 <p>Your account also belongs to certain <em>groups</em>. Groups are the way to grant permission to a group of accounts. You can find the groups you belong to using <code>groups</code> command:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ groups</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ groups</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">chess</span> classeuser</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Users and groups have distinct numerical identifiers too. You can find them with <code>id</code> command:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ id</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="va">uid</span><span class="op">=</span>63499<span class="kw">(</span><span class="ex">ssasidharan</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span><span class="ex">,750</span><span class="er">(</span><span class="ex">classeuser</span><span class="kw">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ id</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="va">uid</span><span class="op">=</span>63499<span class="kw">(</span><span class="ex">ssasidharan</span><span class="kw">)</span> <span class="va">gid</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span> <span class="va">groups</span><span class="op">=</span>262<span class="kw">(</span><span class="ex">chess</span><span class="kw">)</span><span class="ex">,750</span><span class="er">(</span><span class="ex">classeuser</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you run <code>ls -l</code> (<code>-l</code> is for long listing format) command to list files and folders in your home directory, the result will be something like this:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess   28 Mar 28 09:36 bin</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess  144 Mar 12 00:27 CLASSE_shortcuts</span>
@@ -703,7 +706,7 @@ Note
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Pictures</span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Public</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Templates</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Videos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Let us see what the above columns means:</p>
 <ul>
 <li>The first column lists permissions on the file/folder. (We will see what this means in the next section.)</li>
@@ -733,20 +736,20 @@ Note
 <section id="changing-permissions-with-chmod" class="level3">
 <h3 class="anchored" data-anchor-id="changing-permissions-with-chmod">Changing permissions with <code>chmod</code></h3>
 <p>You can use <code>chmod</code> command to change permissions. If you create a shell script named <code>test.sh</code>, for example, it won’t be executable by default. You will have to change the file mode bits using <code>chmod</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./test.sh</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">-bash:</span> ./test.sh: Permission denied</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x test.sh</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./test.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can remove the <code>x</code> bit like so:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod <span class="at">-x</span> test.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod <span class="at">-x</span> test.sh</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can also grant permission to just the <strong>u</strong>ser, or <strong>g</strong>roup, or <strong>o</strong>thers:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod u+x test.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod u+x test.sh</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr--r--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod g+x test.sh</span>
@@ -754,19 +757,19 @@ Note
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr--</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod o+x test.sh</span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can also combine <code>u</code>, <code>g</code>, <code>o</code> bits and <code>r</code>, <code>w</code>, <code>x</code> bits with <code>+</code> or <code>-</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod ugo-r test.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod ugo-r test.sh</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> test.sh</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--wx--x--x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="ex">--wx--x--x</span> 1 ssasidharan chess 0 Mar 28 13:39 test.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>I just made the file unreadable by everyone, even me!</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat test.sh</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">cat:</span> test.sh: Permission denied</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat test.sh</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">cat:</span> test.sh: Permission denied</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Of course you can restore the permission with <code>chmod ugo+r test.sh</code></p>
 <p>Note that when invoking <code>chmod</code>, <code>a</code> (or <strong>a</strong>ll) is equivalent of <code>ugo</code> (user + group + others). You can also omit <code>a</code> or <code>ugo</code> if you want everyone to have the same permissions. So the below all are equivalent:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod ugo+r test.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod ugo+r test.sh</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod a+r test.sh</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +r test.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +r test.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>(If you want to change owner or group of a file/folder, you can do that with <code>chown</code> and <code>chgrp</code>. This probably is not immediately useful; it is enough to know that these commands exist.)</p>
 </section>
 </section>
@@ -787,9 +790,9 @@ Note
 <section id="io-redirection" class="level2">
 <h2 class="anchored" data-anchor-id="io-redirection">I/O redirection</h2>
 <p>I/O redirection lets us to change where standard output gets printed. To redirect standard output, we use the <code>&gt;</code> operator.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> ls-output.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As a result of redirection, a new file named <code>ls-output.txt</code> will be created. You can view its contents using <code>cat</code> command.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> ls-output.txt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> ls-output.txt</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-r--r--</span> 1 ssasidharan chess 807 Apr  1 17:32 ls-output.txt</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat ls-output.txt</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="ex">total</span> 4</span>
@@ -805,29 +808,29 @@ Note
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Public</span>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Templates</span>
 <span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="ex">-rwxr-xr-x</span> 1 ssasidharan chess    0 Mar 28 13:39 test.sh</span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Videos</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ex">drwxr-xr-x</span> 2 ssasidharan chess    6 Mar 26 15:21 Videos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Note that if there already was a file named <code>ls-output.txt</code>, the redirection above would have overwritten its contents. You want to be careful about this.</p>
 <p>What if you want to discard <code>stdout</code> completely? You can redirect it to the special file <code>/dev/null</code>:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> /dev/null</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;</span> /dev/null</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you want to append <code>stdout</code> to a file instead of overwriting it, you can use <code>&gt;&gt;</code> operator:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;&gt;</span> ls-output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> <span class="op">&gt;&gt;</span> ls-output.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <code>&lt;</code> operator is a sort of inverse of the <code>&gt;</code> operator:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ echo <span class="st">"Shall I compare thee to a summer’s day?"</span> <span class="op">&gt;</span> sonnet18.txt</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ echo <span class="st">"Shall I compare thee to a summer’s day?"</span> <span class="op">&gt;</span> sonnet18.txt</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat sonnet18.txt</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ cat <span class="op">&lt;</span> sonnet18.txt</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Shall</span> I compare thee to a summer’s day<span class="pp">?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!-- (TODO: explain the above: `echo` and the different usage of `cat`.) -->
 </section>
 <section id="pipes" class="level2">
 <h2 class="anchored" data-anchor-id="pipes">Pipes</h2>
 <p>Programs can write to standard output. Programs can also read from standard input. This means we can “chain” them together, such that one programs standard output is “piped” into another program’s standard input.</p>
 <p>The operator to do this is <code>|</code> (vertical bar), also known as a pipe, and it is used in this manner: <code>command1 | command2</code>.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> /bin/ <span class="kw">|</span> <span class="fu">less</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls <span class="at">-l</span> /bin/ <span class="kw">|</span> <span class="fu">less</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The output of <code>ls -l /bin</code> is fairly large, so we pipe it into <code>less</code>, which allows you to scroll the output backward and forward, using <em>up</em> and <em>down</em> keyboard keys.</p>
 <p>You can form longer pipes like this:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /bin /usr/bin /sbin /usr/sbin <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">4289</span>    4288   46820</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ls /bin /usr/bin /sbin /usr/sbin <span class="kw">|</span> <span class="fu">sort</span> <span class="kw">|</span> <span class="fu">uniq</span> <span class="kw">|</span> <span class="fu">wc</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">4289</span>    4288   46820</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>sort</code> will sort lines of text files.</li>
 <li><code>uniq</code> is used to filter adjacent matching lines the output of <code>sort</code>.</li>
@@ -841,10 +844,10 @@ Note
 <section id="listing-processes" class="level2">
 <h2 class="anchored" data-anchor-id="listing-processes">Listing processes</h2>
 <p>You can list running processes using <code>ps</code> command:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">694411</span> pts/81   00:00:00 ps</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ex">3479688</span> pts/81   00:00:00 bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ex">3479688</span> pts/81   00:00:00 bash</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>By default, <code>ps</code> prints processes of the current user and terminal in four columns:</p>
 <ul>
 <li><code>PID</code> is process id.</li>
@@ -853,7 +856,7 @@ Note
 <li><code>CMD</code> is the command that created the process.</li>
 </ul>
 <p>Usually there are many more processes running in the system, and sometimes they were started by other users. You can list them, with more detail, by passing some options to <code>ps</code>:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps <span class="at">-ef</span> <span class="kw">|</span> <span class="fu">head</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps <span class="at">-ef</span> <span class="kw">|</span> <span class="fu">head</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">UID</span>          PID    PPID  C STIME TTY          TIME CMD</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           1       0  0 Jan10 <span class="pp">?</span>        03:14:05 /usr/lib/systemd/systemd <span class="at">--switched-root</span> <span class="at">--system</span> <span class="at">--deserialize</span> 22</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           2       0  0 Jan10 <span class="pp">?</span>        00:01:12 <span class="pp">[</span><span class="ss">kthreadd</span><span class="pp">]</span></span>
@@ -863,7 +866,7 @@ Note
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>           9       2  0 Jan10 <span class="pp">?</span>        11:14:26 <span class="pp">[</span><span class="ss">rcu_sched</span><span class="pp">]</span></span>
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          10       2  0 Jan10 <span class="pp">?</span>        00:00:00 <span class="pp">[</span><span class="ss">lru</span><span class="pp">-</span><span class="ss">add</span><span class="pp">-</span><span class="ss">drain</span><span class="pp">]</span></span>
 <span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          11       2  0 Jan10 <span class="pp">?</span>        00:05:22 <span class="pp">[</span><span class="ss">watchdog/0</span><span class="pp">]</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          12       2  0 Jan10 <span class="pp">?</span>        00:00:24 <span class="pp">[</span><span class="ss">watchdog/1</span><span class="pp">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="ex">root</span>          12       2  0 Jan10 <span class="pp">?</span>        00:00:24 <span class="pp">[</span><span class="ss">watchdog/1</span><span class="pp">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Run <code>man ps</code> for details.</p>
 <p>Programs like <code>top</code> will list processes in friendlier, fancier format.</p>
 </section>
@@ -871,23 +874,23 @@ Note
 <h2 class="anchored" data-anchor-id="background-and-foreground-processes">Background and foreground processes</h2>
 <p>By default, commands run in the <em>foreground</em>: they do their thing, use the terminal (to read input, print output), and finally exit. You need to wait for a foreground process to end before you start the next one, or use another terminal.</p>
 <p>When have a long-running process, you have the option of sending it to the <em>background</em>, using the <code>&amp;</code> operator:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span> 949751</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can use <kbd aria-hidden="true">Ctrl-Z</kbd><span class="visually-hidden">Ctrl-Z</span> to stop a foreground process and send it to the background:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span> 949751</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can use <kbd title="Ctrl-Z" aria-hidden="true">Ctrl-Z</kbd><span class="visually-hidden">Ctrl-Z</span> to stop a foreground process and send it to the background:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="ex">^Z</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]+</span>  Stopped                 sleep 100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]+</span>  Stopped                 sleep 100</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can list background processes using <code>jobs</code> command:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ jobs</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ jobs</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]-</span>  Running                 sleep 100 <span class="kw">&amp;</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Stopped                 sleep 100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can bring a background process to foreground using <code>fg</code> command, and you can terminate it using <kbd aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span>:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ fg 2</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Stopped                 sleep 100</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can bring a background process to foreground using <code>fg</code> command, and you can terminate it using <kbd title="Ctrl-C" aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ fg 2</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 100</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="ex">^C</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can use <code>bg</code> command to resume a stopped background process:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100 <span class="kw">&amp;</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span> 1746205</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ sleep 100</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="ex">^Z</span></span>
@@ -896,13 +899,13 @@ Note
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]-</span>  Running                 sleep 100 <span class="kw">&amp;</span></span>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Stopped                 sleep 100</span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ bg %2</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span> sleep 100 <span class="kw">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span> sleep 100 <span class="kw">&amp;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="terminating-processes" class="level2">
 <h2 class="anchored" data-anchor-id="terminating-processes">Terminating processes</h2>
 <p>Sometimes you might want to terminate a program, perhaps because it is using too much CPU or memory. You can find out the offending program’s ID using <code>ps</code> or <code>top</code> or <code>htop</code>, and then you can use <code>kill</code> command to end the process.</p>
 <p>By default, <code>kill</code> sends a signal called <code>SIGTERM</code> (more on signals later). If <code>SIGTERM</code> is unable to terminate the process (such as when the program is ignoring <code>SIGTERM</code>), you can try <code>SIGKILL</code>:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ps</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">PID</span> TTY          TIME CMD</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">796679</span> pts/116  00:00:00 bash</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="ex">1185454</span> pts/116  00:00:00 ps</span>
@@ -914,18 +917,18 @@ Note
 <span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="ex">1203470</span> pts/116  00:00:00 ps</span>
 <span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="ex">1748299</span> pts/116  00:00:00 sleep</span>
 <span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ kill <span class="at">-SIGKILL</span> 1748299</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Killed                  sleep 100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[2]+</span>  Killed                  sleep 100</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can use <code>killall</code> command to kill processes by name:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ killall sleep</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ killall sleep</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span><span class="er">(</span><span class="ex">1469283</span><span class="kw">)</span><span class="bu">:</span> Operation not permitted</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span><span class="er">(</span><span class="ex">1509215</span><span class="kw">)</span><span class="bu">:</span> Operation not permitted</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sleep:</span> no process found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sleep:</span> no process found</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In the above example, you are not running a <code>sleep</code> process, but some other users are, and you are not allowed to terminate them.</p>
 </section>
 <section id="signals" class="level2">
 <h2 class="anchored" data-anchor-id="signals">Signals</h2>
 <p>As mentioned above, <code>kill</code> command sends <em>signals</em> to running processes, and we’ve already seen <code>SIGTERM</code> and <code>SIGKILL</code>. Signals are a process control mechanism. They are used to stop, resume, or terminate processes, and more.</p>
-<p>When we use <kbd aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span> or <kbd aria-hidden="true">Ctrl-Z</kbd><span class="visually-hidden">Ctrl-Z</span>, we are sending signals to process – <code>SIGINT</code> (or “keyboard interrupt”) and <code>SIGTSTP</code> (or “terminal stop”), respectively.</p>
+<p>When we use <kbd title="Ctrl-C" aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span> or <kbd title="Ctrl-Z" aria-hidden="true">Ctrl-Z</kbd><span class="visually-hidden">Ctrl-Z</span>, we are sending signals to process – <code>SIGINT</code> (or “keyboard interrupt”) and <code>SIGTSTP</code> (or “terminal stop”), respectively.</p>
 <p>Signals have numbers: <code>SIGKILL</code> is 9, so you can use <code>kill -9 &lt;pid&gt;</code> instead of <code>kill -SIGKILL &lt;pid&gt;</code>. You can also omit the <code>SIG</code> prefix, and use <code>kill -KILL &lt;pid&gt;</code>.</p>
 <p>Here are some common signals:</p>
 <!-- TODO: edit below; copy-pasted from `man 7 signal` -->
@@ -1185,11 +1188,11 @@ Note
 <div class="code-with-filename-file">
 <pre><strong>hello.sh</strong></pre>
 </div>
-<div class="sourceCode" id="cb41" data-filename="hello.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">#! /bin/bash</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" data-filename="hello.sh"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">#! /bin/bash</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a></span>
 <span id="cb41-3"><a href="#cb41-3"></a><span class="co"># A simple script.</span></span>
 <span id="cb41-4"><a href="#cb41-4"></a></span>
-<span id="cb41-5"><a href="#cb41-5"></a><span class="bu">echo</span> <span class="st">"Hello world!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-5"><a href="#cb41-5"></a><span class="bu">echo</span> <span class="st">"Hello world!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Line number 1 contains a <a href="https://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a>: it tells the shell to how to run the script, or which program should interpret the script. Scripts could be written in other languages and interpreted by programs associated with those languages (such as <code>/bin/python</code>, <code>/bin/perl</code>, or <code>/bin/ruby</code>.), so the shell has to know what to do here.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1212,39 +1215,39 @@ Note
 <p>Line 5 contains the command to be executed.</p>
 <!-- TODO: describe shebang, comments, commands -->
 <p>Assuming we’ve named the script <code>hello.sh</code>, we should make it executable with <code>chmod</code>, and run <code>hello.sh</code>:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x hello.sh</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ chmod +x hello.sh</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ ./hello.sh</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Remember that <code>$PATH</code> environment variable contains a list of directory names separated by <code>:</code> character, and when you run a program, the shell looks in these directories to find the program.</p>
 <p>Your current directory (represented by <code>.</code>) is not in <code>$PATH</code>, and it is for a good reason: you do not want to accidentally run any undesirable programs. That why you run the script with <code>./hello.sh</code>: it tells shell to find the script in the current directory. If you try to run <code>hello.sh</code> without the <code>./</code> prefix, <code>bash</code> will complain:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ hello.sh</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bash:</span> hello.sh: command not found</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ hello.sh</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bash:</span> hello.sh: command not found</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Since the <code>bin/</code> directory in your home directory is in your <code>$PATH</code>, if you place your scripts there, <code>bash</code> will be able to find them.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ mv hello.sh bin/</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ mv hello.sh bin/</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[ssasidharan@lnx201</span> ~]$ hello.sh </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world!</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When writing shell-scripts, you are not restricted to straight-line flow. You can write more elaborate scripts using constructs such as variables, control flow (with <code>if</code> and <code>case</code> expressions), loops (with <code>while</code> and <code>until</code> and <code>for</code> expressions), and functions. You can read input with <code>read</code>, pass parameters to scripts, evaluate arithmetic expressions, use arrays and array operations; and so on. This is a longer discussion.</p>
 <p>You can find more information in <code>info bash</code> and the references listed at the end.</p>
 </section>
 <section id="nifty-terminal-multiplexers" class="level1">
 <h1>Nifty: terminal multiplexers</h1>
 <p>Terminal multiplexers are programs that allow you to run multiple shell sessions in a single window. <a href="https://www.gnu.org/software/screen/">GNU screen</a> and <a href="https://github.com/tmux/tmux/wiki">tmux</a> are two popular options, with the latter being a little newer and perhaps friendlier at first.</p>
-<p>The screenshot below shows <code>tmux</code> in action. I have split a <code>tmux</code> window vertically into two panes using <kbd aria-hidden="true">Ctrl-b-%</kbd><span class="visually-hidden">Ctrl-b-%</span> key, and run <code>emacs</code> text editor in one. I can use <kbd aria-hidden="true">Ctrl-b-o</kbd><span class="visually-hidden">Ctrl-b-o</span> to switch between the two panes.</p>
+<p>The screenshot below shows <code>tmux</code> in action. I have split a <code>tmux</code> window vertically into two panes using <kbd title="Ctrl-b-%" aria-hidden="true">Ctrl-b-%</kbd><span class="visually-hidden">Ctrl-b-%</span> key, and run <code>emacs</code> text editor in one. I can use <kbd title="Ctrl-b-o" aria-hidden="true">Ctrl-b-o</kbd><span class="visually-hidden">Ctrl-b-o</span> to switch between the two panes.</p>
 <p><img src="tmux.png" class="img-fluid"></p>
-<p>You manage <code>tmux</code> windows with <kbd aria-hidden="true">Ctrl-b</kbd><span class="visually-hidden">Ctrl-b</span> followed by another key. Here are some often-used <code>tmux</code> command keys:</p>
+<p>You manage <code>tmux</code> windows with <kbd title="Ctrl-b" aria-hidden="true">Ctrl-b</kbd><span class="visually-hidden">Ctrl-b</span> followed by another key. Here are some often-used <code>tmux</code> command keys:</p>
 <ul>
-<li><kbd aria-hidden="true">Ctrl-b-?</kbd><span class="visually-hidden">Ctrl-b-?</span> - list keyboard shortcuts (<kbd aria-hidden="true">Esc</kbd><span class="visually-hidden">Esc</span> to close the list.)</li>
-<li><kbd aria-hidden="true">Ctrl-b-%</kbd><span class="visually-hidden">Ctrl-b-%</span> - split window vertically into two panes</li>
-<li><kbd aria-hidden="true">Ctrl-b-"</kbd><span class="visually-hidden">Ctrl-b-"</span> - split window horizontally into two panes</li>
-<li><kbd aria-hidden="true">Ctrl-b-o</kbd><span class="visually-hidden">Ctrl-b-o</span> - next pane</li>
-<li><kbd aria-hidden="true">Ctrl-b-c</kbd><span class="visually-hidden">Ctrl-b-c</span> - create a new window</li>
-<li><kbd aria-hidden="true">Ctrl-b-n</kbd><span class="visually-hidden">Ctrl-b-n</span> - switch to next window</li>
-<li><kbd aria-hidden="true">Ctrl-b-p</kbd><span class="visually-hidden">Ctrl-b-p</span> - switch to previous window</li>
-<li><kbd aria-hidden="true">Ctrl-b-1</kbd><span class="visually-hidden">Ctrl-b-1</span> - switch to window numbered 1</li>
-<li><kbd aria-hidden="true">Ctrl-b-2</kbd><span class="visually-hidden">Ctrl-b-2</span> - switch to window numbered 2</li>
-<li><kbd aria-hidden="true">Ctrl-b-d</kbd><span class="visually-hidden">Ctrl-b-d</span> - detach tmux session</li>
+<li><kbd title="Ctrl-b-?" aria-hidden="true">Ctrl-b-?</kbd><span class="visually-hidden">Ctrl-b-?</span> - list keyboard shortcuts (<kbd title="Esc" aria-hidden="true">Esc</kbd><span class="visually-hidden">Esc</span> to close the list.)</li>
+<li><kbd title="Ctrl-b-%" aria-hidden="true">Ctrl-b-%</kbd><span class="visually-hidden">Ctrl-b-%</span> - split window vertically into two panes</li>
+<li><kbd title="Ctrl-b-" "="" aria-hidden="true">Ctrl-b-"</kbd><span class="visually-hidden">Ctrl-b-"</span> - split window horizontally into two panes</li>
+<li><kbd title="Ctrl-b-o" aria-hidden="true">Ctrl-b-o</kbd><span class="visually-hidden">Ctrl-b-o</span> - next pane</li>
+<li><kbd title="Ctrl-b-c" aria-hidden="true">Ctrl-b-c</kbd><span class="visually-hidden">Ctrl-b-c</span> - create a new window</li>
+<li><kbd title="Ctrl-b-n" aria-hidden="true">Ctrl-b-n</kbd><span class="visually-hidden">Ctrl-b-n</span> - switch to next window</li>
+<li><kbd title="Ctrl-b-p" aria-hidden="true">Ctrl-b-p</kbd><span class="visually-hidden">Ctrl-b-p</span> - switch to previous window</li>
+<li><kbd title="Ctrl-b-1" aria-hidden="true">Ctrl-b-1</kbd><span class="visually-hidden">Ctrl-b-1</span> - switch to window numbered 1</li>
+<li><kbd title="Ctrl-b-2" aria-hidden="true">Ctrl-b-2</kbd><span class="visually-hidden">Ctrl-b-2</span> - switch to window numbered 2</li>
+<li><kbd title="Ctrl-b-d" aria-hidden="true">Ctrl-b-d</kbd><span class="visually-hidden">Ctrl-b-d</span> - detach tmux session</li>
 </ul>
-<p>When you’re ready to leave, you can “detach” <code>tmux</code> from your current session with <kbd aria-hidden="true">Ctrl-b</kbd><span class="visually-hidden">Ctrl-b</span>, and reattach to it in a different session with <code>tmux attach</code> command. Programs that you launched in <code>tmux</code> continue running in between. This is nifty!</p>
+<p>When you’re ready to leave, you can “detach” <code>tmux</code> from your current session with <kbd title="Ctrl-b" aria-hidden="true">Ctrl-b</kbd><span class="visually-hidden">Ctrl-b</span>, and reattach to it in a different session with <code>tmux attach</code> command. Programs that you launched in <code>tmux</code> continue running in between. This is nifty!</p>
 </section>
 <section id="further-reading" class="level1">
 <h1>Further reading</h1>
@@ -1325,13 +1328,14 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
