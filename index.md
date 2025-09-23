@@ -86,3 +86,4 @@ This is the training overview:
 [cf200]: ./theme5/CF200/curating-data.md
 
 [newsite]: ./newsite/index.md
+
