@@ -44,7 +44,7 @@ This is the training overview:
 ## Theme 5: Data Curation and FAIR
 
 - CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 🚧
-- CF 101: [Best practices for developing DMP (Data Mgmt Plans)][cf101] 🚧
+- CF 101: [Best practices for developing DMP][cf101] 🚧
 - CF 102: [Metadata annotation and DOI][cf102] 🚧
 - CF 200: [Curating data, code, workflows, and publishing][cf200] 🚧
 
@@ -86,4 +86,3 @@ This is the training overview:
 [cf200]: ./theme5/CF200/curating-data.md
 
 [newsite]: ./newsite/index.md
-
