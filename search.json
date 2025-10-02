@@ -707,6 +707,20 @@
     "text": "Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories\nCF 101: Best practices for developing DMP\nCF 102: Metadata annotation and DOI\nCF 200: Curating data, code, workflows, and publishing"
   },
   {
+    "objectID": "newsite/404.html",
+    "href": "newsite/404.html",
+    "title": "Page Not Found",
+    "section": "",
+    "text": "The page you requested cannot be found. Perhaps it was moved or renamed.\nYou may want to try searching to find the page’s new location."
+  },
+  {
+    "objectID": "newsite/about.html",
+    "href": "newsite/about.html",
+    "title": "About X-CITE",
+    "section": "",
+    "text": "This site hosts material meant for CyberInfrastructure Training and Education for Synchrotron X-Ray Science (X-CITE). X-CITE is developed for the community of scientists and researchers using the CHESS synchrotron X-ray facility and similar light sources.\n\nAbout this site\nThe sources of this site are available at https://github.com/RENCI-NRIG/X-CITE.\nThe content in this website is available under Creative Commons Attribution-ShareAlike 4.0 International license. Code snippets may be used under CC0 1.0 Universal license.\nCopyrights for logos are owned by the respective organizations.\nThis site is generated using Quarto."
+  },
+  {
     "objectID": "theme3/DC200/computing-with-ci-ecosystem.html",
     "href": "theme3/DC200/computing-with-ci-ecosystem.html",
     "title": "Computing with CI Ecosystem",
