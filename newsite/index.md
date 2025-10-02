@@ -21,7 +21,7 @@ is named "Essential Elements" and is absolutely critical. Make certain
 you understand the material in that section before you move on to the
 others, but once you cross this hurdle you can move through the other
 collections in any order. Some of the Essentials topics may be old hat
-to you (Python programming, for instance) while others are highly
+to you (Python programming, for instance) while others are 
 CHESS-specific - Data Collection, for instance.
 
 ## Essential Elements
