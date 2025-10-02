@@ -16,15 +16,15 @@ practically essential for making the most of your beamline time and
 the analysis that follows after the fact.
 
 Below you'll find links to the training modules we have
-developed. These are grouped by general topic into "Themes". The first
-theme is named "Essential Elements" and is, as the name suggests,
-absolutely critical. Make certain you understand the material in that
-theme before you move on to the others, but once you cross this hurdle
-you can move through the other themes in any order. Some of the
-Essentials topics may be old hat to you (Python programming, for
-instance) while other are highly CHESS-specific (Data Collection).
+developed. These are grouped by general topic into themes; the first
+is named "Essential Elements" and is absolutely critical. Make certain
+you understand the material in that section before you move on to the
+others, but once you cross this hurdle you can move through the other
+collections in any order. Some of the Essentials topics may be old hat
+to you (Python programming, for instance) while others are highly
+CHESS-specific - Data Collection, for instance.
 
-## Theme 0: Essential Elements
+## Essential Elements
 
 - XS 100: [Data collection, preparing input parameters, SPEC and
   CLI][xs100]
@@ -36,33 +36,33 @@ instance) while other are highly CHESS-specific (Data Collection).
 
 
 
-## Theme 1: Programming Fundamentals
+## Programming Fundamentals
 
 - PE 101: [Using Python packages & libraries, Conda][pe101]
 - PE 102: [Numerical data analysis with Python][pe102]
 - PE 103: [Software version control][pe103-vcs],
   [testing][pe103-testing], and [debugging][pe103-debugging]
   
-## Theme 2: Systems Fundamentals
+## Systems Fundamentals
 
 - SF 101: [Containers and virtualization][sf101] 
 - SF 200: [Parallel computing concepts][sf200]  
 - SF 201: [Batch systems and compute farms with CHESS example][sf201] 
 
-## Theme 3: Distributed Computing and the CI Ecosystem
+## Distributed Computing and the CI Ecosystem
 
 - DC 100: [Distributed computing concepts][dc100] 
 - DC 101: [Scientific workflow management][dc101] 
 - DC 102: [Using science gateways with Open OnDemand example][dc102] 
 - DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] 
 
-## Theme 4: X-Ray Science S&E Software
+## X-Ray Science S&E Software
 
 - XS 102: [Large-scale data analysis: from images to science
   parameters to interpretation][xs102] 
 - XS 200: [Metadata for data fidelity and systematic checks][xs200]  
 
-## Theme 5: Data Curation and FAIR
+## Data Curation and FAIR
 
 - CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 
 - CF 101: [Best practices for developing DMP][cf101] 
