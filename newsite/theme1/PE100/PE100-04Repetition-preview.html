@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.8.25">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+    <title>PE100-04: Repetition – X-CITE</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = '/';
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f2999a20960c1ffa97f08f3b107b93be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+     <script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LSVR8LKB1J"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
+</script>  
+        <link rel="stylesheet" href="../../../styles.css">
+      <meta name="twitter:title" content="PE100-04: Repetition – X-CITE">
+<meta name="twitter:card" content="summary">
+</head>
+
+  <body class="floating nav-fixed quarto-notebook quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> PE100-04: Repetition</h6>
+
+            <a href="../../../newsite/theme1/PE100/PE100-04Repetition.ipynb" class="btn btn-primary quarto-download-embed" download="PE100-04Repetition.ipynb">Download Notebook</a>
+          </div>
+
+     <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">X-CITE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#putting-it-together-while-loops-to-get-user-input" id="toc-putting-it-together-while-loops-to-get-user-input" class="nav-link active" data-scroll-target="#putting-it-together-while-loops-to-get-user-input">Putting it together: while loops to get user input</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/RENCI-NRIG/X-CITE/blob/main/newsite/theme1/PE100/PE100-04Repetition.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">        <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PE100-04: Repetition</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>     <div id="b1e9ad13-dc83-447a-8cc6-a7ad777bed8d" class="cell markdown">
+<p>We started off learning Python with just simple lists of statements…</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="323c8155-7d1d-469d-939a-d41d0f3a33d1" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"It's"</span>, temperature, <span class="st">"celsius"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>faren_t <span class="op">=</span> temperature <span class="op">*</span> (<span class="dv">9</span><span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> <span class="dv">32</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"or"</span>, faren_t, <span class="st">"in pagan units."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It's 100 celsius
+or 212.0 in pagan units.</code></pre>
+</div>
+</div></div>
+<div id="11437758-5a3f-46d8-b8c4-930f56afd1c7" class="cell markdown">
+<p>Then we added the <code>if</code> statement so we could control whether or not certain statements would execute or not:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="61b3fe3b-b083-4ed2-9b05-5a6b6690eb28" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> temperature <span class="op">&gt;=</span> <span class="dv">100</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Good chance it's boiling."</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> temperature <span class="op">&gt;</span> <span class="dv">3000</span>:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Odds are it's plasma by now."</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"You could probably run the experiment and it might even work."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Good chance it's boiling.</code></pre>
+</div>
+</div></div>
+<div id="d31e0141-9022-4bc7-a03e-37d58ac0db74" class="cell markdown">
+<p>In both of these cases, the code blocks only run once.</p>
+<p>The problem is, sometimes we need things to run repeatedly. We want to look up <strong>all</strong> of the readings from an experiment or we need to compute the properties of something over <strong>dozens</strong> of temperatures each at <strong>dozens</strong> of pressures.</p>
+<p>Python gives us two different ways to make our programs repeat things in a <em>loop</em>.</p>
+<ol type="1">
+<li><p><code>while</code> loops run a block of code, repeatedly, until some conditional statement evaluates to false.</p></li>
+<li><p><code>for</code> loops run a code block a specific number of times.</p></li>
+</ol>
+<p>Let’s start with the <code>while</code> loop.</p>
+<section id="while-loops" class="level2">
+<h2 class="anchored" data-anchor-id="while-loops">While Loops</h2>
+</section>
+</div>
+<div id="9bca7246-5a30-4289-bfd6-85d6c24e9799" class="cell markdown">
+<p>The syntax of a <code>while</code> loop looks a bit like an <code>if</code> statement. Take a look:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="f10f7d18-fd33-4f14-b211-6edb05bca4fd" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>instrument <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> instrument <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"Looking at instrument number"</span>, instrument)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"and then maybe we'll look at the next one."</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   instrument <span class="op">=</span> instrument <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Done with all that looping."</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"...and ready to do something else now."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Looking at instrument number 1
+and then maybe we'll look at the next one.
+Looking at instrument number 2
+and then maybe we'll look at the next one.
+Done with all that looping.
+...and ready to do something else now.</code></pre>
+</div>
+</div></div>
+<div id="ed0c3daf-a71e-4e17-8985-89419797afe7" class="cell markdown">
+<p>Here’s what the above code does. First, it creates a variable named “instrument” and sets it to 1. Then it goes into the while loop. The first time through, it checks to see if instrument is less than or equal to 2. It is (because we set it to 1 just a moment ago) so the while loop will execute the code block. This block prints out two lines and then it adds 1 to instrument. That means instrument now equals 2.</p>
+<p>The second time through the loop, instrument equals 2. That satisfies the conditional statement of the while loop (2 is less than or equal to 2) so the code block runs again. Two more lines are printed out and then instrument is incremented one more time.</p>
+<p>The while loop runs for a third time now. This time, 3 is <strong>not</strong> less than or equal to 2, so the conditional statement is false. This means the while loop is done - it won’t run its code block again, and the flow of control will go on to the next line after the while loop. It will run the two print statements explaining that the looping is over and it can go on to other tasks.</p>
+<p>Let’s look at another example. Let’s print out all the powers of two that are less than 928.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="b3084a25-da3f-4eed-a59d-19d6bfef25c2" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>power<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>two_to_the_power <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>power</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> two_to_the_power <span class="op">&lt;</span> <span class="dv">928</span>:  <span class="co"># Totally not Porsche related.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"2 to the"</span>, power,<span class="st">"equals"</span>,two_to_the_power)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    power <span class="op">=</span> power<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    two_to_the_power <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>power</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"2 to the"</span>, power,<span class="st">"is too big."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2 to the 0 equals 1
+2 to the 1 equals 2
+2 to the 2 equals 4
+2 to the 3 equals 8
+2 to the 4 equals 16
+2 to the 5 equals 32
+2 to the 6 equals 64
+2 to the 7 equals 128
+2 to the 8 equals 256
+2 to the 9 equals 512
+2 to the 10 is too big.</code></pre>
+</div>
+</div></div>
+<div id="a5914a7c-74de-4a7b-b2ea-0a5baa2dfc25" class="cell markdown">
+<p>Did you notice I sneaked something in there we haven’t talked about yet? See the “#” character on the line with the <code>while</code> statement? That indicates the rest of the line is a comment. Python will totally ignore it. It’s handy for leaving little notes to yourself, like “why did I choose 928 there when I could have put 944?” This is very, very important when writing full-fledged, standalone programs. If you don’t leave some notes for yourself, you’ll never remember what you were thinking when you go back to that code six months from now. Also, the next person who comes along and has to change something in your code will greatly appreciate the hints.</p>
+<p>Leaving comments in the code isn’t as big a deal in Jupyter notebooks… you can write rather substantial notes in a Markdown cell complete with <strong>boldface</strong>, <em>italics</em>, and whatever other fanciness you desire. On the other hand, it’s also nice to be able to leave your comments in the just the right place in the code so it flows effortlessly through your comprehension as you read it. Let experience and personal opinion be your guide here.</p>
+<section id="reading-information-from-the-outside-world" class="level2">
+<h2 class="anchored" data-anchor-id="reading-information-from-the-outside-world">Reading information from the outside world</h2>
+<p>Notice that in both of those cases, we actually did know how many times the loop would run. We know that 2 to the 9th is 512 and so we know the while loop will only run that far. In fact, in every example we’ve had so far we’ve know what the output will be because we always have the same inputs. Computer software wouldn’t be terribly interesting if it could only run specific, known, canned inputs. Fortunately, Python gives us several ways to bring data into our programs.</p>
+<p>The simplest way to bring data into a Python program is to edit the program and change the values we assign to variables. This is sort of the <em>reducto ad absurdum</em> method, but honestly it isn’t a bad way to handle very small amounts of input. It’s even easier in Jupyter notebooks since the code is just sitting there looking at us, waiting to be edited. For values that aren’t going to change very often (your name, perhaps, or the chargeback account number for using some instrument, for instance) then just assigning a value to a variable and editing it every once and a while is a fine way to go.</p>
+<p>Another way to get data into a Python program is to read it in from where the user is running the program. For doing this, Python provides a function called “input” which takes an optional argument, specifically a string that is printed as a prompt. Python then waits for the user to type something as a response. When they do, that string is returned to the calling program. Here’s a simple example:</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="fd930805-8cfa-4687-95a8-832c4c259a09" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>your_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please enter your name"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello,"</span>, your_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>Please enter your name Erik</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, Erik</code></pre>
+</div>
+</div></div>
+<div id="7e489b4d-2ced-4d79-aec6-b7db3010bebc" class="cell markdown">
+<p>When the above code runs, the prompt “Please enter your name” is displayed right below the code cell and a text entry box is placed beside it. When you enter your name, it greets you.</p>
+<p>If we were running this tiny little snippet of code as a regular program, the interaction would be in the terminal emulator window that we ran the program in. Because this is running in Jupyter, though, the interaction is directly in the notebook. The prompt and the entry blank occur just below the running code cell.</p>
+<p>What will happen when we run the following?</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="05c42b8d-6c18-4e16-aa43-2703a0dea282" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number between 4 and 8"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>new_value <span class="op">=</span> response <span class="op">+</span> <span class="fl">6.5</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>Enter a number between 4 and 8 5.25</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In [4], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> response <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">input</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Enter a number between 4 and 8</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg">----&gt; 2</span> new_value <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">response</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">+</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">6.5</span>
+<span class="ansi-green-fg ansi-bold">      3</span> <span style="color:rgb(0,135,0)">print</span>(new_value)
+
+<span class="ansi-red-fg">TypeError</span>: can only concatenate str (not "float") to str</pre>
+</div>
+</div>
+</div></div>
+<div id="236a0c96-d16d-4024-993f-b0bdeab4f10c" class="cell markdown">
+<p>Wow! Python couldn’t run that and it “threw an error”. We’ll examine Python’s error handling facilities later, but for now we’ll just assume that means it came to a screeching halt. Looking at the error message, it seems there is some problem with trying to add a real number (a <em>floting point</em> number) to a string.</p>
+<section id="type-casting" class="level2">
+<h2 class="anchored" data-anchor-id="type-casting">Type Casting</h2>
+<p><code>input()</code> prompts the user and returns the string they entered, but what if we want the user to enter a number? What do we do then? The answer is we’ll use a process known as <em>type casting</em>. The act of type casting is no more than converting information from one type to another.</p>
+<p>There are three very useful functions for type casting: <code>int()</code>, <code>float()</code>, and <code>str()</code>. Let’s see them in action…</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="3e0901f3-f913-4136-badc-3b825152d4ae" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># three conversions:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># first, string to float:</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>the_sum <span class="op">=</span> <span class="fl">6.554</span> <span class="op">+</span> <span class="bu">float</span>(<span class="st">"9.9"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(the_sum)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># next, string to integer:</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>the_integer_number <span class="op">=</span> <span class="bu">int</span>(<span class="st">"34543456"</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(the_integer_number)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#finally, integer to string:</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>handy_string <span class="op">=</span> <span class="bu">str</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">2</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(handy_string)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>16.454
+34543456
+4</code></pre>
+</div>
+</div></div>
+<div id="3c412097-7db8-4ce6-a531-0d9dbb142573" class="cell markdown">
+<p>What did the above do? First, it converted the string “9.9” (literally, three characters… it’s a string) to a “float” (a floating point number, some languages will call that a real number). The second example takes a string of 8 characters and interprets them as an integer. That value is what gets returned and stored in our variable. Finally, we copmute the number 4 by adding 2+2, and then we let the <code>str()</code> function convert that to a single character long string having just the character “4”.</p>
+<p>By now we know enough to be able to ask the user for a number and get something back that we can actually do math with.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="0f71eeed-7bca-47be-b040-aeab8d46add2" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>user_response <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number between 17 and 34"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>selected_number <span class="op">=</span> <span class="bu">float</span>(user_response)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>selected_number</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="cbea44e9-44ab-4e68-afbf-6f709869146b" class="cell markdown">
+<p>There’s an even easier way, though. Just like function composition worked when you took precalculus, the results of a Python function can be used as the argument to another. Hence:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="b8fd8dcb-e16c-42c3-ab55-9edee0498bb0" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>selected_number <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter a number between 17 and 34"</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>selected_number</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>Enter a number between 17 and 34 26</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>26.0</code></pre>
+</div>
+</div></div>
+<div id="e6f353ba-2b21-4264-948c-bc1d52bdcbbf" class="cell markdown">
+<p>Sometimes, function calls can be nested really deeply. Personally, when it comes time to debug code like that I find myself printing it out and coloring each level with a different highlighter pen.</p>
+</div>
+<div id="42c225ed-ebb8-424d-925e-98664603a029" class="cell markdown">
+<section id="putting-it-together-while-loops-to-get-user-input" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-together-while-loops-to-get-user-input">Putting it together: while loops to get user input</h2>
+<p>The great thing about a while statement is that it can loop zero times, one, two, or twelve trillion. Best of all, we don’t have to know how many ahead of time. We could do the following:</p>
+</section>
+</div>
+<div id="f30ab415-5901-4eb0-a59c-74f69771afbf" class="cell markdown">
+<p>print(“Computing an average.”)</p>
+<p>sum=0.0 counter=0 data_point = float(input(“Enter a number, or enter negative num to stop”)) while data_point &gt;= 0.0: sum = sum+data_point counter = counter+1 data_point = float(input(“Enter a number, or enter negative num to stop”))</p>
+<p>print(“Average value is”, sum/counter)</p>
+</div>
+<div id="cbec6452-8362-408f-8703-0f5253d918a6" class="cell markdown">
+<p>When we run the code above, we’re prompted to keep entering numbers until we finally enter -999. Each time it goes through the loop it keeps track of the running total of the numbers and the count of how many numbers have been entered. Once it’s done, it divides the total by the count and displays that as the average.</p>
+<p>Let’s step through what happens when the user enters 1, 2, 3, and -999: 1. The sum and counter variables are initialized to zero. 1. The user is prompted to enter a number, possibly a negative number to indicate no more data, and that input is type cast to a floating point number. 1. The while loop’s condition will be met any time a positive number was input (greater than <strong>or</strong> equal to zero). 1 is a positive number, so run the loop body. 1. This first time through, we’ll add the 1 that was input to our running total, which is now 1. 1. And increment the count, now equal to 1. 1. <strong>AND PROMPT THE USER FOR ANOTHER NUMBER!!!</strong> 1. Back at the while statement again, we check the condition and, yes, 2 is a positive number, so we run the loop’s code block. 1. Update the sum and count, and then… 1. <strong>PROMPT THE USER FOR ANOTHER VALUE!!!</strong> 1. Running the while statement again, the user entered 3, and 3 is positive, so the clode block will be executed. 1. Update the sum (now 6) and count (now 3). 1. <strong>Prompt for another number</strong> 1. Back at the while statement, we check and see that -999 is not a positive number, so we skip the code block and resume by running whatever follows it. 1. Having exited the while loop entirely, print out the average value by dividing sum/count.</p>
+<p>All the boldface and all-capitals lines above are there to emphasize how important it is to make sure your while loop isn’t just checking the same thing over and over. If we didn’t get a new number from the user each time through, the value of data_point would never change. That would result in an infinite loop, causing Python to never be able to complete the code in that cell. If it ever happens to you, and it probably will, the “Interrupt Kernel” command on JupyterLab’s Kernel menu will stop the looping and let you get back to work.</p>
+<p>The <code>while</code> loop is certainly versatile… it can be used any time you need to do something repeatedly. If you know how many times you need to have the code block execute, either when you write the code or when it’s running, then keep a variable that is incremented in the block every time and exit the while loop when the counter hits the right number.</p>
+<p>Where <code>while</code> loops really shine is when it’s impossible to know ahead of time how many times the code block should run. The example above, where we keep accepting numbers until the user signals there aren’t any more, there’s no way to know how many times to execute that loop until we see a negative number. In a case like that, the <code>while</code> loop is the only practical solution.</p>
+<p>So if <code>while</code> loops are so great and solve every problem, why do we need anything else? The big reason is expressiveness: they can be a little awkward to understand, especially when you’re looking at someone else’s code. Having the conditional test separated from the action that establishes when to stop makes it a little awkward to understand (or debug!) someone else’s code. This is especially true when we need to step through something by unusual increments.</p>
+<p>So what are we to do in these cases?</p>
+<section id="for-loops" class="level2">
+<h2 class="anchored" data-anchor-id="for-loops">For Loops</h2>
+<p>The <code>for</code> loop is quite similar to the <code>while</code> loop. The difference is that <code>for</code> loops are controlled by a count whereas <code>while</code> loops are controlled by a condition.</p>
+<p>Let’s start with an example.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="b8b6327b-a2c5-4ad1-9c15-16a20c9a8e92" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> the_value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">4</span>):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(the_value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+2
+3</code></pre>
+</div>
+</div></div>
+<div id="8e702a8d-c0e6-4661-9e55-f9d8130cea06" class="cell markdown">
+<p>That is the simplest for loop you’ll see. Let’s look at the pieces. 1. The <code>for</code> statement itself 2. The name of the <em>target variable</em> whose value will be changing as the loop runs (“the_value” in this case”) 3. “in” - and if this reminds you of set membership then you’re on to something 4. “range()” - this is an example of an <em>iterable</em>, which means “something that can be stepped through”. 5. The colon… the one I forget 50% of the time. 6. The code block, in this case just a print statement.</p>
+<p>Most of the time, fairly close to “always”, the code block will take advantage of the target variable changing each time through. In our example, “the_value” is our target variable, as it loops through it will take on the values 1 through 3, and the code block has a print statement that uses it.</p>
+<p>Before we examine the <code>range()</code> function, let’s take a look at another iterable. We’ll talk about lists in a later lesson, but for now we can just wave our hands around and understand enough for the moment.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="6baa65d0-bb35-4c8e-8d5a-5cb6e9977ef6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sample_weight <span class="kw">in</span> [<span class="fl">123.6</span>, <span class="fl">121.9</span>, <span class="fl">119.4</span>, <span class="fl">124.23219</span>]:</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The sample weighed"</span>, sample_weight, <span class="st">"grams."</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sample_weight <span class="op">&lt;</span> <span class="dv">120</span>:</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Be careful! This sample might not be all you hoped for."</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The sample weighed 143.6 grams.
+The sample weighed 141.9 grams.
+The sample weighed 139.4 grams.
+The sample weighed 144.23219 grams.</code></pre>
+</div>
+</div></div>
+<div id="665ccf60-4a7d-4cc8-9328-8236b2e16831" class="cell markdown">
+<p>You can use the target variable as many times as you want to in the code block.</p>
+<p>Now let’s take a more detailed look at the <code>range()</code> function. In its most basic form it takes one argument - the stop value.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="c5ac3e19-773d-46fe-8ec6-ff21d21a8145" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0
+1
+2
+3</code></pre>
+</div>
+</div></div>
+<div id="75bb9cde-c48a-4d51-93a9-f632d17c329d" class="cell markdown">
+<p>This single-argument form starts at zero, counts up by one each time, and <strong>doesn’t include the stop value</strong>. This is different from every other programming language you’ll ever encounter. It’s just one of those things.</p>
+<p>We’ve already seen the two-argument form. It takes a starting value and a stopping value, and iterates by one from the start until the last value that is less than the stop.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="d3932ab9-4e16-4443-a1cd-c54cd3f2a766" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>,<span class="dv">10</span>):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7
+8
+9</code></pre>
+</div>
+</div></div>
+<div id="713db12a-7747-49e8-ae4d-d6103b4c84f2" class="cell markdown">
+<p>And there’s even a three-argument form. The third argument is the amount to step by.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="4cafc7e1-0699-4317-a4bd-0debd59651ec" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">12</span>,<span class="dv">20</span>,<span class="dv">3</span>):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>12
+15
+18</code></pre>
+</div>
+</div></div>
+<div id="4ca1e33f-d1af-40ad-b92f-54f0821fd618" class="cell markdown">
+<p>The step size doesn’t have to be a positive number…</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="5a0771f1-c227-4a10-9559-bd7c5c6c8b8f" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>):</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>6
+4
+2
+0
+-2</code></pre>
+</div>
+</div></div>
+<div id="86164c6e-fa7c-4741-9120-0f431a67b35b" class="cell markdown">
+<p>In case you’re curious, the step size cannot be zero. If you really want an infinite loop, and there are cases where it makes sense, you have to use a <code>while</code> loop instead.</p>
+<p>As a general rule, any place where you can use an explicit value (a <em>literal</em>) you can use a variable. Arguments to a <code>for</code> loop are no exception:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div id="1846ea56-9376-435f-ae11-fbf0344266d2" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>start_value <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"where should we start? "</span>))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>end_value   <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"where should we run right up to and stop just short of it? "</span>))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>step_size   <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"what should we step by? "</span>))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(start_value, end_value, step_size):</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>where should we start?  13
+where should we run right up to and stop just short of it?  15
+what should we step by?  2</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>13</code></pre>
+</div>
+</div></div>
+<div id="603adbba-d9e6-472d-9843-d773f68ce907" class="cell markdown">
+<p>If we need to do something a specific number of times, we need to pay attention to our starting and stopping conditions. I’ve messed this up so many times I know now to be careful. You’ve been warned.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div id="3fc42a1e-8c99-4683-9ab1-bdd218755f6c" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>how_many <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"How many numbers would you like to total up? "</span>))</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, how_many):</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number "</span>))</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They add up to"</span>, <span class="bu">sum</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many numbers would you like to total up?  3
+Enter a number  4
+Enter a number  5</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>They add up to 9</code></pre>
+</div>
+</div></div>
+<div id="9ed693c1-c50b-4fa7-a2f3-9106a3e4d820" class="cell markdown">
+<p>Notice something wrong? If you ask it to total 3 numbers, it only prompts for two of them. There are a couple of ways to solve this. The easiest is to just use the one-argument form of <code>range()</code>.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div id="a030bbd1-d373-441a-a6f3-1f6717bf2709" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>how_many <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"How many numbers would you like to total up? "</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(how_many):</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number "</span>))</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They add up to"</span>, <span class="bu">sum</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many numbers would you like to total up?  3
+Enter a number  4
+Enter a number  5
+Enter a number  6</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>They add up to 15</code></pre>
+</div>
+</div></div>
+<div id="b9cac8cd-c0ca-4ec9-a90b-89914f11a39a" class="cell markdown">
+<p>That offers a little insight into why Python has it’s funny “up to but not including” semantics: zero is a perfectly legitimate number and a very natural starting point.</p>
+<p>The only problem with the single-argument method is that the values that the target variable goes through include zero. This may or may not be a problem if that value is used inside the code block. If you really need to count from one instead of zero, you can increment the stopping value:</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div id="7e661a54-331b-4267-8058-6f65ce7e8d97" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>how_many <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"How many numbers would you like to total up? "</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, how_many <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number "</span>))</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They add up to"</span>, <span class="bu">sum</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdin">
+<pre><code>How many numbers would you like to total up?  3
+Enter a number  4
+Enter a number  5
+Enter a number  6</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>They add up to 15</code></pre>
+</div>
+</div></div>
+<div id="a5c4c9e7-eb69-4019-970d-b1dfe1603a8c" class="cell markdown">
+<p>And that behaved just like we expected.</p>
+<p>You may have noticed a pattern already. We frequently need to compute a new value for an existing variable. What we’ve done so far has been along the lines of <code>grand_total = grand_total + new_reading</code>. Python gives us a shorthand way to write that. We could instead express that as <code>grand_total += new_reading</code>. There is no space between the plus and equals signs. The only reason this exists is to save you some typing. As you might expect, there are a few more of these <em>Augmented Assignment Operators</em>…</p>
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Example</th>
+<th>Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+=</td>
+<td>count += 1</td>
+<td>count = count + 1</td>
+</tr>
+<tr class="even">
+<td>-=</td>
+<td>x -= offset</td>
+<td>x = x - offset</td>
+</tr>
+<tr class="odd">
+<td>*=</td>
+<td>product *= val</td>
+<td>product = product * val</td>
+</tr>
+<tr class="even">
+<td>/=</td>
+<td>y /= 3</td>
+<td>y = y / 3</td>
+</tr>
+<tr class="odd">
+<td>%=</td>
+<td>val %= 2</td>
+<td>val = val % 2</td>
+</tr>
+</tbody>
+</table>
+<p>Out of all of them, <code>+=</code> is far and away the most commonly used one.</p>
+<section id="nested-loops" class="level2">
+<h2 class="anchored" data-anchor-id="nested-loops">Nested Loops</h2>
+<p>You know what’s fun to put in a loop’s code block? Another loop! Best of all, it comes in pretty handy when dealing with high-dimensional data. Plenty of algorithms rely on nested loops, too. Take a look at this:</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="5591a38e-21b9-4951-9a5f-792bfd3959df" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x="</span>,x,<span class="st">" y="</span>, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x= 0  y= 0
+x= 0  y= 1
+x= 0  y= 2
+x= 0  y= 3
+x= 1  y= 0
+x= 1  y= 1
+x= 1  y= 2
+x= 1  y= 3
+x= 2  y= 0
+x= 2  y= 1
+x= 2  y= 2
+x= 2  y= 3
+x= 3  y= 0
+x= 3  y= 1
+x= 3  y= 2
+x= 3  y= 3
+x= 4  y= 0
+x= 4  y= 1
+x= 4  y= 2
+x= 4  y= 3</code></pre>
+</div>
+</div></div>
+<div id="94a3cee1-95a6-41ac-a741-0d911727a98b" class="cell markdown">
+<p>What’s going on here? Initially, the outer loop, the one that iterates zero through four and assigns it’s value to <code>x</code>, runs. When it starts running its code block for the x=0 pass, the for loop for the <code>y</code> variable starts. ‘y’ assumes the values 0 through 3, so the first four lines printed out are for x=0, y=0, then x=0, y=1, and so on through x=0, y=3. Once that inner for loop completes, the outer for loop gets to iterate again. Now the inside for loop runs again, only this time we have x=1. That’s why the next four lines are “x=1, y=0” through “x=1, y=3”. Every time the outer loop runs another iteration, the inner loop gets to run all the way from start to finish.</p>
+<p>In later lessons, we’ll have a few opportunities to play with nested loops. In fact, we’ll get to do that in the very next lesson: Functions!</p>
+</div>
+
+
+     </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>  </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+<p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
+<p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/RENCI-NRIG/X-CITE/blob/main/newsite/theme1/PE100/PE100-04Repetition.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer> 
+  
+</body></html>
