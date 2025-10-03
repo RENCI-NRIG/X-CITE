@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Karan Vahi">
+<meta name="dcterms.date" content="2025-05-12">
+
+<title>Scientific Workflow Management – X-CITE</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f2999a20960c1ffa97f08f3b107b93be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LSVR8LKB1J"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta name="twitter:title" content="Scientific Workflow Management – X-CITE">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://xcitecourse.org/newsite/theme3/DC101/images/diamond-workflow.png">
+<meta name="twitter:image-height" content="760">
+<meta name="twitter:image-width" content="490">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">X-CITE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-are-scientific-workflows" id="toc-what-are-scientific-workflows" class="nav-link active" data-scroll-target="#what-are-scientific-workflows">What are Scientific Workflows</a>
+  <ul class="collapse">
+  <li><a href="#high-level-steps-on-identifying-a-workflow" id="toc-high-level-steps-on-identifying-a-workflow" class="nav-link" data-scroll-target="#high-level-steps-on-identifying-a-workflow">High Level Steps on Identifying a Workflow</a></li>
+  <li><a href="#workflow-constructs" id="toc-workflow-constructs" class="nav-link" data-scroll-target="#workflow-constructs">Workflow Constructs</a></li>
+  <li><a href="#workflow-challenges" id="toc-workflow-challenges" class="nav-link" data-scroll-target="#workflow-challenges">Workflow Challenges</a></li>
+  <li><a href="#workflow-creation" id="toc-workflow-creation" class="nav-link" data-scroll-target="#workflow-creation">Workflow Creation</a></li>
+  </ul></li>
+  <li><a href="#pegasus-workflows" id="toc-pegasus-workflows" class="nav-link" data-scroll-target="#pegasus-workflows">Pegasus Workflows</a>
+  <ul class="collapse">
+  <li><a href="#getting-started-with-pegasus-chess" id="toc-getting-started-with-pegasus-chess" class="nav-link" data-scroll-target="#getting-started-with-pegasus-chess">Getting Started with Pegasus @ CHESS</a></li>
+  <li><a href="#setup-a-test-diamond-workflow-and-run-it" id="toc-setup-a-test-diamond-workflow-and-run-it" class="nav-link" data-scroll-target="#setup-a-test-diamond-workflow-and-run-it">Setup a test diamond workflow and run it</a></li>
+  <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">Support</a></li>
+  </ul></li>
+  <li><a href="#chess-workflow-runner" id="toc-chess-workflow-runner" class="nav-link" data-scroll-target="#chess-workflow-runner">CHESS Workflow Runner</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/newsite/theme3/DC101/scientific-workflow-management.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Scientific Workflow Management</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karan Vahi </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 12, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is work in progress.</p>
+</div>
+</div>
+<p>This module provides an overview on how a CHESS can use notion of workflows to automate their data processing tasks and in the process shortening the turn around time for the data processing that needs to be done on data collected at a beamline.</p>
+<p>The content in this module is gathered from author’s various presentations over the years and their group’s work on workflows.</p>
+<section id="what-are-scientific-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-scientific-workflows">What are Scientific Workflows</h2>
+<p>Scientific workflows allow users to easily express multi-step computational tasks, for example retrieve data from an instrument or a database, reformat the data, and run an analysis. A scientific workflow describes the dependencies between the tasks and in most cases the workflow is described as a directed acyclic graph (DAG), where the nodes are tasks and the edges denote the task dependencies.</p>
+<p>A defining property for a scientific workflow is that it manages data flow. The tasks in a scientific workflow can be everything from short serial tasks to very large parallel tasks (MPI for example) surrounded by a large number of small, serial tasks used for pre- and post-processing.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/diamond-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Example Workflow</figcaption>
+</figure>
+</div>
+<p>In the above example figure, the nodes/vertices in indicate the job that needs to be run, while the edges indicate the dependencies between the jobs.</p>
+<p>The dependencies can be both <em>control flow</em> or <em>data driven</em> i.e. - a job can be run only after the parent has finished successfully OR - a job requires data sets to run that are generated as outputs by a parent node/job. - the rectangles in the figure indicate datasets that a node/job require and generate.</p>
+<p>Using scientific workflows for your data processing in general provides you the following benefits</p>
+<ol type="1">
+<li><p><strong>Reproducibility</strong> - Scientific workflows allow you to document and reproduce your analyses, ensuring their validity.</p></li>
+<li><p><strong>Automation</strong> - Workflows automate repetitive and time-consuming tasks, thereby reducing the workload of researchers.</p></li>
+<li><p><strong>Scalability</strong> - Workflows allow you to scale up your data processing to handle large data sets and complex analyses, enabling you to solve large research problems in your field. It helps you run your analysis in parallel over distributed resources.</p></li>
+<li><p><strong>Reusability</strong> - Once your data processing pipeline is modelled as a workflow, typically it is possible to reuse the workflow in different ways. For example, you could use the workflow as part of a bigger science analysis (that maybe faclity wide), or even share the workflow with another CHESS researcher.</p></li>
+</ol>
+<section id="high-level-steps-on-identifying-a-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="high-level-steps-on-identifying-a-workflow">High Level Steps on Identifying a Workflow</h3>
+<p>Here are some tips on how you can identify a workflow for your data processing</p>
+<ul>
+<li>Start on a whiteboard and think about the various steps that your data processing entails. Especially when you already have existing monolithic code for data processing, it is important to think about your processing at a high level in a logical manner.</li>
+<li>Think about the various steps that make sense logically, and would also make sense another CHESS researcher when discussing the problem.</li>
+<li>Think about the granularity in context of input data. If a particular step in your identified workflow, can benefit on working on smaller chunks of data; then consider breaking down that step in smaller parallel sub steps. For example if you are working on time series dataset, and you have a dataset collected for a month, you can break down processing in chunks of
+<ul>
+<li>per day</li>
+<li>per hour</li>
+<li>per minute</li>
+<li>and so forth.</li>
+</ul>
+What granularity makes sense is subjective. A good rule of thumb is that the step can easily run on a wide variety of compute nodes with reasonable memory. You don’t want to model a workflow that can only run on a few extremely powerful nodes with lots of memory. In some cases this maybe <strong>unavoidable</strong>. However, it is always good to think along these lines.</li>
+<li>Often, each step (type of step) in your workflow would map to a different executable.</li>
+</ul>
+</section>
+<section id="workflow-constructs" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-constructs">Workflow Constructs</h3>
+<p>There are some core different types of workflow patterns that underpin most of the complex workflows. The jobs in the examples, below map to simple commonly available <em>linux executables</em> and is for illustration purposes only. For your actual workflows, you use your actual scientific code.</p>
+<p><strong>Process</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/process-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Process Workflow</figcaption>
+</figure>
+</div>
+<p>In the above example, workflow consists of a single job that runs the <code>ls</code> command and generates a listing of the files in the <code>/</code> directory.</p>
+<p><strong>Pipeline</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/pipeline-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Pipeline Workflow</figcaption>
+</figure>
+</div>
+<p>In the above example, workflow consists of two jobs linked together in a pipeline. The first job runs the <code>curl</code> command to fetch the Pegasus home page and store it as an HTML file. The result is passed to the <code>wc</code> command, which counts the number of lines in the HTML file.</p>
+<p><strong>Split</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/split-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Split Workflow</figcaption>
+</figure>
+</div>
+<p>In the above example, workflow consists of a job that downloads the Pegasus home page using the <code>curl</code> command, then uses the <code>split</code> command to divide it into 4 pieces. The result is passed to the <code>wc</code> command to count the number of lines in each piece.</p>
+<p><strong>Merge</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/merge-workflow.png" class="img-fluid figure-img"></p>
+<figcaption>Merge Workflow</figcaption>
+</figure>
+</div>
+<p>In the above example, workflow consists of 3 jobns that execute the <code>ls</code> command on several */bin directories and passes the results to the <code>cat</code> command, which merges the files into a single listing.</p>
+</section>
+<section id="workflow-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-challenges">Workflow Challenges</h3>
+<p>When running workflows independent of what workflow system you are using, there are some common challenges that you may encounter.</p>
+<ul>
+<li><strong>How to describe your complex workflows in a simple way?</strong> This is important in relation to sharing your workflows with your colleagues. Can the workflow that you just ran locally on your resource, can be run by another researcher on the
+<ul>
+<li>same resource</li>
+<li>different resource / cluster</li>
+<li>what changes if any are required?</li>
+</ul></li>
+<li><strong>How do you get your workflows to access distributed, heterogeneous data and resources (heterogeneous interfaces)</strong>. For example, you may want to distribute your analysis across different clusters.</li>
+<li><strong>How to deal with resources/software that change over time?</strong> The resource on which you are currently running may go away (no longer operational), software dependencies on which your code requires change.</li>
+<li><strong>How to have ease of use?</strong> Ability to debug and monitor large workflows.</li>
+</ul>
+</section>
+<section id="workflow-creation" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-creation">Workflow Creation</h3>
+<p>There are a variety of workflow systems available that you can use in general. Some of them allow you to create workflows using</p>
+<ul>
+<li>A graphical interface</li>
+<li>Programmatically using an API in a main stream programming language such as Python</li>
+</ul>
+<p>CHESS researchers have access to the following systems for running workflows</p>
+<ul>
+<li>CHESS Workflow Runner</li>
+<li>Galaxy (to be covered in DC102)</li>
+<li>Pegasus Workflows</li>
+</ul>
+</section>
+</section>
+<section id="pegasus-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="pegasus-workflows">Pegasus Workflows</h2>
+<p>Pegasus WMS allows users to model their computational pipelines as workflows, that can execute in a number of different environments including</p>
+<ul>
+<li>desktops,</li>
+<li>campus clusters,</li>
+<li>distributed computing environments such as PATh and OSG OSPool,</li>
+<li>supercomputing CI such as ACCESS and clouds.</li>
+</ul>
+<p>Pegasus bridges the scientific domain and the execution environment by automatically mapping high-level workflow descriptions onto distributed resources. It automatically locates the necessary input data and computational resources necessary for workflow execution. Pegasus enables scientists to construct workflows in abstract terms without worrying about the details of the underlying execution environment or the particulars of the low-level specifications required by the middleware (HTCondor, SLURM, or Amazon EC2).</p>
+<p>The clean separation of how the user defines a Pegasus workflow (in a resource agnostic way) called the <em>Abstract</em> workflow and the <em>Executable</em> workflow that actually runs on your target resource is illustrated below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/pegasus-abstract-to-executable.png" class="img-fluid figure-img"></p>
+<figcaption>Pegasus Translation of User Defined Abstract Workflow to Executable Workflow</figcaption>
+</figure>
+</div>
+<p>As a user when you define a Pegasus workflow, you</p>
+<ul>
+<li>identify both input and data sets that a job requires by their logical identifiers called <em>LFN</em>.</li>
+<li>identify the executable that needs to be invoked for a job by it’s logical identifier called <em>transformation</em>.</li>
+</ul>
+<p>The <em>Abstract</em> workflow when given to Pegasus gets transformed to an <em>Executable</em> workflow that can execute on your target resource. As part of this transformation of the workflow Pegasus will figure out</p>
+<ul>
+<li>how to get/stage the input data required for your workflow. add data stage-in jobs</li>
+<li>maps your jobs to a compute resource</li>
+<li>how to stage-out data that your workflow generates</li>
+</ul>
+<p>Additionally, as part of this transformation Pegasus can do a lot of optimizations on your workflow such as</p>
+<ul>
+<li>add data cleanup nodes, that clean up data from cluster when it is not required</li>
+<li>cluster short running jobs together</li>
+<li>data reuse (delete jobs whose datasets already exist)</li>
+</ul>
+<section id="getting-started-with-pegasus-chess" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-pegasus-chess">Getting Started with Pegasus @ CHESS</h3>
+<p>Pegasus is already installed and configured to run on the CHESS cluster. In order to use Pegasus, you need to login to the node <strong>lnx201.classe.cornell.edu</strong> .</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">X-CITE</span> vahi$ ssh  lnx201.classe.cornell.edu</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">user@lnx201.classe.cornell.edu</span><span class="kw">)</span> <span class="ex">Password:</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Source Pegasus binaries in your PATH</strong></p>
+<p>In order to run Pegasus you need to make sure that Pegasus executables are in your PATH. You can do this by sourcing the following setup file.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> ~]$ source /nfs/chess/sw/pegasus/setup.sh</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> ~]$ pegasus-version </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">5.1.0dev</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="setup-a-test-diamond-workflow-and-run-it" class="level3">
+<h3 class="anchored" data-anchor-id="setup-a-test-diamond-workflow-and-run-it">Setup a test diamond workflow and run it</h3>
+<p>In this example, we will try and run a test <em>diamond</em> workflow through Pegasus.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/diamond-abstract-wf.png" class="img-fluid figure-img"></p>
+<figcaption>Diamond Abstract Workflow</figcaption>
+</figure>
+</div>
+<p>To setup a test workflow that runs on the CHESS SGE cluster, you can use the <strong>pegasus-init</strong> executable and answer the questions asked.</p>
+<p>You should do the following selections when prompted</p>
+<ul>
+<li>Select an execution environment [1]: 5</li>
+<li>What’s the execution environment’s queue: chess.q</li>
+<li>What’s your project’s name []:</li>
+<li>Select an example workflow [1]: 1</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ pegasus-init diamond</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">###########   Available Execution Environments   ##########</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">###########################################################</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span><span class="er">)</span> <span class="ex">Local</span> Machine Condor Pool</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2</span><span class="er">)</span> <span class="ex">Local</span> SLURM Cluster</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">3</span><span class="er">)</span> <span class="ex">Remote</span> SLURM Cluster</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ex">4</span><span class="er">)</span> <span class="ex">Local</span> LSF Cluster</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">5</span><span class="er">)</span> <span class="ex">Local</span> SGE Cluster</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">6</span><span class="er">)</span> <span class="ex">OLCF</span> Summit from OLCF Headnode</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ex">7</span><span class="er">)</span> <span class="ex">OLCF</span> Summit from OLCF Hosted Kubernetes Pod</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ex">Select</span> an execution environment <span class="pp">[</span><span class="ss">1</span><span class="pp">]</span>: 5</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s the execution environment'</span><span class="ex">s</span> queue: chess.q</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s your project'</span><span class="ex">s</span> name []: </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ex">What</span><span class="st">'s the location of the PEGASUS_HOME dir on the compute nodes [/nfs/chess/user/kvahi/software/pegasus/default]: </span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="st">###########################################################</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st">###########     Available Workflow Examples      ##########</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">###########################################################</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">1) pegasus-isi/diamond-workflow</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">2) pegasus-isi/hierarichal-sample-wf</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">3) pegasus-isi/merge-workflow</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">4) pegasus-isi/pipeline-workflow</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">5) pegasus-isi/split-workflow</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="st">Select an example workflow [1]: 1</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">Fetching workflow from https://github.com/pegasus-isi/diamond-workflow.git</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="st">Generating workflow based on pegasus-isi/diamond-workflow</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="st">This workflow will target queue "chess.q"</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="st">The PEGASUS_HOME location is "/nfs/chess/user/kvahi/software/pegasus/default"</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="st">Creating workflow properties...</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="st">Creating transformation catalog...</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="st">Creating replica catalog...</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="st">Creating diamond workflow dag...</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000001, transformation=preprocess)</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000002, transformation=findrange)</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000003, transformation=findrange)</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:diamond added Job(_id=ID0000004, transformation=analyze)</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:inferring diamond dependencies</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="st">INFO:Pegasus.api.workflow:workflow diamond with 4 jobs generated and written to workflow.yml</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="st">Creating properties file...</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="st">Creating site catalog for SitesAvailable.SGE...</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The example workflow gets generated in the diamond directory.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[kvahi@lnx201</span> pegasus]$ cd diamond/</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ls</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">diamond-workflow</span>  generate.sh  pegasus.properties  plan.sh  replicas.yml  sites.yml  transformations.yml  workflow.yml</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In this directory, you will see the following yaml files</p>
+<ul>
+<li><strong>workflow.yml</strong> - the abstract workflow generated for the diamond workflow that we will run.</li>
+<li><strong>replicas.yml</strong> - a yaml formatted file that lists the locations of the inputs for the workflow.</li>
+<li><strong>transformations.yml</strong> - a yaml formatted file that lists the locations of executables used by the workflows.</li>
+<li><strong>sites.yml</strong> - a yaml formated file that describe the CHESS SGE cluster to Pegasus.</li>
+</ul>
+<p>The above catalog files are described in the <a href="https://pegasus.isi.edu/documentation/reference-guide/catalogs.html">Pegasus documentation</a>.</p>
+<p>To plan the workflow, run the <em>./plan.sh</em> script.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ ./plan.sh</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">./plan.sh</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.755 EDT:    </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.761 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.766 EDT:   File for submitting this DAG to HTCondor           : diamond-0.dag.condor.sub </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.771 EDT:   Log of DAGMan debugging messages                 : diamond-0.dag.dagman.out </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.777 EDT:   Log of HTCondor library output                     : diamond-0.dag.lib.out </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.782 EDT:   Log of HTCondor library error messages             : diamond-0.dag.lib.err </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.787 EDT:   Log of the life of condor_dagman itself          : diamond-0.dag.dagman.log </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.792 EDT:    </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.798 EDT:   <span class="at">-no_submit</span> given, not submitting DAG to HTCondor.  You can do this with: </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:10.808 EDT:   <span class="at">-----------------------------------------------------------------------</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:23.174 EDT:   Database version: <span class="st">'5.1.0dev'</span> <span class="er">(</span><span class="ex">sqlite:////home/kvahi/.pegasus/workflow.db</span><span class="kw">)</span> </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.480 EDT:   Pegasus database was successfully created. </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.485 EDT:   Database version: <span class="st">'5.1.0dev'</span> <span class="er">(</span><span class="ex">sqlite:////nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db</span><span class="kw">)</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.693 EDT:   Output replica catalog set to jdbc:sqlite:/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001/diamond-0.replicas.db </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:28.693 EDT:   </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ex">I</span> have concretized your abstract workflow. The workflow has been entered </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">into</span> the workflow database with a state of <span class="st">"planned"</span>. The next step is </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ex">to</span> start or execute your workflow. The invocation required is</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-run</span>  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ex">2025.05.13</span> 14:56:29.864 EDT:   Time taken to execute is 28.297 seconds </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The above command generated the <strong>executable</strong> workflow that you can run.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/diamond-executable-wf.png" class="img-fluid figure-img"></p>
+<figcaption>Diamond Executabe Workflow</figcaption>
+</figure>
+</div>
+<p>To do this copy the <em>pegasus-run</em> command invocation that you see in your terminal.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-run  /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> to condor diamond-0.dag.condor.sub</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Submitting</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="bu">.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">1</span> job<span class="er">(</span><span class="ex">s</span><span class="kw">)</span> <span class="ex">submitted</span> to cluster 693.</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Your</span> workflow has been started and is running in the base directory:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To monitor the workflow you can run <span class="pp">***</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-status</span> <span class="at">-l</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ex">***</span> To remove your workflow run <span class="pp">***</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-remove</span> /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To check the status of the worklfow we can run the command <em>pegasus-status</em> with a <em>-w 30</em> option to watch it every 30 seconds.</p>
+<p>Again make sure you copy the <em>pegasus-status</em> invocation that you see in your terminal and add the <em>-w 30</em> option after <em>-l</em> option.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">pegasus-env</span><span class="kw">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    03:06   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">696</span>         sge      Done    00:04   ┗━untar_diamond_0_sge    </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 2 Condor jobs total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">13</span>      0     0    0     1     2     0    12.5 Running diamond-0.dag           </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Once the workflow completes you will see somthing similar to the following</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pegasus-env</span><span class="er">)</span> <span class="ex">[kvahi@lnx201</span> diamond]$ pegasus-status <span class="at">-l</span> <span class="at">-w</span> 30 /nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Press</span> Ctrl+C to exit                                    <span class="er">(</span><span class="va">pid</span><span class="op">=</span>2380412<span class="kw">)</span>                                 <span class="ex">Tue</span> May-13-2025 15:07:51</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   <span class="ex">ID</span>        SITE      STAT  IN_STATE  JOB                      </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">693</span>        local      Run    08:58   diamond-0 <span class="er">(</span><span class="ex">/nfs/chess/user/kvahi/diamond/submit/kvahi/pegasus/diamond/run0001</span><span class="kw">)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 Condor job total <span class="er">(</span><span class="ex">R:1</span><span class="kw">)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">UNREADY</span> READY  PRE  IN_Q  POST  DONE  FAIL %DONE  STATE  DAGNAME                  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>   <span class="ex">0</span>      0     0    0     0     16    0   100.0 Success diamond-0.dag            </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Summary:</span> 1 DAG total <span class="er">(</span><span class="ex">Success:1</span><span class="kw">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can also run additional pegasus commands after your worklfow finishes. The <em><submit-dir></submit-dir></em> should be replaced by the directory you passed to the <em>pegasus-status</em> command.</p>
+<ul>
+<li><strong>pegasus-analyser <submit-dir></submit-dir></strong> - This allows you to debug your workflow if it fails. Will tell you what jobs failed and why.</li>
+<li><strong>pegasus-statistics <submit-dir></submit-dir></strong> - This allows you to generate runtime statistics about your workflow run such how long it run, how much resources were used etc.</li>
+</ul>
+</section>
+<section id="support" class="level3">
+<h3 class="anchored" data-anchor-id="support">Support</h3>
+<p>If you would like to use Pegasus to run your pipeline you can contact via</p>
+<ul>
+<li><strong>Email</strong> - Support requests and bug reports can be emailed to <strong>pegasus-support@isi.edu</strong>.</li>
+<li><strong>Slack</strong> - We encourage you to join the Slack Workspace as it is an<br>
+on-going, open forum for all Pegasus users to share ideas, experiences, and talk out issues with the Pegasus Development team. Please ask for an invite by trying to join <strong>pegasus-users.slack.com</strong> in the Slack app, or email <em>pegasus-support@isi.edu</em> and request an invite.</li>
+</ul>
+</section>
+</section>
+<section id="chess-workflow-runner" class="level2">
+<h2 class="anchored" data-anchor-id="chess-workflow-runner">CHESS Workflow Runner</h2>
+<p>To be added. Coming soon in FALL 2025.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/xcitecourse\.org");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
+<p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
+<p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/newsite/theme3/DC101/scientific-workflow-management.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
