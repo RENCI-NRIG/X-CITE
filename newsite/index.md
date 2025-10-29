@@ -26,40 +26,40 @@ CHESS-specific - Data Collection, for instance.
 
 ## Essential Elements
 
-- (B) XS 100: [Data collection, preparing input parameters, SPEC and
-  CLI][xs100]
-- (B) SF 100: [Intro to Linux, the command line, and programming in Python][sf100]
-- (B) XS 101: [Basic / on-the-fly data analysis, viewing detector
-  images][xs101]
-- (B) PE 100: [Python Programming and Jupyter notebooks][pe100]
+- XS 100: [Data collection, preparing input parameters, SPEC and
+  CLI][xs100] (B)
+- SF 100: [Intro to Linux, the command line, and programming in Python][sf100] (B)
+- XS 101: [Basic / on-the-fly data analysis, viewing detector
+  images][xs101] (B)
+- PE 100: [Python Programming and Jupyter notebooks][pe100] (B)
 
 
 ## Additional Topics - Programming and Software Development
 
-- (I) PE 101: [Using Python packages & libraries, Conda][pe101]
-- (I) PE 102: [Numerical data analysis with Python][pe102]
-- (E) PE 103: [Software version control using git][pe103-vcs],
-  deliberate [testing][pe103-testing], and [debugging][pe103-debugging] techniques
+- PE 101: [Using Python packages & libraries, Conda][pe101] (I)
+- PE 102: [Numerical data analysis with Python][pe102] (I)
+- PE 103: [Software version control using git][pe103-vcs],
+  deliberate [testing][pe103-testing], and [debugging][pe103-debugging] techniques (E)
   
 ## Additional Topics - Cyberinfrastructure (CI) Systems
 
-- (B) DC 100: [Parallel and distributed computing concepts][dc100]
-- (E) DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200]
-- (E) SF 201: [Batch Systems and Compute Farms][sf201]
-- (E) DC 101: [Scientific workflow management][dc101] 
-- (I) SF 101: [Containers and virtualization][sf101]
-- (I) DC 102: [Using science gateways with OpenOnDemand][dc102]
-- (B) SF 102: [Moving data with Globus][sf102]
+- DC 100: [Parallel and distributed computing concepts][dc100] (B)
+- DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] (E)
+- SF 201: [Batch Systems and Compute Farms][sf201] (E)
+- DC 101: [Scientific workflow management][dc101] (E)
+- SF 101: [Containers and virtualization][sf101] (I)
+- DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
+- SF 102: [Moving data with Globus][sf102] (B)
 
 
 
 ## Data Curation and FAIR
 
-- (I) CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 
-- (I) CF 101: [Best practices for developing DMP][cf101] 
-- (I) CF 102: [Metadata annotation and DOI][cf102] 
-- (I) CF 200: [Curating data, code, and workflows; publishing][cf200]
-- (E) CF 201: [End-to-end research data workflow with FOXDEN example][cf201]
+- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] (I)
+- CF 101: [Best practices for developing DMP][cf101] (I)
+- CF 102: [Metadata annotation and DOI][cf102] (I)
+- CF 200: [Curating data, code, and workflows; publishing][cf200] (I)
+- CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)a
 <!-- References -->
 
 [CHESS]: https://www.chess.cornell.edu/
