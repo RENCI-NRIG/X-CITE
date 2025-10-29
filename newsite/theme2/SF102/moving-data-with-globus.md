@@ -1,5 +1,5 @@
 ---
-title: "Moving Data with Globus""
+title: "Moving Data with Globus"
 author: ""
 date: ""
 ---
