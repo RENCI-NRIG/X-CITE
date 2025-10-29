@@ -774,14 +774,14 @@
     "href": "newsite/index.html#additional-topics---cyberinfrastructure-ci-systems",
     "title": "X-CITE training materials",
     "section": "Additional Topics - Cyberinfrastructure (CI) Systems",
-    "text": "Additional Topics - Cyberinfrastructure (CI) Systems\n\n\nDC 100: Parallel and distributed computing concepts\n\n\nDC 200: Computing with CI ecosystem - ACCESS, PATh, Campus\n\n\nSF 201: Batch Systems and Compute Farms\n\n\nDC 101: Scientific workflow management\n\n\nSF 101: Containers and virtualization\n\n\nDC 102: Using science gateways with OpenOnDemand\n\n\nSF 102: [Moving data with Globus][sf102]"
+    "text": "Additional Topics - Cyberinfrastructure (CI) Systems\n\n\nDC 100: Parallel and distributed computing concepts\n\n\nDC 200: Computing with CI ecosystem - ACCESS, PATh, Campus\n\n\nSF 201: Batch Systems and Compute Farms\n\n\nDC 101: Scientific workflow management\n\n\nSF 101: Containers and virtualization\n\n\nDC 102: Using science gateways with OpenOnDemand\n\n\nSF 102: Moving data with Globus"
   },
   {
     "objectID": "newsite/index.html#data-curation-and-fair",
     "href": "newsite/index.html#data-curation-and-fair",
     "title": "X-CITE training materials",
     "section": "Data Curation and FAIR",
-    "text": "Data Curation and FAIR\n\n\nCF 100: Intro to domain metadata standards, formats and repositories\n\n\nCF 101: [Best practices for developing DMP][cf101]\n\n\nCF 102: Metadata annotation and DOI\n\n\nCF 200: Curating data, code, and workflows; publishing\n\n\nCF 201: End-to-end research data workflow with FOXDEN example"
+    "text": "Data Curation and FAIR\n\n\nCF 100: Intro to domain metadata standards, formats and repositories\n\n\nCF 101: Best practices for developing DMP\n\n\nCF 102: Metadata annotation and DOI\n\n\nCF 200: Curating data, code, and workflows; publishing\n\n\nCF 201: End-to-end research data workflow with FOXDEN example"
   },
   {
     "objectID": "newsite/theme5/CF102/metadata-annotation-and-doi.html",
@@ -852,6 +852,13 @@
     "title": "FAIR Data - Better Science Through Data Sharing",
     "section": "",
     "text": "FOXDEN (FAIR Open-Science Extensible Data Exchange Network) is a preliminary implementation of a data management system that can be used to meet the FAIR requirements. The system gets inspiration from Linux, in that it provides a collection of tools that work together in a modular fashion. It is possible to use all or some of the components.\nAccess to the FOXDEN modules is via either a web page for each module or by using a command-line tool. Besides being a perfectly reasonable way to use the tools, the command line tool is also well suited to use in scripts.\n\n\nFOXDEN’s modular architecture makes it easy to select which components of it you’d like to use and even makes it possible to substitute your own software if you have specialized needs. The FOXDEN documentation has a walkthrough of basic use. This document will instead give some brief background on each component. You’re encouraged to work through the “Quick Start Guide”.\n\n\nAs you would (likely) expect, the Frontend service generates the web pages through which users can easily interact with the system. Initially, the user is presented with a login page. Once past that, access to the other modules is a click or two away. Of particular interest is the “docs” button toward the upper-right corner. Having the documentation close at hand will prove… handy.\n\n\n\nThe command line tool (“foxden”) is both an alternative way users can access the system as well as a means to interface shell scripts to the system for automating common tasks. The “foxden” command by itself with no arguments will display a list of the available commands and also gives a link to the documentation and a reminder of how to get more detailed help.\n\n\n\nEven in a purely open research environment, it’s still necessary to keep track of who is making changes. This is both for proper attribution as well as non-repudiation (perhaps less of a factor in X-Ray Science than in other disciplines, but the system is built to be versatile). Web users will see a familiar-looking login screen. CLI users will need to authenticate via Kerberos - don’t worry, it’s well described in the introductory documentation. FOXDEN mercifully provides a way to use Kerberos that is simpler than the old-school way.\n\n\n\nThe Discovery service provides a way to query the underlying “management database” that tracks movement of files and the metadata associated with them. The query language is the same one MongoDB used (Mongo QL).\n\n\n\nThe MetaData service is one of the critical components. This module can not only query metadata, for instance finding matching schemas, but also create new schemas and manipulate existing ones.\n\n\n\nThe Provenance service provides a lot of functionality. The tracking of “provenance” is not just something art historians do. The term refers to the tracking of every movement of the data we’re managing, what tools were used to transform it and under what circumstances, and where the data came from. This last element could be, say, “from this instrument on this beamline” or it could be “Dr. J. Doe’s Sept 13th dataset, reduced by this lump of MATLAB code”.\n\n\n\nThe Data Management service abstracts data movement in and out of the underlying Object Store (AWS S3 or compatible). Functions are provided to both manage the Object Store as well as to move data in, move it out, or delete it.\n\n\n\nThe Publication service has two major sections. The first handles the creation and assignment of DOIs (Document Object Identifiers - you’ve seen these in “References” sections) and the association of that identifier with metadata and data. The second section provides a means to interact with Zenodo in a manner consistent with the rest of FOXDEN.\n\n\n\nSpecScan is pretty specific: it is used to create and manipulate records for spec scans. It does what it says on the tin.\n\n\n\nThe MLHub service allows the user to run various Machine Learning (ML) algorithms directly in the FOXDEN environment. TensorFlow is directly supported. Doing this directly inside of FOXDEN seems odd at first, but it follows the paradigm of “moving the compute to the data”, preventing time-consuming retrievals.\n\n\n\nThe CHAP service simplifies running the CHESS-developed CHAP algorithms on data stored in FOXDEN.\n\n\n\nDesigned for novice programmers, the CHAP Notebook service simplifies data analysis by giving users a Jupyter-like interface for writing code modules that are inserted into pre-defined workflows. These modules are also deposited in a code repository for future dissemination."
+  },
+  {
+    "objectID": "newsite/theme2/SF102/moving-data-with-globus.html",
+    "href": "newsite/theme2/SF102/moving-data-with-globus.html",
+    "title": "Moving Data with Globus",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
   },
   {
     "objectID": "newsite/theme2/SF100/index.html",
@@ -2159,6 +2166,13 @@
     "objectID": "newsite/theme2/SF201/batch-systems-and-compute-farms.html",
     "href": "newsite/theme2/SF201/batch-systems-and-compute-farms.html",
     "title": "Batch Systems and Compute Farms",
+    "section": "",
+    "text": "Note\n\n\n\nThis page is work in progress."
+  },
+  {
+    "objectID": "newsite/theme5/CF201/end-to-end-dataflow.html",
+    "href": "newsite/theme5/CF201/end-to-end-dataflow.html",
+    "title": "End to end research data flow",
     "section": "",
     "text": "Note\n\n\n\nThis page is work in progress."
   },

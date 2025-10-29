@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="">
 
-<title>X-CITE training materials – X-CITE</title>
+<title>End to end research data flow – X-CITE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +24,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="..//images/logo.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f2999a20960c1ffa97f08f3b107b93be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../..//images/logo.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-f2999a20960c1ffa97f08f3b107b93be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -84,13 +85,12 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta name="twitter:title" content="X-CITE training materials – X-CITE">
-<meta name="twitter:description" content="">
+<link rel="stylesheet" href="../../../styles.css">
+<meta name="twitter:title" content="End to end research data flow – X-CITE">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -259,9 +259,9 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">X-CITE</span>
     </a>
   </div>
@@ -272,11 +272,11 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -296,14 +296,16 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">X-CITE training materials</h1>
+<h1 class="title">End to end research data flow</h1>
 </div>
 
 
@@ -320,88 +322,21 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 </header>
 
 
-<p>X-CITE (CyberInfrastructure Training and Education for Synchrotron X-Ray Science) develops training materials for the community of scientists and researchers using the <a href="https://www.chess.cornell.edu/">CHESS</a> synchrotron X-ray facility and similar light sources.</p>
-<p>Our training modules will get you up to speed in working with the CyberInfrastructure (“CI”) at CHESS - the High Performance Computing (HPC) and Networking resources. Understanding the CI and how to use it is practically essential for making the most of your beamline time and the analysis that follows after the fact.</p>
-<p>Below you’ll find links to the training modules we have developed. These are grouped by general topic into themes; the first is named “Essential Elements” and is absolutely critical. Make certain you understand the material in that section before you move on to the others, but once you cross this hurdle you can move through the other collections in any order. Some of the Essentials topics may be old hat to you (Python programming, for instance) while others are CHESS-specific - Data Collection, for instance.</p>
-<section id="essential-elements" class="level2">
-<h2 class="anchored" data-anchor-id="essential-elements">Essential Elements</h2>
-<ul>
-<li><ol start="2" type="A">
-<li>XS 100: <a href="../newsite/theme4/XS100/data-collection.html">Data collection, preparing input parameters, SPEC and CLI</a></li>
-</ol></li>
-<li><ol start="2" type="A">
-<li>SF 100: <a href="../newsite/theme2/SF100/linux-commandline-scripting.html">Intro to Linux, the command line, and programming in Python</a></li>
-</ol></li>
-<li><ol start="2" type="A">
-<li>XS 101: <a href="../newsite/theme4/XS101/data-analysis.html">Basic / on-the-fly data analysis, viewing detector images</a></li>
-</ol></li>
-<li><ol start="2" type="A">
-<li>PE 100: <a href="../newsite/theme1/PE100/index.html">Python Programming and Jupyter notebooks</a></li>
-</ol></li>
-</ul>
-</section>
-<section id="additional-topics---programming-and-software-development" class="level2">
-<h2 class="anchored" data-anchor-id="additional-topics---programming-and-software-development">Additional Topics - Programming and Software Development</h2>
-<ul>
-<li><ol type="I">
-<li>PE 101: <a href="../newsite/theme1/PE101/index.html">Using Python packages &amp; libraries, Conda</a></li>
-</ol></li>
-<li><ol type="I">
-<li>PE 102: <a href="../newsite/theme1/PE102/index.html">Numerical data analysis with Python</a></li>
-</ol></li>
-<li><ol start="5" type="A">
-<li>PE 103: <a href="../newsite/theme1/PE103/vcs.html">Software version control using git</a>, deliberate <a href="../newsite/theme1/PE103/testing.html">testing</a>, and <a href="../newsite/theme1/PE103/debugging.html">debugging</a> techniques</li>
-</ol></li>
-</ul>
-</section>
-<section id="additional-topics---cyberinfrastructure-ci-systems" class="level2">
-<h2 class="anchored" data-anchor-id="additional-topics---cyberinfrastructure-ci-systems">Additional Topics - Cyberinfrastructure (CI) Systems</h2>
-<ul>
-<li><ol start="2" type="A">
-<li>DC 100: <a href="../newsite/theme3/DC100/distributed-computing.html">Parallel and distributed computing concepts</a></li>
-</ol></li>
-<li><ol start="5" type="A">
-<li>DC 200: <a href="../newsite/theme3/DC200/computing-with-ci-ecosystem.html">Computing with CI ecosystem - ACCESS, PATh, Campus</a></li>
-</ol></li>
-<li><ol start="5" type="A">
-<li>SF 201: <a href="../newsite/theme2/SF201/batch-systems-and-compute-farms.html">Batch Systems and Compute Farms</a></li>
-</ol></li>
-<li><ol start="5" type="A">
-<li>DC 101: <a href="../newsite/theme3/DC101/scientific-workflow-management.html">Scientific workflow management</a></li>
-</ol></li>
-<li><ol type="I">
-<li>SF 101: <a href="../newsite/theme2/SF101/containers-and-virtualization.html">Containers and virtualization</a></li>
-</ol></li>
-<li><ol type="I">
-<li>DC 102: <a href="../newsite/theme3/DC102/using-science-gateways.html">Using science gateways with OpenOnDemand</a></li>
-</ol></li>
-<li><ol start="2" type="A">
-<li>SF 102: <a href="../newsite/theme2/SF102/moving-data-with-globus.html">Moving data with Globus</a></li>
-</ol></li>
-</ul>
-</section>
-<section id="data-curation-and-fair" class="level2">
-<h2 class="anchored" data-anchor-id="data-curation-and-fair">Data Curation and FAIR</h2>
-<ul>
-<li><ol type="I">
-<li>CF 100: <a href="../newsite/theme5/CF100/domain-metadata-standards.html">Intro to domain metadata standards, formats and repositories</a></li>
-</ol></li>
-<li><ol type="I">
-<li>CF 101: <a href="../newsite/theme5/CF101/dmp-best-practices.html">Best practices for developing DMP</a></li>
-</ol></li>
-<li><ol type="I">
-<li>CF 102: <a href="../newsite/theme5/CF102/metadata-annotation-and-doi.html">Metadata annotation and DOI</a></li>
-</ol></li>
-<li><ol type="I">
-<li>CF 200: <a href="../newsite/theme5/CF200/curating-data.html">Curating data, code, and workflows; publishing</a></li>
-</ol></li>
-<li><ol start="5" type="A">
-<li>CF 201: <a href="../newsite/theme5/CF201/end-to-end-dataflow.html">End-to-end research data workflow with FOXDEN example</a> <!-- References --></li>
-</ol></li>
-</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is work in progress.</p>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -827,7 +762,7 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/newsite/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/newsite/theme5/CF201/end-to-end-dataflow.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
