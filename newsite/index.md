@@ -75,7 +75,7 @@ CHESS-specific - Data Collection, for instance.
 
 [sf100]: ./theme2/SF100/linux-commandline-scripting.md
 [sf101]: ./theme2/SF101/containers-and-virtualization.md
-[sf103]: ./theme2/SF102/moving-data-with-globus.md
+[sf102]: ./theme2/SF102/moving-data-with-globus.md
 [sf201]: ./theme2/SF201/batch-systems-and-compute-farms.md
 
 [dc100]: ./theme3/DC100/distributed-computing.md
@@ -89,6 +89,7 @@ CHESS-specific - Data Collection, for instance.
 [xs200]: ./theme4/XS200/metadata.md
 
 [cf100]: ./theme5/CF100/domain-metadata-standards.md
+[cf101]: ./theme5/CF101/dmp-best-practices.md
 [cf102]: ./theme5/CF102/metadata-annotation-and-doi.md
 [cf200]: ./theme5/CF200/curating-data.md
 [cf201]: ./theme5/CF201/end-to-end-dataflow.md
