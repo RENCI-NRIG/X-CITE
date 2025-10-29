@@ -26,51 +26,40 @@ CHESS-specific - Data Collection, for instance.
 
 ## Essential Elements
 
-- XS 100: [Data collection, preparing input parameters, SPEC and
+- (B) XS 100: [Data collection, preparing input parameters, SPEC and
   CLI][xs100]
-- SF 100: [Intro to Linux, the command line, and programming in Python][sf100]
-- XS 101: [Basic / on-the-fly data analysis, viewing detector
+- (B) SF 100: [Intro to Linux, the command line, and programming in Python][sf100]
+- (B) XS 101: [Basic / on-the-fly data analysis, viewing detector
   images][xs101]
-- PE 100: [Python Programming and Jupyter notebooks][pe100]
+- (B) PE 100: [Python Programming and Jupyter notebooks][pe100]
 
 
+## Additional Topics - Programming and Software Development
 
-
-## Programming Fundamentals
-
-- PE 101: [Using Python packages & libraries, Conda][pe101]
-- PE 102: [Numerical data analysis with Python][pe102]
-- PE 103: [Software version control][pe103-vcs],
-  [testing][pe103-testing], and [debugging][pe103-debugging]
+- (I) PE 101: [Using Python packages & libraries, Conda][pe101]
+- (I) PE 102: [Numerical data analysis with Python][pe102]
+- (E) PE 103: [Software version control using git][pe103-vcs],
+  deliberate [testing][pe103-testing], and [debugging][pe103-debugging] techniques
   
-## Systems Fundamentals
+## Additional Topics - Cyberinfrastructure (CI) Systems
 
-- SF 101: [Containers and virtualization][sf101] 
-- SF 200: [Parallel computing concepts][sf200]  
-- SF 201: [Batch systems and compute farms with CHESS example][sf201] 
+- (B) DC 100: [Parallel and distributed computing concepts][dc100]
+- (E) DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200]
+- (E) SF 201: [Batch Systems and Compute Farms][sf201]
+- (E) DC 101: [Scientific workflow management][dc101] 
+- (I) SF 101: [Containers and virtualization][sf101]
+- (I) DC 102: [Using science gateways with OpenOnDemand][dc102]
+- (B) SF 102: [Moving data with Globus][sf102]
 
-## Distributed Computing and the CI Ecosystem
 
-- DC 100: [Distributed computing concepts][dc100] 
-- DC 101: [Scientific workflow management][dc101] 
-- DC 102: [Using science gateways with Open OnDemand example][dc102] 
-- DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] 
-
-## X-Ray Science S&E Software
-
-- XS 102: [Large-scale data analysis: from images to science
-  parameters to interpretation][xs102] 
-- XS 200: [Metadata for data fidelity and systematic checks][xs200]  
 
 ## Data Curation and FAIR
 
-- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 
-- CF 101: [Best practices for developing DMP][cf101] 
-- CF 102: [Metadata annotation and DOI][cf102] 
-- CF 200: [Curating data, code, workflows, and publishing][cf200] 
-
-
-
+- (I) CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 
+- (I) CF 101: [Best practices for developing DMP][cf101] 
+- (I) CF 102: [Metadata annotation and DOI][cf102] 
+- (I) CF 200: [Curating data, code, and workflows; publishing][cf200]
+- (E) CF 201: [End-to-end research data workflow with FOXDEN example][cf201]
 <!-- References -->
 
 [CHESS]: https://www.chess.cornell.edu/
@@ -86,8 +75,7 @@ CHESS-specific - Data Collection, for instance.
 
 [sf100]: ./theme2/SF100/linux-commandline-scripting.md
 [sf101]: ./theme2/SF101/containers-and-virtualization.md
-
-[sf200]: ./theme2/SF200/parallel-computing.md
+[sf103]: ./theme2/SF102/moving-data-with-globus.md
 [sf201]: ./theme2/SF201/batch-systems-and-compute-farms.md
 
 [dc100]: ./theme3/DC100/distributed-computing.md
@@ -101,7 +89,6 @@ CHESS-specific - Data Collection, for instance.
 [xs200]: ./theme4/XS200/metadata.md
 
 [cf100]: ./theme5/CF100/domain-metadata-standards.md
-[cf101]: ./theme5/CF101/dmp-best-practices.md
 [cf102]: ./theme5/CF102/metadata-annotation-and-doi.md
 [cf200]: ./theme5/CF200/curating-data.md
-
+[cf201]: ./theme5/CF201/end-to-end-dataflow.md
