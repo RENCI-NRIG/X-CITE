@@ -21,15 +21,15 @@ This is the training overview:
 ## Theme 2: Systems Fundamentals
 
 - SF 100: [Intro to Linux, the command line, and programming in Python][sf100]
-- SF 101: [Containers and virtualization][sf101] 🚧
-- SF 200: [Parallel computing concepts][sf200] 🚧 
-- SF 201: [Batch systems and compute farms with CHESS example][sf201] 🚧
+- SF 101: [Containers and virtualization][sf101] 
+- SF 200: [Parallel computing concepts][sf200]  
+- SF 201: [Batch systems and compute farms with CHESS example][sf201] 
 
 ## Theme 3: Distributed Computing and the CI Ecosystem
 
 - DC 100: [Distributed computing concepts][dc100] 
 - DC 101: [Scientific workflow management][dc101] 
-- DC 102: [Using science gateways with Open OnDemand example][dc102] 🚧
+- DC 102: [Using science gateways with Open OnDemand example][dc102] 
 - DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] 
 
 ## Theme 4: X-Ray Science S&E Software
@@ -38,15 +38,15 @@ This is the training overview:
   CLI][xs100]
 - XS 101: [Basic / on-the-fly data analysis, viewing detector images][xs101]
 - XS 102: [Large-scale data analysis: from images to science
-  parameters to interpretation][xs102] 🚧
-- XS 200: [Metadata for data fidelity and systematic checks][xs200]  🚧
+  parameters to interpretation][xs102] 
+- XS 200: [Metadata for data fidelity and systematic checks][xs200]  
 
 ## Theme 5: Data Curation and FAIR
 
-- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 🚧
-- CF 101: [Best practices for developing DMP (Data Mgmt Plans)][cf101] 🚧
-- CF 102: [Metadata annotation and DOI][cf102] 🚧
-- CF 200: [Curating data, code, workflows, and publishing][cf200] 🚧
+- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 
+- CF 101: [Best practices for developing DMP (Data Mgmt Plans)][cf101] 
+- CF 102: [Metadata annotation and DOI][cf102] 
+- CF 200: [Curating data, code, workflows, and publishing][cf200] 
 
 
 [Meanwhile...][newsite]
