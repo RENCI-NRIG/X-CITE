@@ -60,6 +60,7 @@ CHESS-specific - Data Collection, for instance.
 - (I) CF 102: [Metadata annotation and DOI][cf102] 
 - (I) CF 200: [Curating data, code, and workflows; publishing][cf200]
 - (E) CF 201: [End-to-end research data workflow with FOXDEN example][cf201]
+
 <!-- References -->
 
 [CHESS]: https://www.chess.cornell.edu/
