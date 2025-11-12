@@ -130,7 +130,14 @@
     "href": "index.html#theme-5-data-curation-and-fair",
     "title": "X-CITE training materials",
     "section": "Theme 5: Data Curation and FAIR",
-    "text": "Theme 5: Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories\nCF 101: Best practices for developing DMP (Data Mgmt Plans)\nCF 102: Metadata annotation and DOI\nCF 200: Curating data, code, workflows, and publishing\n\nMeanwhile…"
+    "text": "Theme 5: Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories\nCF 101: Best practices for developing DMP (Data Mgmt Plans)\nCF 102: Metadata annotation and DOI\nCF 200: Curating data, code, workflows, and publishing"
+  },
+  {
+    "objectID": "index.html#training-videos",
+    "href": "index.html#training-videos",
+    "title": "X-CITE training materials",
+    "section": "Training Videos",
+    "text": "Training Videos\n\nUsing NoMachine and SSH: Remote access\nUsing Linux at CHESS\nIntroductory Python Programming\nUsing Globus at CHESS, pt1.\nUsing Globus at CHESS, pt.2\nCHESS Research Workflow\n\nMeanwhile…"
   },
   {
     "objectID": "theme5/CF102/metadata-annotation-and-doi.html",
@@ -781,7 +788,14 @@
     "href": "newsite/index.html#data-curation-and-fair",
     "title": "X-CITE training materials",
     "section": "Data Curation and FAIR",
-    "text": "Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories (I)\nCF 101: Best practices for developing DMP (I)\nCF 102: Metadata annotation and DOI (I)\nCF 200: Curating data, code, and workflows; publishing (I)\nCF 201: End-to-end research data workflow with FOXDEN example (E)a"
+    "text": "Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories (I)\nCF 101: Best practices for developing DMP (I)\nCF 102: Metadata annotation and DOI (I)\nCF 200: Curating data, code, and workflows; publishing (I)\nCF 201: End-to-end research data workflow with FOXDEN example (E)"
+  },
+  {
+    "objectID": "newsite/index.html#training-videos",
+    "href": "newsite/index.html#training-videos",
+    "title": "X-CITE training materials",
+    "section": "Training Videos",
+    "text": "Training Videos\n\n[Using NoMachine and SSH: Remote access][noMachine]\n[Using Linux at CHESS][linuxCmdLine]\n[Introductory Python Programming][pythonVid]\n[Using Globus at CHESS, pt1.][globus1]\n[Using Globus at CHESS, pt.2][globus2]\n[CHESS Research Workflow][chessWorkflow]"
   },
   {
     "objectID": "newsite/theme5/CF102/metadata-annotation-and-doi.html",
