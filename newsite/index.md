@@ -59,7 +59,17 @@ CHESS-specific - Data Collection, for instance.
 - CF 101: [Best practices for developing DMP][cf101] (I)
 - CF 102: [Metadata annotation and DOI][cf102] (I)
 - CF 200: [Curating data, code, and workflows; publishing][cf200] (I)
-- CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)a
+- CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)
+
+## Training Videos
+
+- [Using NoMachine and SSH: Remote access][noMachine]
+- [Using Linux at CHESS][linuxCmdLine]
+- [Introductory Python Programming][pythonVid]
+- [Using Globus at CHESS, pt1.][globus1]
+- [Using Globus at CHESS, pt.2][globus2]
+- [CHESS Research Workflow][chessWorkflow]
+
 <!-- References -->
 
 [CHESS]: https://www.chess.cornell.edu/

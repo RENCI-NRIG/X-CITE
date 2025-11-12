@@ -48,12 +48,27 @@ This is the training overview:
 - CF 102: [Metadata annotation and DOI][cf102] 
 - CF 200: [Curating data, code, workflows, and publishing][cf200] 
 
+## Training Videos
+
+- [Using NoMachine and SSH: Remote access][noMachine]
+- [Using Linux at CHESS][linuxCmdLine]
+- [Introductory Python Programming][pythonVid]
+- [Using Globus at CHESS, pt1.][globus1]
+- [Using Globus at CHESS, pt.2][globus2]
+- [CHESS Research Workflow][chessWorkflow]
 
 [Meanwhile...][newsite]
 
 <!-- References -->
 
 [CHESS]: https://www.chess.cornell.edu/
+
+[globus1]: https://www.youtube.com/watch?v=ijQjkkAR_s0
+[globus2]: https://www.youtube.com/watch?v=sv-o2-uKp5k
+[pythonVid]: https://www.youtube.com/watch?v=oCMctqU7VPM
+[linuxCmdLine]: https://www.youtube.com/watch?v=1zpd4X3vxHg
+[noMachine]: https://www.youtube.com/watch?v=2f-zIEy6VRI
+[chessWorkflow]: https://www.youtube.com/watch?v=PwiF6Sww30k
 
 [pe100]: ./theme1/PE100/index.qmd
 [pe101]: ./theme1/PE101/index.qmd
