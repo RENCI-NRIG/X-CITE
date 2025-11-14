@@ -69,7 +69,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 - [Curating data, code, and workflows; publishing][cf200] (I)
 - [End-to-end research data workflow with FOXDEN example][cf201] (E)
 
-
 <!-- References -->
 
 [CHESS]: https://www.chess.cornell.edu/
