@@ -28,12 +28,13 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 
 ## Essential Elements
 
-- [Data collection, preparing input parameters, SPEC and
+- XS 100: [Data collection, preparing input parameters, SPEC and
   CLI][xs100] (B)
-- [Intro to Linux, the command line, and programming in Python][sf100] (B)
-- [Basic / on-the-fly data analysis, viewing detector
+- SF 100: [Intro to Linux, the command line, and programming in Python][sf100] (B)
+- XS 101: [Basic / on-the-fly data analysis, viewing detector
   images][xs101] (B)
-- [Python Programming and Jupyter notebooks][pe100] (B)
+- PE 100: [Python Programming and Jupyter notebooks][pe100] (B)
+- [Video: CHESS Research Workflow][chessWorkflow] (B)
 - [Video: Using NoMachine and SSH: Remote access][noMachine]
 - [Video: Using Linux at CHESS][linuxCmdLine]
 - [Video: Introductory Python Programming][pythonVid]
@@ -41,21 +42,20 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 
 ## Additional Topics - Programming and Software Development
 
-- [Using Python packages & libraries, Conda][pe101] (I)
-- [Numerical data analysis with Python][pe102] (I)
-- [Software version control using git][pe103-vcs],
+- PE 101: [Using Python packages & libraries, Conda][pe101] (I)
+- PE 102: [Numerical data analysis with Python][pe102] (I)
+- PE 103: [Software version control using git][pe103-vcs],
   deliberate [testing][pe103-testing], and [debugging][pe103-debugging] techniques (E)
-- [CHESS Research Workflow][chessWorkflow]
   
 ## Additional Topics - Cyberinfrastructure (CI) Systems
 
-- [Parallel and distributed computing concepts][dc100] (B)
-- [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] (E)
-- [Batch Systems and Compute Farms][sf201] (E)
-- [Scientific workflow management][dc101] (E)
-- [Containers and virtualization][sf101] (I)
-- [Using science gateways with OpenOnDemand][dc102] (I)
-- [Moving data with Globus][sf102] (B)
+- DC 100: [Parallel and distributed computing concepts][dc100] (B)
+- DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] (E)
+- SF 201: [Batch Systems and Compute Farms][sf201] (E)
+- DC 101: [Scientific workflow management][dc101] (E)
+- SF 101: [Containers and virtualization][sf101] (I)
+- DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
+- SF 102: [Moving data with Globus][sf102] (B)
 - [Video: Using Globus at CHESS, pt1.][globus1]
 - [Video: Using Globus at CHESS, pt.2][globus2]
 
@@ -63,11 +63,11 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 
 ## Data Curation and FAIR
 
-- [Intro to domain metadata standards, formats and repositories][cf100] (I)
-- [Best practices for developing DMP][cf101] (I)
-- [Metadata annotation and DOI][cf102] (I)
-- [Curating data, code, and workflows; publishing][cf200] (I)
-- [End-to-end research data workflow with FOXDEN example][cf201] (E)
+- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] (I)
+- CF 101: [Best practices for developing DMP][cf101] (I)
+- CF 102: [Metadata annotation and DOI][cf102] (I)
+- CF 200: [Curating data, code, and workflows; publishing][cf200] (I)
+- CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)
 
 <!-- References -->
 
