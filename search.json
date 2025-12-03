@@ -781,7 +781,7 @@
     "href": "newsite/index.html#additional-topics---cyberinfrastructure-ci-systems",
     "title": "X-CITE training materials",
     "section": "Additional Topics - Cyberinfrastructure (CI) Systems",
-    "text": "Additional Topics - Cyberinfrastructure (CI) Systems\n\nDC 100: Parallel and distributed computing concepts (B)\nDC 200: Computing with CI ecosystem - ACCESS, PATh, Campus (E)\nSF 201: Batch Systems and Compute Farms (E)\nDC 101: Scientific workflow management (E)\nSF 101: Containers and virtualization (I)\nDC 102: Using science gateways with OpenOnDemand (I)\nSF 102: Moving data with Globus (B)\nVideo: Using Globus at CHESS, pt1.\nVideo: Using Globus at CHESS, pt.2"
+    "text": "Additional Topics - Cyberinfrastructure (CI) Systems\n\nDC 100: Parallel and distributed computing concepts (B)\nDC 200: Computing with CI ecosystem - ACCESS, PATh, Campus (E)\nSF 201: Batch Systems and Compute Farms (E)\nDC 101: Scientific workflow management (E)\nSF 101: Containers and virtualization (I)\nDC 102: Using science gateways with OpenOnDemand (I)\nSF 102: Moving data with Globus (B)\nAI 100: Introduction to Artificial Intelligence for Beamline Science\nVideo: Using Globus at CHESS, pt1.\nVideo: Using Globus at CHESS, pt.2"
   },
   {
     "objectID": "newsite/index.html#data-curation-and-fair",
@@ -1316,11 +1316,39 @@
     "text": "CHESS Workflow Runner\nTo be added. Coming soon in FALL 2025."
   },
   {
-    "objectID": "newsite/about.html",
-    "href": "newsite/about.html",
-    "title": "About X-CITE",
+    "objectID": "newsite/theme6/AIintroduction.html",
+    "href": "newsite/theme6/AIintroduction.html",
+    "title": "X-CITE",
     "section": "",
-    "text": "This site hosts material meant for CyberInfrastructure Training and Education for Synchrotron X-Ray Science (X-CITE). X-CITE is developed for the community of scientists and researchers using the CHESS synchrotron X-ray facility and similar light sources.\n\nAbout this site\nThe sources of this site are available at https://github.com/RENCI-NRIG/X-CITE.\nThe content in this website is available under Creative Commons Attribution-ShareAlike 4.0 International license. Code snippets may be used under CC0 1.0 Universal license.\nCopyrights for logos are owned by the respective organizations.\nThis site is generated using Quarto."
+    "text": "When we decided to include a quick introduction to Artificial Intelligence for users at CHESS, we thought “Who would be more qualified to write this section than an actual AI?” Whether that’s true or not, we posed the following question to Google’s “Gemini”.\nSpecifically, we asked “Can you give me an introduction to AI for x-ray beamline science?” The response was, as of 3-Dec-2025:\nYes, I can provide an introduction to Artificial Intelligence (AI) for X-ray beamline science. This emerging field is revolutionizing how complex X-ray experiments are planned, executed, and analyzed at synchrotron light sources."
+  },
+  {
+    "objectID": "newsite/theme6/AIintroduction.html#introduction-to-ai-in-x-ray-beamline-science",
+    "href": "newsite/theme6/AIintroduction.html#introduction-to-ai-in-x-ray-beamline-science",
+    "title": "X-CITE",
+    "section": "💡 Introduction to AI in X-ray Beamline Science",
+    "text": "💡 Introduction to AI in X-ray Beamline Science\nArtificial Intelligence, particularly Machine Learning (ML) and Deep Learning (DL), is transforming X-ray beamline science by enabling autonomous experimentation, real-time data analysis, and accelerated discovery.\nSynchrotron light sources, which produce extremely brilliant and tunable X-ray beams for advanced techniques (like X-ray diffraction, scattering, spectroscopy, and imaging), generate massive and complex datasets. The operation of these facilities and the experiments themselves are highly intricate, often relying on the expertise and intuition of scientists and beamline staff. AI is being integrated to address these challenges, dramatically increasing efficiency and unlocking new frontiers in materials, chemistry, and life sciences research."
+  },
+  {
+    "objectID": "newsite/theme6/AIintroduction.html#core-applications-of-ai",
+    "href": "newsite/theme6/AIintroduction.html#core-applications-of-ai",
+    "title": "X-CITE",
+    "section": "🔬 Core Applications of AI",
+    "text": "🔬 Core Applications of AI\nAI is integrated across the entire experimental lifecycle at X-ray beamlines, from the accelerator controls to final data interpretation.\n\n1. Autonomous and Adaptive Experimentation\nThis is one of the most transformative applications, moving toward “self-driving” beamlines where AI systems orchestrate the entire workflow.\n\nReal-Time Optimization: Machine learning algorithms, such as Reinforcement Learning (RL), can analyze incoming data in real-time and make intelligent decisions to adjust experimental parameters (e.g., sample position, exposure time, or beam energy). This creates a closed-loop feedback system, allowing the experiment to adapt on the fly to maximize data quality and discover new phenomena efficiently.\nBeam Stabilization: ML models can predict and correct tiny, noisy fluctuations in the electron beam’s properties before they occur, ensuring a more consistent and stable X-ray beam for experiments.\n\n\n\n2. Accelerated Data Processing and Analysis\nThe high-speed detectors at modern beamlines generate terabytes of data quickly, overwhelming traditional human-driven analysis.\n\nFast Reconstruction: For imaging techniques like ptychography, AI-powered neural networks can reconstruct high-resolution images from scattered X-ray data hundreds of times faster than traditional iterative methods, often in real-time.\nAutomated Interpretation: Deep learning models, especially Convolutional Neural Networks (CNNs), are trained to automatically extract physical and chemical properties from complex data, such as:\n\nPhase Identification from X-ray Diffraction (XRD) patterns.\nImage Segmentation to identify and classify specific structures (e.g., identifying neural circuits in brain tissue from tomography scans).\nSpectra Interpretation to determine atomic bond lengths, coordination numbers, and chemical states from X-ray Spectroscopy data.\n\n\n\n\n3. Experiment Planning and Proposal Generation\nAI can assist researchers even before they arrive at the facility.\n\nVirtual Experiments (“Digital Twins”): AI can simulate the experimental setup and predict potential outcomes, allowing researchers to explore a wide range of scenarios and optimize parameters before using valuable beamtime.\nProposal Enhancement: AI assistants can leverage data from previous experiments and technical documentation to suggest the most suitable beamline or optimal experimental parameters, streamlining the proposal process."
+  },
+  {
+    "objectID": "newsite/theme6/AIintroduction.html#key-ai-techniques-used",
+    "href": "newsite/theme6/AIintroduction.html#key-ai-techniques-used",
+    "title": "X-CITE",
+    "section": "🛠️ Key AI Techniques Used",
+    "text": "🛠️ Key AI Techniques Used\nThe field primarily leverages two major subsets of AI:\n\n\n\n\n\n\n\n\nTechnique\nDescription\nBeamline Application Example\n\n\n\n\nMachine Learning (ML)\nAlgorithms that learn patterns from data to make predictions or decisions without being explicitly programmed for the task.\nGaussian Process Regression used to autonomously guide X-ray scattering measurements to discover new material nanostructures.\n\n\nDeep Learning (DL)\nA subset of ML using Artificial Neural Networks with multiple hidden layers (deep architecture) to model complex non-linear relationships.\nConvolutional Neural Networks (CNNs) for ultra-fast X-ray image reconstruction and segmenting features in tomographic data.\n\n\nReinforcement Learning (RL)\nAlgorithms that learn to make optimal sequential decisions by interacting with an environment, aiming to maximize a reward.\nTraining an “agent” to automatically align the X-ray beamline optics or steer an experiment to a target material property."
+  },
+  {
+    "objectID": "newsite/theme6/AIintroduction.html#future-outlook-agentic-ai",
+    "href": "newsite/theme6/AIintroduction.html#future-outlook-agentic-ai",
+    "title": "X-CITE",
+    "section": "🚀 Future Outlook: Agentic AI",
+    "text": "🚀 Future Outlook: Agentic AI\nThe next major step is the development of Agentic AI. This emerging paradigm involves specialized AI agents working together around a central engine to automate entire research workflows. Users define a high-level scientific objective, and the Agentic AI system then autonomously:\n\nDecomposes the goal into practical experimental plans.\nDeploys the necessary beamline resources.\nConducts the experiments.\nAnalyzes the data.\nDelivers actionable scientific conclusions.\n\nThis approach promises to further bridge the gap between isolated AI tools and create a fully intelligent, autonomous experimental ecosystem, dramatically shortening the research and materials characterization cycle.\nWould you like me to elaborate on a specific application of AI, such as its use in X-ray imaging reconstruction or autonomous control?"
   },
   {
     "objectID": "newsite/404.html",
@@ -1328,6 +1356,13 @@
     "title": "Page Not Found",
     "section": "",
     "text": "The page you requested cannot be found. Perhaps it was moved or renamed.\nYou may want to try searching to find the page’s new location."
+  },
+  {
+    "objectID": "newsite/about.html",
+    "href": "newsite/about.html",
+    "title": "About X-CITE",
+    "section": "",
+    "text": "This site hosts material meant for CyberInfrastructure Training and Education for Synchrotron X-Ray Science (X-CITE). X-CITE is developed for the community of scientists and researchers using the CHESS synchrotron X-ray facility and similar light sources.\n\nAbout this site\nThe sources of this site are available at https://github.com/RENCI-NRIG/X-CITE.\nThe content in this website is available under Creative Commons Attribution-ShareAlike 4.0 International license. Code snippets may be used under CC0 1.0 Universal license.\nCopyrights for logos are owned by the respective organizations.\nThis site is generated using Quarto."
   },
   {
     "objectID": "newsite/theme3/DC200/computing-with-ci-ecosystem.html",
