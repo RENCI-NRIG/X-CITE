@@ -1,11 +1,24 @@
 # FAIR Data - Better Science Through Data Sharing
 
+[![XKCD 1805: Unpublished Discoveries, © Randall Munroe, Creative
+Commons Attibution-NonCommercial
+license](unpublished_discoveries.png)][xkcd-discoveries]
+
+[xkcd-discoveries]: https://xkcd.com/1805/
+[by-nc]: https://creativecommons.org/licenses/by-nc/2.5/
+
+
+
 Wouldn't it be great if you could quickly find data generated from
 other people's experiments, combine it with your own data, and produce
 new, high-value output? Wouldn't it be even better if other people
 could discover your data, utilize it, and cite your data in their
-papers? That is precisely the goal of FAIR Data - making results
-Findable, Accessible, Interoperable, and Reusable.
+papers?  That is precisely the goal of FAIR Data - making results
+**F**indable, **A**ccessible, **I**nteroperable, and **R**eusable.
+Originally introduced in the article titled _[The FAIR Guiding
+Principles for scientific data management and
+stewardship][fair-paper]_ in 2016, these principles have become a
+fundamental framework for scientific data management and stewardship.
 
 In this section of the X-CITE training materials, we'll look at the
 motivations behind FAIR, take a more detailed look at each of the four
@@ -107,7 +120,7 @@ Moving on to "Accessible", let's take a look at what goes into that:
 * A2. metadata are accessible, even when the data are no longer available
 
 There are two basic aims here. The first is to use a well-known,
-fully-documented, unencumbered protocol that (optionally) allow for
+fully-documented, unencumbered protocol that (optionally) allows for
 authentication and authorization tasks ("logging in") to be
 completed. The last aim is unexpected at first blush but makes sense
 when you think about it: metadata live forever, even after the data

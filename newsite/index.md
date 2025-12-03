@@ -67,7 +67,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 - CF 100: [Intro to domain metadata standards, formats and repositories][cf100] (I)
 - CF 101: [Best practices for developing DMP][cf101] (I)
 - CF 102: [Metadata annotation and DOI][cf102] (I)
-- CF 200: [Curating data, code, and workflows; publishing][cf200] (I)
 - CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)
 
 <!-- References -->
