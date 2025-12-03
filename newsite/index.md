@@ -56,6 +56,7 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 - SF 101: [Containers and virtualization][sf101] (I)
 - DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
 - SF 102: [Moving data with Globus][sf102] (B)
+- AI 100: [Introduction to Artificial Intelligence for Beamline Science][AIintro]
 - [Video: Using Globus at CHESS, pt1.][globus1]
 - [Video: Using Globus at CHESS, pt.2][globus2]
 
@@ -109,3 +110,5 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 [cf102]: ./theme5/CF102/metadata-annotation-and-doi.md
 [cf200]: ./theme5/CF200/curating-data.md
 [cf201]: ./theme5/CF201/end-to-end-dataflow.md
+
+[AIintro]: ./theme6/AIintroduction.md
