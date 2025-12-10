@@ -31,6 +31,10 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 - XS 100: [Data collection, preparing input parameters, SPEC and
   CLI][xs100] (B)
 - SF 100: [Intro to Linux, the command line, and programming in Python][sf100] [(Click here for the Full Size video on YouTube)][linuxCmdLine]:
+    - Presentation from 2025 Workshop:
+```{=html}
+<iframe width="480" height="270" src="https://www.youtube.com/embed/1zpd4X3vxHg" title="Using Linux at CHESS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
 - XS 101: [Basic / on-the-fly data analysis, viewing detector
   images][xs101] (B)
 - PE 100: [Python Programming and Jupyter notebooks][pe100] (B)
@@ -38,11 +42,16 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 ```{=html}
 <iframe width="480" height="270" src="https://www.youtube.com/embed/oCMctqU7VPM?list=PLHMSQRxR3psMt0QWHq8YxVSJk1MwsYsaS" title="Python Programming at CHESS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ```
-- [(Video: CHESS Research Workflow)][chessWorkflow]:
+- An End-to-End Dataflow Example
+     - [(Video: CHESS Research Workflow)][chessWorkflow]:
 ```{=html}
-
 <iframe width="480" height="270" src="https://www.youtube.com/embed/PwiF6Sww30k" title="CHESS Research Workflow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-- [Video: Using NoMachine and SSH: Remote access][noMachine]
+```
+- [Video: Remote Access to CHESS Computing: Using NoMachine and SSH
+    - Presentation from 2025 Workshop:
+```{=html}
+<iframe width="480" height="270" src="https://www.youtube.com/embed/2f-zIEy6VRI" title="CHESS Research Workflow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
 
 
 ## Additional Topics - Programming and Software Development
