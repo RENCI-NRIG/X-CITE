@@ -121,6 +121,60 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function getSiteRoot() {
+    var scripts = document.querySelectorAll('script[src*="site_libs"]');
+    if (scripts.length > 0) {
+      var src = scripts[0].getAttribute('src');
+      return src.substring(0, src.indexOf('site_libs'));
+    }
+    return '';
+  }
+
+  var root = getSiteRoot();
+  var logos = [
+    { src: 'images/logo-unc.png',   alt: 'UNC',   href: 'https://unc.edu' },
+    { src: 'images/logo-usc.png',   alt: 'USC',   href: 'https://usc.edu' },
+    { src: 'images/logo-chess.png', alt: 'CHESS', href: 'https://www.chess.cornell.edu' },
+    { src: 'images/logo-nsf.png',   alt: 'NSF',   href: 'https://www.nsf.gov' }
+  ];
+
+  var navContainer = document.querySelector('.navbar-container');
+  if (!navContainer) return;
+
+  // Make navbar container the positioning parent
+  navContainer.style.position = 'relative';
+
+  var logoGroup = document.createElement('div');
+  logoGroup.style.cssText = [
+    'position:absolute',
+    'left:50%',
+    'top:50%',
+    'transform:translate(-50%, -50%)',
+    'display:flex',
+    'align-items:center',
+    'gap:24px',
+    'pointer-events:none'   // let clicks fall through to links below
+  ].join(';');
+
+  logos.forEach(function (logo) {
+    var a = document.createElement('a');
+    a.href = logo.href;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.style.cssText = 'display:flex; align-items:center; pointer-events:auto;';
+    var img = document.createElement('img');
+    img.src = root + logo.src;
+    img.alt = logo.alt;
+    img.style.cssText = 'height:48px; width:auto;';
+    a.appendChild(img);
+    logoGroup.appendChild(a);
+  });
+
+  navContainer.appendChild(logoGroup);
+});
+</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -1222,6 +1276,7 @@ small classes and training events, benchmarking, code development and porting, a
       &nbsp;
     </div>   
     <div class="nav-footer-center">
+<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
