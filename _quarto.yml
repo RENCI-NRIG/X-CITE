@@ -1,5 +1,10 @@
 project:
   type: website
+  resources:
+    - images/logo-unc.png
+    - images/logo-usc.png
+    - images/logo-chess.png
+    - images/logo-nsf.png
 
 website:
   title: "X-CITE"
