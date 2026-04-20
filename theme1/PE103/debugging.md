@@ -255,4 +255,3 @@ JupyterLab also has a built-in debugger:
 
 ![](./jupyter-debug.png)
 
-How to use these are left as an exercise to the reader. ;-)
