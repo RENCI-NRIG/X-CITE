@@ -207,27 +207,16 @@ gtag('js', new Date());
 gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 </script>  <script>
 document.addEventListener('DOMContentLoaded', function () {
-  function getSiteRoot() {
-    var scripts = document.querySelectorAll('script[src*="site_libs"]');
-    if (scripts.length > 0) {
-      var src = scripts[0].getAttribute('src');
-      return src.substring(0, src.indexOf('site_libs'));
-    }
-    return '';
-  }
-
-  var root = getSiteRoot();
   var logos = [
-    { src: 'images/logo-unc.png',   alt: 'UNC',   href: 'https://unc.edu' },
-    { src: 'images/logo-usc.png',   alt: 'USC',   href: 'https://usc.edu' },
-    { src: 'images/logo-chess.png', alt: 'CHESS', href: 'https://www.chess.cornell.edu' },
-    { src: 'images/logo-nsf.png',   alt: 'NSF',   href: 'https://www.nsf.gov' }
+    { src: '/images/logo-unc.png',   alt: 'UNC',   href: 'https://unc.edu' },
+    { src: '/images/logo-usc.png',   alt: 'USC',   href: 'https://usc.edu' },
+    { src: '/images/logo-chess.png', alt: 'CHESS', href: 'https://www.chess.cornell.edu' },
+    { src: '/images/logo-nsf.png',   alt: 'NSF',   href: 'https://www.nsf.gov' }
   ];
 
   var navContainer = document.querySelector('.navbar-container');
   if (!navContainer) return;
 
-  // Make navbar container the positioning parent
   navContainer.style.position = 'relative';
 
   var logoGroup = document.createElement('div');
@@ -239,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'display:flex',
     'align-items:center',
     'gap:24px',
-    'pointer-events:none'   // let clicks fall through to links below
+    'pointer-events:none'
   ].join(';');
 
   logos.forEach(function (logo) {
@@ -249,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
     a.rel = 'noopener noreferrer';
     a.style.cssText = 'display:flex; align-items:center; pointer-events:auto;';
     var img = document.createElement('img');
-    img.src = root + logo.src;
+    img.src = logo.src;
     img.alt = logo.alt;
     img.style.cssText = 'height:48px; width:auto;';
     a.appendChild(img);
