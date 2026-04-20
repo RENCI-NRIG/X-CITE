@@ -120,7 +120,7 @@ Here's how you would cite the above-mentioned article:
 <!-- TODO: APA, MLA, Chicago styles -->
 
 
-### How do I get myself a DOI?
+### How do I get a DOI?
 
 <!-- TODO: expand this -->
 <!-- TODO: how does this work at CHESS? -->

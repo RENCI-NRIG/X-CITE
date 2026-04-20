@@ -244,7 +244,7 @@ the explosive growth of the Internet in the "Dot Com" era
 once these users started using the Internet for things that were
 _worth actual money_, security started moving front and center. By
 this point, sending anything over the internet without encrypting it
-became a VBA (Very Bad Idea). Thus was born the *S*ecure *SH*ell
+became a VBI (Very Bad Idea). Thus was born the *S*ecure *SH*ell
 (SSH).
 
 The simple explanation of SSH is "it's just telnet, except all the

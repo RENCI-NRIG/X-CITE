@@ -8,56 +8,66 @@ X-Ray Science) develops training materials for the community of
 scientists and researchers using the [CHESS] synchrotron X-ray
 facility and similar light sources.
 
-This is the training overview:
+Our training modules will get you up to speed in working with the
+CyberInfrastructure ("CI") at CHESS - the High Performance Computing
+(HPC)
+and Networking resources. Understanding the CI and how to use it is
+practically essential for making the most of your beamline time and
+the analysis that follows after the fact.
 
-## Theme 1: Programming Fundamentals
 
-- PE 100: [Python Programming and Jupyter notebooks][pe100]
-- PE 101: [Using Python packages & libraries, Conda][pe101]
-- PE 102: [Numerical data analysis with Python][pe102]
-- PE 103: [Software version control][pe103-vcs],
-  [testing][pe103-testing], and [debugging][pe103-debugging] 
+Below you'll find links to the training modules we have
+developed. These are grouped by general topic into themes; the first
+is named "Essential Elements" and is absolutely critical. Make certain
+you understand the material in that section before you move on to the
+others, but once you cross this hurdle you can move through the other
+collections in any order. Some of the Essentials topics may be old hat
+to you (Python programming, for instance) while others are 
+CHESS-specific - Data Collection, for instance. For convenience, the
+modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 
-## Theme 2: Systems Fundamentals
-
-- SF 100: [Intro to Linux, the command line, and programming in Python][sf100]
-- SF 101: [Containers and virtualization][sf101] 
-- SF 200: [Parallel computing concepts][sf200]  
-- SF 201: [Batch systems and compute farms with CHESS example][sf201] 
-
-## Theme 3: Distributed Computing and the CI Ecosystem
-
-- DC 100: [Distributed computing concepts][dc100] 
-- DC 101: [Scientific workflow management][dc101] 
-- DC 102: [Using science gateways with Open OnDemand example][dc102] 
-- DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] 
-
-## Theme 4: X-Ray Science S&E Software
+## Essential Elements
 
 - XS 100: [Data collection, preparing input parameters, SPEC and
-  CLI][xs100]
-- XS 101: [Basic / on-the-fly data analysis, viewing detector images][xs101]
-- XS 102: [Large-scale data analysis: from images to science
-  parameters to interpretation][xs102] 
-- XS 200: [Metadata for data fidelity and systematic checks][xs200]  
+  CLI][xs100] (B)
+- SF 100: [Intro to Linux, the command line, and programming in Python][sf100] (B)
+- XS 101: [Basic / on-the-fly data analysis, viewing detector
+  images][xs101] (B)
+- PE 100: [Python Programming and Jupyter notebooks][pe100] (B)
+- [Video: CHESS Research Workflow][chessWorkflow] (B)
+- [Video: Using NoMachine and SSH: Remote access][noMachine]
+- [Video: Using Linux at CHESS][linuxCmdLine]
+- [Video: Introductory Python Programming][pythonVid]
 
-## Theme 5: Data Curation and FAIR
 
-- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] 
-- CF 101: [Best practices for developing DMP (Data Mgmt Plans)][cf101] 
-- CF 102: [Metadata annotation and DOI][cf102] 
-- CF 200: [Curating data, code, workflows, and publishing][cf200] 
+## Additional Topics - Programming and Software Development
 
-## Training Videos
+- PE 101: [Using Python packages & libraries, Conda][pe101] (I)
+- PE 102: [Numerical data analysis with Python][pe102] (I)
+- PE 103: [Software version control using git][pe103-vcs],
+  deliberate [testing][pe103-testing], and [debugging][pe103-debugging] techniques (E)
+  
+## Additional Topics - Cyberinfrastructure (CI) Systems
 
-- [Using NoMachine and SSH: Remote access][noMachine]
-- [Using Linux at CHESS][linuxCmdLine]
-- [Introductory Python Programming][pythonVid]
-- [Using Globus at CHESS, pt1.][globus1]
-- [Using Globus at CHESS, pt.2][globus2]
-- [CHESS Research Workflow][chessWorkflow]
+- DC 100: [Parallel and distributed computing concepts][dc100] (B)
+- DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] (E)
+- SF 201: [Batch Systems and Compute Farms][sf201] (E)
+- DC 101: [Scientific workflow management][dc101] (E)
+- SF 101: [Containers and virtualization][sf101] (I)
+- DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
+- SF 102: [Moving data with Globus][sf102] (B)
+- AI 100: [Introduction to Artificial Intelligence for Beamline Science][AIintro]
+- [Video: Using Globus at CHESS, pt1.][globus1]
+- [Video: Using Globus at CHESS, pt.2][globus2]
 
-[Meanwhile...][newsite]
+
+
+## Data Curation and FAIR
+
+- CF 100: [Intro to domain metadata standards, formats and repositories][cf100] (I)
+- CF 101: [Best practices for developing DMP][cf101] (I)
+- CF 102: [Metadata annotation and DOI][cf102] (I)
+- CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)
 
 <!-- References -->
 
@@ -65,10 +75,10 @@ This is the training overview:
 
 [globus1]: https://www.youtube.com/watch?v=ijQjkkAR_s0
 [globus2]: https://www.youtube.com/watch?v=sv-o2-uKp5k
+[chessWorkflow]: https://www.youtube.com/watch?v=PwiF6Sww30k
 [pythonVid]: https://www.youtube.com/watch?v=oCMctqU7VPM
 [linuxCmdLine]: https://www.youtube.com/watch?v=1zpd4X3vxHg
 [noMachine]: https://www.youtube.com/watch?v=2f-zIEy6VRI
-[chessWorkflow]: https://www.youtube.com/watch?v=PwiF6Sww30k
 
 [pe100]: ./theme1/PE100/index.qmd
 [pe101]: ./theme1/PE101/index.qmd
@@ -81,8 +91,7 @@ This is the training overview:
 
 [sf100]: ./theme2/SF100/linux-commandline-scripting.md
 [sf101]: ./theme2/SF101/containers-and-virtualization.md
-
-[sf200]: ./theme2/SF200/parallel-computing.md
+[sf102]: ./theme2/SF102/moving-data-with-globus.md
 [sf201]: ./theme2/SF201/batch-systems-and-compute-farms.md
 
 [dc100]: ./theme3/DC100/distributed-computing.md
@@ -99,6 +108,6 @@ This is the training overview:
 [cf101]: ./theme5/CF101/dmp-best-practices.md
 [cf102]: ./theme5/CF102/metadata-annotation-and-doi.md
 [cf200]: ./theme5/CF200/curating-data.md
+[cf201]: ./theme5/CF201/end-to-end-dataflow.md
 
-[newsite]: ./newsite/index.md
-
+[AIintro]: ./theme6/AIintroduction.md
