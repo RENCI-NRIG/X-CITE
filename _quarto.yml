@@ -18,6 +18,8 @@ website:
   page-footer:
     border: true
     center: |-
+      [![](images/logo-nsf.png){height=48px}](https://www.nsf.gov)
+
       X-CITE is supported by the NSF under award numbers
       [OAC-2320373](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373),
       [OAC-2320374](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374),
@@ -41,6 +43,7 @@ format:
   html:
     css: styles.css
     toc: true
+    include-in-header: navbar-logos.html
 
 theme:
   light: simplex
