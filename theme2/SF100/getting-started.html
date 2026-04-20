@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Getting Started - Accessing the Linux Cluster with NoMachine and SSH – X-CITE</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,19 +37,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../..//images/logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-f2999a20960c1ffa97f08f3b107b93be.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-4ccb9e5f93a250c101ea00b186f987a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-ffe1dacb0355b941c79d173f77db1227.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-24746b9138c69efcbf1d257c60c6ca3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-ffe1dacb0355b941c79d173f77db1227.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -334,7 +336,7 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">December 3, 2025</p>
+      <p class="date-modified">April 20, 2026</p>
     </div>
   </div>
     
@@ -394,7 +396,7 @@ gtag('config', 'G-LSVR8LKB1J', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="remote-terminal-access-with-ssh">Remote Terminal Access with SSH</h3>
 <p>To have a good understanding of SSH, you need to know just a little bit about the history of Unix (and Linux is just a modern version of Unix). In the Old Days (1974-ish) Unix ran on a machine the size of home refrigerator and the server didn’t even have a keyboard. To interact with it, teletypes were plugged into serial ports on the back on the computers. Users performed all of their interaction with the machine by pressing a key on the teletype (sending a character) and waiting for the computer to send back characters to be printed. By the late 1970s, teletypes were getting rare quickly because they had been replaced by “terminals” (a keyboard, a picture tube, and enough electronics to draw the characters on the screen). The connection to the computer was still a serial cable. To this day, you can plug a USB-to-Serial converter into a Linux machine, plug in a teletype or a terminal, set up a configuration file, and use the computer like it’s 1979. It’s fun a time or two, but the novelty wears off.</p>
 <p>Serial cables had a length limitation and a speed one. Half a mile was easy (9600 bits per second, even!) but a mile was getting unreliable at any speed much over 1200 bits per second. Beyond a mile, longer distances required all sorts of interesting hardware and lots of special cables. Covering a whole campus required a network of some sort, and what the research and academic world standardized on was “Internet Protocol” (IP). One of the first programs ever written for IP was a program called “telnet”. This program used the network to set up a stream of characters to and from a remote machine to the local one. It was like having a serial cable, except it was literally a thousand times faster and could reach around the world. To this day, telnet is still the “official” way to use Internet Relay Chat (IRC). Plus, it makes you look cool.</p>
-<p>Telnet was great in the early days of networking. But we were so naive back then. Anyone who could get access to the network could eavesdrop on whatever communications was going over these telnet connections. Most of the traffic was utterly boring - email, Unix commands, that sort of thing. But there was one thing worth snooping on, and it was the first two things a user typed when they set up a connection: their username and their password. In the late 1980s and early 1990s, this was mostly a theoretical concern. The problem was the explosive growth of the Internet in the “Dot Com” era (1995-2000). Once there were a critical mass of Internet users, and once these users started using the Internet for things that were <em>worth actual money</em>, security started moving front and center. By this point, sending anything over the internet without encrypting it became a VBA (Very Bad Idea). Thus was born the <em>S</em>ecure <em>SH</em>ell (SSH).</p>
+<p>Telnet was great in the early days of networking. But we were so naive back then. Anyone who could get access to the network could eavesdrop on whatever communications was going over these telnet connections. Most of the traffic was utterly boring - email, Unix commands, that sort of thing. But there was one thing worth snooping on, and it was the first two things a user typed when they set up a connection: their username and their password. In the late 1980s and early 1990s, this was mostly a theoretical concern. The problem was the explosive growth of the Internet in the “Dot Com” era (1995-2000). Once there were a critical mass of Internet users, and once these users started using the Internet for things that were <em>worth actual money</em>, security started moving front and center. By this point, sending anything over the internet without encrypting it became a VBI (Very Bad Idea). Thus was born the <em>S</em>ecure <em>SH</em>ell (SSH).</p>
 <p>The simple explanation of SSH is “it’s just telnet, except all the communication is encrypted”. This statement is true, in the sense that SSH replicates every telnet function, but SSH also does some other tricks. For our purposes, we’re going to keep it simple and just use it like a “better telnet”.</p>
 <p>To use SSH on your computer, you need to bring up a “Terminal Window” (Mac) or “Command Window” (Windows). On a Mac, use Finder to browse the Applications folder. In there, open the Utilities folder, then double click on Terminal. (After a while, you might decide to just use Spotlight to search for Terminal.app, but it’s up to you). On a PC, the easiest thing to do is press and release the “Windows” key, then type “cmd” and press enter. That will bring up a command window.</p>
 <p>Either way, you’re now looking at a terminal window of some sort. Characters are entered and sent to programs, and programs send characters back out and the terminal window draws them on the screen. Just like a teletype, except no paper and no oily smell. Windows users will probably see something similar to <code>C:\&gt;</code>. Mac users will see something more akin to <code>escott@RENCI_LP91DX62MX ~ %</code>. Both of these are “prompts”, meaning “you can type a command here”. In both cases the command to type is <code>ssh lnx201.classe.cornell.edu</code>. The lower case letters in “ssh” are important. Linux commands <em>almost</em> never contain uppercase letters. Go ahead, enter that ssh command, and press Enter. If this is the very first time you’ve ssh’ed into lnx201 from the machine you’re at, you’ll get some warnings just to remind you to be wary:</p>
