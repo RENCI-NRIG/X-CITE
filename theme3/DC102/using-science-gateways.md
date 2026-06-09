@@ -295,9 +295,125 @@ as the broader Pegasus community:
 - **ACCESS Support Portal** — [support.access-ci.org](https://support.access-ci.org)
 
 
+## Galaxy
+
+[Galaxy](https://galaxyproject.org) is an open-source, web-based science gateway 
+originally developed for bioinformatics, but now widely used across many scientific 
+domains including X-ray science, genomics, climate modeling, and more. It allows 
+researchers to build, execute, and share complex data analysis workflows entirely 
+through a browser — no programming or command-line experience required.
+
+Galaxy is governed by a large, international open-source community and is deployed 
+at hundreds of institutions worldwide. Researchers can use the publicly hosted 
+[usegalaxy.org](https://usegalaxy.org) server, or work with a locally deployed 
+instance configured for their facility's specific tools and data.
+
+### Key Features of Galaxy
+
+**Tool Integration**
+
+Galaxy provides access to a large library of analysis tools — ranging from 
+standard data processing utilities to domain-specific scientific applications. 
+Tools are installed and managed by the Galaxy administrator, so users do not 
+need to worry about software installation or version compatibility.
+
+**Workflow Builder**
+
+The visual workflow editor allows users to construct multi-step analysis pipelines 
+by connecting tools together on a canvas. Each tool's output is wired as input to 
+the next step, automatically encoding the data dependencies that make up the workflow.
+
+![Galaxy Workflow Editor](./images/galaxy-workflow-editor.png)
+
+A workflow built in Galaxy can be saved, reused with new datasets, shared with 
+colleagues, or published to the Galaxy community. This directly supports the 
+reproducibility goals discussed earlier in this module.
+
+**History**
+
+Every analysis in Galaxy is tracked in a *History* — a panel that records every 
+dataset and every tool invocation, along with the parameters used. A history 
+provides a complete audit trail of your analysis, and can be shared or exported 
+so that a collaborator can reproduce your work exactly.
+
+**Data Import and Management**
+
+Galaxy supports importing data from:
+
+- Local file uploads via the browser
+- Remote URLs
+- Shared data libraries (pre-loaded datasets made available by the administrator)
+- External repositories and transfer services (e.g., NCBI, Globus)
+
+**Workflow Sharing and the Galaxy ToolShed**
+
+The [Galaxy ToolShed](https://toolshed.g2.bx.psu.edu/) is a community repository 
+of tools and workflows that can be installed into any Galaxy instance. This means 
+that tools developed by one research group can be reused by the broader community 
+without re-implementation.
+
+### Galaxy at CHESS, Cornell
+
+CHESS researchers have access to a Galaxy instance configured specifically for 
+X-ray data analysis workflows. This instance is deployed within the CHESS 
+cyberinfrastructure and is pre-loaded with tools and workflows relevant to the 
+types of data collected at CHESS beamlines.
+
+The CHESS Galaxy instance provides tools for common X-ray data analysis tasks 
+including:
+
+[TBD]
+
+
+The CHESS Galaxy instance submits compute jobs to the 
+**CHESS SGE cluster** (the same compute farm described in the 
+[DC200](../DC200/computing-with-ci-ecosystem.md) module), so workflows benefit 
+from the cluster's resources while users interact only with the Galaxy web interface.
+
+### Accessing the CHESS Galaxy Instance
+
+[TBD]
+
+### Running a Simple Analysis in Galaxy
+
+Here is the general flow for running an analysis in Galaxy:
+
+[TBD and review]
+
+**Step 1 — Upload your data**
+
+Click the **Upload Data** button (the arrow icon at the top of the Tools panel) 
+and either drag-and-drop files from your local machine or provide a URL to 
+your dataset. Uploaded files appear as items in your current History.
+
+**Step 2 — Select a tool**
+
+Browse or search the Tools panel on the left to find the analysis tool you want 
+to run. Clicking a tool opens its input form in the center panel.
+
+**Step 3 — Configure and run**
+
+Fill in the tool's input parameters — selecting datasets from your History and 
+setting any analysis options — then click **Run Tool**. The job is submitted to 
+the cluster and a new entry appears in your History showing the job status.
+
+**Step 4 — Inspect results**
+
+Once the job completes (the History entry turns green), click on the output 
+dataset to view it inline, download it, or pass it as input to the next tool 
+in your analysis.
+
+**Step 5 — Build a workflow**
+
+After running an analysis manually, Galaxy can extract the steps into a reusable 
+workflow automatically. Click **Workflow** → **Extract Workflow from History** to 
+capture the full pipeline. You can then re-run the same workflow on a new dataset 
+in a single step.
+
+
 ## Summary
 
-Science gateways like NanoHUB Open OnDemand and ACCESS Pegasus significantly reduce the 
+Science gateways like Open OnDemand, Galaxy and ACCESS Pegasus significantly reduce the 
 barriers to using advanced computing resources. Whether you need to run interactive 
 analyses in a Jupyter notebook on a national HPC cluster, or orchestrate complex 
 multi-step workflows across distributed resources, science gateways provide 
