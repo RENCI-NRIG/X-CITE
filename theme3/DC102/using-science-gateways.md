@@ -284,8 +284,6 @@ resources, ACCESS Pegasus offers several advantages over setting up Pegasus loca
    - 09-Tutorial-SharedFS
  
 
-[TBD]
-
 ### ACCESS Pegasus Support
 
 The Pegasus team provides support for ACCESS Pegasus users through the same channels 
