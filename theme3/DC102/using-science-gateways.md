@@ -105,22 +105,30 @@ Open OnDemand allows researchers to:
 - Submit and monitor batch jobs through a graphical interface
 - Launch interactive applications including Jupyter notebooks, RStudio, MATLAB, and more
 
+![SDSC Expanse Portal](./images/sdsc-expanse-ood.png)
+
 ### Key Features of Open OnDemand
 
-**File Manager**
+**1. File Manager**
 
 The built-in file manager lets you browse the cluster filesystem, upload and download 
 files, and edit text files directly in your browser — without configuring SFTP clients 
 or using the `scp` command.
 
-**Job Composer**
+
+![SDSC Expanse OOD File Browser](./images/sdsc-expanse-filebrowser.png)
+
+**2. Job Composer**
 
 The job composer provides a form-based interface for creating and submitting batch 
 jobs to the cluster scheduler. It supports job templates so you can create new 
 submissions based on previously run jobs, reducing the need to remember scheduler 
 syntax.
 
-**Interactive Applications**
+
+![SDSC Expanse OOD Job Composer](./images/sdsc-expanse-job-composer.png)
+
+**3. Interactive Applications**
 
 One of the most powerful features of Open OnDemand is the ability to launch 
 interactive applications that run directly on cluster compute nodes. Common 
@@ -133,7 +141,7 @@ interactive applications available include:
 - **Remote Desktop** — Full graphical desktop sessions for applications that require 
   a GUI
 
-**Shell Access**
+**4. Shell Access**
 
 Open OnDemand provides a web-based terminal that gives you command-line access to 
 the cluster login node directly in your browser, without needing an SSH client. 
@@ -167,7 +175,7 @@ In order to run the notebooks, you need to have a user account at SDSC.
 This example, is for illustration purposes.
 :::
 
-1. Navigate to `https://portal.expanse.sdsc.edu` and log in with your ACCESS credentials.
+1. Navigate to [https://portal.expanse.sdsc.edu](https://portal.expanse.sdsc.edu) and log in with your ACCESS credentials.
 2. Click on **Interactive Apps** in the top navigation menu.
 3. Select **Jupyter Notebook** from the list of available applications.
 4. Fill in the job parameters on the form:
@@ -263,12 +271,18 @@ resources, ACCESS Pegasus offers several advantages over setting up Pegasus loca
    ACCESS resources. See the [DC200](../DC200/computing-with-ci-ecosystem.md) module 
    for details on requesting an allocation.
 
-3. **Request ACCESS Pegasus access** — Visit 
+3. **Visit ACCESS Pegasus access** — Visit 
    [support.access-ci.org/tools/pegasus](https://support.access-ci.org/tools/pegasus) 
    and click the Try Pegasus button, to login to the gateway using your ACCESS ID.
 
-   
-### Running Your First Workflow on ACCESS Pegasus
+4. **Try training notebooks** — Once you login and start a Jupyter notebook, you will see
+   an ACCESS-Pegasus-Examples directory, that you can navigate to, and try
+   the various training notebooks, to run your first Pegasus workflows.
+   - 01-Quickstart
+   - 02-Tutorial-Data
+   - ...
+   - 09-Tutorial-SharedFS
+ 
 
 [TBD]
 
@@ -285,7 +299,7 @@ as the broader Pegasus community:
 
 ## Summary
 
-Science gateways like Open OnDemand and ACCESS Pegasus significantly reduce the 
+Science gateways like NanoHUB Open OnDemand and ACCESS Pegasus significantly reduce the 
 barriers to using advanced computing resources. Whether you need to run interactive 
 analyses in a Jupyter notebook on a national HPC cluster, or orchestrate complex 
 multi-step workflows across distributed resources, science gateways provide 
