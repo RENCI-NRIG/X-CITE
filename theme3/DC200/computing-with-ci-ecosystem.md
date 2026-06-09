@@ -4,10 +4,6 @@ author: "Karan Vahi"
 date: "May 8, 2025"
 ---
 
-::: {.callout-note}
-This page is work in progress.
-:::
-
 
 This module provides an overview of the various Cyberinfrastructure (CI) resources 
 available to a CHESS researcher and more broadly to all the researchers based in the US.
