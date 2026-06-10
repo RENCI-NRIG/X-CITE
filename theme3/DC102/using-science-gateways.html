@@ -6,7 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
+<meta name="author" content="Karan Vahi">
+<meta name="dcterms.date" content="2026-06-01">
 
 <title>Using Science Gateways – X-CITE</title>
 <style>
@@ -46,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8953ab9c355f4a959d6b6d23ad94488b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a29ff9f1194a1d202d6a6acc3c912e16.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-8953ab9c355f4a959d6b6d23ad94488b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -132,7 +133,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta name="twitter:title" content="Using Science Gateways – X-CITE">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://xcitecourse.org/theme3/DC102/images/sdsc-expanse-ood.png">
+<meta name="twitter:image-height" content="2026">
+<meta name="twitter:image-width" content="2774">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -339,8 +344,43 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-are-science-gateways" id="toc-what-are-science-gateways" class="nav-link active" data-scroll-target="#what-are-science-gateways">What are Science Gateways?</a></li>
+  <li><a href="#how-can-science-gateways-help-researchers" id="toc-how-can-science-gateways-help-researchers" class="nav-link" data-scroll-target="#how-can-science-gateways-help-researchers">How Can Science Gateways Help Researchers?</a>
+  <ul class="collapse">
+  <li><a href="#ease-of-access" id="toc-ease-of-access" class="nav-link" data-scroll-target="#ease-of-access">Ease of Access</a></li>
+  <li><a href="#domain-specific-interfaces" id="toc-domain-specific-interfaces" class="nav-link" data-scroll-target="#domain-specific-interfaces">Domain-Specific Interfaces</a></li>
+  <li><a href="#democratization-of-computing" id="toc-democratization-of-computing" class="nav-link" data-scroll-target="#democratization-of-computing">Democratization of Computing</a></li>
+  <li><a href="#reproducibility-and-collaboration" id="toc-reproducibility-and-collaboration" class="nav-link" data-scroll-target="#reproducibility-and-collaboration">Reproducibility and Collaboration</a></li>
+  </ul></li>
+  <li><a href="#open-ondemand" id="toc-open-ondemand" class="nav-link" data-scroll-target="#open-ondemand">Open OnDemand</a>
+  <ul class="collapse">
+  <li><a href="#key-features-of-open-ondemand" id="toc-key-features-of-open-ondemand" class="nav-link" data-scroll-target="#key-features-of-open-ondemand">Key Features of Open OnDemand</a></li>
+  <li><a href="#accessing-open-ondemand-on-access-resources" id="toc-accessing-open-ondemand-on-access-resources" class="nav-link" data-scroll-target="#accessing-open-ondemand-on-access-resources">Accessing Open OnDemand on ACCESS Resources</a></li>
+  <li><a href="#launching-a-jupyter-notebook-via-open-ondemand" id="toc-launching-a-jupyter-notebook-via-open-ondemand" class="nav-link" data-scroll-target="#launching-a-jupyter-notebook-via-open-ondemand">Launching a Jupyter Notebook via Open OnDemand</a></li>
+  </ul></li>
+  <li><a href="#access-pegasus-a-science-gateway-for-workflow-execution" id="toc-access-pegasus-a-science-gateway-for-workflow-execution" class="nav-link" data-scroll-target="#access-pegasus-a-science-gateway-for-workflow-execution">ACCESS Pegasus: A Science Gateway for Workflow Execution</a>
+  <ul class="collapse">
+  <li><a href="#what-is-access-pegasus" id="toc-what-is-access-pegasus" class="nav-link" data-scroll-target="#what-is-access-pegasus">What is ACCESS Pegasus?</a></li>
+  <li><a href="#access-pegasus-jupyter-setup" id="toc-access-pegasus-jupyter-setup" class="nav-link" data-scroll-target="#access-pegasus-jupyter-setup">ACCESS Pegasus Jupyter Setup</a></li>
+  <li><a href="#why-use-access-pegasus" id="toc-why-use-access-pegasus" class="nav-link" data-scroll-target="#why-use-access-pegasus">Why Use ACCESS Pegasus?</a></li>
+  <li><a href="#how-to-get-started" id="toc-how-to-get-started" class="nav-link" data-scroll-target="#how-to-get-started">How to Get Started</a></li>
+  <li><a href="#access-pegasus-support" id="toc-access-pegasus-support" class="nav-link" data-scroll-target="#access-pegasus-support">ACCESS Pegasus Support</a></li>
+  </ul></li>
+  <li><a href="#galaxy" id="toc-galaxy" class="nav-link" data-scroll-target="#galaxy">Galaxy</a>
+  <ul class="collapse">
+  <li><a href="#key-features-of-galaxy" id="toc-key-features-of-galaxy" class="nav-link" data-scroll-target="#key-features-of-galaxy">Key Features of Galaxy</a></li>
+  <li><a href="#galaxy-at-chess-cornell" id="toc-galaxy-at-chess-cornell" class="nav-link" data-scroll-target="#galaxy-at-chess-cornell">Galaxy at CHESS, Cornell</a></li>
+  <li><a href="#accessing-the-chess-galaxy-instance" id="toc-accessing-the-chess-galaxy-instance" class="nav-link" data-scroll-target="#accessing-the-chess-galaxy-instance">Accessing the CHESS Galaxy Instance</a></li>
+  <li><a href="#running-a-simple-analysis-in-galaxy" id="toc-running-a-simple-analysis-in-galaxy" class="nav-link" data-scroll-target="#running-a-simple-analysis-in-galaxy">Running a Simple Analysis in Galaxy</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC102/using-science-gateways.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -355,7 +395,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Karan Vahi </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -378,8 +430,322 @@ Note
 <p>This page is work in progress.</p>
 </div>
 </div>
+<p>This module introduces science gateways — web-based portals that provide researchers with simplified access to advanced cyberinfrastructure (CI) resources without requiring deep technical knowledge of the underlying systems.</p>
+<section id="what-are-science-gateways" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-science-gateways">What are Science Gateways?</h2>
+<p>Science gateways are community-developed platforms that provide scientists, engineers, and students with browser-based access to computing, data, and other resources needed to advance research and education in their fields.</p>
+<p>A science gateway typically provides a <strong>web-based interface</strong> that abstracts away the complexity of the underlying CI resources, allowing researchers to focus on their scientific work rather than the technical details of running jobs on HPC clusters or managing data across distributed systems.</p>
+<p>According to the <a href="https://sciencegateways.org/">Science Gateways Community Institute (SGCI)</a>, a science gateway is:</p>
+<p><em>A community-specific set of tools, applications, and data collections that are integrated together via a standards-based cyberinfrastructure, providing a customized user interface for a specific research community.</em></p>
+<p>Science gateways can take many forms:</p>
+<ul>
+<li><strong>Web portals</strong> — Browser-based interfaces to submit and monitor jobs on HPC clusters</li>
+<li><strong>Domain-specific platforms</strong> — Tailored interfaces for specific scientific communities (e.g., genomics, climate science, materials science)</li>
+<li><strong>Workflow execution environments</strong> — Platforms that allow users to compose and run complex scientific workflows without command-line expertise</li>
+<li><strong>Data management platforms</strong> — Tools for managing, sharing, and analyzing large datasets across distributed storage systems</li>
+</ul>
+<p>Examples of science gateways include:</p>
+<ul>
+<li><strong>Open OnDemand</strong> — A web portal for accessing HPC clusters, deployed on most ACCESS resources</li>
+<li><strong>Galaxy</strong> — A web-based platform for bioinformatics and data analysis</li>
+<li><strong>ACCESS Pegasus</strong> — A gateway for running Pegasus workflows on ACCESS resources</li>
+<li><strong>nanoHUB</strong> - a diverse community of nanotechnology researchers and educators</li>
+<li><strong>CIPRES Science Gateway</strong> — A platform for phylogenetic inference using national CI</li>
+</ul>
+</section>
+<section id="how-can-science-gateways-help-researchers" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-science-gateways-help-researchers">How Can Science Gateways Help Researchers?</h2>
+<p>Science gateways lower the barrier to entry for using advanced CI resources in several important ways.</p>
+<section id="ease-of-access" class="level3">
+<h3 class="anchored" data-anchor-id="ease-of-access">Ease of Access</h3>
+<p>Traditional HPC clusters require users to:</p>
+<ul>
+<li>Install and configure SSH clients</li>
+<li>Learn command-line interfaces</li>
+<li>Understand job scheduler syntax (SLURM, SGE, PBS, etc.)</li>
+<li>Transfer files manually using <code>scp</code> or similar tools</li>
+</ul>
+<p>Science gateways eliminate these barriers by providing intuitive web-based interfaces that work directly in your browser — no software installation required.</p>
+</section>
+<section id="domain-specific-interfaces" class="level3">
+<h3 class="anchored" data-anchor-id="domain-specific-interfaces">Domain-Specific Interfaces</h3>
+<p>Rather than providing a generic command-line interface, science gateways often provide interfaces tailored to specific scientific workflows. For example, a gateway for structural biology may offer tools specifically designed for protein structure analysis, hiding the complexity of running those analyses on HPC clusters.</p>
+</section>
+<section id="democratization-of-computing" class="level3">
+<h3 class="anchored" data-anchor-id="democratization-of-computing">Democratization of Computing</h3>
+<p>Science gateways make advanced computing resources accessible to a broader community of researchers, including:</p>
+<ul>
+<li>Researchers at smaller institutions without dedicated HPC staff</li>
+<li>Students and early-career researchers learning to use CI resources</li>
+<li>Domain scientists without a strong computational background</li>
+<li>Researchers who need to run occasional (not routine) computations on national resources</li>
+</ul>
+</section>
+<section id="reproducibility-and-collaboration" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility-and-collaboration">Reproducibility and Collaboration</h3>
+<p>Many science gateways provide features that enhance reproducibility and collaboration:</p>
+<ul>
+<li><strong>Shared workflows</strong> — Users can share analysis pipelines with colleagues</li>
+<li><strong>Provenance tracking</strong> — The gateway records what was run, when, and with what inputs</li>
+<li><strong>Community resources</strong> — Pre-built tools and workflows contributed by the broader community</li>
+</ul>
+</section>
+</section>
+<section id="open-ondemand" class="level2">
+<h2 class="anchored" data-anchor-id="open-ondemand">Open OnDemand</h2>
+<p><a href="https://openondemand.org/">Open OnDemand</a> (OOD) is an open-source, web-based platform developed by the Ohio Supercomputer Center (OSC) that provides browser-based access to HPC resources. It is widely deployed across academic HPC centers and is the standard web portal available on most ACCESS resources.</p>
+<p>Open OnDemand allows researchers to:</p>
+<ul>
+<li>Access HPC cluster resources without any client software installation</li>
+<li>Browse and manage files on the cluster filesystem</li>
+<li>Submit and monitor batch jobs through a graphical interface</li>
+<li>Launch interactive applications including Jupyter notebooks, RStudio, MATLAB, and more</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/sdsc-expanse-ood.png" class="img-fluid figure-img"></p>
+<figcaption>SDSC Expanse Portal</figcaption>
+</figure>
+</div>
+<section id="key-features-of-open-ondemand" class="level3">
+<h3 class="anchored" data-anchor-id="key-features-of-open-ondemand">Key Features of Open OnDemand</h3>
+<p><strong>1. File Manager</strong></p>
+<p>The built-in file manager lets you browse the cluster filesystem, upload and download files, and edit text files directly in your browser — without configuring SFTP clients or using the <code>scp</code> command.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/sdsc-expanse-filebrowser.png" class="img-fluid figure-img"></p>
+<figcaption>SDSC Expanse OOD File Browser</figcaption>
+</figure>
+</div>
+<p><strong>2. Job Composer</strong></p>
+<p>The job composer provides a form-based interface for creating and submitting batch jobs to the cluster scheduler. It supports job templates so you can create new submissions based on previously run jobs, reducing the need to remember scheduler syntax.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/sdsc-expanse-job-composer.png" class="img-fluid figure-img"></p>
+<figcaption>SDSC Expanse OOD Job Composer</figcaption>
+</figure>
+</div>
+<p><strong>3. Interactive Applications</strong></p>
+<p>One of the most powerful features of Open OnDemand is the ability to launch interactive applications that run directly on cluster compute nodes. Common interactive applications available include:</p>
+<ul>
+<li><strong>Jupyter Notebooks</strong> — Run Python, R, and Julia notebooks on HPC compute nodes, giving you interactive data analysis with access to the cluster’s memory and CPUs</li>
+<li><strong>RStudio</strong> — A full-featured RStudio environment running on cluster resources</li>
+<li><strong>MATLAB</strong> — Interactive MATLAB sessions with cluster-scale compute</li>
+<li><strong>Remote Desktop</strong> — Full graphical desktop sessions for applications that require a GUI</li>
+</ul>
+<p><strong>4. Shell Access</strong></p>
+<p>Open OnDemand provides a web-based terminal that gives you command-line access to the cluster login node directly in your browser, without needing an SSH client. This is especially attractive for novice users or first time users, who need terminal access to a large HPC resource and need to login to the resource using 2 factor authentication.</p>
+</section>
+<section id="accessing-open-ondemand-on-access-resources" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-open-ondemand-on-access-resources">Accessing Open OnDemand on ACCESS Resources</h3>
+<p>Most ACCESS HPC resources have Open OnDemand deployed. To access a cluster via Open OnDemand, navigate to the resource’s portal URL, authenticate with your ACCESS credentials, and you will be presented with the dashboard.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ACCESS Resource</th>
+<th>Open OnDemand URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Anvil (Purdue)</td>
+<td>https://ondemand.anvil.rcac.purdue.edu</td>
+</tr>
+<tr class="even">
+<td>Bridges-2 (CMU)</td>
+<td>https://ondemand.bridges2.psc.edu</td>
+</tr>
+<tr class="odd">
+<td>Delta (NCSA)</td>
+<td>https://login.delta.ncsa.illinois.edu</td>
+</tr>
+<tr class="even">
+<td>Expanse (SDSC)</td>
+<td>https://portal.expanse.sdsc.edu</td>
+</tr>
+</tbody>
+</table>
+<p>A full list of ACCESS resources with Open OnDemand is available at <a href="https://support.access-ci.org/tools/ondemand">support.access-ci.org/tools/ondemand</a>.</p>
+</section>
+<section id="launching-a-jupyter-notebook-via-open-ondemand" class="level3">
+<h3 class="anchored" data-anchor-id="launching-a-jupyter-notebook-via-open-ondemand">Launching a Jupyter Notebook via Open OnDemand</h3>
+<p>Here is a walk-through of launching a Jupyter Notebook on the Expanse cluster at SDSC using Open OnDemand:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to run the notebooks, you need to have a user account at SDSC. This example, is for illustration purposes.</p>
+</div>
+</div>
+<ol type="1">
+<li>Navigate to <a href="https://portal.expanse.sdsc.edu">https://portal.expanse.sdsc.edu</a> and log in with your ACCESS credentials.</li>
+<li>Click on <strong>Interactive Apps</strong> in the top navigation menu.</li>
+<li>Select <strong>Jupyter Notebook</strong> from the list of available applications.</li>
+<li>Fill in the job parameters on the form:
+<ul>
+<li><strong>Account</strong>: your ACCESS allocation account name</li>
+<li><strong>Partition</strong>: <code>shared</code> (for single-node jobs) or <code>compute</code></li>
+<li><strong>Number of cores</strong>: e.g., <code>4</code></li>
+<li><strong>Memory</strong>: e.g., <code>16 GB</code></li>
+<li><strong>Walltime</strong>: e.g., <code>2:00:00</code></li>
+</ul></li>
+<li>Click <strong>Launch</strong> to submit the interactive job to the scheduler.</li>
+<li>Wait for the job to start — the status will change from <em>Queued</em> to <em>Running</em>.</li>
+<li>Click <strong>Connect to Jupyter</strong> to open the notebook interface in a new browser tab.</li>
+</ol>
+<p>Once connected, you have a fully functional Jupyter environment with direct access to the cluster’s compute resources, shared filesystems, and installed software modules.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Interactive jobs on Open OnDemand behave like any other batch job — they consume allocation credits for the time requested. Request only what you need, and remember to close your session when done to release the resources back to the pool.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="access-pegasus-a-science-gateway-for-workflow-execution" class="level2">
+<h2 class="anchored" data-anchor-id="access-pegasus-a-science-gateway-for-workflow-execution">ACCESS Pegasus: A Science Gateway for Workflow Execution</h2>
+<p><a href="https://support.access-ci.org/tools/pegasus">ACCESS Pegasus</a> is a science gateway that provides researchers with a ready-to-use environment for running <a href="https://pegasus.isi.edu">Pegasus Workflows</a> on ACCESS resources — without needing to install or configure Pegasus themselves.</p>
+<p>As discussed in <a href="../../theme3/DC101/scientific-workflow-management.html">DC101</a>, Pegasus WMS allows users to model their computational pipelines as workflows that execute on distributed computing resources. ACCESS Pegasus delivers this capability as a managed service, making it especially accessible to researchers new to workflow systems.</p>
+<section id="what-is-access-pegasus" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-access-pegasus">What is ACCESS Pegasus?</h3>
+<p>ACCESS Pegasus is an Open OnDemand based Science Gateway, that is maintained by the Pegasus team at the University of Southern California’s Information Sciences Institute (USC/ISI). It provides:</p>
+<ul>
+<li>A <strong>pre-configured Pegasus environment</strong> on an ACCESS-connected submit host</li>
+<li>Direct connectivity to multiple ACCESS resources (Expanse, Anvil, Bridges-2, etc.)</li>
+<li>Access to the <strong>OSG OSPool</strong> for high-throughput computing workloads</li>
+<li>Support from the Pegasus development team</li>
+</ul>
+<p>ACCESS Pegasus gives you a ready-to-use Pegasus installation that is already configured to submit workflows to major ACCESS resources, removing the configuration burden from the researcher entirely.</p>
+</section>
+<section id="access-pegasus-jupyter-setup" class="level3">
+<h3 class="anchored" data-anchor-id="access-pegasus-jupyter-setup">ACCESS Pegasus Jupyter Setup</h3>
+<p>ACCESS Pegasus allows users to launch Jupyter notebooks from where they can submit workflows to a variety of resources. It is important to note that in case of ACCESS Pegasus, the notebooks are not launched on a node in a HPC cluster, as normally is the case with Open OnDemand setup.</p>
+<p>In particular, there is a clear separation between the environment where the notebooks runs and where the compute jobs in the workflow execute. Notebooks runs on pegasus.access-ci.org, while the job is executed on any available HTCondor execution points.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/access-pegasus-jobflow.png" class="img-fluid figure-img"></p>
+<figcaption>ACCESS Pegasus Setup</figcaption>
+</figure>
+</div>
+</section>
+<section id="why-use-access-pegasus" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-access-pegasus">Why Use ACCESS Pegasus?</h3>
+<p>For CHESS researchers looking to scale their data processing pipelines to national CI resources, ACCESS Pegasus offers several advantages over setting up Pegasus locally:</p>
+<ul>
+<li><strong>Zero configuration</strong> — No need to install Pegasus or write site catalogs for each ACCESS resource. The submit host is pre-configured and maintained by the Pegasus team.</li>
+<li><strong>Multi-site execution</strong> — A single workflow can span multiple ACCESS resources and the OSPool, allowing Pegasus to intelligently route work to available resources.</li>
+<li><strong>Fault tolerance</strong> — Pegasus’ built-in retry and checkpointing mechanisms ensure your workflow completes even if individual jobs fail or a resource becomes temporarily unavailable — particularly valuable for long-running CHESS data analysis pipelines.</li>
+<li><strong>Provenance</strong> — A full record of what ran, where, and when is maintained, supporting reproducibility of your analyses.</li>
+<li><strong>Expert support</strong> — Direct access to the Pegasus development team, who can help you adapt your existing analysis pipeline into a portable workflow.</li>
+</ul>
+</section>
+<section id="how-to-get-started" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-get-started">How to Get Started</h3>
+<ol type="1">
+<li><p><strong>Get an ACCESS account</strong> — Register at <a href="https://operations.access-ci.org/identity/new-user">operations.access-ci.org/identity/new-user</a> if you do not already have one.</p></li>
+<li><p><strong>Get an allocation (Optional)</strong> — To try out ACCESS Pegasus and do the training notebooks, you don’t need an allocation. For production workflows, users can tie-in their own allocation. Users can easily start with an EXPLORE allocation on one of the ACCESS resources. See the <a href="../../theme3/DC200/computing-with-ci-ecosystem.html">DC200</a> module for details on requesting an allocation.</p></li>
+<li><p><strong>Visit ACCESS Pegasus access</strong> — Visit <a href="https://support.access-ci.org/tools/pegasus">support.access-ci.org/tools/pegasus</a> and click the Try Pegasus button, to login to the gateway using your ACCESS ID.</p></li>
+<li><p><strong>Try training notebooks</strong> — Once you login and start a Jupyter notebook, you will see an ACCESS-Pegasus-Examples directory, that you can navigate to, and try the various training notebooks, to run your first Pegasus workflows.</p>
+<ul>
+<li>01-Quickstart</li>
+<li>02-Tutorial-Data</li>
+<li>…</li>
+<li>09-Tutorial-SharedFS</li>
+</ul></li>
+</ol>
+</section>
+<section id="access-pegasus-support" class="level3">
+<h3 class="anchored" data-anchor-id="access-pegasus-support">ACCESS Pegasus Support</h3>
+<p>The Pegasus team provides support for ACCESS Pegasus users through the same channels as the broader Pegasus community:</p>
+<ul>
+<li><strong>Email</strong> — Support requests and bug reports can be sent to <code>pegasus-support@isi.edu</code></li>
+<li><strong>Slack</strong> — Join the Pegasus users Slack workspace by requesting an invite at <code>pegasus-users.slack.com</code> or by emailing <code>pegasus-support@isi.edu</code></li>
+<li><strong>ACCESS Support Portal</strong> — <a href="https://support.access-ci.org">support.access-ci.org</a></li>
+</ul>
+</section>
+</section>
+<section id="galaxy" class="level2">
+<h2 class="anchored" data-anchor-id="galaxy">Galaxy</h2>
+<p><a href="https://galaxyproject.org">Galaxy</a> is an open-source, web-based science gateway originally developed for bioinformatics, but now widely used across many scientific domains including X-ray science, genomics, climate modeling, and more. It allows researchers to build, execute, and share complex data analysis workflows entirely through a browser — no programming or command-line experience required.</p>
+<p>Galaxy is governed by a large, international open-source community and is deployed at hundreds of institutions worldwide. Researchers can use the publicly hosted <a href="https://usegalaxy.org">usegalaxy.org</a> server, or work with a locally deployed instance configured for their facility’s specific tools and data.</p>
+<section id="key-features-of-galaxy" class="level3">
+<h3 class="anchored" data-anchor-id="key-features-of-galaxy">Key Features of Galaxy</h3>
+<p><strong>Tool Integration</strong></p>
+<p>Galaxy provides access to a large library of analysis tools — ranging from standard data processing utilities to domain-specific scientific applications. Tools are installed and managed by the Galaxy administrator, so users do not need to worry about software installation or version compatibility.</p>
+<p><strong>Workflow Builder</strong></p>
+<p>The visual workflow editor allows users to construct multi-step analysis pipelines by connecting tools together on a canvas. Each tool’s output is wired as input to the next step, automatically encoding the data dependencies that make up the workflow.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/galaxy-workflow-editor.png" class="img-fluid figure-img"></p>
+<figcaption>Galaxy Workflow Editor</figcaption>
+</figure>
+</div>
+<p>A workflow built in Galaxy can be saved, reused with new datasets, shared with colleagues, or published to the Galaxy community. This directly supports the reproducibility goals discussed earlier in this module.</p>
+<p><strong>History</strong></p>
+<p>Every analysis in Galaxy is tracked in a <em>History</em> — a panel that records every dataset and every tool invocation, along with the parameters used. A history provides a complete audit trail of your analysis, and can be shared or exported so that a collaborator can reproduce your work exactly.</p>
+<p><strong>Data Import and Management</strong></p>
+<p>Galaxy supports importing data from:</p>
+<ul>
+<li>Local file uploads via the browser</li>
+<li>Remote URLs</li>
+<li>Shared data libraries (pre-loaded datasets made available by the administrator)</li>
+<li>External repositories and transfer services (e.g., NCBI, Globus)</li>
+</ul>
+<p><strong>Workflow Sharing and the Galaxy ToolShed</strong></p>
+<p>The <a href="https://toolshed.g2.bx.psu.edu/">Galaxy ToolShed</a> is a community repository of tools and workflows that can be installed into any Galaxy instance. This means that tools developed by one research group can be reused by the broader community without re-implementation.</p>
+</section>
+<section id="galaxy-at-chess-cornell" class="level3">
+<h3 class="anchored" data-anchor-id="galaxy-at-chess-cornell">Galaxy at CHESS, Cornell</h3>
+<p>CHESS researchers have access to a Galaxy instance configured specifically for X-ray data analysis workflows. This instance is deployed within the CHESS cyberinfrastructure and is pre-loaded with tools and workflows relevant to the types of data collected at CHESS beamlines.</p>
+<p>The CHESS Galaxy instance provides tools for common X-ray data analysis tasks including:</p>
+<p>[TBD]</p>
+<p>The CHESS Galaxy instance submits compute jobs to the <strong>CHESS SGE cluster</strong> (the same compute farm described in the <a href="../../theme3/DC200/computing-with-ci-ecosystem.html">DC200</a> module), so workflows benefit from the cluster’s resources while users interact only with the Galaxy web interface.</p>
+</section>
+<section id="accessing-the-chess-galaxy-instance" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-chess-galaxy-instance">Accessing the CHESS Galaxy Instance</h3>
+<p>[TBD]</p>
+</section>
+<section id="running-a-simple-analysis-in-galaxy" class="level3">
+<h3 class="anchored" data-anchor-id="running-a-simple-analysis-in-galaxy">Running a Simple Analysis in Galaxy</h3>
+<p>Here is the general flow for running an analysis in Galaxy:</p>
+<p>[TBD and review]</p>
+<p><strong>Step 1 — Upload your data</strong></p>
+<p>Click the <strong>Upload Data</strong> button (the arrow icon at the top of the Tools panel) and either drag-and-drop files from your local machine or provide a URL to your dataset. Uploaded files appear as items in your current History.</p>
+<p><strong>Step 2 — Select a tool</strong></p>
+<p>Browse or search the Tools panel on the left to find the analysis tool you want to run. Clicking a tool opens its input form in the center panel.</p>
+<p><strong>Step 3 — Configure and run</strong></p>
+<p>Fill in the tool’s input parameters — selecting datasets from your History and setting any analysis options — then click <strong>Run Tool</strong>. The job is submitted to the cluster and a new entry appears in your History showing the job status.</p>
+<p><strong>Step 4 — Inspect results</strong></p>
+<p>Once the job completes (the History entry turns green), click on the output dataset to view it inline, download it, or pass it as input to the next tool in your analysis.</p>
+<p><strong>Step 5 — Build a workflow</strong></p>
+<p>After running an analysis manually, Galaxy can extract the steps into a reusable workflow automatically. Click <strong>Workflow</strong> → <strong>Extract Workflow from History</strong> to capture the full pipeline. You can then re-run the same workflow on a new dataset in a single step.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Science gateways like Open OnDemand, Galaxy and ACCESS Pegasus significantly reduce the barriers to using advanced computing resources. Whether you need to run interactive analyses in a Jupyter notebook on a national HPC cluster, or orchestrate complex multi-step workflows across distributed resources, science gateways provide the tools to do so without deep expertise in HPC system administration.</p>
+<p>For CHESS researchers, the practical takeaways are:</p>
+<ol type="1">
+<li><strong>Open OnDemand</strong> is the easiest way to get started with ACCESS HPC resources — open a browser, log in, and launch a Jupyter notebook directly on the cluster.</li>
+<li><strong>ACCESS Pegasus</strong> is the best path for researchers who want to run Pegasus-based workflow pipelines on national CI resources without the overhead of setting up and configuring Pegasus themselves.</li>
+<li>Both tools work seamlessly with the ACCESS allocation described in the <a href="../../theme3/DC200/computing-with-ci-ecosystem.html">DC200</a> module.</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -806,7 +1172,7 @@ Note
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC102/using-science-gateways.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme3/DC102/using-science-gateways.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
