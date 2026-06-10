@@ -4,9 +4,7 @@ author: "Karan Vahi"
 date: "May 7, 2025"
 ---
 
-::: {.callout-note}
-This page is work in progress.
-:::
+
 
 These notes give you a brief overview of concepts of distributed computing. 
 If you are at this chapter, it is assumed that you are familiar with writing 
