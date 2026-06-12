@@ -51,7 +51,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 
 - DC 100: [Parallel and distributed computing concepts][dc100] (B)
 - DC 200: [Computing with CI ecosystem - ACCESS, PATh, Campus][dc200] (E)
-- SF 201: [Batch Systems and Compute Farms][sf201] (E)
 - DC 101: [Scientific workflow management][dc101] (E)
 - SF 101: [Containers and virtualization][sf101] (I)
 - DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
