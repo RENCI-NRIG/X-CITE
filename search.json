@@ -165,14 +165,14 @@
     "href": "index.html#additional-topics---cyberinfrastructure-ci-systems",
     "title": "X-CITE training materials",
     "section": "Additional Topics - Cyberinfrastructure (CI) Systems",
-    "text": "Additional Topics - Cyberinfrastructure (CI) Systems\n\nDC 100: Parallel and distributed computing concepts (B)\nDC 200: Computing with CI ecosystem - ACCESS, PATh, Campus (E)\nDC 101: Scientific workflow management (E)\nSF 101: Containers and virtualization (I)\nDC 102: Using science gateways with OpenOnDemand (I)\nSF 102: Moving data with Globus (B)\nAI 100: Introduction to Artificial Intelligence for Beamline Science\nVideo: Using Globus at CHESS, pt1.\nVideo: Using Globus at CHESS, pt.2"
+    "text": "Additional Topics - Cyberinfrastructure (CI) Systems\n\nDC 100: Parallel and distributed computing concepts (B)\nDC 200: Computing with CI ecosystem - ACCESS, PATh, Campus (E)\nDC 101: Scientific workflow management (E)\nSF 101: Containers and virtualization (I)\nDC 102: Using science gateways with OpenOnDemand (I)\nSF 102: [Moving data with Globus][sf102] (B)\nVideo: Using Globus at CHESS, pt1.\nVideo: Using Globus at CHESS, pt.2"
   },
   {
     "objectID": "index.html#data-curation-and-fair",
     "href": "index.html#data-curation-and-fair",
     "title": "X-CITE training materials",
     "section": "Data Curation and FAIR",
-    "text": "Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories (I)\nCF 101: Best practices for developing DMP (I)\nCF 102: Metadata annotation and DOI (I)\nCF 201: End-to-end research data workflow with FOXDEN example (E)"
+    "text": "Data Curation and FAIR\n\nCF 100: Intro to domain metadata standards, formats and repositories (I)\nCF 102: Metadata annotation and DOI (I)\nCF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)"
   },
   {
     "objectID": "theme1/PE102/PE102-02NumPy.html",
