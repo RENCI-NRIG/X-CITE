@@ -55,7 +55,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 - SF 101: [Containers and virtualization][sf101] (I)
 - DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
 - SF 102: [Moving data with Globus][sf102] (B)
-- AI 100: [Introduction to Artificial Intelligence for Beamline Science][AIintro]
 - [Video: Using Globus at CHESS, pt1.][globus1]
 - [Video: Using Globus at CHESS, pt.2][globus2]
 
@@ -64,7 +63,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 ## Data Curation and FAIR
 
 - CF 100: [Intro to domain metadata standards, formats and repositories][cf100] (I)
-- CF 101: [Best practices for developing DMP][cf101] (I)
 - CF 102: [Metadata annotation and DOI][cf102] (I)
 - CF 201: [End-to-end research data workflow with FOXDEN example][cf201] (E)
 
@@ -90,7 +88,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 
 [sf100]: ./theme2/SF100/linux-commandline-scripting.md
 [sf101]: ./theme2/SF101/containers-and-virtualization.md
-[sf102]: ./theme2/SF102/moving-data-with-globus.md
 [sf201]: ./theme2/SF201/batch-systems-and-compute-farms.md
 
 [dc100]: ./theme3/DC100/distributed-computing.md
@@ -107,6 +104,3 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 [cf101]: ./theme5/CF101/dmp-best-practices.md
 [cf102]: ./theme5/CF102/metadata-annotation-and-doi.md
 [cf200]: ./theme5/CF200/curating-data.md
-[cf201]: ./theme5/CF201/end-to-end-dataflow.md
-
-[AIintro]: ./theme6/AIintroduction.md
