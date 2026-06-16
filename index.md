@@ -103,4 +103,4 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 [cf100]: ./theme5/CF100/domain-metadata-standards.md
 [cf101]: ./theme5/CF101/dmp-best-practices.md
 [cf102]: ./theme5/CF102/metadata-annotation-and-doi.md
-[cf200]: ./theme5/CF200/curating-data.md
+[cf201]: ./theme5/CF201/foxden.md
