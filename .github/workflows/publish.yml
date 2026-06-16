@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
+        uses: quarto-dev/quarto-actions/setup@v2.2.0
         # env:
         #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # with:
@@ -40,7 +40,7 @@ jobs:
 
       # Publish on GitHub Pages
       - name: Render and publish on GitHub Pages
-        uses: quarto-dev/quarto-actions/publish@v2
+        uses: quarto-dev/quarto-actions/publish@v2.2.0
         with:
           target: gh-pages
         env:
@@ -48,7 +48,7 @@ jobs:
 
       # Publish on Quarto.pub (https://x-cite.quarto.pub/).
       - name: Render and Publish on quarto.pub
-        uses: quarto-dev/quarto-actions/publish@v2
+        uses: quarto-dev/quarto-actions/publish@v2.2.0
         with:
           target: quarto-pub
           # QUARTO_PUB_AUTH_TOKEN is generated at
