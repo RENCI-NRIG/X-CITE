@@ -54,7 +54,6 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 - DC 101: [Scientific workflow management][dc101] (E)
 - SF 101: [Containers and virtualization][sf101] (I)
 - DC 102: [Using science gateways with OpenOnDemand][dc102] (I)
-- SF 102: [Moving data with Globus][sf102] (B)
 - [Video: Using Globus at CHESS, pt1.][globus1]
 - [Video: Using Globus at CHESS, pt.2][globus2]
 
