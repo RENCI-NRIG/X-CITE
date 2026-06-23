@@ -262,18 +262,20 @@ the easiest thing to do is press and release the "Windows" key, then
 type "cmd" and press enter. That will bring up a command window.
 
 Either way, you're now looking at a terminal window of some
-sort. Characters are entered and sent to programs, and programs
-send characters back out and the terminal window draws them on the
+sort. Characters are entered and sent to programs, and programs send
+characters back out and the terminal window draws them on the
 screen. Just like a teletype, except no paper and no oily
 smell. Windows users will probably see something similar to
 ```C:\>```.  Mac users will see something more akin to
 ```escott@RENCI_LP91DX62MX ~ %```.  Both of these are "prompts",
 meaning "you can type a command here". In both cases the command to
-type is ```ssh lnx201.classe.cornell.edu```. The lower case letters in
-"ssh" are important. Linux commands _almost_ never contain uppercase
-letters. Go ahead, enter that ssh command, and press Enter.  If this
-is the very first time you've ssh'ed into lnx201 from the machine
-you're at, you'll get some warnings just to remind you to be wary:
+type is ```ssh USERNAME@lnx201.classe.cornell.edu```. The lower case
+letters in "ssh" are important. Linux commands _almost_ never contain
+uppercase letters. Go ahead, enter that ssh command, and press
+Enter. Also, don't literally type "USERNAME" there. Instead, replace
+that with your CLASSE username. If this is the very first time you've
+ssh'ed into lnx201 from the machine you're at, you'll get some
+warnings just to remind you to be wary:
 
 ```
 The authenticity of host 'lnx201.classe.cornell.edu (128.84.45.81)' can't be established.
