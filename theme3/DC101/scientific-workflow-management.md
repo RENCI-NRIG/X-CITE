@@ -208,8 +208,8 @@ In order to use Pegasus, you need to login to the node
 **lnx201.classe.cornell.edu** . 
 
 ```{.bash}
-X-CITE vahi$ ssh  lnx201.classe.cornell.edu
-(user@lnx201.classe.cornell.edu) Password: 
+X-CITE vahi$ ssh  vahi@lnx201.classe.cornell.edu
+(vahi@lnx201.classe.cornell.edu) Password: 
 ```
 
 **Source Pegasus binaries in your PATH**
