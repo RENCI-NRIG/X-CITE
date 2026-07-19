@@ -1,8 +1,16 @@
 ---
 format:
   html: default
+toc: false
 ---
 
-{{< embed PE101-01Packages.ipynb >}}
+The PE101 component of X-CITE training for CHESS consists of the following modules:
 
-{{< embed PE101-02CondaRepos.ipynb >}}
+* PE101-01: [Using Python Packages and Modules][pe101-01]
+* PE101-02: [Repositories, Sharing, and Conda][pe101-02]
+
+
+<!-- References -->
+
+[pe101-01]: /theme1/PE101/PE101-01Packages.ipynb
+[pe101-02]: /theme1/PE101/PE101-02CondaRepos.ipynb

@@ -45,8 +45,8 @@ screaming, too hot to handle.
 There are two kinds of remote access and both have their strengths and
 weaknesses. The first approach we'll look at is the "virtual
 desktop". This strategy takes the full graphical experience of using a
-computer, potentially in a far-flung destination, and shows what is
-going on right in front of you. The effect is to make your computer's
+computer, potentially in a far-flung destination, and shows what its
+display would look like (if it had one). The effect is to make your computer's
 screen, keyboard, and mouse act like they're connected to the remote
 machine, albeit with a really, really long set of cables. The second
 remote access approach is to use a program on your laptop or desktop
@@ -203,8 +203,8 @@ Fortunately, there's another way. It's called "SSH".
 
 To have a good understanding of SSH, you need to know just a little
 bit about the history of Unix (and Linux is just a modern version of
-Unix). In the Old Days (1974-ish) Unix ran on a machine the size of
-home refrigerator and the server didn't even have a keyboard. To
+Unix). In the Old Days (1974-ish) Unix ran on a computer the size of
+home refrigerator and the machine didn't even have a keyboard. To
 interact with it, teletypes were plugged into serial ports on the back
 on the computers. Users performed all of their interaction with the
 machine by pressing a key on the teletype (sending a character) and
