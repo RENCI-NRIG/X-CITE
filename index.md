@@ -12,8 +12,8 @@ Our training modules will get you up to speed in working with the
 CyberInfrastructure ("CI") at CHESS - the High Performance Computing
 (HPC)
 and Networking resources. Understanding the CI and how to use it is
-practically essential for making the most of your beamline time and
-the analysis that follows after the fact.
+essential for making the most of your beamline time and for
+the analysis that follows data collection.
 
 
 Below you'll find links to the training modules we have
@@ -76,7 +76,7 @@ modules are tagged with (B)eginner, (I)ntermediate, and (E)xpert labels.
 [linuxCmdLine]: https://www.youtube.com/watch?v=1zpd4X3vxHg
 [noMachine]: https://www.youtube.com/watch?v=2f-zIEy6VRI
 
-[pe100]: ./theme1/PE100/index.qmd
+[pe100]: ./theme1/PE100/PE100-01Introduction.ipynb
 [pe101]: ./theme1/PE101/index.qmd
 [pe102]: ./theme1/PE102/index.qmd
 [pe103]: ./theme1/PE103/vcs-testing-debugging.md
