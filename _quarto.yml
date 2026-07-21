@@ -23,7 +23,7 @@ website:
   page-footer:
     border: true
     center: |-
-      [![](/images/logo-nsf.png){height=48px}](https://www.nsf.gov)
+      [![](https://xcitecourse.org/images/logo-nsf.png){height=48px}](https://www.nsf.gov)
 
       X-CITE is supported by the NSF under award numbers
       [OAC-2320373](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373),
