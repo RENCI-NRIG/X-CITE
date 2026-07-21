@@ -29,7 +29,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install Jupyter dependencies
-        run: python3 -m pip install jupyter nbformat nbclient
+        run: python3 -m pip install jupyter nbformat nbclient numpy
       - name: Print Quarto version
         run: quarto --version
       - name: Print Quarto tools
