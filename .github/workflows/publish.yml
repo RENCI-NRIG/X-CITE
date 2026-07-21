@@ -2,42 +2,38 @@
 # quarto.pub.
 #
 # Via https://quarto.org/docs/publishing/github-pages.html
-
 name: Publish
-
 on:
   workflow_dispatch:
   push:
     branches: main
-
 permissions:
   contents: read
-
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
       pages: write
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v4.2.2
-
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2.2.0
         # env:
         #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # with:
         #   tinytex: true
-
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Jupyter dependencies
+        run: python3 -m pip install jupyter nbformat nbclient
       - name: Print Quarto version
         run: quarto --version
-
       - name: Print Quarto tools
         run: quarto tools
-
       # Publish on GitHub Pages
       - name: Render and publish on GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2.2.0
@@ -45,7 +41,6 @@ jobs:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Publish on Quarto.pub (https://x-cite.quarto.pub/).
       - name: Render and Publish on quarto.pub
         uses: quarto-dev/quarto-actions/publish@v2.2.0
