@@ -54,7 +54,7 @@ benefits both the authors and the publisher.
 
 ## The Principles of FAIR-ness
 
-Findable, Accessible, Interoperable, and Reusable.
+**F**indable, **A**ccessible, **I**nteroperable, and **R**eusable.
 
 In this section we will look at the aspects that make up each of
 Findability, Accessibility, Interoperability, and Reusability. As you
@@ -148,10 +148,10 @@ later section.
 
 ### Reusable
 
-R1. meta(data) are richly described with a plurality of accurate and relevant attributes
-R1.1. (meta)data are released with a clear and accessible data usage license
-R1.2. (meta)data are associated with detailed provenance
-R1.3. (meta)data meet domain-relevant community standards
+* R1. meta(data) are richly described with a plurality of accurate and relevant attributes
+* R1.1. (meta)data are released with a clear and accessible data usage license
+* R1.2. (meta)data are associated with detailed provenance
+* R1.3. (meta)data meet domain-relevant community standards
 
 The crux of this principle is ensuring high-quality curation. The
 metadata should be thoroughly descriptive and will indicate, among
