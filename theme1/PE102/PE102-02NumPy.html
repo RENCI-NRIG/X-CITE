@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,14 +78,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -166,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta name="twitter:title" content="NumPy - A Mathematical Toolkit for Python – X-CITE">
-<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -379,9 +381,9 @@ document.addEventListener('DOMContentLoaded', function () {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a-first-glimpse" id="toc-a-first-glimpse" class="nav-link active" data-scroll-target="#a-first-glimpse">A first glimpse</a></li>
-  <li><a href="#lets-do-some-actual-math-shall-we" id="toc-lets-do-some-actual-math-shall-we" class="nav-link" data-scroll-target="#lets-do-some-actual-math-shall-we">Let’s do some actual math, shall we?</a></li>
+  <li><a href="#lets-do-some-actual-math-shall-we" id="toc-lets-do-some-actual-math-shall-we" class="nav-link active" data-scroll-target="#lets-do-some-actual-math-shall-we">Let’s do some actual math, shall we?</a></li>
   <li><a href="#linear-algebra-anyone" id="toc-linear-algebra-anyone" class="nav-link" data-scroll-target="#linear-algebra-anyone">Linear algebra, anyone?</a></li>
+  <li><a href="#and-much-much-more" id="toc-and-much-much-more" class="nav-link" data-scroll-target="#and-much-much-more">And much, much more…</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/RENCI-NRIG/X-CITE/blob/main/theme1/PE102/PE102-02NumPy.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -408,52 +410,63 @@ document.addEventListener('DOMContentLoaded', function () {
 </header>
 
 
+<div id="3ff68669-a493-4d27-bb7b-5a168faaa16e" class="cell markdown">
 <p>In the previous section, modules for Python was introduced. In this section, we’ll take a much more detailed look at one of the most useful to scientists: NumPy. This module contains numerous routinues and support frameworks for numerical computing. The routinues in it are very carefully tested for correctness and are crafted for speed. Any time you <em>can</em> use something from this package, it’s a good idea to.</p>
 <p>Python is built for versatility and ease of programming. Unfortunately, it is not built for speed. Over the years Python has gotten faster and faster but there is still a speed penalty compared to classic compiled languages like C, C++, or Fortran.</p>
 <p>Enter NumPy: a package of mathematical routines written in C and Fortran and made to work with Python via a “glue” or “shim” layer. This interface is invisible to the programmer. NumPy looks and behaves just like any other Python package. Under the surface, though, lies a very fast and efficient library of algorithms.</p>
 <section id="a-first-glimpse" class="level2">
 <h2 class="anchored" data-anchor-id="a-first-glimpse">A first glimpse</h2>
 <p>Let’s take a quick look at NumPy and see a few of the things it can do. NumPy is a package, not part of Python proper, so we have to tell Python to load it. It’s traditional to import numpy and give it the alias “np” - it’s less typing that way, and if you’re cutting and pasting code from other sources then it’s handy to follow the convention.</p>
-<div id="de084959-df71-493d-8e30-7ab89a5552cf" class="cell" data-execution_count="15">
+</section>
+</div>
+<div id="de084959-df71-493d-8e30-7ab89a5552cf" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="a85dfb8c-4b0d-4f1e-8229-5b1f2c4a329c" class="cell markdown">
 <p>Python, you’ll recall, doesn’t have an “array” data type. The closest it can come is the “list”. Lists are certainly useful, but they aren’t all that fast to read and even slower to write to. To make matters worse, a 2-D array is represented by a list of lists. This is great for representing complicated data but it’s lousy for doing math.</p>
 <p>The critical NumPy data type is the array: “NumPy arrays are faster and more compact than Python lists. An array consumes less memory and is convenient to use.” (<a href="https://numpy.org/doc/stable/user/absolute_beginners.html">source</a>) The one caveat with NumPy arrays is that all the elements inside an array need to have the same data type (e.g.&nbsp;integer, float, double). In practice this is rarely, if ever, a problem.</p>
 <p>Let’s make an array of integers:</p>
-<div id="2b954fa8-72d4-4c2a-aa3a-250949c3ff11" class="cell" data-execution_count="16">
+</div>
+<div id="2b954fa8-72d4-4c2a-aa3a-250949c3ff11" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>], [<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>]])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>array([[ 1,  2,  3,  4],
        [ 5,  6,  7,  8],
        [ 9, 10, 11, 12]])</code></pre>
 </div>
 </div>
+<div id="b70935d1-8ee5-4a1b-9b8a-dbb407dc5324" class="cell markdown">
 <p>The array <code>a</code> is now a 4x3 array of integers. The <code>array</code> method was called with one argument - a Python “list of lists” representation of the array. The dimensions of the array are inferred from the list of lists used to initialize it.</p>
 <p>There are other ways to create arrays. Here are two more common methods:</p>
-<div id="7841cfe1-5e2a-4aa2-a87f-edc63c454ca4" class="cell" data-execution_count="17">
+</div>
+<div id="7841cfe1-5e2a-4aa2-a87f-edc63c454ca4" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(<span class="dv">3</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>array([0., 0., 0.])</code></pre>
 </div>
 </div>
+<div id="a8be4b10-4a46-4524-a06b-b027fffc9b2c" class="cell markdown">
 <p>Notice the decimal points after the zeros. These indicate that we’re seeing floating point numbers.</p>
-<div id="58af786a-c914-4e42-acc3-87e25f68e022" class="cell" data-execution_count="18">
+</div>
+<div id="58af786a-c914-4e42-acc3-87e25f68e022" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.ones((<span class="dv">3</span>,<span class="dv">3</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>array([[1., 1., 1.],
        [1., 1., 1.],
        [1., 1., 1.]])</code></pre>
 </div>
 </div>
+<div id="1da71297-5b0f-4244-a61c-24f7a5d6b111" class="cell markdown">
 <p>This one will throw you off if you aren’t paying attention. Notice how many parantheses there are… probably more than you expected! What is going on is that the outer parentheses are there to indicate function arguments, just like calling any other functions. The inner parentheses are used to generate a tuple, in this case one with two values, both of which are threes. This tuple can be arbitrarily long:</p>
-<div id="ba910429-41d2-4c8d-a4e0-c690e354fba6" class="cell" data-execution_count="19">
+</div>
+<div id="ba910429-41d2-4c8d-a4e0-c690e354fba6" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>big_m <span class="op">=</span> np.ones((<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>big_m</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>array([[[[1., 1., 1.],
          [1., 1., 1.],
          [1., 1., 1.]],
@@ -493,9 +506,11 @@ document.addEventListener('DOMContentLoaded', function () {
          [1., 1., 1.]]]])</code></pre>
 </div>
 </div>
+<div id="99be908a-4d66-4576-b7dd-0d0d01c0918c" class="cell markdown">
 <p>The output isn’t terribly easy to read, but then again representing a four dimensional array on a flat page is challenging at best.</p>
 <p>If we ever need to see the dimensions of an array, we can use the <code>shape()</code> method.</p>
-<div id="72fbfda8-ed6e-40dc-94e4-ce4ccefe0c66" class="cell" data-execution_count="20">
+</div>
+<div id="72fbfda8-ed6e-40dc-94e4-ce4ccefe0c66" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"z:"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.shape(z))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
@@ -515,11 +530,13 @@ big_m
 (3, 3, 3, 3)</code></pre>
 </div>
 </div>
-</section>
+<div id="72e6eaaf-b3cb-4d27-9bc1-ecfeaf1ff213" class="cell markdown">
 <section id="lets-do-some-actual-math-shall-we" class="level2">
 <h2 class="anchored" data-anchor-id="lets-do-some-actual-math-shall-we">Let’s do some actual math, shall we?</h2>
 <p>The trivial example: add a scalar (“a single number”) to every element of the matrix:</p>
-<div id="2646ba7d-7d8c-4103-bf8d-da4a4bec05d4" class="cell" data-execution_count="21">
+</section>
+</div>
+<div id="2646ba7d-7d8c-4103-bf8d-da4a4bec05d4" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>z_plus_three <span class="op">=</span> z <span class="op">+</span> <span class="dv">3</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z_plus_three)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -528,8 +545,10 @@ big_m
 [3. 3. 3.]</code></pre>
 </div>
 </div>
+<div id="075d1805-07b2-4ef8-81c0-995fc0ac3d38" class="cell markdown">
 <p>You can use any of the Python operators, of course: <code>+, -, *, /, %, **</code>…</p>
-<div id="25781f79-c2e5-4a78-bfd8-05b92f4fedd6" class="cell" data-execution_count="22">
+</div>
+<div id="25781f79-c2e5-4a78-bfd8-05b92f4fedd6" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a <span class="op">%</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1 0 1 0]
@@ -537,8 +556,10 @@ big_m
  [1 0 1 0]]</code></pre>
 </div>
 </div>
+<div id="97090102-79e4-40db-bd2e-0b7544eed3ea" class="cell markdown">
 <p>Comparison operators (like &gt;, &lt;, and so forth) are legitimate operators, so they work too:</p>
-<div id="45637e00-2f0e-45b1-976f-d4c5ed4a4d72" class="cell" data-execution_count="23">
+</div>
+<div id="45637e00-2f0e-45b1-976f-d4c5ed4a4d72" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">&gt;</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -552,15 +573,19 @@ big_m
  [ True  True  True  True]]</code></pre>
 </div>
 </div>
-</section>
+<div id="16d7c234-3497-4e9c-9297-64a806542ff3" class="cell markdown">
 <section id="linear-algebra-anyone" class="level2">
 <h2 class="anchored" data-anchor-id="linear-algebra-anyone">Linear algebra, anyone?</h2>
 <p>Let’s use NumPy to do some basic linear algebra. First, we’ll need another module in the NumPy package:</p>
-<div id="7edc25f0-e902-4234-9a95-41597190e0c7" class="cell" data-execution_count="24">
+</section>
+</div>
+<div id="7edc25f0-e902-4234-9a95-41597190e0c7" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy.linalg <span class="im">as</span> nl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="e61aee98-093a-4658-9871-5089de494a5e" class="cell markdown">
 <p>That <code>import</code> statement went out to where Python packages are stored and found the “linalg” module of the numpy package. This module was imported into the Python interpreter under the name “nl” (as in “NumPy linear algebra”). Using the “nl” alias saves a lot of typing and even makes the code easier to read.</p>
-<div id="e4c96df7-c701-4a2a-87f8-ea545f01c980" class="cell" data-execution_count="25">
+</div>
+<div id="e4c96df7-c701-4a2a-87f8-ea545f01c980" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>], [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>], [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>]])</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(k)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -571,24 +596,31 @@ big_m
  [1 1 0]
  [1 0 0]]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>array([[ 0.,  0.,  1.],
        [-0.,  1., -1.],
        [ 1., -1., -0.]])</code></pre>
 </div>
 </div>
+<div id="c3a4b59d-cf8d-4bf5-bc4c-5ef76b7cf33a" class="cell markdown">
 <p>And given a matrix and its inverse, you probably already guessed where this is going:</p>
-<div id="2a60a483-96e2-4929-a8a5-3c5d93332b8a" class="cell" data-execution_count="26">
+</div>
+<div id="2a60a483-96e2-4929-a8a5-3c5d93332b8a" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>k <span class="op">@</span> kinv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>array([[1., 0., 0.],
        [0., 1., 0.],
        [0., 0., 1.]])</code></pre>
 </div>
 </div>
-
-
+<div id="52888c70-976c-40e2-907d-4e3db09cdd49" class="cell markdown">
+<section id="and-much-much-more" class="level2">
+<h2 class="anchored" data-anchor-id="and-much-much-more">And much, much more…</h2>
+<p>Numpy has a lot of functions in it for dealing with numeric data of various sorts. For example, there is a decent collection of methods for image processing. More information on NumPy is forthcoming as we learn what kinds of functionality is most useful for beamline science.</p>
 </section>
+</div>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1011,7 +1043,7 @@ big_m
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>

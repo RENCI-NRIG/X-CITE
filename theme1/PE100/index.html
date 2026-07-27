@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,14 +43,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -354,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p>Prerequisites? None.</p>
 <p>The training materials before you are designed both for scientists who may not have any programming experience whatsoever and for those who have at least some basic programming capability but in a language other than Python.</p>
 <p>Python’s adoption has exploded in the last decade. Much of its success can be attributed to productivity. Many programming languages force the programmer to deal with very small details to do even the simplest things. Python’s attitude is to just take care of all the minutae so we don’t have to. On top of that, Python’s popularity has resulted in hundreds of thousands of packages of useful code for specific tasks. If there is something you need to write a program for, it’s almost definite that someone else has had the same problem. There’s a good chance at least one of those people neatly wrapped up some of their code and made it available in one of the repositories on the internet. There’s no reason for you to reinvent the proverbial wheel again - take advantage of their work (don’t forget to cite it!) and get back to doing actual science that much sooner.</p>
-<p>You’re currently looking at <a href="../../theme1/PE100/PE100-01Introduction.html">PE100-01 Introduction</a>. If you are new to Python and especially if you’re new to programming, you should work through each of the modules in order. More experienced programmers might benefit from skipping directly to topics that interest them. Select one of the following:</p>
+<p>If you are new to Python and especially if you’re new to programming, you should work through each of the modules in order. More experienced programmers might benefit from skipping directly to topics that interest them. Select one of the following:</p>
 <ul>
 <li><a href="../../theme1/PE100/PE100-02TypesVarsAndOperators.html">PE100-02 Types, Variables, and Operators</a> - the heart of any programming language.</li>
 <li><a href="../../theme1/PE100/PE100-03DecisionStructures.html">PE100-03 Decision Structures</a> - conditional statements (“if” statements”) change the program flow.</li>
@@ -379,64 +382,189 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 <p>When it ran, it printed “403.616” on a line by itself. That was the output from the print.</p>
 <p>Click in the next cell (where it says “103.5”) to select that cell. Then hold down the Shift key while you press Enter.</p>
+<div id="7d1fb3e9-c37d-4867-ac04-1b1a4f907cff" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>103.5</code></pre>
+</div>
+</div>
 <p>In Python, and in Jupyter notebooks, if the last (or only!) line evaluates to some value then it will be printed out. That’s how “103.5” got printed - a literal number evaluates to that number when it’s run. A “literal number” means you look at it in your code and you <em>literally see a number</em>.</p>
 <p>Take a look at a <em>string literal</em>. Run each of the next two cells…</p>
+<div id="ce6d68bb-7c98-4dcf-894e-e519dc7fb367" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>the quick brown fox</code></pre>
+</div>
+</div>
+<div id="b907d685-1c2b-4dc4-a627-bf8c98f2b872" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>jumped over the lazy dogs</code></pre>
+</div>
+</div>
 <p>At this point, we can use Python and Jupyter Lab as a scientific calculator. We have some literals of different types (int, real, and string, so far) and we can print them out with the <code>print()</code> <em>function</em>. If we don’t explicitly print anything at the end of a cell, Python will show us the last value that was computed.</p>
 <section id="operators" class="level2">
 <h2 class="anchored" data-anchor-id="operators">Operators</h2>
 <p>Like any programming language, Python lets you “do math” and lots of other things. Let’s take a look at some of the basic “operators”. In all of the code-containing cells through this course, try to predict what will happen first, and then run the code.</p>
-<div id="5c7336fe-ebd6-4596-8dd3-7d85e24c729d" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="99b2c0e4-14aa-466a-8a25-f22604271bb8" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="90383055-7b1b-47ca-8e6b-38fef949ee8f" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>16</code></pre>
+</div>
+</div>
+<div id="5c7336fe-ebd6-4596-8dd3-7d85e24c729d" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>2</code></pre>
 </div>
 </div>
+<div id="ffe5e208-cd79-46ba-9985-68f2b414aa5d" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>42</code></pre>
+</div>
+</div>
+<div id="28754cd0-96b2-4e55-9cc7-b3eb978c2f93" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>5.333333333333333</code></pre>
+</div>
+</div>
 <p>Besides the “classic” operators, there are some handy extras:</p>
+<div id="59753692-d36a-40d7-858b-04fcd629b4c1" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>5</code></pre>
+</div>
+</div>
 <p>What happened there? The <code>//</code> operator does <em>integer division</em> - it returns the whole number part of the answer, just like when we learned division in elementary school.</p>
+<div id="dac9ed9b-95d6-41b3-ab3b-0b1229d8ef15" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>1</code></pre>
+</div>
+</div>
 <p>The <code>%</code> operator returns the remainder. This is also called “modulo”, and the above would be pronounced “sixteen mod 3”.</p>
-<div id="1177f56b-554c-4c41-b85a-af6a2bc73a6a" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div id="1177f56b-554c-4c41-b85a-af6a2bc73a6a" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>256</code></pre>
 </div>
 </div>
+<div id="0b991148-b2ad-4f90-866a-ff1c7a227007" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>43.30806042677592</code></pre>
+</div>
+</div>
 <p>The <code>**</code> operator does exponentiation. The <em>arguments</em> can be integers or they can be real numbers. Naturally, operators can be combined into arbitrarily long <em>expressions</em>.</p>
+<div id="f625e6fc-3ca6-47b7-ba35-76c420da2317" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>60</code></pre>
+</div>
+</div>
+<div id="49d8fdb7-7d0c-43bb-9db8-b4dd3700fc5e" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>26</code></pre>
+</div>
+</div>
 <p>Notice what happens when we use different operators. They are applied in the “My Dear Aunt Sally” order of precendence (multiplication, division, addition, subtraction).</p>
-<p>Order of operations: * Exponentiation: <code>**</code> * Multiplication, Division, Remainder: <code>* / // %</code> * Addition and Subtraction: <code>+ -</code></p>
+<p>Order of operations:</p>
+<p>Exponentiation: <code>**</code><br>
+Multiplication, Division, Remainder: <code>* / // %</code><br>
+Addition and Subtraction: <code>+ -</code></p>
 <p>Within the same level, operators are applied left-to-right. 8-5+2 is evaluated as 3+2 and yields 5. The exception is exponentiation: 2 ** 3 ** 4 is treated as 2 ** 81 and yeilds an annoyingly large number</p>
+<div id="3f0ff4ca-da1e-4097-873e-cb61bbd7a22f" class="cell" data-execution_count="16">
+<div class="cell-output cell-output-stdout">
+<pre><code>2417851639229258349412352</code></pre>
+</div>
+</div>
+<div id="4aebc6f8-d3c5-422e-8d31-6664552ad4ce" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-stdout">
+<pre><code>2417851639229258349412352</code></pre>
+</div>
+</div>
 </section>
 <section id="variables" class="level2">
 <h2 class="anchored" data-anchor-id="variables">Variables</h2>
 <p>Unless we just use Jupyter as a big, expensive scientific calculator, we need a way to store data. <em>Variables</em> were invented for just that purpose, and virtually every language has them. Think of them as a place to store data of some kind, and that place has a name. They behave in Python just like you’d expect.</p>
-<div id="6350b83c-2d85-4cc2-a54c-d8bf18c6d42c" class="cell" data-execution_count="5">
+<div id="6350b83c-2d85-4cc2-a54c-d8bf18c6d42c" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-stdout">
 <pre><code>42</code></pre>
 </div>
 </div>
 <p>We just created a variable named <code>answer</code> and gave it the value 42. Variables are long-lived - later we’ll talk about just how long when we start writing our own functions, but until then our variables last as long as Python (or in our case, Jupyter) is running. Take a look - answer is still there.</p>
+<div id="56538fe2-b464-4fe1-a3e0-23ff1b555bda" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-stdout">
+<pre><code>42</code></pre>
+</div>
+</div>
 <p>The value stored in a variable can change. It can even change type:</p>
+<div id="58211df3-28e4-4829-b5ca-ab9174213bcd" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-stdout">
+<pre><code>70
+not very much.</code></pre>
+</div>
+</div>
 <p>We can declare many variables, and we can “do things” with them just like we can when we type in numbers or strings.</p>
+<div id="74124737-2572-46e4-a696-a91f35cea69b" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>480</code></pre>
+</div>
+</div>
 <p>In the last line, we just put <code>watts</code> because Jupyter automatically prints what the last line evaluates to.</p>
 <p>We can use variables to change the <em>order of operations</em>. Let’s see the average price of two people’s meals:</p>
+<div id="1600a8b8-7222-4bf7-8f63-4fce4b3bd56d" class="cell" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>20.93</code></pre>
+</div>
+</div>
 <p>That’s the right answer. If we hadn’t done that, we would have gotten</p>
+<div id="199989df-a1c7-41fd-8088-19107e5025c3" class="cell" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>32.135</code></pre>
+</div>
+</div>
 <p>which is utterly wrong. Beware of the order of operations… it is a frequent source of bugs in scientific programming.</p>
 <section id="variable-naming-rules" class="level4">
 <h4 class="anchored" data-anchor-id="variable-naming-rules">Variable Naming Rules</h4>
-<p>For the most part, you can pick whatever name makes sense for a variable, but there <em>are</em> some rules. When choosing a name: 1. No keywords (<code>False</code> won’t work.) 1. No spaces (<code>sample thickness</code> is invalid) 1. The first character <strong>must</strong> be one of * a-z, or A-Z, or _. (the underscore character) * As a result, no numbers (3rd_sample_holder is invalid) 1. <strong>After</strong> the first character, you can then have numbers (sample_holder_3 is perfectly valid) 1. No other symbols are allowed (exploded&amp;destroyed_spectrometers is invalid, and probably suggests it’s time to review lab safety procedures).</p>
+<p>For the most part, you can pick whatever name makes sense for a variable, but there <em>are</em> some rules. When choosing a name:</p>
+<ol type="1">
+<li>No keywords (<code>False</code> won’t work.)</li>
+<li>No spaces (<code>sample thickness</code> is invalid)</li>
+<li>The first character <strong>must</strong> be one of
+<ul>
+<li>a-z, or A-Z, or _. (the underscore character)</li>
+<li>As a result, no numbers (3rd_sample_holder is invalid)</li>
+</ul></li>
+<li><strong>After</strong> the first character, you can then have numbers (sample_holder_3 is perfectly valid)</li>
+<li>No other symbols are allowed (exploded&amp;destroyed_spectrometers is invalid, and probably suggests it’s time to review lab safety procedures).</li>
+</ol>
 <p><strong>Note: Uppercase vs.&nbsp;Lowercase matters!</strong> <code>Bevatron</code> is not the same variable as <code>bevatron</code></p>
 </section>
 </section>
 <section id="types" class="level2">
 <h2 class="anchored" data-anchor-id="types">Types</h2>
 <p>We’ve hinted that variables have a “type”, and that the type can change if it needs to. The way it works is that variables keep track of what <em>type</em> they are (integer, real number, or string) and what their “value” is. We can even interrogate a variable as see what type it is:</p>
-<div id="fc59a93c-4ce8-4f62-a804-34d8ea496926" class="cell" data-execution_count="2">
+<div id="fc59a93c-4ce8-4f62-a804-34d8ea496926" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-stdout">
 <pre><code>reading:
 &lt;class 'float'&gt;
 &lt;class 'str'&gt;</code></pre>
 </div>
 </div>
+<div id="2fc7b814-7512-4fb5-b81b-b103599d0cba" class="cell" data-execution_count="25">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'int'&gt; &lt;class 'str'&gt;</code></pre>
+</div>
+</div>
 <p>The type of a variable matters. Let’s create a variable with an integer in it and another with a string. Then let’s do some math:</p>
+<div id="209a9284-072b-41e2-82aa-1ef4b62d39fa" class="cell" data-execution_count="26">
+<div class="cell-output cell-output-stdout">
+<pre><code>13</code></pre>
+</div>
+</div>
+<p>On the other hand, if we tried to do the following:</p>
+<p>first_thing = 6<br>
+second_thing = “7”<br>
+print (first_thing + second_thing)</p>
+<p>Then we would get an error message. Go ahead and try it - put quotation marks around the code cell we ran before and execute it.</p>
 <p>How do we handle situations like that, where <code>second_thing</code> held a string representing a seven, but because it was a string variable it couldn’t be used as an integer? Python provides a few functions to convert values from one type to another. The <code>str()</code> function takes a variable and converts it to a string. The <code>float()</code> and <code>int()</code> functions convert their arguments to floating-point and to integer numbers, respectively.</p>
-<div id="8b0fa20d-3cf4-4e9d-9c66-28619c8598b6" class="cell" data-execution_count="9">
+<div id="8b0fa20d-3cf4-4e9d-9c66-28619c8598b6" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-stdout">
 <pre><code>13
 13.0</code></pre>
@@ -447,39 +575,74 @@ document.addEventListener('DOMContentLoaded', function () {
 <section id="continuation-character" class="level2">
 <h2 class="anchored" data-anchor-id="continuation-character">Continuation Character</h2>
 <p>Sometimes the expressions we need to evaluate can be very long. It would be nice if we could split up a long expression and spread it out over a few lines. As a small example, we’ll take a look at 4+2+3. Many programming languages will let us split an expression anywhere we want, such as:</p>
+<div id="c4e88656-191d-479f-9dcf-d5c8020a1cce" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>3</code></pre>
+</div>
+</div>
 <p>…but that result isn’t right in Python. The last line, <code>+3</code>, was evaluated and printed as the result of running that cell. In Python,it turns out, if we need to continue an expression on the next line we must end the current line with a backslash <code>\</code> and press enter. It has to be a backslash, by the way, and <strong>cannot</strong> be the forward slash like we use for division.</p>
-<div id="a3f81522-1f91-4fc5-92d8-02d8d88d208f" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="a3f81522-1f91-4fc5-92d8-02d8d88d208f" class="cell" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>9</code></pre>
 </div>
 </div>
-<p>Time for an exercise! Try to predict what will be printed when you run the next cell. Then, run the next cell and see how you did. If you miss one, make sure you figure out what happened before you go. I know, we’re professionals, I shouldn’t have to say that…</p>
-<p>Now write an expression to average three numbers (12, 14, and 66), divide the result by three, and square it. You can use the code cell right below here:</p>
+<p>Time for an exercise! Predict what will be printed when you run the next cell. Then, run the next cell and see how you did. If you miss one, make sure you figure out what happened before you go. I know, we’re professionals, I shouldn’t have to say that…</p>
+<div id="a7509f39-e1b5-4581-9294-6837652e2448" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-stdout">
+<pre><code>14.0
+10
+21</code></pre>
+</div>
+</div>
+<p>Now write an expression to average three numbers (12, 14, and 66), divide the result by three, and square it. You can use the code cell right below here, if you’re working along inside the notebook:</p>
 </section>
 <section id="the-string-type" class="level2">
 <h2 class="anchored" data-anchor-id="the-string-type">The String Type</h2>
 <p>At the beginning of this notebook, we casually mentioned “strings” without saying what they are. They’re just “sequences of characters”. And these can be any kind of characters - the English alphabet, the Hungarian alphabet, hiragana… it doesn’t matter.</p>
-<p>Some, probably most, languages contain strings inside “double quotes”, <code>"</code>, which is shift+apostrophe on US English keyboards. Other languages (SQL and Pascal are the only two I can think of) use single quotes: <code>'</code>. Python lets you use either one. You <em>do</em> have to be consistent in each string, but it can vary from one string to the next:</p>
+<div id="2db2513c-9836-444f-bb61-0a8e65d12eac" class="cell" data-execution_count="32">
+<div class="cell-output cell-output-stdout">
+<pre><code>I'll see you mañana, assuming I don't get irradiated to death.</code></pre>
+</div>
+</div>
+<p>Some, probably most, programming languages contain strings inside “double quotes”, <code>"</code>, which is shift+apostrophe on US English keyboards. Other languages (SQL and Pascal are the only two I can think of) use single quotes: <code>'</code>. Python lets you use either one. You <em>do</em> have to be consistent in each string, but it can vary from one string to the next:</p>
+<div id="614bce71-4826-4646-80b5-c8681aec3581" class="cell" data-execution_count="33">
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre>  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[32]</span><span class="ansi-green-fg">, line 3</span>
+<span class="ansi-red-fg">    </span><span class="ansi-red-fg">print('but do not mix the two in one string!"</span>
+          ^
+<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> unterminated string literal (detected at line 3)
+</pre>
+</div>
+</div>
+</div>
 <p>Because we can use either type of quotation mark, we can exploit that to let us put quotation marks into strings:</p>
-<div id="d7be27f7-1a62-4e9f-a488-99fd10f3e424" class="cell" data-execution_count="3">
+<div id="d7be27f7-1a62-4e9f-a488-99fd10f3e424" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-stdout">
 <pre><code>Don't put explosive mixtures in the spectrometer, please.
-Of course he was warned... "Do not turn the spectrometer into a bomb, please" but I am sure he ignored that.</code></pre>
+We warned him... "Do not turn the spectrometer into a bomb!" but he still did it.</code></pre>
 </div>
 </div>
 <p>That lets us embed whichever kind of quotation mark we need into a string.</p>
 <p>But what if we need to embed <strong>both</strong> kinds of quotes into one string? We’re in luck: we can use the backslash character again to “quote” our quotation mark. In fact, we can quote any character with it if we need to.</p>
-<div id="2cd4377a-518b-4df0-87f2-bb4931185921" class="cell" data-execution_count="2">
+<div id="2cd4377a-518b-4df0-87f2-bb4931185921" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-stdout">
-<pre><code>We told him "Hexanitrohexaazaisowurtzitane and spectrometers don't mix, buddy", but we're pretty sure he ignored us.</code></pre>
+<pre><code>We told him "Hexanitrohexaazaisowurtzitane and spectrometers don't mix", but we're pretty sure he ignored us.</code></pre>
 </div>
 </div>
-<p>That sentence contains three things, inside the string itself: 1. Double Quotes to surround a direct quotation 2. A single quote, also called an apostrophe depending on how it’s used, to make a contraction, and 3. A totally awesome/terrifying molecule you have to google to believe.</p>
+<p>That sentence contains three things, all inside the string itself: 1. Double Quotes to surround a direct quotation 2. A single quote, also called an apostrophe depending on how it’s used, to make a contraction, and 3. A totally awesome and terrifying molecule you have to google to believe.</p>
 <p>OK, I’ll save you the trouble. <a href="https://www.science.org/content/blog-post/things-i-won-t-work-hexanitrohexaazaisowurtzitane">Prepare to lose most of a day’s productivity</a>. You’re welcome.</p>
 <p>(Derek has written gobs of articles on fun substances. <a href="https://www.science.org/topic/blog-category/things-i-wont-work-with">Here are some more.</a> )</p>
 <p>There is one last kind of string literal. Sometimes you need a string that is several lines long. The “triple quote” is a way to do it. You have to use three double-quotes in a row:</p>
+<div id="5a967aae-73d7-48b4-b6b9-91e9c8863b59" class="cell" data-execution_count="36">
+<div class="cell-output cell-output-stdout">
+<pre><code>This is the first line,
+This is the second,
+and this is the third and final line of my string.</code></pre>
+</div>
+</div>
 <p>Triple quotes are also an easier way to embed mixed kinds of quotation marks into strings:</p>
-<div id="2652937d-4643-4c76-9f70-a364b9dc7cf2" class="cell" data-execution_count="5">
+<div id="2652937d-4643-4c76-9f70-a364b9dc7cf2" class="cell" data-execution_count="37">
 <div class="cell-output cell-output-stdout">
 <pre><code>I know people who say "The Avengers" isn’t a good movie, but I don’t agree.</code></pre>
 </div>
@@ -487,7 +650,7 @@ Of course he was warned... "Do not turn the spectrometer into a bomb, please" bu
 </section>
 <section id="coming-up-next" class="level2">
 <h2 class="anchored" data-anchor-id="coming-up-next">Coming Up Next</h2>
-<p>We just looked at enough of Python and Jupyter notebooks to use it as a basic calculator, but so far we can’t do any real, general-purpose programming with it. The “flow of control” sob far as been a straight line from top to bottom and we can’t change what we’re doing in response to different inputs. That’s about to change. In the next section we’ll look at the <code>if</code> statement and how to use it.</p>
+<p>We just looked at enough of Python and Jupyter notebooks to use it as a basic calculator, but so far we can’t do any real, general-purpose programming with it. The “flow of control” so far as been a straight line from top to bottom and we can’t change what we’re doing in response to different inputs. That’s about to change. In the next section we’ll look at the <code>if</code> statement and how to use it.</p>
 </section>
 <a class="quarto-notebook-link" id="nblink-2" href="PE100-02TypesVarsAndOperators-preview.html#09f4eac4-93a1-4b12-8524-fe397f7aec67">Source: PE100-02: Types, Variables, and Operators</a></section>
 <section id="pe100-03-decision-structures" class="level1 quarto-embed-nb-cell">
@@ -673,14 +836,14 @@ after k in alphabetical order.</code></pre>
 <section id="pe100-04-repetition" class="level1 quarto-embed-nb-cell">
 <h1>PE100-04: Repetition</h1>
 <p>We started off learning Python with just simple lists of statements…</p>
-<div id="323c8155-7d1d-469d-939a-d41d0f3a33d1" class="cell" data-execution_count="3">
+<div id="323c8155-7d1d-469d-939a-d41d0f3a33d1" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>It's 100 celsius
 or 212.0 in pagan units.</code></pre>
 </div>
 </div>
 <p>Then we added the <code>if</code> statement so we could control whether or not certain statements would execute or not:</p>
-<div id="61b3fe3b-b083-4ed2-9b05-5a6b6690eb28" class="cell" data-execution_count="4">
+<div id="61b3fe3b-b083-4ed2-9b05-5a6b6690eb28" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>Good chance it's boiling.</code></pre>
 </div>
@@ -696,7 +859,7 @@ or 212.0 in pagan units.</code></pre>
 <section id="while-loops" class="level2">
 <h2 class="anchored" data-anchor-id="while-loops">While Loops</h2>
 <p>The syntax of a <code>while</code> loop looks a bit like an <code>if</code> statement. Take a look:</p>
-<div id="f10f7d18-fd33-4f14-b211-6edb05bca4fd" class="cell" data-execution_count="1">
+<div id="f10f7d18-fd33-4f14-b211-6edb05bca4fd" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>Looking at instrument number 1
 and then maybe we'll look at the next one.
@@ -710,7 +873,7 @@ Done with all that looping.
 <p>The second time through the loop, instrument equals 2. That satisfies the conditional statement of the while loop (2 is less than or equal to 2) so the code block runs again. Two more lines are printed out and then instrument is incremented one more time.</p>
 <p>The while loop runs for a third time now. This time, 3 is <strong>not</strong> less than or equal to 2, so the conditional statement is false. This means the while loop is done - it won’t run its code block again, and the flow of control will go on to the next line after the while loop. It will run the two print statements explaining that the looping is over and it can go on to other tasks.</p>
 <p>Let’s look at another example. Let’s print out all the powers of two that are less than 928.</p>
-<div id="b3084a25-da3f-4eed-a59d-19d6bfef25c2" class="cell" data-execution_count="5">
+<div id="b3084a25-da3f-4eed-a59d-19d6bfef25c2" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>2 to the 0 equals 1
 2 to the 1 equals 2
@@ -732,42 +895,23 @@ Done with all that looping.
 <h2 class="anchored" data-anchor-id="reading-information-from-the-outside-world">Reading information from the outside world</h2>
 <p>Notice that in both of those cases, we actually did know how many times the loop would run. We know that 2 to the 9th is 512 and so we know the while loop will only run that far. In fact, in every example we’ve had so far we’ve know what the output will be because we always have the same inputs. Computer software wouldn’t be terribly interesting if it could only run specific, known, canned inputs. Fortunately, Python gives us several ways to bring data into our programs.</p>
 <p>The simplest way to bring data into a Python program is to edit the program and change the values we assign to variables. This is sort of the <em>reducto ad absurdum</em> method, but honestly it isn’t a bad way to handle very small amounts of input. It’s even easier in Jupyter notebooks since the code is just sitting there looking at us, waiting to be edited. For values that aren’t going to change very often (your name, perhaps, or the chargeback account number for using some instrument, for instance) then just assigning a value to a variable and editing it every once and a while is a fine way to go.</p>
-<p>Another way to get data into a Python program is to read it in from where the user is running the program. For doing this, Python provides a function called “input” which takes an optional argument, specifically a string that is printed as a prompt. Python then waits for the user to type something as a response. When they do, that string is returned to the calling program. Here’s a simple example:</p>
-<div id="fd930805-8cfa-4687-95a8-832c4c259a09" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-stdin">
-<pre><code>Please enter your name Erik</code></pre>
-</div>
+<p>Another way to get data into a Python program is to read it in from where the user is running the program. For doing this, Python provides a function called “input” which takes an optional argument, specifically a string that is printed as a prompt. Python then waits for the user to type something as a response. When they do, that string is returned to the calling program.</p>
+<p>Because of how these notebooks are rendered to make the website, we can’t actually have a call to <code>input()</code>. Therefore, the line that calls <code>input()</code> is “commented out”. To prevent errors when building the web site, the value of <code>your_name</code> is set to the empty string (<code>""</code>). Remove the “#” character in the following cell and run it:</p>
+<div id="fd930805-8cfa-4687-95a8-832c4c259a09" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
-<pre><code>Hello, Erik</code></pre>
+<pre><code>Hello, </code></pre>
 </div>
 </div>
 <p>When the above code runs, the prompt “Please enter your name” is displayed right below the code cell and a text entry box is placed beside it. When you enter your name, it greets you.</p>
 <p>If we were running this tiny little snippet of code as a regular program, the interaction would be in the terminal emulator window that we ran the program in. Because this is running in Jupyter, though, the interaction is directly in the notebook. The prompt and the entry blank occur just below the running code cell.</p>
-<p>What will happen when we run the following?</p>
-<div id="05c42b8d-6c18-4e16-aa43-2703a0dea282" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdin">
-<pre><code>Enter a number between 4 and 8 5.25</code></pre>
-</div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In [4], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> response <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">input</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Enter a number between 4 and 8</span><span style="color:rgb(175,0,0)">"</span>)
-<span class="ansi-green-fg">----&gt; 2</span> new_value <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">response</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">+</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">6.5</span>
-<span class="ansi-green-fg ansi-bold">      3</span> <span style="color:rgb(0,135,0)">print</span>(new_value)
-
-<span class="ansi-red-fg">TypeError</span>: can only concatenate str (not "float") to str</pre>
-</div>
-</div>
-</div>
+<p>What will happen when we run the following? (note: remove <strong>all</strong> of the comment characters - the “#” marks - before running the cell)</p>
 <p>Wow! Python couldn’t run that and it “threw an error”. We’ll examine Python’s error handling facilities later, but for now we’ll just assume that means it came to a screeching halt. Looking at the error message, it seems there is some problem with trying to add a real number (a <em>floting point</em> number) to a string.</p>
 </section>
 <section id="type-casting" class="level2">
 <h2 class="anchored" data-anchor-id="type-casting">Type Casting</h2>
 <p><code>input()</code> prompts the user and returns the string they entered, but what if we want the user to enter a number? What do we do then? The answer is we’ll use a process known as <em>type casting</em>. The act of type casting is no more than converting information from one type to another.</p>
 <p>There are three very useful functions for type casting: <code>int()</code>, <code>float()</code>, and <code>str()</code>. Let’s see them in action…</p>
-<div id="3e0901f3-f913-4136-badc-3b825152d4ae" class="cell" data-execution_count="6">
+<div id="3e0901f3-f913-4136-badc-3b825152d4ae" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>16.454
 34543456
@@ -776,13 +920,15 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 </div>
 <p>What did the above do? First, it converted the string “9.9” (literally, three characters… it’s a string) to a “float” (a floating point number, some languages will call that a real number). The second example takes a string of 8 characters and interprets them as an integer. That value is what gets returned and stored in our variable. Finally, we copmute the number 4 by adding 2+2, and then we let the <code>str()</code> function convert that to a single character long string having just the character “4”.</p>
 <p>By now we know enough to be able to ask the user for a number and get something back that we can actually do math with.</p>
-<p>There’s an even easier way, though. Just like function composition worked when you took precalculus, the results of a Python function can be used as the argument to another. Hence:</p>
-<div id="b8fd8dcb-e16c-42c3-ab55-9edee0498bb0" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-stdin">
-<pre><code>Enter a number between 17 and 34 26</code></pre>
-</div>
+<div id="0f71eeed-7bca-47be-b040-aeab8d46add2" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>26.0</code></pre>
+<pre><code>12.0</code></pre>
+</div>
+</div>
+<p>There’s an even easier way, though. Just like function composition worked when you took precalculus, the results of a Python function can be used as the argument to another. Hence:</p>
+<div id="b8fd8dcb-e16c-42c3-ab55-9edee0498bb0" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>4.0</code></pre>
 </div>
 </div>
 <p>Sometimes, function calls can be nested really deeply. Personally, when it comes time to debug code like that I find myself printing it out and coloring each level with a different highlighter pen.</p>
@@ -790,14 +936,12 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <section id="putting-it-together-while-loops-to-get-user-input" class="level2">
 <h2 class="anchored" data-anchor-id="putting-it-together-while-loops-to-get-user-input">Putting it together: while loops to get user input</h2>
 <p>The great thing about a while statement is that it can loop zero times, one, two, or twelve trillion. Best of all, we don’t have to know how many ahead of time. We could do the following:</p>
-<p>print(“Computing an average.”)</p>
-<p>sum=0.0 counter=0 data_point = float(input(“Enter a number, or enter negative num to stop”)) while data_point &gt;= 0.0: sum = sum+data_point counter = counter+1 data_point = float(input(“Enter a number, or enter negative num to stop”))</p>
-<p>print(“Average value is”, sum/counter)</p>
 <p>When we run the code above, we’re prompted to keep entering numbers until we finally enter -999. Each time it goes through the loop it keeps track of the running total of the numbers and the count of how many numbers have been entered. Once it’s done, it divides the total by the count and displays that as the average.</p>
 <p>Let’s step through what happens when the user enters 1, 2, 3, and -999: 1. The sum and counter variables are initialized to zero. 1. The user is prompted to enter a number, possibly a negative number to indicate no more data, and that input is type cast to a floating point number. 1. The while loop’s condition will be met any time a positive number was input (greater than <strong>or</strong> equal to zero). 1 is a positive number, so run the loop body. 1. This first time through, we’ll add the 1 that was input to our running total, which is now 1. 1. And increment the count, now equal to 1. 1. <strong>AND PROMPT THE USER FOR ANOTHER NUMBER!!!</strong> 1. Back at the while statement again, we check the condition and, yes, 2 is a positive number, so we run the loop’s code block. 1. Update the sum and count, and then… 1. <strong>PROMPT THE USER FOR ANOTHER VALUE!!!</strong> 1. Running the while statement again, the user entered 3, and 3 is positive, so the clode block will be executed. 1. Update the sum (now 6) and count (now 3). 1. <strong>Prompt for another number</strong> 1. Back at the while statement, we check and see that -999 is not a positive number, so we skip the code block and resume by running whatever follows it. 1. Having exited the while loop entirely, print out the average value by dividing sum/count.</p>
 <p>All the boldface and all-capitals lines above are there to emphasize how important it is to make sure your while loop isn’t just checking the same thing over and over. If we didn’t get a new number from the user each time through, the value of data_point would never change. That would result in an infinite loop, causing Python to never be able to complete the code in that cell. If it ever happens to you, and it probably will, the “Interrupt Kernel” command on JupyterLab’s Kernel menu will stop the looping and let you get back to work.</p>
 <p>The <code>while</code> loop is certainly versatile… it can be used any time you need to do something repeatedly. If you know how many times you need to have the code block execute, either when you write the code or when it’s running, then keep a variable that is incremented in the block every time and exit the while loop when the counter hits the right number.</p>
 <p>Where <code>while</code> loops really shine is when it’s impossible to know ahead of time how many times the code block should run. The example above, where we keep accepting numbers until the user signals there aren’t any more, there’s no way to know how many times to execute that loop until we see a negative number. In a case like that, the <code>while</code> loop is the only practical solution.</p>
+<p>Incidentally, what happens if you enter “-1” as the first input? What does that code do when you try to compute the average of zero numbers? What would be an appropriate way to handle this?</p>
 <p>So if <code>while</code> loops are so great and solve every problem, why do we need anything else? The big reason is expressiveness: they can be a little awkward to understand, especially when you’re looking at someone else’s code. Having the conditional test separated from the action that establishes when to stop makes it a little awkward to understand (or debug!) someone else’s code. This is especially true when we need to step through something by unusual increments.</p>
 <p>So what are we to do in these cases?</p>
 </section>
@@ -805,7 +949,7 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <h2 class="anchored" data-anchor-id="for-loops">For Loops</h2>
 <p>The <code>for</code> loop is quite similar to the <code>while</code> loop. The difference is that <code>for</code> loops are controlled by a count whereas <code>while</code> loops are controlled by a condition.</p>
 <p>Let’s start with an example.</p>
-<div id="b8b6327b-a2c5-4ad1-9c15-16a20c9a8e92" class="cell" data-execution_count="5">
+<div id="b8b6327b-a2c5-4ad1-9c15-16a20c9a8e92" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
 <pre><code>1
 2
@@ -815,17 +959,18 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <p>That is the simplest for loop you’ll see. Let’s look at the pieces. 1. The <code>for</code> statement itself 2. The name of the <em>target variable</em> whose value will be changing as the loop runs (“the_value” in this case”) 3. “in” - and if this reminds you of set membership then you’re on to something 4. “range()” - this is an example of an <em>iterable</em>, which means “something that can be stepped through”. 5. The colon… the one I forget 50% of the time. 6. The code block, in this case just a print statement.</p>
 <p>Most of the time, fairly close to “always”, the code block will take advantage of the target variable changing each time through. In our example, “the_value” is our target variable, as it loops through it will take on the values 1 through 3, and the code block has a print statement that uses it.</p>
 <p>Before we examine the <code>range()</code> function, let’s take a look at another iterable. We’ll talk about lists in a later lesson, but for now we can just wave our hands around and understand enough for the moment.</p>
-<div id="6baa65d0-bb35-4c8e-8d5a-5cb6e9977ef6" class="cell" data-execution_count="3">
+<div id="6baa65d0-bb35-4c8e-8d5a-5cb6e9977ef6" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
-<pre><code>The sample weighed 143.6 grams.
-The sample weighed 141.9 grams.
-The sample weighed 139.4 grams.
-The sample weighed 144.23219 grams.</code></pre>
+<pre><code>The sample weighed 123.6 grams.
+The sample weighed 121.9 grams.
+The sample weighed 119.4 grams.
+Be careful! This sample might not be all you hoped for.
+The sample weighed 124.23219 grams.</code></pre>
 </div>
 </div>
 <p>You can use the target variable as many times as you want to in the code block.</p>
-<p>Now let’s take a more detailed look at the <code>range()</code> function. In its most basic form it takes one argument - the stop value.</p>
-<div id="c5ac3e19-773d-46fe-8ec6-ff21d21a8145" class="cell" data-execution_count="6">
+<p>Now let’s take a more detailed look at the <code>range()</code> function. In its most basic form it takes one argument - the stopping value.</p>
+<div id="c5ac3e19-773d-46fe-8ec6-ff21d21a8145" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -835,7 +980,7 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 <p>This single-argument form starts at zero, counts up by one each time, and <strong>doesn’t include the stop value</strong>. This is different from every other programming language you’ll ever encounter. It’s just one of those things.</p>
 <p>We’ve already seen the two-argument form. It takes a starting value and a stopping value, and iterates by one from the start until the last value that is less than the stop.</p>
-<div id="d3932ab9-4e16-4443-a1cd-c54cd3f2a766" class="cell" data-execution_count="9">
+<div id="d3932ab9-4e16-4443-a1cd-c54cd3f2a766" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
 <pre><code>7
 8
@@ -843,7 +988,7 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 </div>
 <p>And there’s even a three-argument form. The third argument is the amount to step by.</p>
-<div id="4cafc7e1-0699-4317-a4bd-0debd59651ec" class="cell" data-execution_count="10">
+<div id="4cafc7e1-0699-4317-a4bd-0debd59651ec" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-stdout">
 <pre><code>12
 15
@@ -851,7 +996,7 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 </div>
 <p>The step size doesn’t have to be a positive number…</p>
-<div id="5a0771f1-c227-4a10-9559-bd7c5c6c8b8f" class="cell" data-execution_count="13">
+<div id="5a0771f1-c227-4a10-9559-bd7c5c6c8b8f" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-stdout">
 <pre><code>6
 4
@@ -862,52 +1007,10 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 <p>In case you’re curious, the step size cannot be zero. If you really want an infinite loop, and there are cases where it makes sense, you have to use a <code>while</code> loop instead.</p>
 <p>As a general rule, any place where you can use an explicit value (a <em>literal</em>) you can use a variable. Arguments to a <code>for</code> loop are no exception:</p>
-<div id="1846ea56-9376-435f-ae11-fbf0344266d2" class="cell" data-execution_count="15">
-<div class="cell-output cell-output-stdin">
-<pre><code>where should we start?  13
-where should we run right up to and stop just short of it?  15
-what should we step by?  2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>13</code></pre>
-</div>
-</div>
 <p>If we need to do something a specific number of times, we need to pay attention to our starting and stopping conditions. I’ve messed this up so many times I know now to be careful. You’ve been warned.</p>
-<div id="3fc42a1e-8c99-4683-9ab1-bdd218755f6c" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many numbers would you like to total up?  3
-Enter a number  4
-Enter a number  5</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>They add up to 9</code></pre>
-</div>
-</div>
 <p>Notice something wrong? If you ask it to total 3 numbers, it only prompts for two of them. There are a couple of ways to solve this. The easiest is to just use the one-argument form of <code>range()</code>.</p>
-<div id="a030bbd1-d373-441a-a6f3-1f6717bf2709" class="cell" data-execution_count="19">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many numbers would you like to total up?  3
-Enter a number  4
-Enter a number  5
-Enter a number  6</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>They add up to 15</code></pre>
-</div>
-</div>
 <p>That offers a little insight into why Python has it’s funny “up to but not including” semantics: zero is a perfectly legitimate number and a very natural starting point.</p>
 <p>The only problem with the single-argument method is that the values that the target variable goes through include zero. This may or may not be a problem if that value is used inside the code block. If you really need to count from one instead of zero, you can increment the stopping value:</p>
-<div id="7e661a54-331b-4267-8058-6f65ce7e8d97" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many numbers would you like to total up?  3
-Enter a number  4
-Enter a number  5
-Enter a number  6</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>They add up to 15</code></pre>
-</div>
-</div>
 <p>And that behaved just like we expected.</p>
 <p>You may have noticed a pattern already. We frequently need to compute a new value for an existing variable. What we’ve done so far has been along the lines of <code>grand_total = grand_total + new_reading</code>. Python gives us a shorthand way to write that. We could instead express that as <code>grand_total += new_reading</code>. There is no space between the plus and equals signs. The only reason this exists is to save you some typing. As you might expect, there are a few more of these <em>Augmented Assignment Operators</em>…</p>
 <table class="caption-top table">
@@ -951,7 +1054,7 @@ Enter a number  6</code></pre>
 <section id="nested-loops" class="level2">
 <h2 class="anchored" data-anchor-id="nested-loops">Nested Loops</h2>
 <p>You know what’s fun to put in a loop’s code block? Another loop! Best of all, it comes in pretty handy when dealing with high-dimensional data. Plenty of algorithms rely on nested loops, too. Take a look at this:</p>
-<div id="5591a38e-21b9-4951-9a5f-792bfd3959df" class="cell" data-execution_count="1">
+<div id="5591a38e-21b9-4951-9a5f-792bfd3959df" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-stdout">
 <pre><code>x= 0  y= 0
 x= 0  y= 1
@@ -982,7 +1085,7 @@ x= 4  y= 3</code></pre>
 <section id="pe100-05-functions" class="level1 quarto-embed-nb-cell">
 <h1>PE100-05: Functions</h1>
 <p>Functions in Python are very, very similar to functions in mathematics. Our functions take one or more input values and transform them into precisely one output. Let’s start with an example.</p>
-<div id="04c22c3a-37fe-4991-8598-c966d30a9199" class="cell" data-execution_count="6">
+<div id="04c22c3a-37fe-4991-8598-c966d30a9199" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>12566.36</code></pre>
 </div>
@@ -995,7 +1098,7 @@ x= 4  y= 3</code></pre>
 <p>Functions are useful in programming for the same reason they’re useful in math - ours <em>encapsulate</em> a chunk of code so you don’t have to think about what is in it every time. Imagine how tedious it would be to write a program that needed to compute cosine in a lot of different places in the code. You could, I suppose, type in a Taylor series expansion for cosine in each of the places where we need to compute a cosign. That would be irritating, error prone, and confusing to anyone else who has to read it. Instead, we can write a function exactly once to compute cosine and then call that function from many places in our code. Once we have the function tested and debugged, we don’t have to think about it again. That frees up mental energy for more productive uses.</p>
 <p>Functions can be classified into one of two types. <em>Void Functions</em> exist for encapsulation and don’t actually return a value. <code>print()</code> is an example of a void function. <em>Value-Returning Functions</em>, as the name strongly implies, return a value to the calling code. <code>inductiveReactance()</code> is an example of one.</p>
 <p>Here’s another example. This time, we’ll define a function that calls another function.</p>
-<div id="baaf2054-b5f0-436c-b090-3212855a4fda" class="cell" data-execution_count="9">
+<div id="baaf2054-b5f0-436c-b090-3212855a4fda" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>Area of a circle with a radius of 2 is 12.56636</code></pre>
 </div>
@@ -1011,7 +1114,7 @@ x= 4  y= 3</code></pre>
 <h2 class="anchored" data-anchor-id="function-arguments">Function Arguments</h2>
 <p>Input Parameters to functions are called <em>arguments</em>. They are the primary and best way to put information into a function, and definitely the way that causes the fewest problems. Arguments to a function in Python are mostly analagous to what we’re used to in math, but of course Python has some extensions.</p>
 <p>A function can have any number of arguments, including zero. “A function of zero arguments” might sound like a mathematician’s idea of “humor”, but it can actually make sense in programming. Sometimes you just need to encapsulate part of your code so you don’t have to worry with it again. For instance:</p>
-<div id="d0f9b449-3824-47a6-b06f-4025b8011bdd" class="cell" data-execution_count="13">
+<div id="d0f9b449-3824-47a6-b06f-4025b8011bdd" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>==============================
 ==============================
@@ -1025,7 +1128,7 @@ to them. It'll take a minute.
 </div>
 <p>Now the code to print that banner is hidden away inside a function we’ll never have to look at again. Less mental clutter means fewer bugs.</p>
 <p>And for the sake of completeness, functions can also take one or more arguments:</p>
-<div id="77715897-49f8-490a-958e-88c971f2d973" class="cell" data-execution_count="16">
+<div id="77715897-49f8-490a-958e-88c971f2d973" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>The race was 6.213712 miles long and my ankles were hurting the ENTIRE way.
 The polynomial evaluates to: 1284.04</code></pre>
@@ -1033,7 +1136,7 @@ The polynomial evaluates to: 1284.04</code></pre>
 </div>
 <p>When arguments are passed into a function, they become <em>parameter variables</em> and can be referred to inside the function just like any other variable. This handy because the variables inside a function are called <em>local variables</em> and they have special properties: nothing outside of the function can modify their value, they’re destroyed and re-created every time the function is called, and these local variables supercede any outside variables with the same name.</p>
 <p>Take a look for yourself:</p>
-<div id="2eb99d93-6fff-4458-929c-7841fbd511e2" class="cell" data-execution_count="17">
+<div id="2eb99d93-6fff-4458-929c-7841fbd511e2" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>Twice the wavelength is 40
 Twice the wavelength is 40
@@ -1076,7 +1179,7 @@ Twice the wavelength is 40</code></pre>
 <section id="constants" class="level2">
 <h2 class="anchored" data-anchor-id="constants">Constants</h2>
 <p>There is an exception to the “no globals” rule: <em>Constants</em>. Just like in math, a constant is given a value once and never changed again. “Never changing” means “no side effects” so everything is OK. It is good practice to define your constants using ALL CAPITAL LETTERS.</p>
-<div id="c1721916-b226-4cfc-bf27-af1fc0286d05" class="cell" data-execution_count="20">
+<div id="c1721916-b226-4cfc-bf27-af1fc0286d05" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>1.9878e-19</code></pre>
 </div>
@@ -1105,7 +1208,7 @@ Twice the wavelength is 40</code></pre>
 </ul>
 <p>The first two contain functions for general-purpose math and for producing random numbers. The “os” module interfaces Python with the operating system the code is running on. PyMySql and psycopg provide connectivity to relational databases.</p>
 <p>Remember at the beginning of this lesson when we wrote a function to calculate inductive reactance? I put the value of pi in there as 3.14159, but that really isn’t anywhere near enough digits for some problems. Let’s fix that:</p>
-<div id="1bfa8c0c-7b3d-4aa4-8042-9de84635e959" class="cell" data-execution_count="23">
+<div id="1bfa8c0c-7b3d-4aa4-8042-9de84635e959" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>3.141592653589793</code></pre>
 </div>
@@ -1116,40 +1219,40 @@ Twice the wavelength is 40</code></pre>
 <section id="random-numbers" class="level3">
 <h3 class="anchored" data-anchor-id="random-numbers">Random Numbers</h3>
 <p>Another module that is heavily used is “random”. It generates random numbers, yes, but it can also do things like take a list of things and shuffle them randomly.</p>
-<div id="44d9127c-08db-4cb2-b6e2-f9488827cd66" class="cell" data-execution_count="24">
+<div id="44d9127c-08db-4cb2-b6e2-f9488827cd66" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
-<pre><code>The random integer between 10 and 100 was: 20
-The random float between 0 and 1 is: 0.6474502367565016</code></pre>
+<pre><code>The random integer between 10 and 100 was: 99
+The random float between 0 and 1 is: 0.32917847116186194</code></pre>
 </div>
 </div>
 <p>There are more functions available in the “random” module, including ones to select a real number from a non-uniform distribution. Take a look at <a href="https://docs.python.org/3/library/random.html">https://docs.python.org/3/library/random.html</a></p>
 <p>Here’s a slightly more complicated example:</p>
-<div id="aaaf86d8-e239-4986-a4e0-fb048827c904" class="cell" data-execution_count="27">
+<div id="aaaf86d8-e239-4986-a4e0-fb048827c904" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
-<pre><code>Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Proposal number 23 was funded!
+<pre><code>Don't feel bad... proposal number 0 didn't get funded either.
+Don't feel bad... proposal number 1 didn't get funded either.
+Don't feel bad... proposal number 2 didn't get funded either.
+Don't feel bad... proposal number 3 didn't get funded either.
+Don't feel bad... proposal number 4 didn't get funded either.
+Don't feel bad... proposal number 5 didn't get funded either.
+Don't feel bad... proposal number 6 didn't get funded either.
+Don't feel bad... proposal number 7 didn't get funded either.
+Don't feel bad... proposal number 8 didn't get funded either.
+Don't feel bad... proposal number 9 didn't get funded either.
+Don't feel bad... proposal number 10 didn't get funded either.
+Proposal number 11 was funded!
+Don't feel bad... proposal number 12 didn't get funded either.
+Don't feel bad... proposal number 13 didn't get funded either.
+Don't feel bad... proposal number 14 didn't get funded either.
+Don't feel bad... proposal number 15 didn't get funded either.
+Don't feel bad... proposal number 16 didn't get funded either.
+Don't feel bad... proposal number 17 didn't get funded either.
+Don't feel bad... proposal number 18 didn't get funded either.
+Don't feel bad... proposal number 19 didn't get funded either.
+Don't feel bad... proposal number 20 didn't get funded either.
+Don't feel bad... proposal number 21 didn't get funded either.
+Don't feel bad... proposal number 22 didn't get funded either.
+Don't feel bad... proposal number 23 didn't get funded either.
 Don't feel bad... proposal number 24 didn't get funded either.</code></pre>
 </div>
 </div>
@@ -1173,6 +1276,7 @@ Don't feel bad... proposal number 24 didn't get funded either.</code></pre>
 <p>Text files, on the other hand, are probably something you’re already familar with - they are what you get when you edit a “plain text” file in “notepad” or “textedit”. In a text file, every one of the letter, number, and punctuation mark characters is assigned its own number. For instance, capital “A” is 65. “B” is 66. <a href="https://en.wikipedia.org/wiki/ASCII">Not that it should ever matter, but here’s a complete list and then some!</a></p>
 <p>Let’s say you open an editor and type “CAT”. When you save that to a file, there will be a file that is three bytes long and contains the three bytes 67, 65, and 84. Actually there will usually be a fourth byte, 10, which is the character you get when you press “Enter” or “Return”.</p>
 <p>For now, at least for a few minutes, we’re going to pretend the only language on earth is English. We’ll talk about other languages when we talk about networks.</p>
+<p>But first: remember the problems with using <code>input()</code> in a notebook like this that is going to be compiled and put on the web site? Same thing here. Lots of code blocks will be “comments out”. Delete the “#” characters to run the cells.</p>
 <p>It’s about time for an example, don’t you think?</p>
 <p>Three lines of code was all it took to create a file, write to it, and tidy up after ourselves. What does each of those lines do?</p>
 <p><code>my_file_object = open("/tmp/first_file.txt", "w")</code></p>
@@ -1184,167 +1288,49 @@ Don't feel bad... proposal number 24 didn't get funded either.</code></pre>
 <p>Finally, we call one more of the file object’s functions: close. When we run this, Python tells the operating system “Hey, we’re done with the file. You can get rid of any of the tedious housekeeping data that operating systems keep behind the scenes!”</p>
 <p>Closing files is considered “good programming hygene”. You’re allowed 1024 file objects to be open and connected to files in one program on the CLASSE cluster of computers. I’ll say from my experience: if you think you need that many, you’re probably doing something the wrong way.</p>
 <p>Writing files, then, is fairly easy. What about reading files? I’m glad you asked.</p>
-<div id="4c3eba8e-0de4-4d7b-9bb4-7cf23fc662d9" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>'First Post!'</code></pre>
-</div>
-</div>
 <p>You can probably tell mostly how that worked just by looking at. We used the <code>open()</code> function again, but this time with a “r” for our mode. This means “read”. Also, this time we used <code>read()</code> instead of <code>write()</code>. The read() function reads in an <em>entire file</em> and saves it a string variable. Finally, we call <code>close()</code> again to close the file and tidy up after ourselves.</p>
 <p>Note that if the file is, say, 500 megabytes long, the string variable is going to be very, very large - roughly half a gigabyte. Python can handle this, but it may not be terribly convenient. If the file is more than 100-200 gigabytes, the CLASSE servers are probably not going to be able to handle. I say “probably” because there are a lot of factors at play.</p>
 <p>Just writing one line to a file is probably not very useful. Let’s try writing two lines:</p>
 <p>When we run that, it will open /tmp/first_file.txt for writing and it will delete anything already in it (that’s what the “w” means, remember?). Then it will write “First line written.” and “This is my second line.”.</p>
 <p>Let’s read the file again and prove to ourselves that it worked…</p>
-<div id="24a4bbc1-2c8d-49aa-a85c-d4b4114b0c3e" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>'First line written.This is my second line.'</code></pre>
-</div>
-</div>
 <p>Oh no! The two lines ran together!</p>
 <p>And that is one of the first differences we’ll see between <code>write()</code> and <code>print()</code>. Print() always adds a <em>newline</em> character after it prints out anything. Remember when I said there would usually be a byte at the end of a line, represented by the number 10? This character is called “newline” and it, as the name implies, marks where a <em>new line</em> starts.</p>
 <p>In all likelihood, when we do two write() statements like we did, we want to put a newline character in the file to make it into two lines. Fortunately, there are several ways to do that. Here are two of them.</p>
 <p>The first way is simple and direct - call write() three times instead of two and put a newline in there “by hand”, as it were:</p>
-<div id="39db65cd-4a43-44a1-a8e0-7d990ac42f5e" class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>'First line written.\nThis is my second line.'</code></pre>
-</div>
-</div>
 <p>The output looks a little strange. We put an extra write() function call, but we gave it an odd looking argument - . That is a backslash (usually between the Enter and the backspace keys on a US keyboard) immediately followed by a lowercase “n”. The combination together means “newline character”. This much is fairly straightforward.</p>
 <p>Next we read the contents of the file. This is just like before.</p>
 <p>Finally, and this is where things take an unexpected turn, we evaluate <code>the_contents</code> and let Jupyter print that out for us. And when Jupyter does that, we see the “” there. It seems like Python didn’t convert those two characters to a newline, just sticking them in there as-is, and still left us with one long line. But is that true? Has Python foresaken us?</p>
 <p>Run the code in the next cell:</p>
-<div id="e4f005cf-d7f1-4bd3-bb8d-be700e443593" class="cell" data-execution_count="18">
-<div class="cell-output cell-output-stdout">
-<pre><code>First line written.
-This is my second line.</code></pre>
-</div>
-</div>
 <p>Salvation! <code>print()</code> did the right thing. This is a key difference between just typing a variable or an expression at the end of a cell and letting Python evaluate it versus putting a <code>print()</code> in there and having absolute control over what gets sent to the notebook and on to the screen.</p>
 <p>This also illustrates something else important and useful: all of the code cells in this notebook are being run by the same Python “interpreter”. This means if we set a variable to a value in one cell, we will see the same value stored in that variable in other cells. That’s how we were able to print what was stored in <code>the_contents</code> in the cell above even though we had set its value to the file contents two cells above that.</p>
 <p>If a file only has a line or two, it’s not a big deal dealing with that with string functions. If a file has millions of lines, then it becomes a bit of a hassle. We need a way to read a file one line at a time. Fortunately, there’s <code>readline()</code>:</p>
-<div id="8c703583-f628-44fa-84f1-c74d9f2fdfc1" class="cell" data-execution_count="19">
-<div class="cell-output cell-output-stdout">
-<pre><code>First line written.
-
-This is my second line.</code></pre>
-</div>
-</div>
 <p>This does <em>almost</em> what we expect: it reads both lines from the file, one at a time, and prints them out. The only snag is that blank space between the lines. What has happened? It turns out <code>readline()</code> reads the <em>entire</em> line, even the newline character at the end. We can see this if we evaluate the string instead of just printing it:</p>
-<div id="2db89f7d-4aea-40b5-bbb9-67354479801b" class="cell" data-execution_count="20">
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>'First line written.\n'</code></pre>
-</div>
-</div>
 <p>There’s that <code>\n</code> again! What about the second line?</p>
-<div id="b913831d-e44e-4774-acd4-4dfe961ce88f" class="cell" data-execution_count="21">
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>'This is my second line.'</code></pre>
-</div>
-</div>
 <p>When readline() reads a line, it includes the newline character at the end <em>unless it reaches the end of the file and the file didn’t end with a newline.</em></p>
 <p>It’s rare that we would want to read a bunch of lines in a file with the newlines included. That’s just not something we do very often, and practically never in scientific software. We’ll almost always want to trim off the newline character. And for that, we have the <code>rstrip()</code> function. It takes a string, strips off any newlines on the right side of it, and returns that cleaned-up string. <code>rstrip()</code> does that for the right side of the string, <code>lstrip()</code> cleans up the left side (the beginning of the string) and <code>strip()</code> goes crazy and does both ends at the same time.</p>
 <p>Let’s try it:</p>
-<div id="22acb98d-8a3b-493d-aae1-ac21e60ca607" class="cell" data-execution_count="23">
-<div class="cell-output cell-output-stdout">
-<pre><code>First line written.
-This is my second line.</code></pre>
-</div>
-</div>
 <p>What’s going on here? A couple of things. The first thing to note is that <code>rstrip()</code> and its close companions <code>lstrip()</code> and <code>strip()</code> take one argument, which is the character to be stripped. Practically always we’ll want to get rid of the trailing newline character.</p>
 <p>The other interesting things is how we called the rstrip() function in the first place. We gave the name of the string variable, a period, and the name of the function we were calling. This is just like how we called the <code>close()</code> function on a file object. And in fact, strings are another kind of object in Python. We’ll see a lot more on this later.</p>
 <p>Historical note: The original programming language that had objects was named “Smalltalk”. In Smalltalk, the functions that were inside of objects were called “methods”. You’ll still hear people call them that. Later, the “C++” language came along and it called methods “member functions”. When programmers talk about the functions that are contained in objects, we’ll use either term interchangably, sometimes even switching in the middle of a sentence. We now return to your Python tutorial, already in progress…</p>
 <p>We read both lines in the file we created. We were able to call <code>readline()</code> twice and know that we had all of our lines in the file because (1) we created the file ourselves and (2) we therefore knew it had precisely two lines. It wasn’t even too bad having to type those <code>readline()</code> and <code>rstrip()</code> lines twice. But what if we had a lot more lines? We would certainly want to use a loop.</p>
 <p>For example, what do we do with a five-line file?</p>
-<div id="32722f1c-66c3-445b-ada7-2d85a1b830c1" class="cell" data-execution_count="24">
-<div class="cell-output cell-output-stdout">
-<pre><code>Line 1.
-Line 2.
-Line 3.
-Line 4.
-Line 5.</code></pre>
-</div>
-</div>
 <p>No problem - we just use a for loop and do the readline() inside of it. It repeats the five times we asked for. In this case, after we read each line we cleaned it up a little and printed it.</p>
 <p>But what if we can’t know the number of lines ahead of time? One approach is to have whatever program that creates the file write the number of lines that will be in it first. I won’t say this is a common approach in scientific software, but it isn’t exactly rare either.</p>
-<div id="869b3a43-4c59-4072-b7b8-0f8e01d24f14" class="cell" data-execution_count="25">
-<div class="cell-output cell-output-stdout">
-<pre><code>Line 1.
-Line 2.
-Line 3.
-Line 4.
-Line 5.</code></pre>
-</div>
-</div>
 <p>The overall scheme for this is probably obvious by now. In the first half, when we’re writing the file, we write a “5” on its own line, and then write five more lines. In the second part, we 1. Read the first line. 2. <code>rstrip()</code> to get rid of the trailing newline 3. Use the results of that as the argument to <code>int()</code>, converting that string (“5”) to an actual integer (5). 4. and finally go through a <code>for</code> loop that many times just like before</p>
 <p>Most of the time we won’t have the luxury of knowing how many lines are in a file, though. We need a way to read all of the lines, line by line, without limit. For that, we can loop through the file and quit when Python returns an empty string with not even a newline character.</p>
-<div id="e81658f7-a93c-4c72-ad6d-842188fadad6" class="cell" data-execution_count="27">
-<div class="cell-output cell-output-stdout">
-<pre><code>5
-Line 1.
-Line 2.
-Line 3.
-Line 4.
-Line 5.</code></pre>
-</div>
-</div>
 <p>The while loop behaved just like we expected - strat by reading a line, and then every time the line isn’t empty, print it out and read another line. When you finally hit a line that is completely empty, exit the while loop and close the file.</p>
 <p>Looping through a file all the way to the end is such a common thing to do, Python has a shortcut for doing it. Remember when we talked about a <code>for</code> loop iterating over an ordered set? A file can be thought of as an ordered set of strings. They’re not in alphabetical order, but rather they are ordered by line number. That means we can:</p>
-<div id="76a68204-51bf-4709-a1c3-388018b03562" class="cell" data-execution_count="28">
-<div class="cell-output cell-output-stdout">
-<pre><code>5
-Line 1.
-Line 2.
-Line 3.
-Line 4.
-Line 5.</code></pre>
-</div>
-</div>
 <p>As you can imagine, reading isn’t the only file operation you can do with a loop. You can also write to a file that way. For instance,</p>
-<div id="0a62da53-2e3e-4ba8-af7c-d00fb050c854" class="cell" data-execution_count="29">
-<div class="cell-output cell-output-stdout">
-<pre><code>0
-1
-2
-3
-4
-5
-6</code></pre>
-</div>
-</div>
 <p>Finally, we don’t have to erase the contents of a file every time we write to it. It’s perfectly normal to append to an existing file, and for that the “a” mode can be used with <code>open()</code>.</p>
-<div id="4c07424f-66bf-46b2-bed5-c5c70fe30cf9" class="cell" data-execution_count="30">
-<div class="cell-output cell-output-stdout">
-<pre><code>0
-1
-2
-3
-4
-5
-6
-7
-8
-9</code></pre>
-</div>
-</div>
 <p>When you use the append mode, the <code>write()</code> calls will either add to the existing file or, if it doesn’t already exist, it will be created and then written to as though we used the “w” mode.</p>
-<p>So far in this lesson we’ve acted like everything just works perfectly every time. In reality, it’s not that neat. Filenames get typed in wrong, didks get full, and lines that are supposed to be numbers might contain text instead. Any of these problems is enough to bring our Python code to a grinding halt. Our next lesson is all about how to handle these problems and many, many more like them. We’re going to learn about Exceptions!</p>
+<p>So far in this lesson we’ve acted like everything just works perfectly every time. In reality, it’s not that neat. Filenames get typed in wrong, disks get full, and lines that are supposed to be numbers might contain text instead. Any of these problems is enough to bring our Python code to a grinding halt. Our next lesson is all about how to handle these problems and many, many more like them. We’re going to learn about Exceptions!</p>
 </section>
 <a class="quarto-notebook-link" id="nblink-6" href="PE100-06Files-preview.html#13695ebe-2dcb-4a95-adb9-c0fb548cdc5a">Source: PE100-06: Files</a></section>
 <section id="pe100-07-exceptions" class="level1 quarto-embed-nb-cell">
 <h1>PE100-07: Exceptions</h1>
 <p>Most of the time, the code we write does exactly what we expect. Our numbers are added up, files are written and read, and users type their input in neat little boxes. Sometimes, though, something goes wrong. Maybe the disk storage space filled up, or we try to write to a file in a directory we don’t have access to (or maybe the directory doesn’t even exist). When things like this happen, the Python interpreter stops the normal flow of execution.</p>
+<p>As has been the case in all the other notebooks, the tool that compiles these notebooks into web pages doesn’t allow errors in cells, and it also doesn’t allow the <code>input()</code> function. Some of the following code cells have been commented out completely while others have had a hard-coded value substituted for an <code>input()</code> function. Fix these as needed when you run through the examples.</p>
 <p>Take a look at an exception:</p>
-<div id="c915c73d-e750-45be-80ab-7910ff7644e9" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">ZeroDivisionError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[1], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> funny_number <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(98,98,98)" class="ansi-yellow-bg">1</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">/</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span>
-
-<span class="ansi-red-fg">ZeroDivisionError</span>: division by zero</pre>
-</div>
-</div>
-</div>
 <p>When you run the above, Python will notice the error, stop the code from running, and point out that a “ZeroDivisionError” has occurred. Since this kind of thing wasn’t supposed to happen (division by zero is considered a Bad Thing(tm) by most people) we can say the situation we’re faced with is an <em>exception</em>. And indeed, Python’s error handling mechanisms are based on what are called “exceptions”.</p>
 <p>When Python saw the “division by zero” error, it stopped running the rest of the code. It created one of these Exceptions, and then it <em>threw</em> it. Nothing in our one-line example tried to do anything about that exception, so Python just let the program crash and it printed the helpful error messages for us.</p>
 <p>Most of the time, we want our code to be able to handle exceptions when they arrise. We want something that can <em>catch</em> these exceptions when they’re <em>thrown</em>. For that, we need to use Python’s <code>try</code> statement.</p>
@@ -1352,10 +1338,7 @@ Cell <span class="ansi-green-fg">In[1], line 1</span>
 <h3 class="anchored" data-anchor-id="try-try-again">Try, try again</h3>
 <hr>
 <p><code>try</code> is how we safely wrap up a bit of code so that if something in there fails and an exception is thrown, we have a way to catch it. For example:</p>
-<div id="4e5b0e46-0452-49da-9bb3-b8c7dd12fef1" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-stdin">
-<pre><code>Please enter the denominator 0</code></pre>
-</div>
+<div id="4e5b0e46-0452-49da-9bb3-b8c7dd12fef1" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>Looks like someone tried to divide by zero.
 Either we were able to do the division or else we successfully handled an exception.</code></pre>
@@ -1363,12 +1346,9 @@ Either we were able to do the division or else we successfully handled an except
 </div>
 <p>Try running the code above a few times. In the input area, try some different numbers each time. Maybe 4, 0, and -2. Notice that division by non-zero numbers works as expected. Notice also that division by zero now lets us print out an error message instead of crashing. Once we’re done handling the exception, the program resumes with the first line after the <code>try</code>/<code>except</code> structure.</p>
 <p>In fact, there might be several <code>except</code> clauses if there are several kinds of exceptions that might be thrown. For example, let’s figure out how to share a pizza.</p>
-<div id="3a0d003a-65cb-4eca-b746-fad633e6600e" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many people: 0</code></pre>
-</div>
+<div id="3a0d003a-65cb-4eca-b746-fad633e6600e" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
-<pre><code>Seriously? There are zero people sharing a pizza?
+<pre><code>Each gets 2.00 pieces.
 Whatever happened up there, this is the first line of code after
 the try/except structure.</code></pre>
 </div>
@@ -1376,55 +1356,46 @@ the try/except structure.</code></pre>
 <p>As you try different numbers of people, you can see that division by zero is, of course, handled. You can also enter things that aren’t integers. In response to the prompt, you could enter “Fred”. That can’t be converted to an integer, so the <code>int()</code> function throws an error. The <code>except ValueError</code> clause catches that exception and prints out a message.</p>
 <p>Notice that after either exception handler executes its code, the flow of control goes down to the next line after the try/except structure. In this case, that line is one that prints out a message saying it’s the first line of code after the try and all of the excepts.</p>
 <p>Sometimes it’s hard to predict what exception might be thrown in a section of code. In that case, we can use just <code>except:</code> without any exception type. This serves as a “catch-all” handler.</p>
-<div id="ee744c96-1042-4cdc-ba72-0adb5e132198" class="cell" data-execution_count="10">
+<div id="ee744c96-1042-4cdc-ba72-0adb5e132198" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
-<pre><code>The catch-all handler has been awoken from its slumber.
-I don't know what went wrong, except I can tell you it
-wasn't a ValueError or a ZeroDivisionError, because
-those would have been caught by more specific handlers
-further up the list.</code></pre>
+<pre><code>Each gets 2.00 pieces.</code></pre>
 </div>
 </div>
 <p>Indeed, if we’re lazy (or in a hurry) then we can get by with just a plain <code>except</code> clause and let the user figure it out later:</p>
-<div id="856a9b11-15d2-457f-9c20-23370a6fc950" class="cell" data-execution_count="11">
+<div id="856a9b11-15d2-457f-9c20-23370a6fc950" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
-<pre><code>There was some sort of problem. I have no idea what.</code></pre>
+<pre><code>Each gets 2.00 pieces.</code></pre>
 </div>
 </div>
 <p>Using just a plain catch-all exception handler doesn’t give you much to work with, but it is slightly better than nothing. Your code won’t crash outright but you won’t much information about what went wrong. If only there was a way to examine that exception, to peer in and divine its secret nature…</p>
 <p>Yep. Here you go…</p>
-<div id="067878e5-a2f6-4255-ac88-d9efd9380645" class="cell" data-execution_count="12">
+<div id="067878e5-a2f6-4255-ac88-d9efd9380645" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: [Errno 2] No such file or directory: '/tmp/ThisFileIsUnlikelyToExist'</code></pre>
+<pre><code>Each gets 2.00 pieces.</code></pre>
 </div>
 </div>
-<p>What we’ve done is catch any kind of exception (<code>except Exception</code>) and assigned it to a variable named “err”. Then we can print out err. We could even convert err to a string and search for the interesting parts (like the filename of our missing file) and do some clever error handling based on what specifically went wrong.</p>
+<p>What we’ve done is catch any kind of exception (the <code>except Exception</code> line) and assigned it to a variable named “err”. Then we can print out err. We could even convert err to a string and search for the interesting parts (like the filename of our missing file) and do some clever error handling based on what specifically went wrong.</p>
 <p>Python has a few more tricks when it comes to exception handling, and these can be handy for making your code more readable.</p>
 </section>
 <section id="fancy-exception-handling" class="level3">
 <h3 class="anchored" data-anchor-id="fancy-exception-handling">Fancy exception handling</h3>
 <hr>
 <p>A try/except structure can have an <code>else</code> clause. This clause will <strong>only</strong> be executed if <strong>no exception was thrown</strong>.</p>
-<div id="32778185-6eb8-41c5-ab0b-0885d9558172" class="cell" data-execution_count="16">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many people: 0</code></pre>
-</div>
+<div id="32778185-6eb8-41c5-ab0b-0885d9558172" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: division by zero</code></pre>
+<pre><code>Each gets 2.00 pieces.</code></pre>
 </div>
 </div>
 <p>If the user enters something that can be converted to an integer and is non-zero, then the program continues, finishing up the <code>try</code> block and executing the <code>else</code> block. On the other hand, if an exception of any type is thrown then the “number of pieces” message will never be printed.</p>
 <p>There is also a <code>finally</code> clause. This one will run after everything else has happened, no matter what.</p>
-<div id="44634636-1e28-4f78-8a42-49f379fcb2af" class="cell" data-execution_count="17">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many people: 0</code></pre>
-</div>
+<div id="44634636-1e28-4f78-8a42-49f379fcb2af" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: division by zero</code></pre>
+<pre><code>Each gets 2.00 pieces.
+This will always run.</code></pre>
 </div>
 </div>
 <p>In the <code>try</code> clause, a file opening was added. In the <code>finally</code> clause, the file <strong>will</strong> be closed whether an exception was thrown or not.</p>
-<p>How useful are <code>else</code> and <code>finally</code> clauses? It’s true they’re not absolutely necessary. Most programming languages don’t have anything like that. You can always juggle your code around and get by with just try and except. On the other hand, these two clauses can make your code easier to read and understand. Your precise <em>intention</em> can be discerned.</p>
+<p>How useful are <code>else</code> and <code>finally</code> clauses? It’s true they’re not absolutely necessary. Most programming languages don’t have anything like that. You can always juggle your code around and get by with just try and except. On the other hand, these two clauses can make your code easier to read and understand. Your precise <em>intention</em> can be discerned. In more specific terms, the <code>finally</code> clause is guaranteed to run, even if the <code>except</code> or <code>else</code> clauses throw an exception of their own, and even if one of those blocks calls <code>return</code>. It’s one of those things where if you need it, it can solve a messy problem quickly.</p>
 <p>We’ve seen how to write Python code that catches errors without crashing. This technique works in both regular Python programs and in Jupyter Notebooks. Next up, we’ll turn back to ways of storing information. This time we’ll look at <strong>lists</strong>.</p>
 </section>
 <a class="quarto-notebook-link" id="nblink-7" href="PE100-07Exceptions-preview.html#31988a64-c577-4e53-91fe-cb125f180b53">Source: PE100-07: Exceptions</a></section>
@@ -1433,8 +1404,8 @@ further up the list.</code></pre>
 <p>All of the variables we’ve seen so far store exactly one value. If you set the variable “weight” to 74.5, then 74.5 is the only value there is in “weight”. Nice and simple. If we need to save several values then we can use several variables…</p>
 <p>As you can imagine, this turns tedious in a hurry. What if you had a thousand values to deal with? And even if you did all of that typing, doing any kind of non-trivial computation with it would be difficult, too. We need a way to store a bunch of values, but doing it in a way that makes it easy to manipulate the whole thing as a whole or each individual value. For doing that, Python provides us with <em>lists</em>.</p>
 <p>Python is one of the few languages that support lists deep down in the language itself. Because of that, they’re easy to work with. Let’s take a look, shall we?</p>
-<div id="36501626-4bae-42df-ba1f-32cac8808a72" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="36501626-4bae-42df-ba1f-32cac8808a72" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>['Alice', 'Bob', 'Candice', 'Dan']</code></pre>
 </div>
 </div>
@@ -1442,40 +1413,40 @@ further up the list.</code></pre>
 <p>The values in a list don’t all have to be the same type.</p>
 <p>A list can have any number of values, limited only by the amount of memory in the computer that is hosting the Jupyter (or JupyterLab) server. Lists are even allowed to have no values in them.</p>
 <p>So far we’ve been creating lists using literal values, but we could use variables just as easily…</p>
-<div id="6bf54351-25cc-4acd-9840-2efb9e27b303" class="cell" data-execution_count="12">
+<div id="6bf54351-25cc-4acd-9840-2efb9e27b303" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>[16, 2, 6]</code></pre>
 </div>
 </div>
 <p>To find out how many elements are in a list, use the <code>len()</code> function:</p>
-<div id="4407c161-fc80-4380-b2e9-75839132d778" class="cell" data-execution_count="13">
+<div id="4407c161-fc80-4380-b2e9-75839132d778" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>4
 3</code></pre>
 </div>
 </div>
 <p>There are <em>operators</em> that act on lists. The <code>*</code> operator is used for repetition…</p>
-<div id="5d4ca5a5-9e59-4d82-806a-11a89392ecd2" class="cell" data-execution_count="14">
+<div id="5d4ca5a5-9e59-4d82-806a-11a89392ecd2" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 1, 2, 3]
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></pre>
 </div>
 </div>
 <p>…and the <code>+</code> operator combines two lists:</p>
-<div id="e65ba79f-76a5-4c2e-8adf-df84e7f43bb4" class="cell" data-execution_count="15">
+<div id="e65ba79f-76a5-4c2e-8adf-df84e7f43bb4" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</code></pre>
 </div>
 </div>
 <p>Lists are <em>iterables</em>, just like the results of the <code>range()</code> function, so they can be <em>iterated over</em> using a <code>for</code> loop:</p>
-<div id="7376d35a-a21a-4e43-ba87-b5924c37743b" class="cell" data-execution_count="17">
+<div id="7376d35a-a21a-4e43-ba87-b5924c37743b" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>David
 Bill
 Richard</code></pre>
 </div>
 </div>
-<div id="8d396296-b78f-46a1-9704-dcf376172d57" class="cell" data-execution_count="18">
+<div id="8d396296-b78f-46a1-9704-dcf376172d57" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
 <pre><code>flour
 lard
@@ -1492,19 +1463,19 @@ milk</code></pre>
 </div>
 </div>
 <p>It’s fairly common to iterate over a list for things like sums and averages.</p>
-<div id="ca250650-a8b5-4685-926a-d5fb3e43173f" class="cell" data-execution_count="19">
+<div id="ca250650-a8b5-4685-926a-d5fb3e43173f" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>16</code></pre>
 </div>
 </div>
 <p>The above code steps its way over all of the values in the list. Each time it goes to a new value, it adds that value to <code>total</code>. When it gets to the end, all of the values have been added up. If we want an average, we don’t have to count the values ourselves. We can just use the <code>len()</code> function.</p>
-<div id="03c1ac89-fead-4b69-bc4c-f2d9c6542fb5" class="cell" data-execution_count="20">
+<div id="03c1ac89-fead-4b69-bc4c-f2d9c6542fb5" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>4.0</code></pre>
 </div>
 </div>
 <p>Sometimes you need to use a particular value in a list and you don’t want to iterate over the whole thing. For this, Python gives us <em>indexing</em>, letting us directly access any element of a list. The first (as it appears on screen, “leftmost”) element in numbered zero and each one after that goes up by one. The highest numbered one is therefore the length of the list minus one.</p>
-<div id="156c1ca0-3df8-46ce-83ac-3ee118a1ce1e" class="cell" data-execution_count="23">
+<div id="156c1ca0-3df8-46ce-83ac-3ee118a1ce1e" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-stdout">
 <pre><code>['flour', 'lard', 'baking powder', 'milk']
 
@@ -1513,7 +1484,7 @@ The second most important one is baking powder</code></pre>
 </div>
 </div>
 <p>Like the majority of programming languages, Python uses square brackets to indicate the <em>index</em> into the list. Unlike the vast majority of languages, Python allows indexes to be negative! A negative number for an index means “count backwards from the end”. <code>my_list[-1]</code> refers to the item at the end of the list. <code>my_list[-3]</code> refers to the third to last item.</p>
-<div id="6995e7da-847d-4184-9b5d-caf2f78b9b65" class="cell" data-execution_count="24">
+<div id="6995e7da-847d-4184-9b5d-caf2f78b9b65" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-stdout">
 <pre><code>milk
 lard</code></pre>
@@ -1521,14 +1492,14 @@ lard</code></pre>
 </div>
 <p>We’ve seen how to iterate over lists and also how to access individual list elements by using indexing. Python has a special indexing scheme, though, that lets us deal with small lists made from our original list. This is called <em>List Slicing</em> and can save you a lot of work sometimes. The overall syntax for this looks like <code>list_name[start:end]</code></p>
 <p>An example is definitely called for here:</p>
-<div id="9118dd6a-702b-4565-ad1a-47342fa77dcc" class="cell" data-execution_count="25">
+<div id="9118dd6a-702b-4565-ad1a-47342fa77dcc" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-stdout">
 <pre><code>[4, 6]</code></pre>
 </div>
 </div>
 <p>Remember that list indexes count from zero, and remember also that ranges in Python <strong>include</strong> the starting index (here, it’s the 1) and will continue to the last value that is smaller than the one on the right side of the colon.</p>
 <p>Both the starting and the ending indexes are optional! If one of the two is missing, it will be interpreted as 0 or the list’s length, respectively.</p>
-<div id="f969e51d-90c6-4f58-ae82-b18b8f5742fd" class="cell" data-execution_count="27">
+<div id="f969e51d-90c6-4f58-ae82-b18b8f5742fd" class="cell" data-execution_count="17">
 <div class="cell-output cell-output-stdout">
 <pre><code>[2, 4, 6, 8, 10, 12]
 
@@ -1538,10 +1509,7 @@ lard</code></pre>
 </div>
 </div>
 <p>And finally, the <code>in</code> operator is used to test list membership.</p>
-<div id="2142dcc9-fb24-4dce-b9d0-13f53bf60742" class="cell" data-execution_count="31">
-<div class="cell-output cell-output-stdin">
-<pre><code>Enter your favorite number 8</code></pre>
-</div>
+<div id="2142dcc9-fb24-4dce-b9d0-13f53bf60742" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-stdout">
 <pre><code>Sorry! Better luck next time!</code></pre>
 </div>
@@ -1551,61 +1519,61 @@ lard</code></pre>
 <hr>
 <p>There are two kinds of functions available for working with lists. Built-in functions are the ones that are part of Python itself. Methods, as you’ll recall from the unit on files, are special functions that are situated inside of objects and only usable with that kind of object. Python lists are objects. They’re <em>iterable objects</em>, in fact.</p>
 <p>Let’s take a look at a few of the methods available for working with lists. First up is <code>append()</code>.</p>
-<div id="99d805d3-1a83-41fd-b765-c0a0b3b5615c" class="cell" data-execution_count="32">
+<div id="99d805d3-1a83-41fd-b765-c0a0b3b5615c" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-stdout">
 <pre><code>[2, 7, 17, 9]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>[2, 7, 17, 9, 106]</code></pre>
 </div>
 </div>
 <p>Just as the name implies, <code>append()</code> adds an element to the end of a list.</p>
 <p>But what if we want to put a new element in a specific place? For that, there is <code>insert()</code>.</p>
-<div id="408737e3-bce0-46d3-825a-c8d4f990d54d" class="cell" data-execution_count="33">
+<div id="408737e3-bce0-46d3-825a-c8d4f990d54d" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-stdout">
 <pre><code>[2, 7, 17, 9, 106]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>[2, 7, 202, 17, 9, 106]</code></pre>
 </div>
 </div>
 <p>The insert function takes two arguments. The first is the position in the list where the insertion should happen. In the example above, it was at position 2. Remember, list indexes start at zero! The second argument is the element to insert. And when we look at the resulting list, we see that 202 is in position 2 now (which is the third position!) and all the other elements have been shifted to the right.</p>
 <p>We’ve been fetching elements from the list by location number, so far. How do we find something by searching for it? The <code>index()</code> method does that.</p>
-<div id="e585395b-d0a7-45d4-9933-6a5380fc87f6" class="cell" data-execution_count="35">
+<div id="e585395b-d0a7-45d4-9933-6a5380fc87f6" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
 </div>
 </div>
 <p>We passed the argument 202 to the index method. It searched the list and returned the index of the first occurence. That index is 2. Makes sense because we just inserted it there a minute ago!</p>
 <p>If we can insert things into a list then surely we can remove them too, right? Indeed we can with the <code>remove()</code> method.</p>
-<div id="7da15997-b29d-406b-b410-69012f86412f" class="cell" data-execution_count="36">
+<div id="7da15997-b29d-406b-b410-69012f86412f" class="cell" data-execution_count="22">
 <div class="cell-output cell-output-stdout">
 <pre><code>[2, 7, 202, 17, 9, 106]
 [2, 202, 17, 9, 106]</code></pre>
 </div>
 </div>
 <p>Watch out! <code>remove()</code> looks up an item, like <code>index()</code> does, and then removes it. It doesn’t take a position number. In other words:</p>
-<div id="acdaeb65-db40-48c6-bb9e-64b04143fdf7" class="cell" data-execution_count="38">
+<div id="acdaeb65-db40-48c6-bb9e-64b04143fdf7" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
 <pre><code>['David', 'Richard']</code></pre>
 </div>
 </div>
 <p>You might find yourself needing to sort the items in a list, and for that the <code>sort()</code> method exists:</p>
-<div id="c5f7a96e-9c99-4e21-b6e4-94481b087e84" class="cell" data-execution_count="39">
+<div id="c5f7a96e-9c99-4e21-b6e4-94481b087e84" class="cell" data-execution_count="24">
 <div class="cell-output cell-output-stdout">
 <pre><code>[2, 202, 17, 9, 106]
 [2, 9, 17, 106, 202]</code></pre>
 </div>
 </div>
 <p>Finally, there are methods to find the greatest and smallest values in a list.</p>
-<div id="0f2f3e77-d56b-4e5f-822b-bfcbce49e727" class="cell" data-execution_count="40">
+<div id="0f2f3e77-d56b-4e5f-822b-bfcbce49e727" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-stdout">
 <pre><code>2
 202</code></pre>
 </div>
 </div>
 <p>Earlier we saw the use of <code>len()</code> to find out how many items are in a list. This is a built-in function and works on many types of variables, not just lists. There are two more built-in functions that are useful for working with lists: <code>min()</code> and <code>max()</code>.</p>
-<div id="efd38af1-2b48-4e8f-a495-9bee08c04456" class="cell" data-execution_count="43">
+<div id="efd38af1-2b48-4e8f-a495-9bee08c04456" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-stdout">
 <pre><code>Bill
 Shirley</code></pre>
@@ -1617,19 +1585,19 @@ Shirley</code></pre>
 <hr>
 <p>Functions have no problem accepting lists as arguments and they can also return lists as the function’s value. There is a subtle “gotcha” when passing lists as an argument, though.</p>
 <p>First, let’s look at a simple example:</p>
-<div id="24331a9b-7118-453d-b296-a33b61714ce4" class="cell" data-execution_count="45">
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div id="24331a9b-7118-453d-b296-a33b61714ce4" class="cell" data-execution_count="27">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>15</code></pre>
 </div>
 </div>
 <p>That worked as expected - there’s no problem passing lists into functions. What about returning lists from functions?</p>
-<div id="928d3bd8-3d3d-474e-af2d-0ecf696e5340" class="cell" data-execution_count="46">
+<div id="928d3bd8-3d3d-474e-af2d-0ecf696e5340" class="cell" data-execution_count="28">
 <div class="cell-output cell-output-stdout">
 <pre><code>['goldfish', 'catfish', 'goldfish', 'catfish', 'goldfish', 'catfish', 'goldfish', 'catfish', 'goldfish', 'catfish']</code></pre>
 </div>
 </div>
 <p>Earlier, when we talked about functions in section 5, we said that if a function changes the value of one of its arguments then the effects of that change stay inside the function and aren’t visible to anything when the function exits. That statement was mostly true. If you pass a list as an argument to a function and if that function changes the list then the change made there will be visible outside. Strings, floats, and integers asre protected, but lists are more exposed.</p>
-<div id="bd1ffc7f-1275-4395-bb0f-9880b7b12fe5" class="cell" data-execution_count="48">
+<div id="bd1ffc7f-1275-4395-bb0f-9880b7b12fe5" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 9]
 [2, 4, 6, 18]</code></pre>
@@ -1647,41 +1615,41 @@ Shirley</code></pre>
 <p>That long line is hard to read, isn’t it? Python won’t let us just split a long line of code across multiple lines… unless we explicitly tell it what we’re doing. That is done by ending each line with a backslash and immediately pressing enter. It looks like this:</p>
 <p>Jupyter even goes to the trouble to line up the columns for us.</p>
 <p>Anyway, let’s see what we’ve created.</p>
-<div id="83c36c47-b859-46b3-8815-9a248f254c8c" class="cell" data-execution_count="52">
+<div id="83c36c47-b859-46b3-8815-9a248f254c8c" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-stdout">
 <pre><code>[['George', 'Washington'], ['John', 'Adams'], ['Thomas', 'Jefferson']]</code></pre>
 </div>
 </div>
-<div id="bfd80fad-ec05-44e6-9c53-5595c91443a7" class="cell" data-execution_count="54">
+<div id="bfd80fad-ec05-44e6-9c53-5595c91443a7" class="cell" data-execution_count="33">
 <div class="cell-output cell-output-stdout">
 <pre><code>['George', 'Washington']</code></pre>
 </div>
 </div>
-<div id="c8bb201b-36fd-4c16-8b98-30f6fe49df73" class="cell" data-execution_count="55">
+<div id="c8bb201b-36fd-4c16-8b98-30f6fe49df73" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-stdout">
 <pre><code>['Thomas', 'Jefferson']</code></pre>
 </div>
 </div>
 <p>We can index into the outer array, the one that contains the smaller lists, just like we normally would. We can also index into the inner array two different ways. The long way…</p>
-<div id="2d64f9fd-433f-44f6-bb83-191a2226c572" class="cell" data-execution_count="56">
-<div class="cell-output cell-output-display" data-execution_count="56">
+<div id="2d64f9fd-433f-44f6-bb83-191a2226c572" class="cell" data-execution_count="35">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>'George'</code></pre>
 </div>
 </div>
 <p>… or we can take the shortcut:</p>
-<div id="9a00496d-596e-48b1-99e4-04a448d02779" class="cell" data-execution_count="58">
-<div class="cell-output cell-output-display" data-execution_count="58">
+<div id="9a00496d-596e-48b1-99e4-04a448d02779" class="cell" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>'George'</code></pre>
 </div>
 </div>
 <p>The first zero got us to the “George”, “Washington” element, and the second zero indexed into that and gave us ‘George’. Let’s try some other combinations:</p>
-<div id="3c017b37-b383-4282-a390-4398d472b316" class="cell" data-execution_count="59">
-<div class="cell-output cell-output-display" data-execution_count="59">
+<div id="3c017b37-b383-4282-a390-4398d472b316" class="cell" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>'John'</code></pre>
 </div>
 </div>
-<div id="76b2e273-ffc9-4ecc-a8d9-f28193b9f7bb" class="cell" data-execution_count="60">
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div id="76b2e273-ffc9-4ecc-a8d9-f28193b9f7bb" class="cell" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>'Adams'</code></pre>
 </div>
 </div>
@@ -1696,19 +1664,19 @@ Row 1.     E         F         G         H
 Row 2.     I         J         K         L
 Row 3.     M         N         O         P</code></pre>
 <p>We can get a whole row:</p>
-<div id="f5e5d3ff-ed52-4581-8fa2-17b50e0f5dab" class="cell" data-execution_count="62">
+<div id="f5e5d3ff-ed52-4581-8fa2-17b50e0f5dab" class="cell" data-execution_count="40">
 <div class="cell-output cell-output-stdout">
 <pre><code>['E', 'F', 'G', 'H']</code></pre>
 </div>
 </div>
 <p>or we can get a specific cell (the order is row, then column):</p>
-<div id="2cff7723-8178-4040-853c-5f0e50ab1ea8" class="cell" data-execution_count="63">
+<div id="2cff7723-8178-4040-853c-5f0e50ab1ea8" class="cell" data-execution_count="41">
 <div class="cell-output cell-output-stdout">
 <pre><code>J</code></pre>
 </div>
 </div>
 <p>We can access the table by column, but it’s not as easy. We’ll have to write a loop that steps down a column and reads the values:</p>
-<div id="069aec83-d853-4879-8abc-86bb6c2581d9" class="cell" data-execution_count="64">
+<div id="069aec83-d853-4879-8abc-86bb6c2581d9" class="cell" data-execution_count="42">
 <div class="cell-output cell-output-stdout">
 <pre><code>D
 H
@@ -1717,7 +1685,7 @@ P</code></pre>
 </div>
 </div>
 <p>What if we want to access <strong>all</strong> of the cells in the array? For that, nested loops work.</p>
-<div id="7bc31750-96ef-4f80-9def-3a3aa4670417" class="cell" data-execution_count="65">
+<div id="7bc31750-96ef-4f80-9def-3a3aa4670417" class="cell" data-execution_count="43">
 <div class="cell-output cell-output-stdout">
 <pre><code>A
 B
@@ -1738,7 +1706,7 @@ P</code></pre>
 </div>
 </div>
 <p>“But wait!”, I hear you say. “I need to store higher-dimensionality data!” No problem. Python will allow arbitrarily deep nesting. We can have lists of lists of lists (3 dimensions) or lists of lists of lists of lists for four dimensions. Accessing the cells is just a matter of adding more array indexes to the end of the name.</p>
-<div id="ea622723-d293-4c11-adde-2309f6bc2597" class="cell" data-execution_count="70">
+<div id="ea622723-d293-4c11-adde-2309f6bc2597" class="cell" data-execution_count="44">
 <div class="cell-output cell-output-stdout">
 <pre><code>Adams
 Aaron</code></pre>
@@ -1752,7 +1720,7 @@ Aaron</code></pre>
 <hr>
 <p>A “double”, mathematically speaking, is two of something. A “triple” is three of them. If you don’t know how many, or you don’t want to specify, then it’s generically called a “tuple” (pronounced “Too pull”, according the The American Heritage Dictionary and, more importantly, everyone who has ever taught the database class).</p>
 <p>Python gracious provides us with tuples. Their syntax is just like a list, only using parentheses instead of square brackets. For instance:</p>
-<div id="edc0a777-be4b-4ac7-bb75-a050b7c41815" class="cell" data-execution_count="71">
+<div id="edc0a777-be4b-4ac7-bb75-a050b7c41815" class="cell" data-execution_count="45">
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
@@ -1760,13 +1728,13 @@ Aaron</code></pre>
 <p>Tuples have some restrictions when compared to lists. * You can’t sort them. * You can’t insert or delete from them * You can’t change the values in them</p>
 <p>Why would we want tuples if they’re so similar to lists, only somewhat disabled? In a word, <strong>“speed”</strong>. They’re very fast compared to lists. That’s why some Python functions require them. The most likely time you’ll see tuples is when you’re accessing data from a database. The second most common use is when you need to return multiple values from a function.</p>
 <p>Since tuples have the speed advantage but lists are more versatile, it’s not unusual to see programmers use the <code>list()</code> and <code>tuple()</code> functions to convert between the two types:</p>
-<div id="93680696-8152-4323-b650-c7009c4d7393" class="cell" data-execution_count="72">
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div id="93680696-8152-4323-b650-c7009c4d7393" class="cell" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>[2, 8, 256]</code></pre>
 </div>
 </div>
-<div id="15644bdc-464f-4ae5-afc6-46686d90c194" class="cell" data-execution_count="73">
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div id="15644bdc-464f-4ae5-afc6-46686d90c194" class="cell" data-execution_count="47">
+<div class="cell-output cell-output-display" data-execution_count="47">
 <pre><code>(2, 4, 6, 8)</code></pre>
 </div>
 </div>
@@ -1774,7 +1742,7 @@ Aaron</code></pre>
 <p>What if you wrote a function that returns a complex number, like 1.105+7.3i ? That’s one number (albeit one on the complex plane) but it’s written like two pieces of data being returned.</p>
 <p>What if you got really fancy and wrote a function that returned a column vector? That would be like returning a lot of numbers all at once, wouldn’t it?</p>
 <p>So returning multiple values at once isn’t that bad, is it? Especially if the values all have related meaning and “belong” together.</p>
-<div id="20abac93-edc0-41bf-b10d-36885a06d85b" class="cell" data-execution_count="75">
+<div id="20abac93-edc0-41bf-b10d-36885a06d85b" class="cell" data-execution_count="48">
 <div class="cell-output cell-output-stdout">
 <pre><code>2
 7</code></pre>
@@ -1806,7 +1774,7 @@ Repetition:        "ABC" * 20</code></pre>
 <p>There is a lot more we can do with strings. We can: * Index into them * Iterate over them * Slice them * Search them * Call methods that act on them…</p>
 <p>In fact, when you look at what you can do with a string and how you do it, you suddenly realize that a string is just (conceptually) a tuple of letters.</p>
 <p>We can index into a string:</p>
-<div id="4bb82943-bca0-4f08-a1c0-ddae813a6692" class="cell" data-execution_count="2">
+<div id="4bb82943-bca0-4f08-a1c0-ddae813a6692" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>J
 i
@@ -1814,7 +1782,7 @@ i</code></pre>
 </div>
 </div>
 <p>Strings are iterables:</p>
-<div id="31c6e197-4fee-4c2b-833b-12b67db3ff4b" class="cell" data-execution_count="3">
+<div id="31c6e197-4fee-4c2b-833b-12b67db3ff4b" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>J
 o
@@ -1830,20 +1798,7 @@ h
 i</code></pre>
 </div>
 </div>
-<p>Just like a tuple, the elements of a string are immutable. Once a string is created, the characters can’t be changed.</p>
-<div id="5f7d5ca5-2326-4c00-aebe-22af4501572b" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> my_name<span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Bob</span><span style="color:rgb(175,0,0)">"</span>
-<span class="ansi-green-fg">----&gt; 2</span> <span class="ansi-yellow-bg">my_name</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">0</span><span class="ansi-yellow-bg">]</span><span style="color:rgb(98,98,98)">=</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">R</span><span style="color:rgb(175,0,0)">'</span>
-
-<span class="ansi-red-fg">TypeError</span>: 'str' object does not support item assignment</pre>
-</div>
-</div>
-</div>
+<p>Just like a tuple, the elements of a string are immutable. Once a string is created, the characters can’t be changed. Uncomment the line “my_name[0]=‘R’ and see what happens:</p>
 <p>We can slice strings:</p>
 <div id="3bbf18cc-4625-4db7-bffc-b98535a9e5c0" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
@@ -1853,18 +1808,15 @@ Mi</code></pre>
 </div>
 </div>
 <p>We can search into a string with the <code>in</code> operator:</p>
-<div id="f0c4d3a1-c6fb-4a5b-9c93-963c2fcf0c56" class="cell" data-execution_count="7">
+<div id="f0c4d3a1-c6fb-4a5b-9c93-963c2fcf0c56" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
 <pre><code>found one!</code></pre>
 </div>
 </div>
-<p>There are a huge variety of string methods. We’ll look at just a few here. Some of them are handy for validating inputs…</p>
-<div id="c9067a39-2e54-4c7c-8d74-60cede1586ca" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-stdin">
-<pre><code>How many bolts did you install? op</code></pre>
-</div>
+<p>There are a huge variety of string methods. We’ll look at just a few here. Some of them are handy for validating inputs. Select one of the first two assignments where we set “bolts” equal to something - try it with both a number and with a letter. What happens?</p>
+<div id="c9067a39-2e54-4c7c-8d74-60cede1586ca" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
-<pre><code>I was expecting something that looked like an integer</code></pre>
+<pre><code>Good job. You entered a number. I'm impressed.</code></pre>
 </div>
 </div>
 </section>
@@ -1874,7 +1826,7 @@ Mi</code></pre>
 <p>Dictionaries are, conceptually, a special type of list. A list has an order to it. Elements are placed into a list in a particular order. Removing and inserting items changes the order in a well understood way. Because of this, yoiu can always access a list by looking into it at a specific integer index. None of this is possible with a dictionary. Instead, dictionaries have a better trick: all access is by searching.</p>
 <p>Python’s dictionaries store each of their elements as a pair of things, a <em>key</em> and a <em>value</em>. The key is the thing that can be searched for, and the value is the information that will be retured when that element is read.</p>
 <p>An example will help:</p>
-<div id="5134aefa-7b05-49bc-8693-9749b9f0a3ae" class="cell" data-execution_count="4">
+<div id="5134aefa-7b05-49bc-8693-9749b9f0a3ae" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>Ice Cream</code></pre>
 </div>
@@ -1889,58 +1841,51 @@ Mi</code></pre>
 <p>When you think about it, looking for Bob’s favorite food by using <code>favorite_food["Bob"]</code> is a pretty powerful tool. Rather than having to specify <em>where</em> to get something from, we can just specify <em>what</em> to get. This is why you’ll occasionally see dictionaries refered to as “Content Addressable Memory”. It’s nice to just get the data we want without having to step through every element of a list looking for it. It’s also faster: Python’s dictionaries use clever indexing so they can straight to what you’re looking for.</p>
 <p>Dictionaries get their name, by the way, from real-world physical dictionaries. Suppose you have Webster’s 9th New Collegiate Dictionary in front of you. There are a lot of keys in there - each one of those words in alphabetical order is a key. There’s not really any way to look up something by page number alone - there’s no algorithm to tell me what page the definition for brisance is on. There’s no way to look up a word by knowing which word number it is. If brisance is the 8000th word in the dictionary, that knowledge does me no good. On the other hand, there is an algorithm for finding that definition by looking up the key word. I go to the “B”s, look for the “Br” part, and so forth until I find brisance. I can only look up things by key, not by position.</p>
 <p>One of the great things about Python is its flexibility with data types. Lists can contain any data type. You can have lists of tuples of lists of strings if you want to. Dictionaries are similarly versatile. You can have dictionaries that contain, say, lists:</p>
-<div id="ceb824c8-474b-4ab3-bff2-eb5585b36419" class="cell" data-execution_count="6">
+<div id="ceb824c8-474b-4ab3-bff2-eb5585b36419" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>['Jane', 'John', 'Alice', 'Bob']</code></pre>
 </div>
 </div>
 <p>You can even have dictionaries of dictionaries. They’re quite useful, in fact.</p>
-<div id="01ffb362-a7b8-484c-916b-bb86c9754895" class="cell" data-execution_count="9">
+<div id="01ffb362-a7b8-484c-916b-bb86c9754895" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>99.5</code></pre>
 </div>
 </div>
 <p>Dictionaries give us the beginnings of a database. It’s not as powerful as a “real” database, but it’s good enough for a lot of things. Of course, a dictionary is like any iother variable: it only lasts as long as your program is running. You would have to combine a dictionary with some file access to have any permanent storage.</p>
-<p>What happens if we try to look up a key:value pair, and the key isn’t in the dictionary? Let’s see!</p>
-<div id="5b2eaec2-c2ae-45e5-bb27-674992bba08e" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[10], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span style="color:rgb(0,135,0)">print</span>(<span class="ansi-yellow-bg">fast_food</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">Ruth</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">s Chris</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">]</span>)
-
-<span class="ansi-red-fg">KeyError</span>: "Ruth's Chris"</pre>
-</div>
-</div>
-</div>
+<p>What happens if we try to look up a key:value pair, and the key isn’t in the dictionary? Let’s see! Change “Davids”, above, to “Ruth’s Chris” and see what happens.</p>
 <p>Yeah, we expected that by now, didn’t we? It threw a “KeyError” exception. What should we do about this? We could always wrap the access up in a try/except structure to catch the KeyError, but this is such a common problem that Python gives us a friendlier way to do it: the <code>in</code> operator.</p>
 <p>Remember using <code>in</code> to see if something was in a string? This is philosophically similar. Let’s try it:</p>
-<div id="d7d1009c-1a3b-4ec5-9f82-a4c4f8892bbd" class="cell" data-execution_count="11">
+<div id="d7d1009c-1a3b-4ec5-9f82-a4c4f8892bbd" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>that's a relief, actually.</code></pre>
 </div>
 </div>
 <p>Adding to a dictionary is even easier than adding to a list. All you do is just act like the key was already there and assign it a value:</p>
-<div id="100a035a-0cb0-422c-8417-7a25fa6f7b93" class="cell" data-execution_count="15">
+<div id="100a035a-0cb0-422c-8417-7a25fa6f7b93" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-stdout">
-<pre><code>{'Alice': 'Apple Pie', 'Bob': 'Ice Cream', 'Charlie': 'Pizza', 'Dan': 'Fish'}
+<pre><code>{'Alice': 'Apple Pie', 'Bob': 'Ice Cream', 'Charlie': 'Pizza'}
 
 Now we have:
 {'Alice': 'Apple Pie', 'Bob': 'Ice Cream', 'Charlie': 'Pizza', 'Dan': 'Fish'}</code></pre>
 </div>
 </div>
 <p>What happens if we try to overwrite some data?</p>
-<div id="b4165600-9863-4dc7-b599-af80fb5dd385" class="cell" data-execution_count="16">
+<div id="b4165600-9863-4dc7-b599-af80fb5dd385" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-stdout">
 <pre><code>{'Alice': 'Apple Pie', 'Bob': 'Ice Cream', 'Charlie': 'Soup', 'Dan': 'Fish'}</code></pre>
 </div>
 </div>
 <p>We can change what is stored in the “value” part of the key:value pair any time we want. We can’t change the key, though. At least, we can’t change it directly. We can always delete the existing key:value pair and replace it with a new one. Let’s say Charlie really wants to be known as Chuck. He has his reasons. So let’s fix the favorite_food dictionary:</p>
+<div id="19c2d54d-987b-43eb-bea4-895d2f098959" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Alice': 'Apple Pie', 'Bob': 'Ice Cream', 'Dan': 'Fish', 'Chuck': 'Soup'}</code></pre>
+</div>
+</div>
 <p>What we did to accomplish that was 1. Look up Charlie’s favorite food and save that value. 2. use the built-in <code>del</code> operator to remove Charlie as a key and whatever value was associated with him. 3. Insert a new key:value pair whose key is “Chuck” and whose value is whatever we looked up before.</p>
 <p>Since every other Python data type that holds more than one thing can work with the built-in <code>len()</code> function, it stands to reason that dictionaries can, too. And as you would imagine, len() returns the number of entries in the dictionary.</p>
-<div id="c6fc890c-38d4-4e3c-b0bf-070a35483076" class="cell" data-execution_count="19">
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div id="c6fc890c-38d4-4e3c-b0bf-070a35483076" class="cell" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>4</code></pre>
 </div>
 </div>
@@ -1948,7 +1893,7 @@ Now we have:
 <h3 class="anchored" data-anchor-id="looping-and-iteration">Looping and Iteration</h3>
 <hr>
 <p>A dictionary is another type of <em>iterable</em>. This means we can write loops that traverse the entire dictionary, start to finish, and do something useful.</p>
-<div id="11ba6289-7007-4c0d-858f-f086d1aaa5b7" class="cell" data-execution_count="20">
+<div id="11ba6289-7007-4c0d-858f-f086d1aaa5b7" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-stdout">
 <pre><code>Alice
 Bob
@@ -2384,7 +2329,7 @@ Chuck</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>

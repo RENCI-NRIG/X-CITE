@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.9.38">
+    <meta name="generator" content="quarto-1.10.18">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,13 @@
       /* Default styles provided by pandoc.
       ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
       */
-      code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
-      div.columns{display: flex; gap: min(4vw, 1.5em);}
-      div.column{flex: auto; overflow-x: auto;}
+      div.columns{display: flex; gap: 1.5em;}
+      div.column{flex: auto;}
+      @media screen {
+      div.columns{gap: min(4vw, 1.5em);}
+      div.column{overflow-x: auto;}
+      }
       div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
       ul.task-list{list-style: none;}
       ul.task-list li input[type="checkbox"] {
@@ -163,14 +166,14 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
      <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -497,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </header>     <div id="cb63e982-e065-4227-a47a-31c7496cedef" class="cell markdown">
 <p>Functions in Python are very, very similar to functions in mathematics. Our functions take one or more input values and transform them into precisely one output. Let’s start with an example.</p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="04c22c3a-37fe-4991-8598-c966d30a9199" class="cell" data-execution_count="6">
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="04c22c3a-37fe-4991-8598-c966d30a9199" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inductiveReactance(l, f):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    reactance <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="fl">3.14159</span> <span class="op">*</span> f <span class="op">*</span> l</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> reactance</span>
@@ -518,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p>Here’s another example. This time, we’ll define a function that calls another function.</p>
 </section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="baaf2054-b5f0-436c-b090-3212855a4fda" class="cell" data-execution_count="9">
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="baaf2054-b5f0-436c-b090-3212855a4fda" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> squared(x):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -545,7 +548,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p>A function can have any number of arguments, including zero. “A function of zero arguments” might sound like a mathematician’s idea of “humor”, but it can actually make sense in programming. Sometimes you just need to encapsulate part of your code so you don’t have to worry with it again. For instance:</p>
 </section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="d0f9b449-3824-47a6-b06f-4025b8011bdd" class="cell" data-execution_count="13">
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="d0f9b449-3824-47a6-b06f-4025b8011bdd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> say_hi():</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"=============================="</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"=============================="</span>)</span>
@@ -572,7 +575,7 @@ to them. It'll take a minute.
 <p>Now the code to print that banner is hidden away inside a function we’ll never have to look at again. Less mental clutter means fewer bugs.</p>
 <p>And for the sake of completeness, functions can also take one or more arguments:</p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="77715897-49f8-490a-958e-88c971f2d973" class="cell" data-execution_count="16">
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="77715897-49f8-490a-958e-88c971f2d973" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_to_miles(kilometers):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> kilometers <span class="op">*</span> <span class="fl">.6213712</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -592,7 +595,7 @@ The polynomial evaluates to: 1284.04</code></pre>
 <p>When arguments are passed into a function, they become <em>parameter variables</em> and can be referred to inside the function just like any other variable. This handy because the variables inside a function are called <em>local variables</em> and they have special properties: nothing outside of the function can modify their value, they’re destroyed and re-created every time the function is called, and these local variables supercede any outside variables with the same name.</p>
 <p>Take a look for yourself:</p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="2eb99d93-6fff-4458-929c-7841fbd511e2" class="cell" data-execution_count="17">
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="2eb99d93-6fff-4458-929c-7841fbd511e2" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_twice_the_wavelength(wavelength):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    wavelength <span class="op">=</span> wavelength <span class="op">*</span> <span class="dv">2</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Twice the wavelength is"</span>, wavelength)</span>
@@ -649,7 +652,7 @@ Twice the wavelength is 40</code></pre>
 <p>There is an exception to the “no globals” rule: <em>Constants</em>. Just like in math, a constant is given a value once and never changed again. “Never changing” means “no side effects” so everything is OK. It is good practice to define your constants using ALL CAPITAL LETTERS.</p>
 </section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div id="c1721916-b226-4cfc-bf27-af1fc0286d05" class="cell" data-execution_count="20">
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="c1721916-b226-4cfc-bf27-af1fc0286d05" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>PLANCK <span class="op">=</span> <span class="fl">6.626e-34</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> photon_energy(freq):</span>
@@ -672,7 +675,7 @@ Twice the wavelength is 40</code></pre>
 <p>Similarly, a lot of problem solving is perfectly amenable to using abstraction. Let’s write a bit of code to run an experiment…</p>
 </section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="f5d8d3d3-e286-4a8a-b123-0a0d22b091dc" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="f5d8d3d3-e286-4a8a-b123-0a0d22b091dc" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_experiment():</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    safe<span class="op">=</span>is_it_safe_to_run()</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> safe <span class="op">==</span> <span class="va">True</span>:</span>
@@ -684,7 +687,7 @@ Twice the wavelength is 40</code></pre>
 <div id="5b79647b-3071-43ef-8af1-efbb6ee899ff" class="cell markdown">
 <p>That function is a (admittedly fanciful) representation of running an experiment. It makes sense, anyone can understand it, and if there’s a bug in there then it’s going to be really obvious. The only problem: if we try to run it, it’ll crash because those other functions haven’t been <strong>def</strong>ined yet. Shall we fix that?</p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [21]:</pre></div><div id="71456c29-da54-4178-8cae-d420bd4ba70f" class="cell" data-execution_count="21">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="71456c29-da54-4178-8cae-d420bd4ba70f" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_it_safe_to_run():</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> badges_swiped_in() <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> shutter_closed() <span class="kw">and</span> <span class="kw">not</span> red_light_illuminated():</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
@@ -704,7 +707,7 @@ Twice the wavelength is 40</code></pre>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># think anyone is still in the room.</span></span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="bf9a426f-c67f-4c4c-9094-019dca59ee8c" class="cell">
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="bf9a426f-c67f-4c4c-9094-019dca59ee8c" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> light_em_up():</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    turn_on_red_light()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    high_voltage(<span class="va">True</span>)</span>
@@ -734,7 +737,7 @@ Twice the wavelength is 40</code></pre>
 <p>Remember at the beginning of this lesson when we wrote a function to calculate inductive reactance? I put the value of pi in there as 3.14159, but that really isn’t anywhere near enough digits for some problems. Let’s fix that:</p>
 </section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="1bfa8c0c-7b3d-4aa4-8042-9de84635e959" class="cell" data-execution_count="23">
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="1bfa8c0c-7b3d-4aa4-8042-9de84635e959" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.pi)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -750,7 +753,7 @@ Twice the wavelength is 40</code></pre>
 <p>Another module that is heavily used is “random”. It generates random numbers, yes, but it can also do things like take a list of things and shuffle them randomly.</p>
 </section>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [24]:</pre></div><div id="44d9127c-08db-4cb2-b6e2-f9488827cd66" class="cell" data-execution_count="24">
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div id="44d9127c-08db-4cb2-b6e2-f9488827cd66" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>integer_number <span class="op">=</span> random.randint(<span class="dv">10</span>,<span class="dv">100</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>real_number <span class="op">=</span> random.random()</span>
@@ -758,15 +761,15 @@ Twice the wavelength is 40</code></pre>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The random integer between 10 and 100 was:"</span>, integer_number)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The random float between 0 and 1 is:"</span>, real_number)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The random integer between 10 and 100 was: 20
-The random float between 0 and 1 is: 0.6474502367565016</code></pre>
+<pre><code>The random integer between 10 and 100 was: 33
+The random float between 0 and 1 is: 0.1512842082886604</code></pre>
 </div>
 </div></div>
 <div id="44258a74-5abf-440d-b28b-21999c4497b5" class="cell markdown">
 <p>There are more functions available in the “random” module, including ones to select a real number from a non-uniform distribution. Take a look at <a href="https://docs.python.org/3/library/random.html">https://docs.python.org/3/library/random.html</a></p>
 <p>Here’s a slightly more complicated example:</p>
 </div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [27]:</pre></div><div id="aaaf86d8-e239-4986-a4e0-fb048827c904" class="cell" data-execution_count="27">
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="aaaf86d8-e239-4986-a4e0-fb048827c904" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for 25 hypothetical proposals, use random() to decide</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if it gets funded.</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -774,32 +777,32 @@ The random float between 0 and 1 is: 0.6474502367565016</code></pre>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> random.random() <span class="op">&lt;</span> <span class="fl">0.12</span>:</span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Proposal number"</span>, proposal,<span class="st">"was funded!"</span>)</span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Don't feel bad... proposal number"</span>, researcher, <span class="st">"didn't get funded either."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Don't feel bad... proposal number"</span>, proposal, <span class="st">"didn't get funded either."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.
-Proposal number 23 was funded!
+<pre><code>Don't feel bad... proposal number 0 didn't get funded either.
+Don't feel bad... proposal number 1 didn't get funded either.
+Don't feel bad... proposal number 2 didn't get funded either.
+Don't feel bad... proposal number 3 didn't get funded either.
+Don't feel bad... proposal number 4 didn't get funded either.
+Don't feel bad... proposal number 5 didn't get funded either.
+Don't feel bad... proposal number 6 didn't get funded either.
+Don't feel bad... proposal number 7 didn't get funded either.
+Don't feel bad... proposal number 8 didn't get funded either.
+Don't feel bad... proposal number 9 didn't get funded either.
+Don't feel bad... proposal number 10 didn't get funded either.
+Don't feel bad... proposal number 11 didn't get funded either.
+Don't feel bad... proposal number 12 didn't get funded either.
+Don't feel bad... proposal number 13 didn't get funded either.
+Don't feel bad... proposal number 14 didn't get funded either.
+Don't feel bad... proposal number 15 didn't get funded either.
+Don't feel bad... proposal number 16 didn't get funded either.
+Don't feel bad... proposal number 17 didn't get funded either.
+Don't feel bad... proposal number 18 didn't get funded either.
+Don't feel bad... proposal number 19 didn't get funded either.
+Don't feel bad... proposal number 20 didn't get funded either.
+Don't feel bad... proposal number 21 didn't get funded either.
+Proposal number 22 was funded!
+Don't feel bad... proposal number 23 didn't get funded either.
 Don't feel bad... proposal number 24 didn't get funded either.</code></pre>
 </div>
 </div></div>
@@ -1231,7 +1234,7 @@ Don't feel bad... proposal number 24 didn't get funded either.</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>

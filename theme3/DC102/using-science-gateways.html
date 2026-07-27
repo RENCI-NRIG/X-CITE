@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,14 +45,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -375,7 +378,6 @@ document.addEventListener('DOMContentLoaded', function () {
   <ul class="collapse">
   <li><a href="#key-features-of-galaxy" id="toc-key-features-of-galaxy" class="nav-link" data-scroll-target="#key-features-of-galaxy">Key Features of Galaxy</a></li>
   <li><a href="#galaxy-at-chess-cornell" id="toc-galaxy-at-chess-cornell" class="nav-link" data-scroll-target="#galaxy-at-chess-cornell">Galaxy at CHESS, Cornell</a></li>
-  <li><a href="#accessing-the-chess-galaxy-instance" id="toc-accessing-the-chess-galaxy-instance" class="nav-link" data-scroll-target="#accessing-the-chess-galaxy-instance">Accessing the CHESS Galaxy Instance</a></li>
   <li><a href="#running-a-simple-analysis-in-galaxy" id="toc-running-a-simple-analysis-in-galaxy" class="nav-link" data-scroll-target="#running-a-simple-analysis-in-galaxy">Running a Simple Analysis in Galaxy</a></li>
   </ul></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
@@ -687,12 +689,6 @@ Tip
 <p>Galaxy provides access to a large library of analysis tools — ranging from standard data processing utilities to domain-specific scientific applications. Tools are installed and managed by the Galaxy administrator, so users do not need to worry about software installation or version compatibility.</p>
 <p><strong>Workflow Builder</strong></p>
 <p>The visual workflow editor allows users to construct multi-step analysis pipelines by connecting tools together on a canvas. Each tool’s output is wired as input to the next step, automatically encoding the data dependencies that make up the workflow.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./images/galaxy-workflow-editor.png" class="img-fluid figure-img"></p>
-<figcaption>Galaxy Workflow Editor</figcaption>
-</figure>
-</div>
 <p>A workflow built in Galaxy can be saved, reused with new datasets, shared with colleagues, or published to the Galaxy community. This directly supports the reproducibility goals discussed earlier in this module.</p>
 <p><strong>History</strong></p>
 <p>Every analysis in Galaxy is tracked in a <em>History</em> — a panel that records every dataset and every tool invocation, along with the parameters used. A history provides a complete audit trail of your analysis, and can be shared or exported so that a collaborator can reproduce your work exactly.</p>
@@ -710,18 +706,11 @@ Tip
 <section id="galaxy-at-chess-cornell" class="level3">
 <h3 class="anchored" data-anchor-id="galaxy-at-chess-cornell">Galaxy at CHESS, Cornell</h3>
 <p>CHESS researchers have access to a Galaxy instance configured specifically for X-ray data analysis workflows. This instance is deployed within the CHESS cyberinfrastructure and is pre-loaded with tools and workflows relevant to the types of data collected at CHESS beamlines.</p>
-<p>The CHESS Galaxy instance provides tools for common X-ray data analysis tasks including:</p>
-<p>[TBD]</p>
 <p>The CHESS Galaxy instance submits compute jobs to the <strong>CHESS SGE cluster</strong> (the same compute farm described in the <a href="../../theme3/DC200/computing-with-ci-ecosystem.html">DC200</a> module), so workflows benefit from the cluster’s resources while users interact only with the Galaxy web interface.</p>
-</section>
-<section id="accessing-the-chess-galaxy-instance" class="level3">
-<h3 class="anchored" data-anchor-id="accessing-the-chess-galaxy-instance">Accessing the CHESS Galaxy Instance</h3>
-<p>[TBD]</p>
 </section>
 <section id="running-a-simple-analysis-in-galaxy" class="level3">
 <h3 class="anchored" data-anchor-id="running-a-simple-analysis-in-galaxy">Running a Simple Analysis in Galaxy</h3>
 <p>Here is the general flow for running an analysis in Galaxy:</p>
-<p>[TBD and review]</p>
 <p><strong>Step 1 — Upload your data</strong></p>
 <p>Click the <strong>Upload Data</strong> button (the arrow icon at the top of the Tools panel) and either drag-and-drop files from your local machine or provide a URL to your dataset. Uploaded files appear as items in your current History.</p>
 <p><strong>Step 2 — Select a tool</strong></p>
@@ -1168,7 +1157,7 @@ Tip
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>

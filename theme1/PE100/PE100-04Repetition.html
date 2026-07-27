@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,14 +78,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -412,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <p>We started off learning Python with just simple lists of statements…</p>
-<div id="323c8155-7d1d-469d-939a-d41d0f3a33d1" class="cell" data-execution_count="3">
+<div id="323c8155-7d1d-469d-939a-d41d0f3a33d1" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"It's"</span>, temperature, <span class="st">"celsius"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>faren_t <span class="op">=</span> temperature <span class="op">*</span> (<span class="dv">9</span><span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> <span class="dv">32</span></span>
@@ -423,7 +426,7 @@ or 212.0 in pagan units.</code></pre>
 </div>
 </div>
 <p>Then we added the <code>if</code> statement so we could control whether or not certain statements would execute or not:</p>
-<div id="61b3fe3b-b083-4ed2-9b05-5a6b6690eb28" class="cell" data-execution_count="4">
+<div id="61b3fe3b-b083-4ed2-9b05-5a6b6690eb28" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> temperature <span class="op">&gt;=</span> <span class="dv">100</span>:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Good chance it's boiling."</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> temperature <span class="op">&gt;</span> <span class="dv">3000</span>:</span>
@@ -445,7 +448,7 @@ or 212.0 in pagan units.</code></pre>
 <section id="while-loops" class="level2">
 <h2 class="anchored" data-anchor-id="while-loops">While Loops</h2>
 <p>The syntax of a <code>while</code> loop looks a bit like an <code>if</code> statement. Take a look:</p>
-<div id="f10f7d18-fd33-4f14-b211-6edb05bca4fd" class="cell" data-execution_count="1">
+<div id="f10f7d18-fd33-4f14-b211-6edb05bca4fd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>instrument <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> instrument <span class="op">&lt;=</span> <span class="dv">2</span>:</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">"Looking at instrument number"</span>, instrument)</span>
@@ -466,7 +469,7 @@ Done with all that looping.
 <p>The second time through the loop, instrument equals 2. That satisfies the conditional statement of the while loop (2 is less than or equal to 2) so the code block runs again. Two more lines are printed out and then instrument is incremented one more time.</p>
 <p>The while loop runs for a third time now. This time, 3 is <strong>not</strong> less than or equal to 2, so the conditional statement is false. This means the while loop is done - it won’t run its code block again, and the flow of control will go on to the next line after the while loop. It will run the two print statements explaining that the looping is over and it can go on to other tasks.</p>
 <p>Let’s look at another example. Let’s print out all the powers of two that are less than 928.</p>
-<div id="b3084a25-da3f-4eed-a59d-19d6bfef25c2" class="cell" data-execution_count="5">
+<div id="b3084a25-da3f-4eed-a59d-19d6bfef25c2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>power<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>two_to_the_power <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>power</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -496,39 +499,23 @@ Done with all that looping.
 <h2 class="anchored" data-anchor-id="reading-information-from-the-outside-world">Reading information from the outside world</h2>
 <p>Notice that in both of those cases, we actually did know how many times the loop would run. We know that 2 to the 9th is 512 and so we know the while loop will only run that far. In fact, in every example we’ve had so far we’ve know what the output will be because we always have the same inputs. Computer software wouldn’t be terribly interesting if it could only run specific, known, canned inputs. Fortunately, Python gives us several ways to bring data into our programs.</p>
 <p>The simplest way to bring data into a Python program is to edit the program and change the values we assign to variables. This is sort of the <em>reducto ad absurdum</em> method, but honestly it isn’t a bad way to handle very small amounts of input. It’s even easier in Jupyter notebooks since the code is just sitting there looking at us, waiting to be edited. For values that aren’t going to change very often (your name, perhaps, or the chargeback account number for using some instrument, for instance) then just assigning a value to a variable and editing it every once and a while is a fine way to go.</p>
-<p>Another way to get data into a Python program is to read it in from where the user is running the program. For doing this, Python provides a function called “input” which takes an optional argument, specifically a string that is printed as a prompt. Python then waits for the user to type something as a response. When they do, that string is returned to the calling program. Here’s a simple example:</p>
-<div id="fd930805-8cfa-4687-95a8-832c4c259a09" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>your_name <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please enter your name"</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello,"</span>, your_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>Please enter your name Erik</code></pre>
-</div>
+<p>Another way to get data into a Python program is to read it in from where the user is running the program. For doing this, Python provides a function called “input” which takes an optional argument, specifically a string that is printed as a prompt. Python then waits for the user to type something as a response. When they do, that string is returned to the calling program.</p>
+<p>Because of how these notebooks are rendered to make the website, we can’t actually have a call to <code>input()</code>. Therefore, the line that calls <code>input()</code> is “commented out”. To prevent errors when building the web site, the value of <code>your_name</code> is set to the empty string (<code>""</code>). Remove the “#” character in the following cell and run it:</p>
+<div id="fd930805-8cfa-4687-95a8-832c4c259a09" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>your_name <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#your_name = input("Please enter your name")</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello,"</span>, your_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Hello, Erik</code></pre>
+<pre><code>Hello, </code></pre>
 </div>
 </div>
 <p>When the above code runs, the prompt “Please enter your name” is displayed right below the code cell and a text entry box is placed beside it. When you enter your name, it greets you.</p>
 <p>If we were running this tiny little snippet of code as a regular program, the interaction would be in the terminal emulator window that we ran the program in. Because this is running in Jupyter, though, the interaction is directly in the notebook. The prompt and the entry blank occur just below the running code cell.</p>
-<p>What will happen when we run the following?</p>
-<div id="05c42b8d-6c18-4e16-aa43-2703a0dea282" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number between 4 and 8"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>new_value <span class="op">=</span> response <span class="op">+</span> <span class="fl">6.5</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>Enter a number between 4 and 8 5.25</code></pre>
-</div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In [4], line 2</span>
-<span class="ansi-green-fg ansi-bold">      1</span> response <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">input</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Enter a number between 4 and 8</span><span style="color:rgb(175,0,0)">"</span>)
-<span class="ansi-green-fg">----&gt; 2</span> new_value <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">response</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">+</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">6.5</span>
-<span class="ansi-green-fg ansi-bold">      3</span> <span style="color:rgb(0,135,0)">print</span>(new_value)
-
-<span class="ansi-red-fg">TypeError</span>: can only concatenate str (not "float") to str</pre>
-</div>
-</div>
+<p>What will happen when we run the following? (note: remove <strong>all</strong> of the comment characters - the “#” marks - before running the cell)</p>
+<div id="05c42b8d-6c18-4e16-aa43-2703a0dea282" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#response = input("Enter a number between 4 and 8")</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#new_value = response + 6.5</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(new_value)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Wow! Python couldn’t run that and it “threw an error”. We’ll examine Python’s error handling facilities later, but for now we’ll just assume that means it came to a screeching halt. Looking at the error message, it seems there is some problem with trying to add a real number (a <em>floting point</em> number) to a string.</p>
 </section>
@@ -536,20 +523,20 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <h2 class="anchored" data-anchor-id="type-casting">Type Casting</h2>
 <p><code>input()</code> prompts the user and returns the string they entered, but what if we want the user to enter a number? What do we do then? The answer is we’ll use a process known as <em>type casting</em>. The act of type casting is no more than converting information from one type to another.</p>
 <p>There are three very useful functions for type casting: <code>int()</code>, <code>float()</code>, and <code>str()</code>. Let’s see them in action…</p>
-<div id="3e0901f3-f913-4136-badc-3b825152d4ae" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># three conversions:</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># first, string to float:</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>the_sum <span class="op">=</span> <span class="fl">6.554</span> <span class="op">+</span> <span class="bu">float</span>(<span class="st">"9.9"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(the_sum)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># next, string to integer:</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>the_integer_number <span class="op">=</span> <span class="bu">int</span>(<span class="st">"34543456"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(the_integer_number)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#finally, integer to string:</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>handy_string <span class="op">=</span> <span class="bu">str</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">2</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(handy_string)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="3e0901f3-f913-4136-badc-3b825152d4ae" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># three conversions:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># first, string to float:</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>the_sum <span class="op">=</span> <span class="fl">6.554</span> <span class="op">+</span> <span class="bu">float</span>(<span class="st">"9.9"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(the_sum)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># next, string to integer:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>the_integer_number <span class="op">=</span> <span class="bu">int</span>(<span class="st">"34543456"</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(the_integer_number)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#finally, integer to string:</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>handy_string <span class="op">=</span> <span class="bu">str</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">2</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(handy_string)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>16.454
 34543456
@@ -558,20 +545,22 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 </div>
 <p>What did the above do? First, it converted the string “9.9” (literally, three characters… it’s a string) to a “float” (a floating point number, some languages will call that a real number). The second example takes a string of 8 characters and interprets them as an integer. That value is what gets returned and stored in our variable. Finally, we copmute the number 4 by adding 2+2, and then we let the <code>str()</code> function convert that to a single character long string having just the character “4”.</p>
 <p>By now we know enough to be able to ask the user for a number and get something back that we can actually do math with.</p>
-<div id="0f71eeed-7bca-47be-b040-aeab8d46add2" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>user_response <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number between 17 and 34"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>selected_number <span class="op">=</span> <span class="bu">float</span>(user_response)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>selected_number</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="0f71eeed-7bca-47be-b040-aeab8d46add2" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>user_response <span class="op">=</span> <span class="st">"12"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#user_response = input("Enter a number between 17 and 34")</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>selected_number <span class="op">=</span> <span class="bu">float</span>(user_response)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>selected_number</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>12.0</code></pre>
+</div>
 </div>
 <p>There’s an even easier way, though. Just like function composition worked when you took precalculus, the results of a Python function can be used as the argument to another. Hence:</p>
-<div id="b8fd8dcb-e16c-42c3-ab55-9edee0498bb0" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>selected_number <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter a number between 17 and 34"</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>selected_number</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>Enter a number between 17 and 34 26</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>26.0</code></pre>
+<div id="b8fd8dcb-e16c-42c3-ab55-9edee0498bb0" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>selected_number <span class="op">=</span> <span class="fl">4.0</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#selected_number = float(input("Enter a number between 17 and 34"))</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>selected_number</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>4.0</code></pre>
 </div>
 </div>
 <p>Sometimes, function calls can be nested really deeply. Personally, when it comes time to debug code like that I find myself printing it out and coloring each level with a different highlighter pen.</p>
@@ -579,14 +568,25 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <section id="putting-it-together-while-loops-to-get-user-input" class="level2">
 <h2 class="anchored" data-anchor-id="putting-it-together-while-loops-to-get-user-input">Putting it together: while loops to get user input</h2>
 <p>The great thing about a while statement is that it can loop zero times, one, two, or twelve trillion. Best of all, we don’t have to know how many ahead of time. We could do the following:</p>
-<p>print(“Computing an average.”)</p>
-<p>sum=0.0 counter=0 data_point = float(input(“Enter a number, or enter negative num to stop”)) while data_point &gt;= 0.0: sum = sum+data_point counter = counter+1 data_point = float(input(“Enter a number, or enter negative num to stop”))</p>
-<p>print(“Average value is”, sum/counter)</p>
+<div id="f30ab415-5901-4eb0-a59c-74f69771afbf" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Computing an average.")</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#sum=0.0</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#counter=0</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co">#data_point = float(input("Enter a number, or enter negative num to stop"))</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#while data_point &gt;= 0.0:</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#sum = sum+data_point</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#counter = counter+1</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#data_point = float(input("Enter a number, or enter negative num to stop"))</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print("Average value is", sum/counter)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>When we run the code above, we’re prompted to keep entering numbers until we finally enter -999. Each time it goes through the loop it keeps track of the running total of the numbers and the count of how many numbers have been entered. Once it’s done, it divides the total by the count and displays that as the average.</p>
 <p>Let’s step through what happens when the user enters 1, 2, 3, and -999: 1. The sum and counter variables are initialized to zero. 1. The user is prompted to enter a number, possibly a negative number to indicate no more data, and that input is type cast to a floating point number. 1. The while loop’s condition will be met any time a positive number was input (greater than <strong>or</strong> equal to zero). 1 is a positive number, so run the loop body. 1. This first time through, we’ll add the 1 that was input to our running total, which is now 1. 1. And increment the count, now equal to 1. 1. <strong>AND PROMPT THE USER FOR ANOTHER NUMBER!!!</strong> 1. Back at the while statement again, we check the condition and, yes, 2 is a positive number, so we run the loop’s code block. 1. Update the sum and count, and then… 1. <strong>PROMPT THE USER FOR ANOTHER VALUE!!!</strong> 1. Running the while statement again, the user entered 3, and 3 is positive, so the clode block will be executed. 1. Update the sum (now 6) and count (now 3). 1. <strong>Prompt for another number</strong> 1. Back at the while statement, we check and see that -999 is not a positive number, so we skip the code block and resume by running whatever follows it. 1. Having exited the while loop entirely, print out the average value by dividing sum/count.</p>
 <p>All the boldface and all-capitals lines above are there to emphasize how important it is to make sure your while loop isn’t just checking the same thing over and over. If we didn’t get a new number from the user each time through, the value of data_point would never change. That would result in an infinite loop, causing Python to never be able to complete the code in that cell. If it ever happens to you, and it probably will, the “Interrupt Kernel” command on JupyterLab’s Kernel menu will stop the looping and let you get back to work.</p>
 <p>The <code>while</code> loop is certainly versatile… it can be used any time you need to do something repeatedly. If you know how many times you need to have the code block execute, either when you write the code or when it’s running, then keep a variable that is incremented in the block every time and exit the while loop when the counter hits the right number.</p>
 <p>Where <code>while</code> loops really shine is when it’s impossible to know ahead of time how many times the code block should run. The example above, where we keep accepting numbers until the user signals there aren’t any more, there’s no way to know how many times to execute that loop until we see a negative number. In a case like that, the <code>while</code> loop is the only practical solution.</p>
+<p>Incidentally, what happens if you enter “-1” as the first input? What does that code do when you try to compute the average of zero numbers? What would be an appropriate way to handle this?</p>
 <p>So if <code>while</code> loops are so great and solve every problem, why do we need anything else? The big reason is expressiveness: they can be a little awkward to understand, especially when you’re looking at someone else’s code. Having the conditional test separated from the action that establishes when to stop makes it a little awkward to understand (or debug!) someone else’s code. This is especially true when we need to step through something by unusual increments.</p>
 <p>So what are we to do in these cases?</p>
 </section>
@@ -594,9 +594,9 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <h2 class="anchored" data-anchor-id="for-loops">For Loops</h2>
 <p>The <code>for</code> loop is quite similar to the <code>while</code> loop. The difference is that <code>for</code> loops are controlled by a count whereas <code>while</code> loops are controlled by a condition.</p>
 <p>Let’s start with an example.</p>
-<div id="b8b6327b-a2c5-4ad1-9c15-16a20c9a8e92" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> the_value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">4</span>):</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(the_value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b8b6327b-a2c5-4ad1-9c15-16a20c9a8e92" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> the_value <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">4</span>):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(the_value)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1
 2
@@ -606,24 +606,25 @@ Cell <span class="ansi-green-fg">In [4], line 2</span>
 <p>That is the simplest for loop you’ll see. Let’s look at the pieces. 1. The <code>for</code> statement itself 2. The name of the <em>target variable</em> whose value will be changing as the loop runs (“the_value” in this case”) 3. “in” - and if this reminds you of set membership then you’re on to something 4. “range()” - this is an example of an <em>iterable</em>, which means “something that can be stepped through”. 5. The colon… the one I forget 50% of the time. 6. The code block, in this case just a print statement.</p>
 <p>Most of the time, fairly close to “always”, the code block will take advantage of the target variable changing each time through. In our example, “the_value” is our target variable, as it loops through it will take on the values 1 through 3, and the code block has a print statement that uses it.</p>
 <p>Before we examine the <code>range()</code> function, let’s take a look at another iterable. We’ll talk about lists in a later lesson, but for now we can just wave our hands around and understand enough for the moment.</p>
-<div id="6baa65d0-bb35-4c8e-8d5a-5cb6e9977ef6" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sample_weight <span class="kw">in</span> [<span class="fl">123.6</span>, <span class="fl">121.9</span>, <span class="fl">119.4</span>, <span class="fl">124.23219</span>]:</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The sample weighed"</span>, sample_weight, <span class="st">"grams."</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sample_weight <span class="op">&lt;</span> <span class="dv">120</span>:</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Be careful! This sample might not be all you hoped for."</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>        </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6baa65d0-bb35-4c8e-8d5a-5cb6e9977ef6" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sample_weight <span class="kw">in</span> [<span class="fl">123.6</span>, <span class="fl">121.9</span>, <span class="fl">119.4</span>, <span class="fl">124.23219</span>]:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The sample weighed"</span>, sample_weight, <span class="st">"grams."</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sample_weight <span class="op">&lt;</span> <span class="dv">120</span>:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Be careful! This sample might not be all you hoped for."</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The sample weighed 143.6 grams.
-The sample weighed 141.9 grams.
-The sample weighed 139.4 grams.
-The sample weighed 144.23219 grams.</code></pre>
+<pre><code>The sample weighed 123.6 grams.
+The sample weighed 121.9 grams.
+The sample weighed 119.4 grams.
+Be careful! This sample might not be all you hoped for.
+The sample weighed 124.23219 grams.</code></pre>
 </div>
 </div>
 <p>You can use the target variable as many times as you want to in the code block.</p>
-<p>Now let’s take a more detailed look at the <code>range()</code> function. In its most basic form it takes one argument - the stop value.</p>
-<div id="c5ac3e19-773d-46fe-8ec6-ff21d21a8145" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now let’s take a more detailed look at the <code>range()</code> function. In its most basic form it takes one argument - the stopping value.</p>
+<div id="c5ac3e19-773d-46fe-8ec6-ff21d21a8145" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0
 1
@@ -633,9 +634,9 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 <p>This single-argument form starts at zero, counts up by one each time, and <strong>doesn’t include the stop value</strong>. This is different from every other programming language you’ll ever encounter. It’s just one of those things.</p>
 <p>We’ve already seen the two-argument form. It takes a starting value and a stopping value, and iterates by one from the start until the last value that is less than the stop.</p>
-<div id="d3932ab9-4e16-4443-a1cd-c54cd3f2a766" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>,<span class="dv">10</span>):</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="d3932ab9-4e16-4443-a1cd-c54cd3f2a766" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">7</span>,<span class="dv">10</span>):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>7
 8
@@ -643,9 +644,9 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 </div>
 <p>And there’s even a three-argument form. The third argument is the amount to step by.</p>
-<div id="4cafc7e1-0699-4317-a4bd-0debd59651ec" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">12</span>,<span class="dv">20</span>,<span class="dv">3</span>):</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="4cafc7e1-0699-4317-a4bd-0debd59651ec" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">12</span>,<span class="dv">20</span>,<span class="dv">3</span>):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>12
 15
@@ -653,9 +654,9 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 </div>
 <p>The step size doesn’t have to be a positive number…</p>
-<div id="5a0771f1-c227-4a10-9559-bd7c5c6c8b8f" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>):</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5a0771f1-c227-4a10-9559-bd7c5c6c8b8f" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">6</span>, <span class="op">-</span><span class="dv">3</span>, <span class="op">-</span><span class="dv">2</span>):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>6
 4
@@ -666,73 +667,39 @@ The sample weighed 144.23219 grams.</code></pre>
 </div>
 <p>In case you’re curious, the step size cannot be zero. If you really want an infinite loop, and there are cases where it makes sense, you have to use a <code>while</code> loop instead.</p>
 <p>As a general rule, any place where you can use an explicit value (a <em>literal</em>) you can use a variable. Arguments to a <code>for</code> loop are no exception:</p>
-<div id="1846ea56-9376-435f-ae11-fbf0344266d2" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>start_value <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"where should we start? "</span>))</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>end_value   <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"where should we run right up to and stop just short of it? "</span>))</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>step_size   <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"what should we step by? "</span>))</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(start_value, end_value, step_size):</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>where should we start?  13
-where should we run right up to and stop just short of it?  15
-what should we step by?  2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>13</code></pre>
-</div>
+<div id="1846ea56-9376-435f-ae11-fbf0344266d2" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#start_value = int(input("where should we start? "))</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#end_value   = int(input("where should we run right up to and stop just short of it? "))</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">#step_size   = int(input("what should we step by? "))</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#for i in range(start_value, end_value, step_size):</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#    print(i)</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If we need to do something a specific number of times, we need to pay attention to our starting and stopping conditions. I’ve messed this up so many times I know now to be careful. You’ve been warned.</p>
 <div id="3fc42a1e-8c99-4683-9ab1-bdd218755f6c" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>how_many <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"How many numbers would you like to total up? "</span>))</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, how_many):</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number "</span>))</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They add up to"</span>, <span class="bu">sum</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>How many numbers would you like to total up?  3
-Enter a number  4
-Enter a number  5</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>They add up to 9</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how_many = int(input("How many numbers would you like to total up? "))</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sum = 0</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">#for i in range(1, how_many):</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    sum = sum + int(input("Enter a number "))</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print("They add up to", sum)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Notice something wrong? If you ask it to total 3 numbers, it only prompts for two of them. There are a couple of ways to solve this. The easiest is to just use the one-argument form of <code>range()</code>.</p>
 <div id="a030bbd1-d373-441a-a6f3-1f6717bf2709" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>how_many <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"How many numbers would you like to total up? "</span>))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(how_many):</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number "</span>))</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They add up to"</span>, <span class="bu">sum</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>How many numbers would you like to total up?  3
-Enter a number  4
-Enter a number  5
-Enter a number  6</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>They add up to 15</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how_many = int(input("How many numbers would you like to total up? "))</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sum = 0</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#for i in range(how_many):</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    sum = sum + int(input("Enter a number "))</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print("They add up to", sum)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>That offers a little insight into why Python has it’s funny “up to but not including” semantics: zero is a perfectly legitimate number and a very natural starting point.</p>
 <p>The only problem with the single-argument method is that the values that the target variable goes through include zero. This may or may not be a problem if that value is used inside the code block. If you really need to count from one instead of zero, you can increment the stopping value:</p>
 <div id="7e661a54-331b-4267-8058-6f65ce7e8d97" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>how_many <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"How many numbers would you like to total up? "</span>))</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, how_many <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number "</span>))</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"They add up to"</span>, <span class="bu">sum</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdin">
-<pre><code>How many numbers would you like to total up?  3
-Enter a number  4
-Enter a number  5
-Enter a number  6</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>They add up to 15</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how_many = int(input("How many numbers would you like to total up? "))</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sum = 0</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#for i in range(1, how_many + 1):</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#    sum = sum + int(input("Enter a number "))</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print("They add up to", sum)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>And that behaved just like we expected.</p>
 <p>You may have noticed a pattern already. We frequently need to compute a new value for an existing variable. What we’ve done so far has been along the lines of <code>grand_total = grand_total + new_reading</code>. Python gives us a shorthand way to write that. We could instead express that as <code>grand_total += new_reading</code>. There is no space between the plus and equals signs. The only reason this exists is to save you some typing. As you might expect, there are a few more of these <em>Augmented Assignment Operators</em>…</p>
@@ -777,10 +744,10 @@ Enter a number  6</code></pre>
 <section id="nested-loops" class="level2">
 <h2 class="anchored" data-anchor-id="nested-loops">Nested Loops</h2>
 <p>You know what’s fun to put in a loop’s code block? Another loop! Best of all, it comes in pretty handy when dealing with high-dimensional data. Plenty of algorithms rely on nested loops, too. Take a look at this:</p>
-<div id="5591a38e-21b9-4951-9a5f-792bfd3959df" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x="</span>,x,<span class="st">" y="</span>, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5591a38e-21b9-4951-9a5f-792bfd3959df" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> y <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x="</span>,x,<span class="st">" y="</span>, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>x= 0  y= 0
 x= 0  y= 1
@@ -1231,7 +1198,7 @@ x= 4  y= 3</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>

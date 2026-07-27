@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -75,14 +78,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -411,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p>By itself, Python provides everything you need to write programs. These programs won’t have a fancy user interface and they may not run very fast, but they’ll work. If that’s all Python offered, it might have become a popular language but it wouldn’t have taken over most of the world the way it has. No, what Python has going for it is a simple way to take commonly-used chunks of code, wrap them up neatly into sharable budles, and distribute those bundles far and wide. The mechanism for doing this in Python is called <strong>packages</strong>.</p>
 <p>In this training unit, PE101-01, we’re going to look at some of the packages that come with Python. These are packages that you can count on being available anywhere you can run Python. In the next unit, PE101-02, we’ll look at how to find and use packages hosted in <em>repositories</em> available to anyone but not necessarily already installed where you’re running your programs.</p>
 <p>Python is, by itself, a rather simple language. The PE100 series of units has introduced you to almost all of the language. The language is kept small by moving the “nice to have, but not really necessary” parts into their own independent packages. Let’s start with an example:</p>
-<div id="cell-2" class="cell" data-execution_count="4">
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"pi equals"</span>, math.pi)</span>
@@ -425,14 +428,14 @@ The natural logarithm of 7.994 is 2.0786912602891316</code></pre>
 </div>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>There are literally oodles of mathematical functions already implemented for you in the <code>math</code> package. To see a list of them as they stand currently, see ” <a href="https://docs.python.org/3/library/math.html">math - mathematical functions</a> ” in the current Python documentation.</p>
+<p>There are literally oodles of mathematical functions already implemented for you in the <code>math</code> package. To see a list of them as they stand currently, see “<a href="https://docs.python.org/3/library/math.html">math - mathematical functions</a>” in the current Python documentation.</p>
 <p>Taking a look at the code above, the first thing we notice is the line <code>import math</code>. This tells the Python interpreter to find the package named “math” and to open it up and make its contents available to this session. The things in the package we can get to will all be named by the word “math”, a period, and then the name of the actual part of the package to use. We would say the package “math” is imported into the “math namespace”. This is the default behavior, but we can change that. Indeed:</p>
-<div id="cell-4" class="cell" data-execution_count="5">
+<div id="cell-4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random <span class="im">as</span> rand</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rand.random())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.5728159131285796</code></pre>
+<pre><code>0.8900192196966262</code></pre>
 </div>
 </div>
 <p>By using the <code>as</code> keyword in our <code>import</code> statement, we’re telling Python to load the “random” package but let us refer to everything as though its name was “rand”. In a little more detail, we’re creating a namespace “rand” instead of just letting Python automatically create a namespace with the same name as the package and load everything into that space.</p>
@@ -441,7 +444,7 @@ The natural logarithm of 7.994 is 2.0786912602891316</code></pre>
 <section id="modules" class="level2">
 <h2 class="anchored" data-anchor-id="modules">Modules</h2>
 <p>So far we’ve seen functions and constants placed into packages and directly accessible with just the package name. If you have a large package, or a package that has lots of custom changes to manage, it can be helpful to break things up into <strong>modules</strong>. Think of a module as a “sub-package”. Package and module names are separated by periods. Let’s take a look…</p>
-<div id="cell-6" class="cell" data-execution_count="6">
+<div id="cell-6" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os.path <span class="im">as</span> op</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> op.exists(<span class="st">"/usr/bin"</span>):</span>
@@ -454,10 +457,11 @@ The natural logarithm of 7.994 is 2.0786912602891316</code></pre>
 </div>
 </div>
 <p>We imported the “path” module from the “os” package and loaded it into a namespace called “op”. Then we were able to use that namespace to get to the <code>exists()</code> function. We checked to see if the “/usr/bin” directory exists. That is, as you might suspect, a critically important directory.</p>
+<p>Note that Windows users are very unlikely to have a “/usr” directory. Instead, try “/temp”.</p>
 </section>
 <section id="coming-up-next-packages-from-the-outside-world" class="level2">
 <h2 class="anchored" data-anchor-id="coming-up-next-packages-from-the-outside-world">Coming up next: Packages from the outside world</h2>
-<p>As we keep saying, one of the biggest (if not <strong>the</strong> biggest) strengths of Python is the half million packages that people have written and made publicly available. In the next unit, <a href="../../theme1/PE101/PE101-02CondaRepos.html">PE101-02: Repositories, Sharing, and Conda</a>, we’ll take a look at how to find those packages, copy them to CHESS servers, and use them in your own notebooks.</p>
+<p>As we keep saying, one of the biggest (if not <strong>the</strong> biggest) strengths of Python is the roughly half million packages that people have written and made publicly available. In the next unit, <a href="../../theme1/PE101/PE101-02CondaRepos.html">PE101-02: Repositories, Sharing, and Conda</a>, we’ll take a look at how to find those packages, copy them to CHESS servers, and use them in your own notebooks.</p>
 
 
 </section>
@@ -883,7 +887,7 @@ The natural logarithm of 7.994 is 2.0786912602891316</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>

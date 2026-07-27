@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,14 +43,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -339,26 +342,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#pe101-01-using-python-packages-and-modules" id="toc-pe101-01-using-python-packages-and-modules" class="nav-link active" data-scroll-target="#pe101-01-using-python-packages-and-modules">PE101-01: Using Python Packages and Modules</a>
-  <ul class="collapse">
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#modules" id="toc-modules" class="nav-link" data-scroll-target="#modules">Modules</a></li>
-  <li><a href="#coming-up-next-packages-from-the-outside-world" id="toc-coming-up-next-packages-from-the-outside-world" class="nav-link" data-scroll-target="#coming-up-next-packages-from-the-outside-world">Coming up next: Packages from the outside world</a></li>
-  </ul></li>
-  <li><a href="#pe101-02-repositories-sharing-and-conda" id="toc-pe101-02-repositories-sharing-and-conda" class="nav-link" data-scroll-target="#pe101-02-repositories-sharing-and-conda">PE101-02: Repositories, Sharing, and Conda</a>
-  <ul class="collapse">
-  <li><a href="#conda---hard-problems-made-solvable" id="toc-conda---hard-problems-made-solvable" class="nav-link" data-scroll-target="#conda---hard-problems-made-solvable">Conda - hard problems made solvable</a></li>
-  <li><a href="#python-environments" id="toc-python-environments" class="nav-link" data-scroll-target="#python-environments">Python Environments</a></li>
-  <li><a href="#adding-new-environments" id="toc-adding-new-environments" class="nav-link" data-scroll-target="#adding-new-environments">Adding New Environments</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme1/PE101/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="PE101-01Packages-preview.html"><i class="bi bi-journal-code"></i>PE101-01: Using Python Packages and Modules</a></li><li><a href="PE101-02CondaRepos-preview.html"><i class="bi bi-journal-code"></i>PE101-02: Repositories, Sharing, and Conda</a></li></ul></div></nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
@@ -366,76 +350,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-<section id="pe101-01-using-python-packages-and-modules" class="level1 quarto-embed-nb-cell">
-<h1>PE101-01: Using Python Packages and Modules</h1>
-<p>By itself, Python provides everything you need to write programs. These programs won’t have a fancy user interface and they may not run very fast, but they’ll work. If that’s all Python offered, it might have become a popular language but it wouldn’t have taken over most of the world the way it has. No, what Python has going for it is a simple way to take commonly-used chunks of code, wrap them up neatly into sharable budles, and distribute those bundles far and wide. The mechanism for doing this in Python is called <strong>packages</strong>.</p>
-<p>In this training unit, PE101-01, we’re going to look at some of the packages that come with Python. These are packages that you can count on being available anywhere you can run Python. In the next unit, PE101-02, we’ll look at how to find and use packages hosted in <em>repositories</em> available to anyone but not necessarily already installed where you’re running your programs.</p>
-<p>Python is, by itself, a rather simple language. The PE100 series of units has introduced you to almost all of the language. The language is kept small by moving the “nice to have, but not really necessary” parts into their own independent packages. Let’s start with an example:</p>
-<div id="cell-1" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>pi equals 3.141592653589793
-There are 2652 possible outcomes when drawing two cards from a deck
-The natural logarithm of 7.994 is 2.0786912602891316</code></pre>
-</div>
-</div>
-<section id="packages" class="level2">
-<h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<p>There are literally oodles of mathematical functions already implemented for you in the <code>math</code> package. To see a list of them as they stand currently, see ” <a href="https://docs.python.org/3/library/math.html">math - mathematical functions</a> ” in the current Python documentation.</p>
-<p>Taking a look at the code above, the first thing we notice is the line <code>import math</code>. This tells the Python interpreter to find the package named “math” and to open it up and make its contents available to this session. The things in the package we can get to will all be named by the word “math”, a period, and then the name of the actual part of the package to use. We would say the package “math” is imported into the “math namespace”. This is the default behavior, but we can change that. Indeed:</p>
-<div id="cell-3" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5728159131285796</code></pre>
-</div>
-</div>
-<p>By using the <code>as</code> keyword in our <code>import</code> statement, we’re telling Python to load the “random” package but let us refer to everything as though its name was “rand”. In a little more detail, we’re creating a namespace “rand” instead of just letting Python automatically create a namespace with the same name as the package and load everything into that space.</p>
-<p>To see a current list of the packages that come with a standard Python installation, take a look at <a href="https://docs.python.org/3/library/">this comprehensive list</a>. In the first few sections it will list “built-in” capabilities - this is what you can do without importing anything. The rest of the page lists the available packages. Click on any of them for details.</p>
-</section>
-<section id="modules" class="level2">
-<h2 class="anchored" data-anchor-id="modules">Modules</h2>
-<p>So far we’ve seen functions and constants placed into packages and directly accessible with just the package name. If you have a large package, or a package that has lots of custom changes to manage, it can be helpful to break things up into <strong>modules</strong>. Think of a module as a “sub-package”. Package and module names are separated by periods. Let’s take a look…</p>
-<div id="cell-5" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-stdout">
-<pre><code>all is good.</code></pre>
-</div>
-</div>
-<p>We imported the “path” module from the “os” package and loaded it into a namespace called “op”. Then we were able to use that namespace to get to the <code>exists()</code> function. We checked to see if the “/usr/bin” directory exists. That is, as you might suspect, a critically important directory.</p>
-</section>
-<section id="coming-up-next-packages-from-the-outside-world" class="level2">
-<h2 class="anchored" data-anchor-id="coming-up-next-packages-from-the-outside-world">Coming up next: Packages from the outside world</h2>
-<p>As we keep saying, one of the biggest (if not <strong>the</strong> biggest) strengths of Python is the half million packages that people have written and made publicly available. In the next unit, <a href="../../theme1/PE101/PE101-02CondaRepos.html">PE101-02: Repositories, Sharing, and Conda</a>, we’ll take a look at how to find those packages, copy them to CHESS servers, and use them in your own notebooks.</p>
-</section>
-<a class="quarto-notebook-link" id="nblink-1" href="PE101-01Packages-preview.html#cell-0">Source: PE101-01: Using Python Packages and Modules</a></section>
-<section id="pe101-02-repositories-sharing-and-conda" class="level1 quarto-embed-nb-cell">
-<h1>PE101-02: Repositories, Sharing, and Conda</h1>
-<p>As we’ve mentioned, there is an awful lot of Python code out in the world completely free for us to use. There packages as broadly useful as “SciPy” (numerical methods for the sciences) and as narrowly interesting as “bosch-thermostat-client” for setting values in Bosch Thermostats. With so many packages available, if there is something you need to do in a Jupyter notebook or in a Python program, there is a good chance someone else has done at least part of it and made it available as a package.</p>
-<p>Publicly-available packages have to be kept somewhere to be useful. If programmers can’t find them, then they might as well not be made public. Fortunately, the Python world has a central repository - <a href="www.pypi.org">www.pypi.org</a>. The repository (usually shortened to just “repo”, both vowels are long) is searchable.</p>
-<p>One thing to notice in the repository is that packages there have version numbers. It’s also pretty common for one package to require another - scikit-learn requires scipy, for instance. Sometimes the requirements also have version numbers. There can be cases where Package A requires Package B, and specifically Package B has to have a version number greater than or equal to 11. When you have a lot of packages to import it can get cumbersome to check all the dependencies and make sure you have a combination that <a href="https://en.wikipedia.org/wiki/Satisfiability">satisfies all the constraints</a>.</p>
-<p>In fact, it’s more than just cumbersome. Automatic checking is the only practical solution once the problem gets much size to it, and a piece of software that does this is called a <a href="https://en.wikipedia.org/wiki/SAT_solver">SAT solver</a>.</p>
-<section id="conda---hard-problems-made-solvable" class="level2">
-<h2 class="anchored" data-anchor-id="conda---hard-problems-made-solvable">Conda - hard problems made solvable</h2>
-<p>Fortunately, there is <strong>Conda</strong>, a software tool and a repository of its own. The conda developers keep a subset of the half billion packages that are available and they ensure that their repository reflects a combination of versions that should work together. They do the hard work, we take advantage of it. They stay in business by selling their tools to commercial users but, being a research organization, we’re not required to pay.</p>
-<p>Conda also has another useful trick: it can take advantage of Python’s <em>virtual environments</em> to let you load outside packages into a completely private space. This way, when you download and install the “instantnobelprize” package (I made that up), it’s only written to your own directories. Other users, and the system as a whole, are protected from whatever it might contain.</p>
-<p>Setting up Conda and using it with Jupyter notebooks takes a little bit of work and has to be done from the command line, but so often it’s worth it. If you haven’t used the command line yet, take a look at the training units in SF100 on the Linux command line and scripting.</p>
-<p>What follows is taken directly from <a href="https://wiki.classe.cornell.edu/Computing/JupyterHub">the CLASSE wiki entry for JupyterHub</a> with just a few modifications.</p>
-</section>
-<section id="python-environments" class="level2">
-<h2 class="anchored" data-anchor-id="python-environments">Python Environments</h2>
-<p>A Python environment is a local, unique to a user, repository plus a copy of the Python interpreter itself. Having a private environment is how we can load specific versions of packages even when the server has a different one. It even lets us install specific versions of python without affecting anyone else.</p>
-<p>When you launch a new notebook, you are presented with a dropdown to select your desired python kernel. The default Python 3 kernel is a CLASSE-IT maintained conda environment in /nfs/opt/anaconda3/envs/python3</p>
-</section>
-<section id="adding-new-environments" class="level2">
-<h2 class="anchored" data-anchor-id="adding-new-environments">Adding New Environments</h2>
-<p>In addition, you can install your own python environments and have them added as an option when creating new notebooks.</p>
-<p>Create your own python environment using your desired python installation. Please see <a href="https://wiki.classe.cornell.edu/Computing/LinuxSoftwareDevelopment#Python">LinuxSoftwareDevelopment</a> for a list of centrally maintained python environments, and further down <a href="https://wiki.classe.cornell.edu/Computing/LinuxSoftwareDevelopment#A_42How_to_install_Anaconda_on_a_CLASSE_Linux_system_to_avoid_interference_with_the_Login_Environment_42">LinuxSoftwareDevelopment</a> for tips on creating your own conda installation.</p>
-<p>Install anything you like in the environment, but you MUST at least install ipykernel. For example</p>
-<p><code>pip install ipykernel</code></p>
-<p>Activate the new environment. If using conda, this would look something like:</p>
-<p><code>source /path/to/conda/install/bin/activate conda activate my-python-env</code></p>
-<p>Add the virtual environment as a jupyter kernel using</p>
-<p><code>python -m ipykernel install --user --name=my-python-env --display-name "My Python Env"</code></p>
-<p>This adds the kernel to ~/.local/share/jupyter/kernels/ and now it can be used by Jupyter. When you create a new notebook now, “My Python Env” will be one of your choices.</p>
-</section>
-<a class="quarto-notebook-link" id="nblink-2" href="PE101-02CondaRepos-preview.html#40a3b7fa-272e-42ef-88d3-21e285351f18">Source: PE101-02: Repositories, Sharing, and Conda</a></section>
+<p>Welcome to an overview of how to use and manage additional components (“packages”) for Python. This part of X-CITE training for CHESS consists of the following modules:</p>
+<ul>
+<li>PE101-01: <a href="../../theme1/PE101/PE101-01Packages.html">Using Python Packages and Modules</a></li>
+<li>PE101-02: <a href="../../theme1/PE101/PE101-02CondaRepos.html">Repositories, Sharing, and Conda</a></li>
+</ul>
+<!-- References -->
 
 
 
@@ -860,11 +780,11 @@ The natural logarithm of 7.994 is 2.0786912602891316</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme1/PE101/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/RENCI-NRIG/X-CITE/edit/main/theme1/PE101/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/RENCI-NRIG/X-CITE/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

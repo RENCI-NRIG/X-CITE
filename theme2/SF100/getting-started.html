@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2c46d19638a6816a1d85a3ccabdc413b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-1b2e04450345043b0e828b6d59483878.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-b411476a3037691ff9c709eb698ed961.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2118a6e710b9dc5f656a8a3dbcf3ff3b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -379,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">June 23, 2026</p>
+      <p class="date-modified">July 27, 2026</p>
     </div>
   </div>
     
@@ -395,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <section id="remote-desktop-access" class="level3">
 <h3 class="anchored" data-anchor-id="remote-desktop-access">Remote Desktop Access</h3>
 <p>Why do we need remote access at all? My laptop has a pretty decent processor, nice graphics, and a tolerable keyboard. Why don’t I just use that? The answer, or one of the answers, is that the computers in the cluster are larger and more powerful. LNX201 has 16 CPUs (“cores”, sort of) and 128 gigabytes of RAM. Each of the cores in the server are several times faster than the ones in a laptop. In short, the compute cluster can handle jobs that would bring a laptop to its knees, fans screaming, too hot to handle.</p>
-<p>There are two kinds of remote access and both have their strengths and weaknesses. The first approach we’ll look at is the “virtual desktop”. This strategy takes the full graphical experience of using a computer, potentially in a far-flung destination, and shows what is going on right in front of you. The effect is to make your computer’s screen, keyboard, and mouse act like they’re connected to the remote machine, albeit with a really, really long set of cables. The second remote access approach is to use a program on your laptop or desktop to connect over the network to a remote machine and just pass characters back and forth. It gives you, for all practical purposes, something that looks like a window for using the command line, only the computer running those commands is remote.</p>
+<p>There are two kinds of remote access and both have their strengths and weaknesses. The first approach we’ll look at is the “virtual desktop”. This strategy takes the full graphical experience of using a computer, potentially in a far-flung destination, and shows what its display would look like (if it had one). The effect is to make your computer’s screen, keyboard, and mouse act like they’re connected to the remote machine, albeit with a really, really long set of cables. The second remote access approach is to use a program on your laptop or desktop to connect over the network to a remote machine and just pass characters back and forth. It gives you, for all practical purposes, something that looks like a window for using the command line, only the computer running those commands is remote.</p>
 </section>
 <section id="virtual-desktops---nomachine" class="level3">
 <h3 class="anchored" data-anchor-id="virtual-desktops---nomachine">Virtual Desktops - NoMachine</h3>
@@ -437,7 +440,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </section>
 <section id="remote-terminal-access-with-ssh" class="level3">
 <h3 class="anchored" data-anchor-id="remote-terminal-access-with-ssh">Remote Terminal Access with SSH</h3>
-<p>To have a good understanding of SSH, you need to know just a little bit about the history of Unix (and Linux is just a modern version of Unix). In the Old Days (1974-ish) Unix ran on a machine the size of home refrigerator and the server didn’t even have a keyboard. To interact with it, teletypes were plugged into serial ports on the back on the computers. Users performed all of their interaction with the machine by pressing a key on the teletype (sending a character) and waiting for the computer to send back characters to be printed. By the late 1970s, teletypes were getting rare quickly because they had been replaced by “terminals” (a keyboard, a picture tube, and enough electronics to draw the characters on the screen). The connection to the computer was still a serial cable. To this day, you can plug a USB-to-Serial converter into a Linux machine, plug in a teletype or a terminal, set up a configuration file, and use the computer like it’s 1979. It’s fun a time or two, but the novelty wears off.</p>
+<p>To have a good understanding of SSH, you need to know just a little bit about the history of Unix (and Linux is just a modern version of Unix). In the Old Days (1974-ish) Unix ran on a computer the size of home refrigerator and the machine didn’t even have a keyboard. To interact with it, teletypes were plugged into serial ports on the back on the computers. Users performed all of their interaction with the machine by pressing a key on the teletype (sending a character) and waiting for the computer to send back characters to be printed. By the late 1970s, teletypes were getting rare quickly because they had been replaced by “terminals” (a keyboard, a picture tube, and enough electronics to draw the characters on the screen). The connection to the computer was still a serial cable. To this day, you can plug a USB-to-Serial converter into a Linux machine, plug in a teletype or a terminal, set up a configuration file, and use the computer like it’s 1979. It’s fun a time or two, but the novelty wears off.</p>
 <p>Serial cables had a length limitation and a speed one. Half a mile was easy (9600 bits per second, even!) but a mile was getting unreliable at any speed much over 1200 bits per second. Beyond a mile, longer distances required all sorts of interesting hardware and lots of special cables. Covering a whole campus required a network of some sort, and what the research and academic world standardized on was “Internet Protocol” (IP). One of the first programs ever written for IP was a program called “telnet”. This program used the network to set up a stream of characters to and from a remote machine to the local one. It was like having a serial cable, except it was literally a thousand times faster and could reach around the world. To this day, telnet is still the “official” way to use Internet Relay Chat (IRC). Plus, it makes you look cool.</p>
 <p>Telnet was great in the early days of networking. But we were so naive back then. Anyone who could get access to the network could eavesdrop on whatever communications was going over these telnet connections. Most of the traffic was utterly boring - email, Unix commands, that sort of thing. But there was one thing worth snooping on, and it was the first two things a user typed when they set up a connection: their username and their password. In the late 1980s and early 1990s, this was mostly a theoretical concern. The problem was the explosive growth of the Internet in the “Dot Com” era (1995-2000). Once there were a critical mass of Internet users, and once these users started using the Internet for things that were <em>worth actual money</em>, security started moving front and center. By this point, sending anything over the internet without encrypting it became a VBI (Very Bad Idea). Thus was born the <em>S</em>ecure <em>SH</em>ell (SSH).</p>
 <p>The simple explanation of SSH is “it’s just telnet, except all the communication is encrypted”. This statement is true, in the sense that SSH replicates every telnet function, but SSH also does some other tricks. For our purposes, we’re going to keep it simple and just use it like a “better telnet”.</p>
@@ -894,7 +897,7 @@ Passcode or option (1-2):</code></pre>
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p><a href="https://www.nsf.gov"><img src="images/logo-nsf.png" height="48"></a></p>
+<p><a href="https://www.nsf.gov"><img src="https://xcitecourse.org/images/logo-nsf.png" height="48"></a></p>
 <p>X-CITE is supported by the NSF under award numbers <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320373">OAC-2320373</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320374">OAC-2320374</a>, and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2320375">OAC-2320375</a>.</p>
 <p>Contact <a href="mailto:anirban@renci.org">anirban@renci.org</a> for more information.</p>
 <p>This page is available under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license.</p>
