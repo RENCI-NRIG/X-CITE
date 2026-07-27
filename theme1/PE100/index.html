@@ -1221,8 +1221,8 @@ Twice the wavelength is 40</code></pre>
 <p>Another module that is heavily used is “random”. It generates random numbers, yes, but it can also do things like take a list of things and shuffle them randomly.</p>
 <div id="44d9127c-08db-4cb2-b6e2-f9488827cd66" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-stdout">
-<pre><code>The random integer between 10 and 100 was: 99
-The random float between 0 and 1 is: 0.32917847116186194</code></pre>
+<pre><code>The random integer between 10 and 100 was: 93
+The random float between 0 and 1 is: 0.21699423951952834</code></pre>
 </div>
 </div>
 <p>There are more functions available in the “random” module, including ones to select a real number from a non-uniform distribution. Take a look at <a href="https://docs.python.org/3/library/random.html">https://docs.python.org/3/library/random.html</a></p>
@@ -1235,12 +1235,12 @@ Don't feel bad... proposal number 2 didn't get funded either.
 Don't feel bad... proposal number 3 didn't get funded either.
 Don't feel bad... proposal number 4 didn't get funded either.
 Don't feel bad... proposal number 5 didn't get funded either.
-Don't feel bad... proposal number 6 didn't get funded either.
+Proposal number 6 was funded!
 Don't feel bad... proposal number 7 didn't get funded either.
 Don't feel bad... proposal number 8 didn't get funded either.
 Don't feel bad... proposal number 9 didn't get funded either.
 Don't feel bad... proposal number 10 didn't get funded either.
-Proposal number 11 was funded!
+Don't feel bad... proposal number 11 didn't get funded either.
 Don't feel bad... proposal number 12 didn't get funded either.
 Don't feel bad... proposal number 13 didn't get funded either.
 Don't feel bad... proposal number 14 didn't get funded either.
@@ -1249,11 +1249,11 @@ Don't feel bad... proposal number 16 didn't get funded either.
 Don't feel bad... proposal number 17 didn't get funded either.
 Don't feel bad... proposal number 18 didn't get funded either.
 Don't feel bad... proposal number 19 didn't get funded either.
-Don't feel bad... proposal number 20 didn't get funded either.
+Proposal number 20 was funded!
 Don't feel bad... proposal number 21 didn't get funded either.
 Don't feel bad... proposal number 22 didn't get funded either.
 Don't feel bad... proposal number 23 didn't get funded either.
-Don't feel bad... proposal number 24 didn't get funded either.</code></pre>
+Proposal number 24 was funded!</code></pre>
 </div>
 </div>
 <!-- What is going on here?  First, we have a loop that runs 25 times and has the values 0 through 24. Each time through, we use random.random() to produce a random number between 0 and 1. If that random number is 0.12 or less, the proposal was funded, otherwise... yeah. Happens to everyone. -->
@@ -1826,11 +1826,6 @@ Mi</code></pre>
 <p>Dictionaries are, conceptually, a special type of list. A list has an order to it. Elements are placed into a list in a particular order. Removing and inserting items changes the order in a well understood way. Because of this, yoiu can always access a list by looking into it at a specific integer index. None of this is possible with a dictionary. Instead, dictionaries have a better trick: all access is by searching.</p>
 <p>Python’s dictionaries store each of their elements as a pair of things, a <em>key</em> and a <em>value</em>. The key is the thing that can be searched for, and the value is the information that will be retured when that element is read.</p>
 <p>An example will help:</p>
-<div id="5134aefa-7b05-49bc-8693-9749b9f0a3ae" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>Ice Cream</code></pre>
-</div>
-</div>
 <p>Let’s take that apart and see how it works.</p>
 <ol type="1">
 <li><p>We have the creation of the dictionary itself. We create a dictionary literal much like we do a list, only here we use curly brackets instead of square brackets.</p></li>
@@ -1885,7 +1880,7 @@ Now we have:
 <p>What we did to accomplish that was 1. Look up Charlie’s favorite food and save that value. 2. use the built-in <code>del</code> operator to remove Charlie as a key and whatever value was associated with him. 3. Insert a new key:value pair whose key is “Chuck” and whose value is whatever we looked up before.</p>
 <p>Since every other Python data type that holds more than one thing can work with the built-in <code>len()</code> function, it stands to reason that dictionaries can, too. And as you would imagine, len() returns the number of entries in the dictionary.</p>
 <div id="c6fc890c-38d4-4e3c-b0bf-070a35483076" class="cell" data-execution_count="9">
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>4</code></pre>
 </div>
 </div>
