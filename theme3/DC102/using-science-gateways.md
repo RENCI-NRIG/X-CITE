@@ -323,8 +323,6 @@ The visual workflow editor allows users to construct multi-step analysis pipelin
 by connecting tools together on a canvas. Each tool's output is wired as input to 
 the next step, automatically encoding the data dependencies that make up the workflow.
 
-![Galaxy Workflow Editor](./images/galaxy-workflow-editor.png)
-
 A workflow built in Galaxy can be saved, reused with new datasets, shared with 
 colleagues, or published to the Galaxy community. This directly supports the 
 reproducibility goals discussed earlier in this module.
@@ -359,26 +357,17 @@ X-ray data analysis workflows. This instance is deployed within the CHESS
 cyberinfrastructure and is pre-loaded with tools and workflows relevant to the 
 types of data collected at CHESS beamlines.
 
-The CHESS Galaxy instance provides tools for common X-ray data analysis tasks 
-including:
-
-[TBD]
-
 
 The CHESS Galaxy instance submits compute jobs to the 
 **CHESS SGE cluster** (the same compute farm described in the 
 [DC200](../DC200/computing-with-ci-ecosystem.md) module), so workflows benefit 
 from the cluster's resources while users interact only with the Galaxy web interface.
 
-### Accessing the CHESS Galaxy Instance
-
-[TBD]
 
 ### Running a Simple Analysis in Galaxy
 
 Here is the general flow for running an analysis in Galaxy:
 
-[TBD and review]
 
 **Step 1 — Upload your data**
 
