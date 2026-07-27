@@ -4,7 +4,9 @@ format:
 toc: false
 ---
 
-The PE101 component of X-CITE training for CHESS consists of the following modules:
+Welcome to an overview of how to use and manage additional components
+("packages") for Python. This part of X-CITE training for CHESS
+consists of the following modules:
 
 * PE101-01: [Using Python Packages and Modules][pe101-01]
 * PE101-02: [Repositories, Sharing, and Conda][pe101-02]

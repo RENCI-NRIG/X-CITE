@@ -4,10 +4,6 @@ author: "Karan Vahi"
 date: "May 12, 2025"
 ---
 
-::: {.callout-note}
-This page is work in progress.
-:::
-
 This module provides an overview on how a CHESS can use notion of workflows to automate
 their data processing tasks and in the process shortening the turn around time for the
 data processing that needs to be done on data collected at a beamline. 
@@ -418,8 +414,4 @@ If you would like to use Pegasus to run your pipeline you can contact via
   talk out issues with the Pegasus Development team. Please ask for an invite by
   trying to join **pegasus-users.slack.com** in the Slack app, or email
   *pegasus-support@isi.edu* and request an invite.
-
-## CHESS Workflow Runner
-
-To be added. Coming soon in FALL 2025.
 
